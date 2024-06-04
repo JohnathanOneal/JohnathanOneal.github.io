@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-Hi i johnathan
+Data Engineer at Lightkeeper LLC. 
