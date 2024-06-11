@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "HAL 9000: (Gradient)Descent into (March)Madness"
+date:   2023-09-21 16:37:09 -0400
+categories: gen info
+---
+
+March Madness is by far my favorite sporting event. 
