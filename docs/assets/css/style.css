@@ -1,0 +1,17 @@
+.category-bubble {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  margin-right: 5px;
+  font-size: 0.9em;
+}
+
+.category-bubble.sports {
+  background-color: blue;
+}
+
+.category-bubble.llm {
+  background-color: green;
+}

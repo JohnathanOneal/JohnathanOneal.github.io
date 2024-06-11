@@ -2,5 +2,5 @@
 layout: post
 title:  "SP-4: Local GPT on secure documents"
 date:   2024-06-10 16:37:09 -0400
-categories: LLM
+categories: llm
 ---

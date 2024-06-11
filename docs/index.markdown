@@ -1,16 +1,21 @@
 ---
 layout: default
-title: Welcome to My Website
+title: "Home"
 ---
 
-# Welcome to My Website
-
-{% for post in site.posts %}
-## [{{ post.title }}]({{ post.url }})
-{{ post.excerpt }}
-
-**Categories:**
-{% for category in post.categories %}
-[{{ category }}](/{{ category }}/){% unless forloop.last %}, {% endunless %}
-{% endfor %}
-{% endfor %}
+<div class="home">
+  <h1>{{ site.title }}</h1>
+  <div class="posts">
+    {% for post in site.posts %}
+      <div class="post">
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p>{{ post.excerpt }}</p>
+        <div class="categories">
+          {% for category in post.categories %}
+            <a href="{{ site.baseurl }}/categories/{{ category }}" class="category-bubble {{ category }}">{{ category }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
