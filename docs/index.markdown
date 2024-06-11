@@ -1,28 +1,16 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: default
+title: Welcome to My Website
 ---
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome to My Website</title>
-</head>
-<body>
-
-<h1>Welcome to My Website</h1>
+# Welcome to My Website
 
 {% for post in site.posts %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.excerpt }}</p>
-    <ul>
-        {% for category in post.categories %}
-            <li><a href="/{{ category }}/">{{ category }}</a></li>
-        {% endfor %}
-    </ul>
-{% endfor %}
+## [{{ post.title }}]({{ post.url }})
+{{ post.excerpt }}
 
-</body>
-</html>
+**Categories:**
+{% for category in post.categories %}
+[{{ category }}](/{{ category }}/){% unless forloop.last %}, {% endunless %}
+{% endfor %}
+{% endfor %}
