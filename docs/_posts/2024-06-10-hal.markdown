@@ -2,7 +2,7 @@
 layout: post
 title:  "HAL 9000: (Gradient)Descent into (March)Madness"
 date:   2024-06-10 16:37:09 -0400
-categories: sports
+categories: [sports]
 ---
 
 March Madness is by far my favorite sporting event. 
