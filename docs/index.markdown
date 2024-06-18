@@ -4,7 +4,7 @@ title: "Home"
 ---
 
 <div class="home">
-  <h1>{{"Articles"}}</h1>
+  <h1>Articles</h1>
   <div class="posts">
     {% for post in site.posts %}
       <div class="post">
