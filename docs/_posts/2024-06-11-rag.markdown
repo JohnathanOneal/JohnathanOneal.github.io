@@ -4,3 +4,15 @@ title:  "SP-4: Local GPT on secure documents"
 date:   2024-06-10 16:37:09 -0400
 categories: [llm]
 ---
+
+## What is Rag
+
+## How does it work
+
+## Model Gathering
+
+## Database Setup
+
+## Client and Database Retriever 
+
+## Limitations Ideas to use
