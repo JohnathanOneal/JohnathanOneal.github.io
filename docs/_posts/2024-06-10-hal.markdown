@@ -5,4 +5,14 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 
-March Madness is by far my favorite sporting event. 
+#
+
+## Data Collection
+
+## Data Analyzation 
+
+## Model Selection
+
+## Creating a Simple UI
+
+## Future Ideas
