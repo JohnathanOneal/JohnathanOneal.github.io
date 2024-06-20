@@ -8,17 +8,3 @@ categories: [llm]
 Learn How to Implement Retrieval Augmented Generation (rag) Entirely Locally with no GPU Required
 
 <img src="/assets/spongebob.png">
-
-## What is Rag
-
-## How does it work
-
-## Model Gathering
-
-## Database Setup
-
-## Client and Database Retriever 
-
-## Limitations
-
-## Ideas to use
