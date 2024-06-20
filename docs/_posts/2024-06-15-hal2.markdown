@@ -1,0 +1,6 @@
+---
+layout: post
+title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 2: Model Selection and Results"
+date:   2024-06-15 16:37:09 -0400
+categories: [sports]
+---
