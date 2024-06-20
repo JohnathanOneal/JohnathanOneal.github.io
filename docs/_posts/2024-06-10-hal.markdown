@@ -5,14 +5,121 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 
-#
+Harnessing the Power of Machine Learning to Gain the Upper Hand in March Madness (Not responsible for damaged friendships resulting from bracket challenge dominance)
 
 ## Data Collection
 
-## Data Analyzation 
+The most crucial step in building a sucessful algorithm is data collection. Before we can contiune with any model buidling we have to indefity the desired data source and the stucture of the data. The good news is for college basketball there are many great sources of free data. Every year kaggle, the most popular website for machine learning competitions, launches a March Machine Learning Mania challenge and along with it a very clean and well structed data set [Kaggle](https://www.kaggle.com/competitions/march-machine-learning-mania-2024/data). While earlier iterations of HAL relied soley on this data set, we will further enhance our dataset with help from the godfather  
+of college basketball stats Ken Pomeroy. The basic Kenpom rankings are free [Kenpom](https://kenpom.com/) and can be easily integrated into this model using a web scraping library such as BeautifulSoup or table to csv brower extensions. However semi-recently there has bee nan effort to create an open source web scrapping api for Kenpom stats. For the mosted supued up version of HAL possible we are gong to swallow the 24.95 yearly fee to gain acess behind all the pay walls and combine it with the api.
 
-## Model Selection
+First lets install the kenpompy library to help us pull the stats from kenpom.com
+```python
+!pip install kenpompy
+```
 
-## Creating a Simple UI
+Next define some helepr functions
+```python
+def drop_unwanted_columns(df, columns_to_drop):
+    return df.drop(columns=[col for col in df.columns if any(key in col.lower() for key in columns_to_drop)], errors='ignore')
 
-## Future Ideas
+def merge_dataframes(dfs, on='Team', how='outer'):
+    merged_df = dfs[0]
+    for df in dfs[1:]:
+        merged_df = pd.merge(merged_df, df, on=on, how=how)
+    return merged_df
+```
+Each call to a table returns a separate data frame so lets define a function to help merge the results. Additionally along with each stat we get an integer ranking each team by the stats, since
+that information is already encoded in the stat by nature we dont need it and can drop with the help of ```drop_unwanted_columns```
+
+Now it is time for the meat of the data processing. While calls are automated getting a clean and usable dataframe does require a lot of manual inspection. 
+
+```python
+def process_pomeroy_data(pom, df):
+    pom = pom.loc[:, ~pom.columns.duplicated(keep='first')].dropna()
+    pom = pom[pom['Rk'] != 'Rk'].reset_index(drop=True).drop(columns=['Rk', 'index'], errors='ignore')
+    pom = drop_unwanted_columns(pom, ['rank'])
+    merged_df = pd.merge(pom, df, how='inner', left_on=['AdjO', 'AdjD', 'AdjT'], right_on=['Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj'])
+    pom['Team'] = merged_df['Team_y']
+    return pom
+```
+
+In this first example the kenpom landing page had different structed data than an others. Thus after some routine cleaning steps such as removing duplicates, ranks columns, and page diviing rows (where Rk=RK and not a number), we have to do something a little tricky. To get team names with the same naming convention as the other frames we have to merge an example frame on uniquely identifying columns. However since the team names are bad we have to merge in teams if their stats line up exactly and then compy the team name over
+```python
+def get_season_data(browser, season):
+    efficiency = drop_unwanted_columns(summary.get_efficiency(browser, season=season), ['raw', 'rank'])
+    four_factors = drop_unwanted_columns(summary.get_fourfactors(browser, season=season), ['conference', 'rank'])
+    height = drop_unwanted_columns(summary.get_height(browser, season=season), ['rank'])
+    team_stats = drop_unwanted_columns(summary.get_teamstats(browser, defense=False, season=season), ['rank'])
+    point_distribution = drop_unwanted_columns(summary.get_pointdist(browser, season=season), ['rank'])
+    
+    four_factors.drop(columns=['AdjOE', 'AdjDE'], errors='ignore', inplace=True)
+    height.drop(columns=['Conference'], errors='ignore', inplace=True)
+    team_stats.drop(columns=['Conference', 'AdjOE'], errors='ignore', inplace=True)
+    point_distribution.drop(columns=['Conference'], errors='ignore', inplace=True)
+    
+    combined_stats = merge_dataframes([efficiency, four_factors, height, team_stats, point_distribution])
+    
+    pomeroy_ratings = process_pomeroy_data(misc.get_pomeroy_ratings(browser, season=season), combined_stats)
+    combined_stats = pd.merge(combined_stats, pomeroy_ratings, on='Team', how='outer')
+    
+    combined_stats.drop(columns=['Conference', 'Conf', 'Seed', 'W-L', 'Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj', 'AdjTempo'], errors='ignore', inplace=True)
+    combined_stats['Season'] = season
+    
+    return combined_stats
+```
+The rest of the data frames retunr follow the same strucutre so we can construct them in a uniform way. After we combine all the stats together (where each row represnts a team) we decorate the
+season so we know what year in came frome.
+
+```python
+def gather_kenpom_data(begin_season=2009, end_season=2025):
+    browser = login(USERNAME, PASSWORD)
+    
+    all_season_data = []
+    for season in range(begin_season, end_season):
+        season_data = get_season_data(browser, season)
+        all_season_data.append(season_data.reset_index(drop=True))
+    
+    final_df = pd.concat(all_season_data, ignore_index=True)
+    
+    float_columns = [
+        'Off-eFG%', 'Off-TO%', 'Off-OR%', 'Off-FTRate', 'Def-eFG%', 'Def-TO%', 'Def-OR%', 'Def-FTRate', 
+        'AvgHgt', 'EffHgt', 'C-Hgt', 'PF-Hgt', 'SF-Hgt', 'SG-Hgt', 'PG-Hgt', 'Experience', 'Bench', 'Continuity', 
+        '3P%', '2P%', 'FT%', 'Blk%', 'Stl%', 'A%', '3PA%', 'Off-FT', 'Off-2P', 'Off-3P', 'Def-FT', 'Def-2P', 'Def-3P', 
+        'AdjEM', 'AdjO', 'AdjD', 'AdjT', 'Luck', 'Season', 'Avg. Poss Length-Offense', 'Avg. Poss Length-Defense'
+    ]
+    
+    final_df[float_columns] = final_df[float_columns].astype(float)
+    
+    return final_df
+```
+Finally, we call our main loop that handles logging in, invoking the helper functions for each season, and concatenating the results. To address potential issues with mixed data types introduced by bad data, we perform one last pass to enforce float types for relevant columns.
+
+We encounter a significant challenge with Pomeroy data: it contains stats for individual teams but lacks information on past games. Fortunately, the previously mentioned Kaggle dataset provides extensive data on team matchups, uniquely keyed by an integer ID for each team. Accessing game data and creating a unique single ID for each team across data providers is essential. While school names are generally singular and unique, matching them between Pomeroy and Kaggle datasets proves difficult due to variations such as "State" vs. "St.," school renames, acronyms vs. full names, and more. Initial checks show only around 60% of team names match between datasets.
+
+A potential solution is using a string matching library like FuzzyWuzzy, which uses similarity indexes but struggles with truncation. For example FuzzyWuzzy and other distance-based string matching algorithms would mutch rather match "Univ. San Diego" with "San Diego State" instead of "SDSU" with "San Diego State." The solution requires significant manual effort to match KenPom and Kaggle team names accurately. Once this integer ID is established, integrating various applications becomes much smoother.
+
+Once constructed we can save the team mappings in an aptly CSV file named "paulpierce.csv" (The Truth). For the mean time the truth is going to be kept as intellectual property incase freind or family are reading this trying to get a head up on me for next year. We then read "The Truth," apply the mapping to our master dataset, and exclude data before 2010 (bench and height stats are unavailable for earlier years)
+```python
+def map_team_ids(final_df, start_season=2010):
+  stat_master = final_df.loc[final_df['Season'] >= start_season]
+  teams =  pd.read_csv('MTeams.csv')
+
+  paul_pierce = pd.read_csv('paulpierce.csv')
+  team_id_mapping = dict(zip(paul_pierce['Team'], paul_pierce['TeamID']))
+  stat_master['TeamID'] = stat_master['Team'].map(team_id_mapping)
+  return stat_master
+```
+
+At this point here's what our main event loop would look like. Since these stats are static let's also write the result to csv. This prevents dealing with the runtime of the data collection, and doesn't spam kenpom.com with webscrapping 
+
+```python
+final_df = gather_kenpom()
+stat_master = map_team_ids(final_df)
+stat_master.to_csv('stat_master.csv', index=False)
+```
+
+Next let's use our stat master, combined with kaggle data, to construct the dataframe for use in model training
+
+
+# Data Analyzation
+

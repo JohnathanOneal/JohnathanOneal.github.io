@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "SP-4: Local GPT on secure documents"
+title:  "SP-4: Local GPT on Secure Documents"
 date:   2024-06-10 16:37:09 -0400
 categories: [llm]
 ---
+
+Learn How to Implement Retrieval Augmented Generation (rag) Entirely Locally with no GPU Required
 
 ## What is Rag
 
