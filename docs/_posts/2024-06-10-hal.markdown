@@ -120,6 +120,114 @@ stat_master.to_csv('stat_master.csv', index=False)
 
 Next let's use our stat master, combined with kaggle data, to construct the dataframe for use in model training
 
+We hit another big dicision point here, what games to include in our training set
+- March Madness Games 
+Pros: Most relevant data can add seeds from the matchups and gain insights off of that
+Cons: Massively limits the size of training set
+- Conference Tournament Games
+Pros: Next best set of games and  doubles triaing set
+Cons: Seeding not as relevant, teams not in march madness represented
+- Secondary Tournament Games (NIT etc.)
+Pros: Again increases the data set and seeding still semi relevant
+Cons: Some teams decline invite / stars sit out for draft rpepariton / more anomalys
+- Some "lookback: number of days into the regular season
+Pros: By far the biggest jump in data set size
+Cons: Can't including seeding at all in the model, stats are cummulative end of year so become less accurate the more you lookback
 
+Lets construct a function loop that can deal with all of these scenarios as well as add a helper function for cleaning bad merges
+```python
+def generate_game_frame(stat_master, start_season=2010, use_mm_games=True, use_conf_games=False, use_secondary_tourney=False, regular_season_lookback=0, keep_season=False):
+  games = pd.DataFrame()
+
+  if use_mm_games:
+    tourney_results = pd.read_csv('MNCAATourneyCompactResults.csv')
+    tourney_results = tourney_results[(tourney_results['Season']>= start_season)]
+    tourney_results.drop(columns=['DayNum', 'WLoc'], inplace=True)
+    games = pd.concat([games, tourney_results])
+
+  if use_conf_games:
+    #Todo
+    pass
+
+  if use_secondary_tourney:
+    second_tourney_results = pd.read_csv('MSecondaryTourneyCompactResults.csv')
+    second_tourney_results = second_tourney_results[ (second_tourney_results['Season']>= 2010)]
+    second_tourney_results.drop(columns=['DayNum', 'WLoc','SecondaryTourney'], inplace=True)
+    games = pd.concat([games, second_tourney_results])
+
+  train = pd.merge(games, stat_master,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
+  train = pd.merge(train, stat_master,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
+  train.dropna(inplace=True)
+  train['Spread'] = train['WScore'] - train['LScore']
+  train['Total'] = train['WScore'] + train['LScore']
+  train['WL'] = 1
+
+  # tournament games are nuetral site so swap order of teams to create more training data
+  # when training on home/away games the home team will go second
+  cols = list(games)
+  cols[4], cols[3], cols[2], cols[1] = cols[2], cols[1], cols[4], cols[3]
+  tourney_results_swap = tourney_results.reindex(columns=cols)
+  tourney_results_swap.head()
+
+
+  swap = pd.merge(tourney_results_swap, stat_master,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
+  swap = pd.merge(swap, stat_master,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
+  swap['Spread'] = swap['LScore'] - swap['WScore']
+  swap['Total'] = swap['LScore'] + swap['WScore']
+  swap['WL'] = 0
+  swap.dropna(inplace=True)
+
+  result = pd.concat([train,swap])
+  result.drop(columns=[ 'WScore', 'LScore', 'NumOT','Team_x','TeamID_x', 'Team_y', 'TeamID_y'], inplace=True)
+
+  if regular_season_lookback == 0 and not use_secondary_tourney:
+    seeds = pd.read_csv('MNCAATourneySeeds.csv')
+    result = pd.merge(result, seeds,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
+    result = pd.merge(result, seeds,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
+    pattern = r'\d+'
+    for seed in ['Seed_x','Seed_y']:
+      result.loc[result[seed].notna(), seed] = result.loc[result[seed].notna(), seed].astype(str).apply(lambda x: re.search(pattern, x).group() if re.search(pattern, x) else x)
+
+    result['Seed_x'] = result['Seed_x'].astype(float)
+    result['Seed_y'] = result['Seed_y'].astype(float)
+    if not keep_season:
+          result.drop(columns=['Season'], inplace=True)
+    result.drop(columns=['WTeamID', 'LTeamID','TeamID_x',	'TeamID_y'], inplace=True)
+  elif regular_season_lookback > 0:
+    df = pd.read_csv('MRegularSeasonCompactResults.csv')
+    df = df.loc[(df.Season >= 2010) & (df.DayNum > (132 - regular_season_lookback))]
+    mask = df['WLoc'] == 'A'
+    df.loc[mask, ['WTeamID', 'WScore', 'LTeamID', 'LScore']] = df.loc[mask, ['LTeamID', 'LScore', 'WTeamID', 'WScore']].values
+
+    mask_n = df['WLoc'] == 'N'
+    df_n = df[mask_n].copy()
+    df_n[['WTeamID', 'WScore', 'LTeamID', 'LScore']] = df_n[['LTeamID', 'LScore', 'WTeamID', 'WScore']].values
+    df = pd.concat([df, df_n], ignore_index=True)
+
+    df = pd.merge(df, stat_master,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
+    df = pd.merge(df, stat_master,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
+    df['Spread'] = df['WScore'] - df['LScore']
+    df['Total'] = df['WScore'] + df['LScore']
+    df['WL'] = np.where(df['Spread'] > 0, 1, 0)
+    df.dropna(inplace=True)
+    if not keep_season:
+          df.drop(columns=['Season'], inplace=True)
+    df.drop(columns=['DayNum','WLoc','WTeamID', 'LTeamID','WScore', 'LScore', 'NumOT','Team_x','TeamID_x', 'Team_y', 'TeamID_y'], inplace=True)
+
+    result = pd.concat([result, df])
+
+  float_cols = ['SOS-AdjEM_x','SOS-OppO_x','SOS-OppD_x','NCSOS-AdjEM_x','SOS-AdjEM_y',
+  'SOS-OppO_y','SOS-OppD_y','NCSOS-AdjEM_y']
+  result[float_cols] = result[float_cols].astype(float)
+  result = result.sample(frac = 1)
+
+  return result
+
+def trim_bad_rows(result, threshold=5):
+  non_zero_counts = (result != 0).sum(axis=1)
+  result = result[non_zero_counts >= threshold]
+
+  return result
+```
 # Data Analyzation
 
