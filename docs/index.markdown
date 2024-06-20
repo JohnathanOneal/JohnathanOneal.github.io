@@ -9,7 +9,7 @@ title: "Home"
   {% for post in site.posts %}
     <div style="background: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
 
-      <h2 style="margin-top: 0;"><a href="{{ post.url }}" style="text-decoration: none; color: #333;">{{ post.title }}</a></h2>
+      <h2 style="margin-top: 0;"><a href="{{ post.url }}" style="color: #007BFF; text-decoration: underline;">{{ post.title }}</a></h2>
       <p style="color: #666;">{{ post.excerpt }}</p>
 
       <div style="margin-top: 10px;">
