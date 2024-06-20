@@ -6,5 +6,5 @@ categories: [llm]
 ---
 
 Creating the comprehensive travel newletter humans alone can't
- 
+
 <img src="/assets/spongebob.png">
