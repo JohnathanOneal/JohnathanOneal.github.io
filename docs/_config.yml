@@ -9,6 +9,9 @@ theme: minima
 plugins:
   - jekyll-feed
 
+markdown: kramdown
+highlighter: rouge
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/
