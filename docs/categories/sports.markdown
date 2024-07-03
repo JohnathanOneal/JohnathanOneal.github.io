@@ -1,12 +1,5 @@
 ---
-layout: default
-title: "Sports"
+layout: category
+title: Sports
+category: sports
 ---
-
-<h2>Posts in category: Sports</h2>
-
-<ul>
-  {% for post in site.categories.sports %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>

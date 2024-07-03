@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="newspaper-container">
+        <header>
+            <div class="header-container">
+                <div class="header-top">
+                    <p class="tagline">ALWAYS LEARNING SOMETHING</p>
+                    <h1 class="site-title">{{ site.title }}</h1>
+                    <p class="location">NEVER FORGETTING KOWLOON WALLED CITY</p>
+                </div>
+                <div class="logo-container">
+                    <img src="{{ '/assets/logo.png' | relative_url }}" alt="{{ site.title }} Logo" class="logo">
+                </div>
+            </div>
+        </header>
+        <div class="nav-container">
+            <nav>
+                <a href="{{ '/' | relative_url }}">Home</a>
+                <a href="{{ '/categories/llm' | relative_url }}">LLM</a>
+                <a href="{{ '/categories/sports' | relative_url }}">Sports</a>
+                <a href="{{ '/about' | relative_url }}">About</a>
+            </nav>
+        </div>
+        <main>
+            {{ content }}
+        </main>
+        <footer>
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+            <div class="footer-links">
+                {% if site.github_username %}
+                <a href="https://github.com/{{ site.github_username }}" target="_blank">
+                    <i class="fab fa-github"></i>{{ site.github_username }}
+                </a>
+                {% endif %}
+                {% if site.email %}
+                <a href="mailto:{{ site.email }}">
+                    <i class="fas fa-envelope"></i>{{ site.email }}
+                </a>
+                {% endif %}
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

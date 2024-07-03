@@ -5,7 +5,7 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 
-Harnessing the Power of Machine Learning to Gain the Upper Hand in March Madness (Not responsible for damaged friendships resulting from bracket challenge dominance)
+*July 1, 2024* - Harnessing the Power of Machine Learning to Gain the Upper Hand in March Madness (Not responsible for damaged friendships resulting from bracket challenge dominance)
 
 ## Data Collection
 

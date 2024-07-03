@@ -5,12 +5,17 @@ baseurl: ""
 url: "" 
 github_username: JohnathanOneal
 
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
 
+# Build settings
 markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: /:year/:month/:day/:title/
 
 exclude:
   - .sass-cache/
