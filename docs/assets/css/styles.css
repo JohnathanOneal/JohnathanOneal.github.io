@@ -6,6 +6,7 @@ body {
     background-color: #f4f1e8;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .newspaper-container {
@@ -14,6 +15,7 @@ body {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Header styles */
@@ -110,13 +112,6 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
-}
-
-/* Add this new style for the navigation container */
-.nav-container {
-    position: relative;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
 }
 
 /* Main content styles */
@@ -399,12 +394,47 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .newspaper-container {
+        padding: 10px;
+    }
+
+    .site-title {
+        font-size: 2.5em;
+    }
+
     .newspaper-columns,
     .post-grid {
         grid-template-columns: 1fr;
     }
+
     .category-title,
     .home-title {
         font-size: 2.5em;
+    }
+
+    nav {
+        padding: 0 10px;
+    }
+
+    nav a {
+        margin: 0 5px;
+        font-size: 0.9em;
+    }
+
+    .logo-container {
+        bottom: -40px;
+    }
+
+    .logo, .logo-xray {
+        width: 80px;
+        height: 80px;
+    }
+
+    .header-container {
+        padding-bottom: 50px;
+    }
+
+    .nav-container {
+        padding-top: 15px;
     }
 }
