@@ -4,28 +4,43 @@ title: About the Author
 permalink: /about/
 ---
 
-# Meet Johnathan Oneal: Data and Math Nerd
+# About Johnathan Oneal
+
+Thank you for visiting my page. I'm pleased to share a bit about my background and current endeavors.
 
 <img src="/assets/headshot.png" class="author-image" alt="Johnathan Oneal">
- Hi, thanks for stopping by. I am currently working as a data engineer for Lightkeeper LLC, where we implement
-portfolio analytics and reporting solutions
 
-## Academic History
+## Professional Experience
 
-I graduated from Tufts University with a B.S. Summa Cum Laude in Mathematics (2018-2021)  
-I continued on to receive a Master's in Mathematics again from Tufts (2021-2023)
+I am currently employed as a Data Engineer at Lightkeeper LLC, where I contribute to the implementation of portfolio analytics and reporting solutions. This role allows me to apply my mathematical background to practical, industry-specific challenges.
+
+## Academic Background
+
+My academic journey has been centered at Tufts University, where I pursued both my undergraduate and graduate studies in Mathematics:
+
+- B.S. in Mathematics, Summa Cum Laude (2018-2021)
+- M.S. in Mathematics (2021-2023)
+
+## Student-Athlete Experience
+
+During my time at Tufts University, I had the privilege of balancing academic pursuits with collegiate athletics as a member of the football team. This experience provided valuable lessons in time management, teamwork, and personal growth.
+
+Notable recognitions include:
+
+- Semi-Finalist for the William Campbell Trophy, acknowledging the combination of academic excellence, community service, and on-field performance across all divisions
+- CoSIDA Academic All-District honoree, an award that recognizes the nation's top student-athletes for their combined performances on the field and in the classroom
+- NESCAC All-Sportsmanship Team selection
+- Four-time recipient of NESCAC All-Academic Team honors (2019-2022)
+- NFF Hampshire Honor Society
 
 
+Additionally, For three years I served as the Student Athlete Advisory Committee Team Representative for Football, which allowed me to contribute to the broader athletic community at Tufts.
 
-> "I like trains"
+## Moving Forward
 
-## A Vision for the Future
+The combination of academics, athletics, and leadership experiences has equipped me with a unique skill set. I look forward to leveraging these abilities in my professional career, continuing to solve complex problems.
 
-As the financial world becomes increasingly data-driven, professionals like Johnathan are at the forefront of innovation. His work at Lightkeeper LLC involves developing sophisticated software solutions for portfolio analytics and reporting, helping investors make informed decisions in a complex market landscape.
-
-When not immersed in data and code, Johnathan enjoys [add a personal touch or hobby here], bringing balance to his tech-focused career.
-
-*For those interested in the cutting edge of data engineering and financial technology, Johnathan Oneal is certainly one to watch.*
+I welcome opportunities for professional connection and intellectual exchange. Please feel free to reach out if you'd like to discuss data engineering, mathematics, or sports; especially the intersection of the three.
 
 <style>
 .page-content {

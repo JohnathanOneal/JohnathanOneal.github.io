@@ -5,19 +5,26 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 
-*July 1, 2024* - Harnessing the Power of Machine Learning to Gain the Upper Hand in March Madness (Not responsible for damaged friendships resulting from bracket challenge dominance)
+Leveraging Machine Learning for Strategic Advantage in March Madness Predictions (Use at your own risk in office pools)
 
-## Data Collection
+## Introduction
+The annual NCAA basketball tournament, colloquially known as March Madness, presents a unique opportunity to apply data science and machine learning techniques to sports prediction. This series will explore the development of a predictive model designed to optimize bracket selections. While we'll delve into some technical aspects, the core concepts should be accessible to anyone with an interest in data-driven decision making.
 
-The most crucial step in building a sucessful algorithm is data collection. Before we can contiune with any model buidling we have to indefity the desired data source and the stucture of the data. The good news is for college basketball there are many great sources of free data. Every year kaggle, the most popular website for machine learning competitions, launches a March Machine Learning Mania challenge and along with it a very clean and well structed data set [Kaggle](https://www.kaggle.com/competitions/march-machine-learning-mania-2024/data). While earlier iterations of HAL relied soley on this data set, we will further enhance our dataset with help from the godfather  
-of college basketball stats Ken Pomeroy. The basic Kenpom rankings are free [Kenpom](https://kenpom.com/) and can be easily integrated into this model using a web scraping library such as BeautifulSoup or table to csv brower extensions. However semi-recently there has bee nan effort to create an open source web scrapping api for Kenpom stats. For the mosted supued up version of HAL possible we are gong to swallow the 24.95 yearly fee to gain acess behind all the pay walls and combine it with the api.
+## The Primacy of Data in Predictive Modeling
+In the realm of predictive analytics, the quality and comprehensiveness of input data are paramount. For our March Madness model, we'll leverage two primary data sources, each offering unique insights into team performance and tournament dynamics.
 
-First lets install the kenpompy library to help us pull the stats from kenpom.com
+## Data Sources
+1. Kaggle's March Machine Learning Mania: This annual competition provides a robust, well-curated dataset specifically tailored for March Madness predictions. It serves as our foundational data source, offering historical game results, team statistics, and tournament outcomes.
+2. Ken Pomeroy's Advanced Metrics: Widely respected in basketball analytics circles, Ken Pomeroy's statistical models offer deeper insights into team efficiency, pace of play, and strength of schedule. These metrics provide valuable context beyond raw game results.
+
+## Data Acquisition and Processing
+For those interested in the technical implementation, we utilize the kenpompy Python library to programmatically access Ken Pomeroy's data. This automated approach allows for efficient, repeatable data collection – a crucial aspect of maintaining an up-to-date predictive model.
+First, let's install the kenpompy library to help us pull the stats from kenpom.com:
 ```python
 !pip install kenpompy
 ```
 
-Next define some helepr functions
+Next, we'll define some helper functions:
 ```python
 def drop_unwanted_columns(df, columns_to_drop):
     return df.drop(columns=[col for col in df.columns if any(key in col.lower() for key in columns_to_drop)], errors='ignore')
@@ -28,22 +35,20 @@ def merge_dataframes(dfs, on='Team', how='outer'):
         merged_df = pd.merge(merged_df, df, on=on, how=how)
     return merged_df
 ```
-Each call to a table returns a separate data frame so lets define a function to help merge the results. Additionally along with each stat we get an integer ranking each team by the stats, since
-that information is already encoded in the stat by nature we dont need it and can drop with the help of ```drop_unwanted_columns```
 
 Now it is time for the meat of the data processing. While calls are automated getting a clean and usable dataframe does require a lot of manual inspection. 
 
 ```python
 def process_pomeroy_data(pom, df):
     pom = pom.loc[:, ~pom.columns.duplicated(keep='first')].dropna()
-    pom = pom[pom['Rk'] != 'Rk'].reset_index(drop=True).drop(columns=['Rk', 'index'], errors='ignore')
-    pom = drop_unwanted_columns(pom, ['rank'])
+    pom = pom[pom['Rk'] != 'Rk'].reset_index(drop=True)
+    pom = drop_unwanted_columns(pom, ['rank','Rk', 'index'])
     merged_df = pd.merge(pom, df, how='inner', left_on=['AdjO', 'AdjD', 'AdjT'], right_on=['Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj'])
     pom['Team'] = merged_df['Team_y']
     return pom
 ```
 
-In this first example the kenpom landing page had different structed data than an others. Thus after some routine cleaning steps such as removing duplicates, ranks columns, and page diviing rows (where Rk=RK and not a number), we have to do something a little tricky. To get team names with the same naming convention as the other frames we have to merge an example frame on uniquely identifying columns. However since the team names are bad we have to merge in teams if their stats line up exactly and then compy the team name over
+The KenPom landing page presented unique challenges in data structure compared to other sources. After standard data cleaning procedures (removing duplicates, eliminating ranking columns, and filtering out non-numeric rows where 'Rk'='Rk'), we encountered a naming convention issue. To standardize team names across all data frames, we employed a two-step process: first, we merged the cleaned data with an example frame using uniquely identifying statistical columns as keys. Then, we transferred the standardized team names from this merged frame to our primary dataset, effectively aligning team nomenclature without relying on the inconsistent original names.
 ```python
 def get_season_data(browser, season):
     efficiency = drop_unwanted_columns(summary.get_efficiency(browser, season=season), ['raw', 'rank'])
@@ -67,8 +72,7 @@ def get_season_data(browser, season):
     
     return combined_stats
 ```
-The rest of the data frames retunr follow the same strucutre so we can construct them in a uniform way. After we combine all the stats together (where each row represnts a team) we decorate the
-season so we know what year in came frome.
+The remaining data frames adhere to a consistent structure, allowing for a uniform construction process. We combine all the statistical data into a single frame, where each row represents a unique team. Finally, we annotate each entry with its corresponding season, ensuring we maintain a clear temporal context for all data points.
 
 ```python
 def gather_kenpom_data(begin_season=2009, end_season=2025):
@@ -93,12 +97,10 @@ def gather_kenpom_data(begin_season=2009, end_season=2025):
     return final_df
 ```
 Finally, we call our main loop that handles logging in, invoking the helper functions for each season, and concatenating the results. To address potential issues with mixed data types introduced by bad data, we perform one last pass to enforce float types for relevant columns.
+## Data Integration
+One of the more nuanced challenges in this process is the integration of data from disparate sources. A key issue is the inconsistency in team naming conventions across datasets. For instance, "North Carolina State University" might be variously referred to as "NC State," "N.C. State," or "North Carolina St."
+Resolving these discrepancies is crucial for accurate data merging. While fuzzy string matching algorithms can assist in this process, they're not infallible. Manual verification and correction are often necessary to ensure data integrity.
 
-We encounter a significant challenge with Pomeroy data: it contains stats for individual teams but lacks information on past games. Fortunately, the previously mentioned Kaggle dataset provides extensive data on team matchups, uniquely keyed by an integer ID for each team. Accessing game data and creating a unique single ID for each team across data providers is essential. While school names are generally singular and unique, matching them between Pomeroy and Kaggle datasets proves difficult due to variations such as "State" vs. "St.," school renames, acronyms vs. full names, and more. Initial checks show only around 60% of team names match between datasets.
-
-A potential solution is using a string matching library like FuzzyWuzzy, which uses similarity indexes but struggles with truncation. For example FuzzyWuzzy and other distance-based string matching algorithms would mutch rather match "Univ. San Diego" with "San Diego State" instead of "SDSU" with "San Diego State." The solution requires significant manual effort to match KenPom and Kaggle team names accurately. Once this integer ID is established, integrating various applications becomes much smoother.
-
-Once constructed we can save the team mappings in an aptly CSV file named "paulpierce.csv" (The Truth). For the mean time the truth is going to be kept as intellectual property incase freind or family are reading this trying to get a head up on me for next year. We then read "The Truth," apply the mapping to our master dataset, and exclude data before 2010 (bench and height stats are unavailable for earlier years)
 ```python
 def map_team_ids(final_df, start_season=2010):
   stat_master = final_df.loc[final_df['Season'] >= start_season]
@@ -110,7 +112,7 @@ def map_team_ids(final_df, start_season=2010):
   return stat_master
 ```
 
-At this point here's what our main event loop would look like. Since these stats are static let's also write the result to csv. This prevents dealing with the runtime of the data collection, and doesn't spam kenpom.com with webscrapping 
+At this point here's what our main event loop would look like. Since these stats are static let's also write the result to csv. This prevents dealing with the runtime of the data collection, and doesn't spam kenpom.com with webscraping 
 
 ```python
 final_df = gather_kenpom()
@@ -118,23 +120,16 @@ stat_master = map_team_ids(final_df)
 stat_master.to_csv('stat_master.csv', index=False)
 ```
 
-Next let's use our stat master, combined with kaggle data, to construct the dataframe for use in model training
+## Training Data Selection: A Strategic Decision
+The selection of training data significantly impacts model performance. We must balance relevance, recency, and volume. Here are the primary options we consider:
 
-We hit another big dicision point here, what games to include in our training set
-- March Madness Games 
-Pros: Most relevant data can add seeds from the matchups and gain insights off of that
-Cons: Massively limits the size of training set
-- Conference Tournament Games
-Pros: Next best set of games and  doubles triaing set
-Cons: Seeding not as relevant, teams not in march madness represented
-- Secondary Tournament Games (NIT etc.)
-Pros: Again increases the data set and seeding still semi relevant
-Cons: Some teams decline invite / stars sit out for draft rpepariton / more anomalys
-- Some "lookback: number of days into the regular season
-Pros: By far the biggest jump in data set size
-Cons: Can't including seeding at all in the model, stats are cummulative end of year so become less accurate the more you lookback
+- March Madness Games: Highest relevance but smallest dataset.
+- Conference Tournament Games: Increases data volume while maintaining postseason context.
+- Secondary Tournament Games (e.g., NIT): Further expands the dataset but introduces potential noise.
+- Regular Season Games: Largest dataset but less directly applicable to tournament conditions.
 
-Lets construct a function loop that can deal with all of these scenarios as well as add a helper function for cleaning bad merges
+Each option presents a trade-off between data volume and contextual relevance. Our approach involves experimenting with various combinations to optimize model performance.
+Here's a function to generate the game frame based on our selected criteria:
 ```python
 def generate_game_frame(stat_master, start_season=2010, use_mm_games=True, use_conf_games=False, use_secondary_tourney=False, regular_season_lookback=0, keep_season=False):
   games = pd.DataFrame()
