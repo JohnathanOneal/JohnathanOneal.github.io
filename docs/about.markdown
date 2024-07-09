@@ -28,6 +28,7 @@ During my time at Tufts University, I had the privilege of balancing academic pu
 Notable recognitions include:
 
 - Semi-Finalist for the William Campbell Trophy, acknowledging the combination of academic excellence, community service, and on-field performance across all divisions
+  (Notable Winners: Peyton Manning, Tim Tebow, Justin Herbert)
 - CoSIDA Academic All-District honoree, an award that recognizes the nation's top student-athletes for their combined performances on the field and in the classroom
 - NESCAC All-Sportsmanship Team selection
 - Four-time recipient of NESCAC All-Academic Team honors (2019-2022)
