@@ -17,11 +17,34 @@ In the realm of predictive analytics, the quality and comprehensiveness of input
 1. Kaggle's March Machine Learning Mania: This annual competition provides a robust, well-curated dataset specifically tailored for March Madness predictions. It serves as our foundational data source, offering historical game results, team statistics, and tournament outcomes.
 2. Ken Pomeroy's Advanced Metrics: Widely respected in basketball analytics circles, Ken Pomeroy's statistical models offer deeper insights into team efficiency, pace of play, and strength of schedule. These metrics provide valuable context beyond raw game results.
 
+# ⚠️ Warning: Important Notice
+
+> **Attention:** Since writing this article Kenpom.com has taken serious defensive measures against webscraping. 
+> While the below code will no longer work its principals still apply to the data. Additionally with some creative thought,
+> such as use of a browser table to csv extension, can be modified to produce the same output. That being said I cannot confirm 
+> or deny the existence of a backup of the data so we can still iterate on our model
+
 ## Data Acquisition and Processing
 For those interested in the technical implementation, we utilize the kenpompy Python library to programmatically access Ken Pomeroy's data. This automated approach allows for efficient, repeatable data collection – a crucial aspect of maintaining an up-to-date predictive model.
 First, let's install the kenpompy library to help us pull the stats from kenpom.com:
 ```python
 !pip install kenpompy
+```
+
+```python
+import pandas as pd
+import numpy as np
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import List, Tuple
+import logging
+from functools import reduce
+from kenpompy.utils import login
+import kenpompy.misc as misc
+import kenpompy.summary as summary
+import kenpompy.team as team
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 ```
 
 Next, we'll define some helper functions:
@@ -30,61 +53,102 @@ def drop_unwanted_columns(df, columns_to_drop):
     return df.drop(columns=[col for col in df.columns if any(key in col.lower() for key in columns_to_drop)], errors='ignore')
 
 def merge_dataframes(dfs, on='Team', how='outer'):
-    merged_df = dfs[0]
-    for df in dfs[1:]:
-        merged_df = pd.merge(merged_df, df, on=on, how=how)
-    return merged_df
+    return reduce(lambda left, right: pd.merge(left, right, on=on, how=how), dfs)
 ```
 
 Now it is time for the meat of the data processing. While calls are automated getting a clean and usable dataframe does require a lot of manual inspection. 
+The KenPom landing page presented unique challenges in data structure compared to other sources. After standard data cleaning procedures (removing duplicates, eliminating ranking columns, and filtering out non-numeric rows where 'Rk'='Rk'), we encountered a naming convention issue. To standardize team names across all data frames, we employed a two-step process: first, we merged the cleaned data with an example frame using uniquely identifying statistical columns as keys. Then, we transferred the standardized team names from this merged frame to our primary dataset, effectively aligning team nomenclature without relying on the inconsistent original names.
 
 ```python
 def process_pomeroy_data(pom, df):
-    pom = pom.loc[:, ~pom.columns.duplicated(keep='first')].dropna()
-    pom = pom[pom['Rk'] != 'Rk'].reset_index(drop=True)
+    pom = (pom.loc[:, ~pom.columns.duplicated(keep='first')].dropna()
+                                                            .query('Rk != "Rk"')
+                                                            .reset_index(drop=True))
+
     pom = drop_unwanted_columns(pom, ['rank','Rk', 'index'])
-    merged_df = pd.merge(pom, df, how='inner', left_on=['AdjO', 'AdjD', 'AdjT'], right_on=['Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj'])
+    
+    merged_df = pd.merge(pom, df, how='inner',
+                         left_on=['AdjO', 'AdjD', 'AdjT'],
+                         right_on=['Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj'])
+    
     pom['Team'] = merged_df['Team_y']
     return pom
 ```
 
-The KenPom landing page presented unique challenges in data structure compared to other sources. After standard data cleaning procedures (removing duplicates, eliminating ranking columns, and filtering out non-numeric rows where 'Rk'='Rk'), we encountered a naming convention issue. To standardize team names across all data frames, we employed a two-step process: first, we merged the cleaned data with an example frame using uniquely identifying statistical columns as keys. Then, we transferred the standardized team names from this merged frame to our primary dataset, effectively aligning team nomenclature without relying on the inconsistent original names.
+The remaining data frames adhere to a consistent structure, allowing for a uniform construction process. We combine all the statistical data into a single frame, where each row represents a unique team. Finally, we annotate each entry with its corresponding season, ensuring we maintain a clear temporal context for all data points.
+
 ```python
 def get_season_data(browser, season):
-    efficiency = drop_unwanted_columns(summary.get_efficiency(browser, season=season), ['raw', 'rank'])
-    four_factors = drop_unwanted_columns(summary.get_fourfactors(browser, season=season), ['conference', 'rank'])
-    height = drop_unwanted_columns(summary.get_height(browser, season=season), ['rank'])
-    team_stats = drop_unwanted_columns(summary.get_teamstats(browser, defense=False, season=season), ['rank'])
-    point_distribution = drop_unwanted_columns(summary.get_pointdist(browser, season=season), ['rank'])
     
-    four_factors.drop(columns=['AdjOE', 'AdjDE'], errors='ignore', inplace=True)
-    height.drop(columns=['Conference'], errors='ignore', inplace=True)
-    team_stats.drop(columns=['Conference', 'AdjOE'], errors='ignore', inplace=True)
-    point_distribution.drop(columns=['Conference'], errors='ignore', inplace=True)
+    data_sources = {
+        'efficiency': summary.get_efficiency,
+        'four_factors': summary.get_fourfactors,
+        'height': summary.get_height,
+        'team_stats': summary.get_teamstats,
+        'point_distribution': summary.get_pointdist
+    }
+
+    data = {name: drop_unwanted_columns(func(browser, season=season) if name != 'team_stats' 
+                else func(browser, defense=False, season=season), ['conference', 'rank', 'raw'])
+            for name, func in data_sources.items()}
     
-    combined_stats = merge_dataframes([efficiency, four_factors, height, team_stats, point_distribution])
+    # Drop specific columns
+    data['four_factors'].drop(columns=['AdjOE', 'AdjDE'], errors='ignore', inplace=True)
+    data['team_stats'].drop(columns=['AdjOE'], errors='ignore', inplace=True)
     
+    # Merge all dataframes
+    combined_stats = merge_dataframes(list(data.values()))
+    
+    # Process Pomeroy ratings
     pomeroy_ratings = process_pomeroy_data(misc.get_pomeroy_ratings(browser, season=season), combined_stats)
     combined_stats = pd.merge(combined_stats, pomeroy_ratings, on='Team', how='outer')
     
-    combined_stats.drop(columns=['Conference', 'Conf', 'Seed', 'W-L', 'Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj', 'AdjTempo'], errors='ignore', inplace=True)
+    # Final cleanup
+    columns_to_drop = ['Conference', 'Conf', 'Seed', 'W-L', 'Off. Efficiency-Adj', 
+                       'Def. Efficiency-Adj', 'Tempo-Adj', 'AdjTempo']
+    combined_stats.drop(columns=columns_to_drop, errors='ignore', inplace=True)
+    
     combined_stats['Season'] = season
     
     return combined_stats
 ```
-The remaining data frames adhere to a consistent structure, allowing for a uniform construction process. We combine all the statistical data into a single frame, where each row represents a unique team. Finally, we annotate each entry with its corresponding season, ensuring we maintain a clear temporal context for all data points.
-
+Lastly, lets establish some helper functions that give us descriptive context of the data collection process. Here we go overboard
+on error detection and logging. Data gathering through webscrapping is far from ocnsisent and many erros can arise. It is important
+during collection to have clear insight into the health of the task. 
+then at the very end to address potential issues with mixed data types introduced by bad data, we perform one last pass to enforce float types for relevant columns, noting if our collection was complete. 
+While we could big hammer the data frame this approach provides clear context to the final desired column set. 
 ```python
-def gather_kenpom_data(begin_season=2009, end_season=2025):
-    browser = login(USERNAME, PASSWORD)
-    
-    all_season_data = []
-    for season in range(begin_season, end_season):
+def process_season(browser, season):
+    """Process data for a single season."""
+    try:
+        logging.info(f"Processing season {season}")
         season_data = get_season_data(browser, season)
-        all_season_data.append(season_data.reset_index(drop=True))
+        return season, season_data.reset_index(drop=True)
+    except Exception as e:
+        logging.error(f"Error processing season {season}: {str(e)}")
+        return season, pd.DataFrame()
     
-    final_df = pd.concat(all_season_data, ignore_index=True)
+def gather_kenpom_data(begin_season= 2009, end_season= 2025, max_workers = 3):
+    """
+    Gather KenPom data for multiple seasons.
+    """
+    browser = login('johmathanoneal@gmail.com', 'tunafishtroglodyte2806')
     
+    seasons = range(begin_season, end_season)
+    all_season_data = {}
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        future_to_season = {executor.submit(process_season, browser, season): season for season in seasons}
+        for future in as_completed(future_to_season):
+            season, data = future.result()
+            if not data.empty:
+                all_season_data[season] = data
+
+    if not all_season_data:
+        raise ValueError("No data was successfully gathered for any season.")
+
+    final_df = pd.concat(all_season_data.values(), ignore_index=True)
+
     float_columns = [
         'Off-eFG%', 'Off-TO%', 'Off-OR%', 'Off-FTRate', 'Def-eFG%', 'Def-TO%', 'Def-OR%', 'Def-FTRate', 
         'AvgHgt', 'EffHgt', 'C-Hgt', 'PF-Hgt', 'SF-Hgt', 'SG-Hgt', 'PG-Hgt', 'Experience', 'Bench', 'Continuity', 
@@ -92,11 +156,18 @@ def gather_kenpom_data(begin_season=2009, end_season=2025):
         'AdjEM', 'AdjO', 'AdjD', 'AdjT', 'Luck', 'Season', 'Avg. Poss Length-Offense', 'Avg. Poss Length-Defense'
     ]
     
-    final_df[float_columns] = final_df[float_columns].astype(float)
-    
+    for col in float_columns:
+        if col in final_df.columns:
+            final_df[col] = pd.to_numeric(final_df[col], errors='coerce')
+        else:
+            logging.warning(f"Column '{col}' not found in the data.")
+
     return final_df
 ```
-Finally, we call our main loop that handles logging in, invoking the helper functions for each season, and concatenating the results. To address potential issues with mixed data types introduced by bad data, we perform one last pass to enforce float types for relevant columns.
+Do note the above uses multithreading. Since we are not worried about cpu usage but instead about request time we can multithread our calls
+to signifcantly speed up the overall time to gahter our data. However due to the fincky nature of our webscrapping requests and given that without multithreading
+the collection takes only around 2~3 minutes the above could easily be converted to a simple loop wihtout the use of multithreading.
+
 ## Data Integration
 One of the more nuanced challenges in this process is the integration of data from disparate sources. A key issue is the inconsistency in team naming conventions across datasets. For instance, "North Carolina State University" might be variously referred to as "NC State," "N.C. State," or "North Carolina St."
 Resolving these discrepancies is crucial for accurate data merging. While fuzzy string matching algorithms can assist in this process, they're not infallible. Manual verification and correction are often necessary to ensure data integrity.
@@ -115,9 +186,15 @@ def map_team_ids(final_df, start_season=2010):
 At this point here's what our main event loop would look like. Since these stats are static let's also write the result to csv. This prevents dealing with the runtime of the data collection, and doesn't spam kenpom.com with webscraping 
 
 ```python
-final_df = gather_kenpom()
-stat_master = map_team_ids(final_df)
-stat_master.to_csv('stat_master.csv', index=False)
+if __name__ == "__main__":
+    try:
+        stat_master = gather_kenpom_data()
+        print(f"Successfully gathered data for {len(data)} rows.")
+    except Exception as e:
+        logging.error(f"An error occurred: {str(e)}")
+
+    stat_master = map_team_ids(final_df)
+    stat_master.to_csv('stat_master.csv', index=False)
 ```
 
 ## Training Data Selection: A Strategic Decision
@@ -224,5 +301,7 @@ def trim_bad_rows(result, threshold=5):
 
   return result
 ```
-# Data Analyzation
+
+Now that the hard work is done we have a clean robust dataframe in hand and can preforme analyzation and begin to construct our model
+keep reading to part 2 to find out more! 
 
