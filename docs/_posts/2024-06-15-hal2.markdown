@@ -1,6 +1,43 @@
 ---
 layout: post
-title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 2: Model Selection and Results"
+title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 2: Exploratory Data Analysis"
 date:   2024-06-15 16:37:09 -0400
 categories: [sports]
 ---
+
+<p align="center">
+  <img src="/assets/hal/halscreenshot.png">
+</p>
+
+Leveraging Machine Learning for Strategic Advantage in March Madness Predictions (Not responsible for broken relationships due to bracket challenge dominance)
+
+## Introduction
+
+Before diving into machine learning, performing Exploratory Data Analysis (EDA) is crucial to ensure the reliability and effectiveness of any model. Things such as missing values, outliers, and even non-normalized data can completely throw off the accuracy of a model. Additionally understanding the data is cruical to sleceting which model to use. 
+
+## Missing values and outliers
+
+Missing values can pose a big problem in traing a model. There are many tehcinques to deal with missing values such as imputing the result from a distribution, however in this case with the high variability of basketball statics and due to the high quality of the orignal data sources we have almsot no missing values so in the cleaning step we felt comfortbale with dropping htem enitrely. 
+
+<p align="center"> <img src="/assets/hal/halnonnull.png"> <br> <em>Looking Good!</em> </p>
+
+However just becuase we have removed misisng values doesn't mean our data is good to go. Another crucial tep is outlier detection and cleaning. Outliers can can crop up as a team having a true statiscal outlier (think the ft perctage of a team of Shaqs) or the outleir can be a result of bad data. Box plot analysis can be a helpufl tool in idneftinfying these outleirs and can eve nbe a good idcator of what type of outleir it is.
+
+<div style="display: flex; justify-content: center;">
+  <div style="text-align: center; margin-right: 10px;">
+    <img src="/assets/hal/halsosoutlier.png" alt="Image 1">
+    <br>
+    <em>Outlier from bad data</em>
+  </div>
+  <div style="text-align: center; margin-left: 10px;">
+    <img src="/assets/hal/halshortpg.png" alt="Image 2">
+    <br>
+    <em>Natural Mugsy Bouges-Esc Outlier</em>
+  </div>
+</div>
+
+
+
+
+
+

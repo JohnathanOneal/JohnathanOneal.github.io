@@ -5,7 +5,7 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 <p align="center">
-  <img src="/assets/halscreenshot.png">
+  <img src="/assets/hal/halscreenshot.png">
 </p>
 
 Leveraging Machine Learning for Strategic Advantage in March Madness Predictions (Not responsible for broken relationships due to bracket challenge dominance)
@@ -14,7 +14,7 @@ Leveraging Machine Learning for Strategic Advantage in March Madness Predictions
 The annual NCAA basketball tournament, colloquially known as March Madness, presents a unique opportunity to apply data science and machine learning techniques to sports prediction. This series will explore the development of a predictive model designed to optimize bracket selections. While we'll delve into some technical aspects, the core concepts should be accessible to anyone with an interest in data-driven decision making.This will be a four part series, with the first two articles detailing our data extraction and analyzation before splitting into two different modeling approaches. 
 
 <p align="center">
-  <img src="/assets/haldiagram.png">
+  <img src="/assets/hal/haldiagram.png">
 </p>
 
 ## The Primacy of Data in Predictive Modeling
@@ -79,6 +79,11 @@ def process_pomeroy_data(pom, df):
     return pom
 ```
 
+<p align="center">
+  <img src="/assets/hal/namenormalize.png">
+</p>
+
+
 The remaining data frames adhere to a consistent structure, allowing for a uniform construction process. We combine all the statistical data into a single frame, where each row represents a unique team. Finally, we annotate each entry with its corresponding season, ensuring we maintain a clear temporal context for all data points.
 
 ```python
@@ -116,6 +121,12 @@ def get_season_data(browser, season):
     
     return combined_stats
 ```
+
+<p align="center">
+  <img src="/assets/hal/statsfunnel.png">
+</p>
+
+
 Lastly, lets establish some helper functions that give us descriptive context of the data collection process. Here we go overboard
 on error detection and logging. Data gathering through webscrapping is far from ocnsisent and many erros can arise. It is important
 during collection to have clear insight into the health of the task. 
@@ -168,6 +179,11 @@ def gather_kenpom_data(begin_season= 2009, end_season= 2025, max_workers = 3):
 
     return final_df
 ```
+
+<p align="center">
+  <img src="/assets/hal/seasonfunnel.png">
+</p>
+
 Do note the above uses multithreading. Since we are not worried about cpu usage but instead about request time we can multithread our calls
 to signifcantly speed up the overall time to gahter our data. However due to the fincky nature of our webscrapping requests and given that without multithreading
 the collection takes only around 2~3 minutes the above could easily be converted to a simple loop wihtout the use of multithreading.
@@ -305,6 +321,10 @@ def trim_bad_rows(result, threshold=5):
 
   return result
 ```
+
+<p align="center">
+  <img src="/assets/hal/gamesfunnel.png">
+</p>
 
 Now that the hard work is done we have a clean robust dataframe in hand and can preforme analyzation and begin to construct our model
 keep reading to part 2 to find out more! 
