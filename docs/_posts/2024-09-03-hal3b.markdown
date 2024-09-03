@@ -1,0 +1,75 @@
+---
+layout: post
+title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 3: Nueral Networks (PPO)"
+date:   2024-06-15 16:37:09 -0400
+categories: [sports]
+---
+
+<p align="center">
+  <img src="/assets/hal/halscreenshot.png">
+</p>
+
+Leveraging Machine Learning for Strategic Advantage in March Madness Predictions (Not responsible for broken relationships due to bracket challenge dominance)
+
+## Introduction
+
+Before diving into machine learning, performing Exploratory Data Analysis (EDA) is crucial to ensure the reliability and effectiveness of any model. Things such as missing values, outliers, and even non-normalized data can completely throw off the accuracy of a model. Additionally understanding the data is cruical to sleceting which model to use. 
+
+# Understanding Neural Networks and Proximal Policy Optimization
+
+*A guide for data-driven professionals without a heavy math background*
+
+## Neural Networks: The Basics
+
+Neural networks are powerful machine learning models inspired by the human brain. They excel at finding patterns in data and making predictions. Here's what you need to know:
+
+### Key Components:
+
+1. **Nodes**: Like neurons in the brain, they process and transmit information.
+2. **Layers**: Groups of nodes that process data at different levels.
+3. **Weights**: Determine the strength of connections between nodes.
+4. **Activation Functions**: Decide whether and how strongly a node "fires."
+
+The network learns by adjusting these weights based on the difference between its predictions and the actual results. This process, repeated many times with lots of data, allows the network to improve its accuracy.
+
+<p align="center">
+  <img src="/assets/hal/nndiagram.png">
+</p>
+
+### How Neural Networks Work
+
+1. **Input Layer**: This is where you feed in your data. Each input represents a feature of your data.
+2. **Hidden Layers**: These layers process the information. They take inputs, apply weights to them, and pass the results to the next layer.
+3. **Output Layer**: This layer provides the final result, whether it's a classification, prediction, or decision.
+4. **Learning Process**: The network "learns" by adjusting the weights between nodes. It compares its output to the correct answer and tweaks the weights to get closer to the right result.
+
+## Proximal Policy Optimization (PPO): Advanced Neural Networks in Action
+
+PPO is an advanced technique used in reinforcement learning, a branch of machine learning where an agent learns to make decisions by interacting with an environment. Here's how it relates to neural networks:
+
+### Key Concepts:
+
+1. **Policy Networks**: Neural networks that take in the current state of the environment and output actions for the agent to take.
+2. **Value Networks**: Networks that estimate how good a particular state or action is.
+3. **Trust Region**: PPO limits how much the policy can change in a single update, preventing drastic shifts that could destabilize learning.
+4. **Clipped Objective**: PPO puts a limit on how much the new policy can differ from the old one, encouraging more gradual, stable improvements.
+
+### Why PPO Matters
+
+PPO addresses several challenges in reinforcement learning:
+
+- It provides more stable and reliable learning compared to older methods.
+- It balances exploration of new strategies with exploitation of known good strategies.
+- It allows for multiple passes over the same data, extracting more learning from each batch of experiences.
+
+## Bringing It All Together
+
+Neural networks provide the foundation for advanced machine learning techniques like PPO. By understanding these concepts, data-driven professionals can better appreciate how AI systems learn and make decisions, even without delving deep into the underlying mathematics.
+
+As you explore further, remember that the power of these techniques lies in their ability to find patterns and make decisions in complex, dynamic environments – much like the data-rich world we navigate every day.
+
+
+
+
+
+
