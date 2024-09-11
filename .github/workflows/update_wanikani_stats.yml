@@ -40,7 +40,7 @@ jobs:
       env:
         TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}  # Your secret PAT
       run: |
-        git add wanikani_stats.json
+        git add docs/data/wanikani_stats.json
         git diff --quiet && git diff --staged --quiet || (
           git commit -m "Update WaniKani stats" && \
           git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git && \
