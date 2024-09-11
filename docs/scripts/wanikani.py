@@ -5,7 +5,6 @@ from datetime import datetime
 
 
 def fetch_wanikani_stats():
-    os.environ['WANIKANI_API_KEY'] = '7fa4769d-d159-4909-8abf-90944bff1f00'
     api_key = os.environ['WANIKANI_API_KEY']
     headers = {
         'Authorization': f'Bearer {api_key}'

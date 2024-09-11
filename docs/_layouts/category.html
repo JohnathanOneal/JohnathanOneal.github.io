@@ -18,8 +18,25 @@ layout: default
     <div class="wanikani-stats">
         <h2>WaniKani レベル進捗</h2>
         <canvas id="levelProgressionChart"></canvas>
+
         <h2>WaniKani カテゴリーバケツ分布</h2>
         <canvas id="categoryDistributionChart"></canvas> <!-- New chart for distribution -->
+
+        <!-- New Accuracy Table Section -->
+        <h2>WaniKani 正確性</h2>
+        <table id="accuracyTable" class="accuracy-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Reading</th>
+                    <th>Meaning</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- This will be dynamically populated by JavaScript -->
+            </tbody>
+        </table>
     </div>
     {% endif %}
 
@@ -214,6 +231,76 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error fetching WaniKani review stats:', error);
+        });
+
+    // Fetch accuracy stats and render the accuracy table
+    fetch('/../data/all_review_statistics.json')
+        .then(response => response.json())
+        .then(data => {
+            const stats = {
+                reading: { total: 0, correct: 0 },
+                meaning: { total: 0, correct: 0 },
+                radicals: { total: 0, correct: 0 },
+                kanji: { total: 0, correct: 0 },
+                vocabulary: { total: 0, correct: 0 }
+            };
+
+            // Process the data
+            data.forEach(item => {
+                const type = item.data.subject_type;
+
+                if (item.data.reading_correct !== undefined) {
+                    stats.reading.total += item.data.reading_correct + item.data.reading_incorrect;
+                    stats.reading.correct += item.data.reading_correct;
+                }
+
+                stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                stats.meaning.correct += item.data.meaning_correct;
+
+                stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
+                stats[type].correct += item.data.meaning_correct;
+
+                if (type !== 'radical') {
+                    stats[type].total += item.data.reading_correct + item.data.reading_incorrect;
+                    stats[type].correct += item.data.reading_correct;
+                }
+            });
+
+            const calcPercentage = (correct, total) => ((correct / total) * 100).toFixed(2) + '%';
+
+            // Populate the accuracy table
+            const tableBody = document.getElementById('accuracyTable').getElementsByTagName('tbody')[0];
+
+            // Clear existing rows
+            tableBody.innerHTML = '';
+
+            // Total reviews row
+            const totalRow = tableBody.insertRow();
+            totalRow.innerHTML = `<td>Total Reviews</td><td>${stats.reading.total}</td><td>${stats.meaning.total}</td><td>${stats.reading.total + stats.meaning.total}</td>`;
+
+            // Correct reviews row
+            const correctRow = tableBody.insertRow();
+            correctRow.innerHTML = `<td>Correct</td><td>${stats.reading.correct}</td><td>${stats.meaning.correct}</td><td>${stats.reading.correct + stats.meaning.correct}</td>`;
+
+            // Accuracy row
+            const accuracyRow = tableBody.insertRow();
+            accuracyRow.innerHTML = `<td>Accuracy</td><td>${calcPercentage(stats.reading.correct, stats.reading.total)}</td><td>${calcPercentage(stats.meaning.correct, stats.meaning.total)}</td><td>${calcPercentage(stats.reading.correct + stats.meaning.correct, stats.reading.total + stats.meaning.total)}</td>`;
+
+            // Radical, Kanji, and Vocabulary rows
+            ['radicals', 'kanji', 'vocabulary'].forEach(type => {
+                const row = tableBody.insertRow();
+                const readingAccuracy = type === 'radicals' ? '---' : calcPercentage(stats[type].correct, stats[type].total);
+                const meaningAccuracy = calcPercentage(stats[type].correct, stats[type].total);
+                const totalAccuracy = type === 'radicals' ? meaningAccuracy : calcPercentage(stats[type].correct, stats[type].total);
+
+                row.innerHTML = `<td>${type.charAt(0).toUpperCase() + type.slice(1)}</td>
+                                 <td>${readingAccuracy}</td>
+                                 <td>${meaningAccuracy}</td>
+                                 <td>${totalAccuracy}</td>`;
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching accuracy stats:', error);
         });
 });
 </script>
