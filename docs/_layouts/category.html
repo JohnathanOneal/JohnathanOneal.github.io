@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+{% if page.title == '日本語' %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endif %}
+
 <div class="newspaper-category">
     <h1 class="category-title">
         {% if page.title == '日本語' %}
@@ -9,6 +13,16 @@ layout: default
             {{ page.title }} Posts
         {% endif %}
     </h1>
+
+    {% if page.title == '日本語' %}
+    <div class="wanikani-stats">
+        <h2>WaniKani レベル進捗</h2>
+        <canvas id="levelProgressionChart"></canvas>
+        <h2>WaniKani カテゴリーバケツ分布</h2>
+        <canvas id="categoryDistributionChart"></canvas> <!-- New chart for distribution -->
+    </div>
+    {% endif %}
+
     <div class="newspaper-columns">
         {% for post in site.categories[page.category] %}
             <article class="newspaper-article">
@@ -34,3 +48,173 @@ layout: default
         {% endfor %}
     </div>
 </div>
+
+{% if page.title == '日本語' %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, fetching WaniKani stats...');
+    fetch('/../data/wanikani_stats.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('WaniKani stats fetched successfully:', data);
+            if (!data.data || !Array.isArray(data.data)) {
+                throw new Error('Unexpected data structure');
+            }
+            const levelData = data.data.map(item => ({
+                level: item.data.level,
+                startedAt: new Date(item.data.started_at),
+                passedAt: item.data.passed_at ? new Date(item.data.passed_at) : null
+            }));
+            console.log('Processed level data:', levelData);
+
+            const ctx = document.getElementById('levelProgressionChart');
+            if (!ctx) {
+                throw new Error('Could not find chart canvas element');
+            }
+            console.log('Chart canvas element found');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: levelData.map(d => `レベル ${d.level}`),
+                    datasets: [{
+                        label: 'レベル達成日数',
+                        data: levelData.map(d => d.passedAt ? (d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24) : null),
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '日数'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += Math.round(context.parsed.y) + ' 日';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            console.log('Chart created successfully');
+        })
+        .catch(error => {
+            console.error('Error creating WaniKani chart:', error);
+            document.getElementById('levelProgressionChart').insertAdjacentHTML('afterend', `<p style="color: red;">エラーが発生しました: ${error.message}</p>`);
+        });
+
+    fetch('/../data/all_review_statistics.json')
+        .then(response => response.json())
+        .then(data => {
+            const buckets = {
+                Apprentice: { kanji: 0, vocabulary: 0, radical: 0 },
+                Guru: { kanji: 0, vocabulary: 0, radical: 0 },
+                Master: { kanji: 0, vocabulary: 0, radical: 0 },
+                Enlightened: { kanji: 0, vocabulary: 0, radical: 0 },
+                Burned: { kanji: 0, vocabulary: 0, radical: 0 }
+            };
+
+            // Classify the data into the buckets
+            data.forEach(item => {
+                const { meaning_current_streak, reading_current_streak, subject_type } = item.data;
+                const lowest_streak = Math.min(meaning_current_streak, reading_current_streak);
+
+                let bucket;
+                if (lowest_streak < 5) bucket = 'Apprentice';
+                else if (lowest_streak === 5) bucket = 'Guru';
+                else if (lowest_streak === 6) bucket = 'Master';
+                else if (lowest_streak === 7) bucket = 'Enlightened';
+                else bucket = 'Burned';
+
+                buckets[bucket][subject_type]++;
+            });
+
+            const ctx2 = document.getElementById('categoryDistributionChart');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Apprentice', 'Guru', 'Master', 'Enlightened', 'Burned'],
+                    datasets: [
+                        {
+                            label: 'Kanji',
+                            data: [
+                                buckets.Apprentice.kanji,
+                                buckets.Guru.kanji,
+                                buckets.Master.kanji,
+                                buckets.Enlightened.kanji,
+                                buckets.Burned.kanji
+                            ],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Vocabulary',
+                            data: [
+                                buckets.Apprentice.vocabulary,
+                                buckets.Guru.vocabulary,
+                                buckets.Master.vocabulary,
+                                buckets.Enlightened.vocabulary,
+                                buckets.Burned.vocabulary
+                            ],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Radical',
+                            data: [
+                                buckets.Apprentice.radical,
+                                buckets.Guru.radical,
+                                buckets.Master.radical,
+                                buckets.Enlightened.radical,
+                                buckets.Burned.radical
+                            ],
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '数量'
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching WaniKani review stats:', error);
+        });
+});
+</script>
+{% endif %}

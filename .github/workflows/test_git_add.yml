@@ -1,10 +1,8 @@
 name: Test Git Add with PAT
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual triggering
+
 
 jobs:
   test-git-add-pat:
