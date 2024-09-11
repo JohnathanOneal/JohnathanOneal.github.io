@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "How Did I Make This Page?"
+date:   2024-09-11 16:37:09 -0400
+categories: [nihongo]
+---
+Api Calls, Github Actions, and Javascript Galore!
+
+## Introduction
+As you probably noticed this page differs drastically from the post layout of the other categories. Keeping with the theme of procesing and 
+visualizing data to glean insights as well as an excuse to incorporate many cool techonoliges I decided to post my kanji learning statics in
+a dashbaord style layout to this post
+
+## Getting the Data via API
+
+### Github Secrets
+
+### Level Data
+```python
+api_key = os.environ['WANIKANI_API_KEY']
+headers = {
+'Authorization': f'Bearer {api_key}'
+}
+
+# Fetch level up stats and write to JSON
+level_url = 'https://api.wanikani.com/v2/level_progressions'
+response = requests.get(level_url, headers=headers)
+data = response.json()
+
+with open('../data/wanikani_stats.json', 'w') as f:
+json.dump(data, f, indent=2)
+```
+### Full Stats
+```python
+stats_url = 'https://api.wanikani.com/v2/review_statistics'
+all_data = []
+
+# API call returns in pages of 500 have to go in batches
+while stats_url:
+response = requests.get(stats_url, headers=headers)
+response_data = response.json()
+
+# Add the current batch of data to the all_data list
+all_data.extend(response_data['data'])
+
+# Get the next URL from the response, if available
+stats_url = response_data['pages'].get('next_url')
+
+# Write the complete data to a JSON file
+with open('../data/all_review_statistics.json', 'w') as file:
+json.dump(all_data, file, indent=4)
+```
+
+## Publishing Data Every Day
+
+### Github Actions
+### Personal Access Token
+
+## Reading Data to Webpage
