@@ -1,0 +1,38 @@
+name: Test Git Add with PAT
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test-git-add-pat:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "test@example.com"
+        git config --global user.name "Test User"
+
+    - name: Create and Modify File
+      run: |
+        echo "Initial content" > test-file.txt
+        git add test-file.txt
+        git commit -m "Add initial content to test-file.txt"
+
+    - name: Push Changes
+      env:
+        TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}  # Replace with your PAT secret name
+      run: |
+        git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git
+        git push
+
+    - name: Verify Commit
+      run: |
+        git fetch
+        git log -1 --pretty=format:"%s" | grep "Add initial content to test-file.txt" || (echo "Commit message not found" && exit 1)
