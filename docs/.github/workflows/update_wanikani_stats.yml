@@ -24,7 +24,7 @@ jobs:
     - name: Fetch WaniKani stats
       env:
         WANIKANI_API_KEY: ${{ secrets.WANIKANI_API_KEY }}
-      run: python fetch_wanikani_stats.py
+      run: python docs/scripts/wanikani.py
 
     - name: Commit and push if changed
       run: |
