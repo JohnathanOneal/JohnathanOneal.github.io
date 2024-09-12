@@ -2,6 +2,8 @@ import requests
 import json
 import os
 from datetime import datetime
+import boto3
+from botocore.exceptions import ClientError
 
 
 def fetch_wanikani_stats():
@@ -10,13 +12,28 @@ def fetch_wanikani_stats():
         'Authorization': f'Bearer {api_key}'
     }
 
+    # Initialize S3 client
+    s3 = boto3.client('s3',
+        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+    )
+    bucket_name = os.environ['S3_BUCKET_NAME']
+
     # Fetch level up stats and write to JSON
     level_url = 'https://api.wanikani.com/v2/level_progressions'
     response = requests.get(level_url, headers=headers)
     data = response.json()
 
-    with open('../data/wanikani_stats.json', 'w') as f:
-        json.dump(data, f, indent=2)
+    # Upload level stats to S3
+    try:
+        s3.put_object(
+            Bucket=bucket_name,
+            Key='wanikani_stats.json',
+            Body=json.dumps(data, indent=2),
+            ContentType='application/json'
+        )
+    except ClientError as e:
+        print(f"Error uploading wanikani_stats.json to S3: {e}")
 
 
     stats_url = 'https://api.wanikani.com/v2/review_statistics'
@@ -33,9 +50,16 @@ def fetch_wanikani_stats():
         # Get the next URL from the response, if available
         stats_url = response_data['pages'].get('next_url')
 
-    # Write the complete data to a JSON file
-    with open('../data/all_review_statistics.json', 'w') as file:
-        json.dump(all_data, file, indent=4)
+        # Upload review statistics to S3
+    try:
+        s3.put_object(
+            Bucket=bucket_name,
+            Key='all_review_statistics.json',
+            Body=json.dumps(all_data, indent=4),
+            ContentType='application/json'
+        )
+    except ClientError as e:
+        print(f"Error uploading all_review_statistics.json to S3: {e}")
 
 if __name__ == "__main__":
     fetch_wanikani_stats()
