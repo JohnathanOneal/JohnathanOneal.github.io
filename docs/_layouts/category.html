@@ -69,39 +69,52 @@ layout: default
 {% if page.title == '日本語' %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, fetching WaniKani stats...');
-    fetch('https://github-pages-data.s3.amazonaws.com/wanikani_stats.json')
+    console.log('DOM loaded, attempting to fetch WaniKani stats...');
+
+    // Check if the fetch function exists
+    if (typeof fetch !== 'function') {
+        console.error('Fetch function not available');
+        return;
+    }
+
+    const url = 'https://github-pages-data.s3.amazonaws.com/wanikani_stats.json';
+    console.log('Fetching from URL:', url);
+
+    fetch(url)
         .then(response => {
+            console.log('Received response:', response);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            console.log('WaniKani stats fetched successfully:', data);
+            console.log('Data parsed successfully:', data);
             if (!data.data || !Array.isArray(data.data)) {
                 throw new Error('Unexpected data structure');
             }
-            const levelData = data.data.map(item => ({
-                level: item.data.level,
-                startedAt: new Date(item.data.started_at),
-                passedAt: item.data.passed_at ? new Date(item.data.passed_at) : null
-            }));
-            console.log('Processed level data:', levelData);
+            const levelData = data.data
+                .filter(item => item.data.passed_at) // Only include levels that have been passed
+                .map(item => ({
+                    level: item.data.level,
+                    startedAt: new Date(item.data.started_at),
+                    passedAt: new Date(item.data.passed_at)
+                }))
+                .sort((a, b) => a.level - b.level); // Sort by level
 
+            console.log('Processed level data:', levelData);
             const ctx = document.getElementById('levelProgressionChart');
             if (!ctx) {
                 throw new Error('Could not find chart canvas element');
             }
             console.log('Chart canvas element found');
-
             new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: levelData.map(d => `レベル ${d.level}`),
                     datasets: [{
                         label: 'レベル達成日数',
-                        data: levelData.map(d => d.passedAt ? (d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24) : null),
+                        data: levelData.map(d => (d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24)),
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1
                     }]
@@ -142,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('levelProgressionChart').insertAdjacentHTML('afterend', `<p style="color: red;">エラーが発生しました: ${error.message}</p>`);
         });
 
-    fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json)
+    fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
         .then(response => response.json())
         .then(data => {
             const buckets = {
