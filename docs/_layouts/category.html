@@ -250,35 +250,41 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
         .then(response => response.json())
         .then(data => {
+            // Initialize stats object with correct singular form for 'radical'
             const stats = {
                 reading: { total: 0, correct: 0 },
                 meaning: { total: 0, correct: 0 },
-                radicals: { total: 0, correct: 0 },
+                radical: { total: 0, correct: 0 },  // Singular form for 'radical'
                 kanji: { total: 0, correct: 0 },
                 vocabulary: { total: 0, correct: 0 }
             };
 
             // Process the data
             data.forEach(item => {
-                const type = item.data.subject_type;
+                const type = item.data.subject_type;  // Use 'radical', 'kanji', or 'vocabulary'
 
+                // Update reading stats
                 if (item.data.reading_correct !== undefined) {
                     stats.reading.total += item.data.reading_correct + item.data.reading_incorrect;
                     stats.reading.correct += item.data.reading_correct;
                 }
 
+                // Update meaning stats
                 stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
                 stats.meaning.correct += item.data.meaning_correct;
 
+                // Update the corresponding type stats (radical, kanji, vocabulary)
                 stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
                 stats[type].correct += item.data.meaning_correct;
 
+                // For kanji and vocabulary, also update reading stats
                 if (type !== 'radical') {
                     stats[type].total += item.data.reading_correct + item.data.reading_incorrect;
                     stats[type].correct += item.data.reading_correct;
                 }
             });
 
+            // Helper function to calculate percentages
             const calcPercentage = (correct, total) => ((correct / total) * 100).toFixed(2) + '%';
 
             // Populate the accuracy table
@@ -300,11 +306,11 @@ document.addEventListener('DOMContentLoaded', function() {
             accuracyRow.innerHTML = `<td>Accuracy</td><td>${calcPercentage(stats.reading.correct, stats.reading.total)}</td><td>${calcPercentage(stats.meaning.correct, stats.meaning.total)}</td><td>${calcPercentage(stats.reading.correct + stats.meaning.correct, stats.reading.total + stats.meaning.total)}</td>`;
 
             // Radical, Kanji, and Vocabulary rows
-            ['radicals', 'kanji', 'vocabulary'].forEach(type => {
+            ['radical', 'kanji', 'vocabulary'].forEach(type => {
                 const row = tableBody.insertRow();
-                const readingAccuracy = type === 'radicals' ? '---' : calcPercentage(stats[type].correct, stats[type].total);
+                const readingAccuracy = type === 'radical' ? '---' : calcPercentage(stats[type].correct, stats[type].total);
                 const meaningAccuracy = calcPercentage(stats[type].correct, stats[type].total);
-                const totalAccuracy = type === 'radicals' ? meaningAccuracy : calcPercentage(stats[type].correct, stats[type].total);
+                const totalAccuracy = type === 'radical' ? meaningAccuracy : calcPercentage(stats[type].correct, stats[type].total);
 
                 row.innerHTML = `<td>${type.charAt(0).toUpperCase() + type.slice(1)}</td>
                                  <td>${readingAccuracy}</td>
