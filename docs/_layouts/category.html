@@ -246,46 +246,47 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching WaniKani review stats:', error);
         });
 
-    // Fetch accuracy stats and render the accuracy table
     fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
         .then(response => response.json())
         .then(data => {
-            // Initialize stats object with correct singular form for 'radical'
+            // Initialize stats object
             const stats = {
                 reading: { total: 0, correct: 0 },
                 meaning: { total: 0, correct: 0 },
-                radical: { total: 0, correct: 0 },  // Singular form for 'radical'
+                radical: { total: 0, correct: 0 },   // 'radical' has no readings, only meaning
                 kanji: { total: 0, correct: 0 },
                 vocabulary: { total: 0, correct: 0 }
             };
 
             // Process the data
             data.forEach(item => {
-                const type = item.data.subject_type;  // Use 'radical', 'kanji', or 'vocabulary'
-
-                // Update reading stats
-                if (item.data.reading_correct !== undefined) {
-                    stats.reading.total += item.data.reading_correct + item.data.reading_incorrect;
-                    stats.reading.correct += item.data.reading_correct;
-                }
+                const type = item.data.subject_type;
 
                 // Update meaning stats
                 stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
                 stats.meaning.correct += item.data.meaning_correct;
 
-                // Update the corresponding type stats (radical, kanji, vocabulary)
-                stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
-                stats[type].correct += item.data.meaning_correct;
+                // Handle subject-specific stats
+                if (stats[type]) {
+                    // For radicals, only update meaning stats (no reading stats)
+                    stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
+                    stats[type].correct += item.data.meaning_correct;
 
-                // For kanji and vocabulary, also update reading stats
-                if (type !== 'radical') {
-                    stats[type].total += item.data.reading_correct + item.data.reading_incorrect;
-                    stats[type].correct += item.data.reading_correct;
+                    if (type !== 'radical') {
+                        // Update reading stats for kanji and vocabulary
+                        stats.reading.total += item.data.reading_correct + item.data.reading_incorrect;
+                        stats.reading.correct += item.data.reading_correct;
+
+                        stats[type].total += item.data.reading_correct + item.data.reading_incorrect;
+                        stats[type].correct += item.data.reading_correct;
+                    }
+                } else {
+                    console.error(`Unexpected subject type: ${type}`);
                 }
             });
 
-            // Helper function to calculate percentages
-            const calcPercentage = (correct, total) => ((correct / total) * 100).toFixed(2) + '%';
+            // Helper function to calculate percentage
+            const calcPercentage = (correct, total) => (total > 0 ? ((correct / total) * 100).toFixed(2) : 0) + '%';
 
             // Populate the accuracy table
             const tableBody = document.getElementById('accuracyTable').getElementsByTagName('tbody')[0];
