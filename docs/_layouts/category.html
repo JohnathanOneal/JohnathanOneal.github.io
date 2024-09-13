@@ -70,7 +70,7 @@ layout: default
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, fetching WaniKani stats...');
-    fetch('/../data/wanikani_stats.json')
+    fetch('https://github-pages-data.s3.amazonaws.com/wanikani_stats.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('levelProgressionChart').insertAdjacentHTML('afterend', `<p style="color: red;">エラーが発生しました: ${error.message}</p>`);
         });
 
-    fetch('/../data/all_review_statistics.json')
+    fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json)
         .then(response => response.json())
         .then(data => {
             const buckets = {
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch accuracy stats and render the accuracy table
-    fetch('/../data/all_review_statistics.json')
+    fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
         .then(response => response.json())
         .then(data => {
             const stats = {
