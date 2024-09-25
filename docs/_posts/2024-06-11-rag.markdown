@@ -7,4 +7,255 @@ categories: [llm]
 
 Learn How to Implement Retrieval Augmented Generation (rag) Entirely Locally with no GPU Required
 
-<img src="/assets/spongebob.png">
+SP-4 is a very much experimental Local GPT. It is designed for Retrieval Augmented Generation (RAG) and runs entirely on CPU.
+
+# What is RAG
+<p align="center">
+  <img src="/assets/rag/rag.png">
+</p>
+
+From the internet: Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an authoritative knowledge base outside of its training data sources before generating a response. Large Language Models (LLMs) are trained on vast volumes of data and use billions of parameters to generate original output for tasks like answering questions, translating languages, and completing sentences. RAG extends the already powerful capabilities of LLMs to specific domains or an organization's internal knowledge base, all without the need to retrain the model. It is a cost-effective approach to improving LLM output so it remains relevant, accurate, and useful in various contexts.
+
+What this essential means is we can create and proxy for a fully custom LLM without the need to train on a custom data set. We leverage the pre-trained model's generative capabilities while feeding it a context of custom documents. 
+
+# How Does it Work?
+SP-4 is built on top of LlamaIndex which is a framework for building context-augmented LLM applications. We use it to implement the following workflow 
+1. Receive query from the user.
+2. Convert it to an embedded query vector preserving the semantics, using an embedding model.
+3. Retrieve the top-k relevant content from the vector database by computing the similarity between the query embedding and the content embedding in the database.
+4. Pass the retrieved content and query as a prompt to an LLM.
+5. The LLM gives the required response.
+
+
+<p align="center">
+  <img src="/assets/rag/rag2.png">
+</p>
+
+# Tech Stack Overview
+- Llama index as the framework
+- Sentence trasmformers as embeding model
+- Minstral 7b as the LLM run with llamacpp
+- Postgres as the vector store
+- Gradio as the UI
+
+# How to Setup
+Still in the experimental phase, best to use a dedicated virtual enviornment
+1. Install required python packages
+```bash
+pip install llama-index-readers-file pymupdf
+pip install llama-index-vector-stores-postgres
+pip install llama-index-embeddings-huggingface
+pip install llama-index-llms-llama-cpp
+pip install llama-cpp-python
+```
+2. Setup potgres vector database
+
+Install PostgreSQL
+```bash
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+```
+Start PostgreSQL Service (if it doesn't start automatically)
+```bash
+sudo systemctl start postgresql
+```
+```bash
+# Log into the default PostgreSQL user
+sudo -u postgres psql
+
+# Now, you're inside the PostgreSQL interactive terminal, Create a new role (user) with login and a password
+CREATE ROLE your_username WITH LOGIN PASSWORD 'your_password';
+
+# Grant all privileges on the database to the user
+ALTER ROLE <user> SUPERUSER;
+
+# To exit the PostgreSQL interactive terminal
+\q
+```
+Restart PostgreSQL Service
+```bash
+sudo systemctl restart postgresql
+```
+
+Install https://github.com/pgvector/pgvector
+If compilation fails with fatal error: postgres.h: No such file or directory, make sure Postgres development files are installed on the server.
+```bash
+sudo apt install postgresql-server-dev-16 – replace 16 with desired postgres verison
+```
+Finally install last required packages
+```bash
+pip install psycopg2-binary pgvector asyncpg "sqlalchemy[asyncio]" greenlet
+```
+3. Download desired model from HuggingFace in a gguf form, place it in a easy to acces location in the project, in this case minstral 7B https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF in a folder /models
+
+# Constructing SP-4 
+Imports
+```python
+import gradio as gr
+import random
+import time
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.llms.llama_cpp import LlamaCPP
+import psycopg2
+from sqlalchemy import make_url
+from llama_index.vector_stores.postgres import PGVectorStore
+from pathlib import Path
+from llama_index.readers.file import PyMuPDFReader
+from llama_index.core.node_parser import SentenceSplitter
+from llama_index.core.schema import TextNode
+from llama_index.core.vector_stores import VectorStoreQuery
+from llama_index.core.schema import NodeWithScore
+from typing import Optional
+from llama_index.core import QueryBundle
+from llama_index.core.retrievers import BaseRetriever
+from typing import Any, List
+from llama_index.core.query_engine import RetrieverQueryEngine
+```
+Now lets create a client that will hold our models as well as deal with initializing the vector database
+```python
+class Client():
+
+    def __init__(self):
+        # Standard hugging face embedding model to run on ingested documents/querys
+        self.embedModel = HuggingFaceEmbedding(model_name='BAAI/bge-small-en')
+
+        #Phi-3-mini-4k-instruct-q4.gguf Phi-3-mini-4k-instruct-fp16.gguf
+        # LLM downloaded locally as gguf file
+        self.llm = LlamaCPP(model_path='./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf',
+                            temperature=0.1,
+                            max_new_tokens=256,
+                            # llama2 has a context window of 4096 tokens, but we set it lower to allow for some wiggle room
+                            context_window=3900,
+                            # kwargs to pass to __call__()
+                            generate_kwargs={},
+                            # set to at least 1 to use GPU
+                            model_kwargs={'n_gpu_layers': 0},
+                            verbose=True)
+
+        # Connection manager for postgres database (vector store)
+        self.conn = psycopg2.connect(dbname='postgres',
+                                     host='localhost',
+                                     password='fish',
+                                     port='5432',
+                                     user='tuna')
+        self.conn.autocommit = True
+
+        # Start database connection before we init the vector store
+        with self.conn.cursor() as c:
+            c.execute(f"DROP DATABASE IF EXISTS vector_db")
+            c.execute(f"CREATE DATABASE vector_db")
+        # Todo better use of database params
+        # Vector store database
+        self.vectorStore = PGVectorStore.from_params(database='vector_db',
+                                                      host='localhost',
+                                                      password='fish',
+                                                      port='5432',
+                                                      user='tuna',
+                                                      table_name='misntral_paper',
+                                                      # openai embedding dimension which is basically the standard
+                                                      embed_dim=384)
+```
+Next we need to build a retriever for our vector database
+```python
+class VectorDBRetriever(BaseRetriever):
+    """Retriever over a postgres vector store."""
+
+    def __init__(self, vector_store, embed_model, query_mode="default", similarity_top_k=2):
+        """Init params."""
+        self._vector_store = vector_store # PGVectorStore object
+        self._embed_model = embed_model
+        self._query_mode = query_mode
+        self._similarity_top_k = similarity_top_k
+        super().__init__()
+
+    def _retrieve(self, query_bundle):
+        """Retrieve."""
+        query_embedding = self._embed_model.get_query_embedding(query_bundle.query_str)
+
+        vector_store_query = VectorStoreQuery(query_embedding=query_embedding,
+                                              similarity_top_k=self._similarity_top_k,
+                                              mode=self._query_mode)
+
+        query_result = self._vector_store.query(vector_store_query)
+
+        nodes_with_scores = []
+        for index, node in enumerate(query_result.nodes):
+            score: Optional[float] = None
+            if query_result.similarities is not None:
+                score = query_result.similarities[index]
+            nodes_with_scores.append(NodeWithScore(node=node, score=score))
+
+        return nodes_with_scores
+```
+Then define a helper function to process context documents
+```python
+def proccessFiles(client, files):
+    loader = PyMuPDFReader()
+    # files = file_upload.file_contents
+    # print(files)
+    documents = loader.load(file_path=files)
+    text_parser = SentenceSplitter(chunk_size=1024)  # separator=" ",
+
+    # Split documents
+    text_chunks = []
+    # maintain relationship with source doc index, to help inject doc metadata in (3)
+    doc_idxs = []
+    for doc_idx, doc in enumerate(documents):
+        cur_text_chunks = text_parser.split_text(doc.text)
+        text_chunks.extend(cur_text_chunks)
+        doc_idxs.extend([doc_idx] * len(cur_text_chunks))
+
+    # Construct Nodes from Text Chunks
+    nodes = []
+    for idx, text_chunk in enumerate(text_chunks):
+        node = TextNode(text=text_chunk)
+        src_doc = documents[doc_idxs[idx]]
+        node.metadata = src_doc.metadata
+        nodes.append(node)
+
+    # Generate Embeddings for each Node
+    for node in nodes:
+        node_embedding = client.embedModel.get_text_embedding(node.get_content(metadata_mode="all"))
+        node.embedding = node_embedding
+
+    # Load Nodes into a Vector Store
+    client.vectorStore.add(nodes)
+```
+
+Finally in main (for now) init our client, build chatbot, and set up ui
+```python
+if __name__ == "__main__":
+
+    client = Client()
+    # Replace with path to desired data
+    proccessFiles(client, './data/test_txt_to_pdf/camber.pdf')
+
+    with gr.Blocks(theme=gr.themes.Soft()) as interface:
+        gr.Markdown(
+            """
+            # SP-4
+            """)
+        chatbot = gr.Chatbot()
+        print('here')
+        msg = gr.Textbox()
+        #fileUpload = gr.UploadButton("Upload a file", file_count="single").upload(proccessFiles)
+        clear = gr.ClearButton([msg, chatbot])
+
+        def respond(message, chat_history):
+            # query_mode = "sparse"
+            # query_mode = "hybrid"
+            retriever = VectorDBRetriever(client.vectorStore, client.embedModel, query_mode="default", similarity_top_k=2)
+            query_engine = RetrieverQueryEngine.from_args(retriever, llm=client.llm)
+            response = str(query_engine.query(message))
+            chat_history.append((message, response))
+            return "", chat_history
+
+        msg.submit(respond, [msg, chatbot], [msg, chatbot])
+
+    interface.launch(share=False)
+```
+# What you should see
+
+# Next Steps
+- Stream Tokens
+- File Upload Widget and automatic processing
