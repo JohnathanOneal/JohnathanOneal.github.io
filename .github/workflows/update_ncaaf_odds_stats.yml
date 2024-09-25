@@ -1,0 +1,35 @@
+name: Update Odds Stats to S3
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests boto3
+
+    - name: Fetch Odds stats and upload to S3
+      env:
+        ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+      run: python scripts/ncaaf_odds.py
+
+    - name: Check S3 upload
+      run: |
+        echo "Odds stats have been uploaded to S3 bucket: ${{ secrets.S3_BUCKET_NAME }}"
+        echo "Check the S3 bucket for the uploaded file with timestamp in the name."
