@@ -528,3 +528,45 @@ footer {
     padding: 12px 15px;
     border-top: 1px solid #ddd;
 }
+
+.odds-stats {
+    margin-top: 30px;
+  }
+
+.game-scoreboard {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.team-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.team-name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.team-odds {
+    margin-right: 15px;
+    font-weight: bold;
+    color: #4070a0;
+}
+
+.team-bookmaker {
+    font-style: italic;
+    color: #666;
+}
+
+.game-info {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}

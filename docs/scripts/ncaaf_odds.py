@@ -50,17 +50,20 @@ def filter_odds_data(raw_data):
     filtered_data = []
     for game in raw_data:
         best_odds = {
-            "home_team": {"name": game["home_team"], "odds": -float('inf'), "bookmaker": "", "last_update": ""},
-            "away_team": {"name": game["away_team"], "odds": -float('inf'), "bookmaker": "", "last_update": ""}
+            "home_team": {"name": game["home_team"], "odds": None, "bookmaker": None, "last_update": None},
+            "away_team": {"name": game["away_team"], "odds": None, "bookmaker": None, "last_update": None}
         }
 
-        for bookmaker in game["bookmakers"]:
-            for outcome in bookmaker["markets"][0]["outcomes"]:
-                team_key = "home_team" if outcome["name"] == game["home_team"] else "away_team"
-                if outcome["price"] > best_odds[team_key]["odds"]:
-                    best_odds[team_key]["odds"] = outcome["price"]
-                    best_odds[team_key]["bookmaker"] = bookmaker["title"]
-                    best_odds[team_key]["last_update"] = bookmaker["last_update"]
+        if "bookmakers" in game and game["bookmakers"]:
+            for bookmaker in game["bookmakers"]:
+                if "markets" in bookmaker and bookmaker["markets"]:
+                    for outcome in bookmaker["markets"][0]["outcomes"]:
+                        team_key = "home_team" if outcome["name"] == game["home_team"] else "away_team"
+                        current_odds = best_odds[team_key]["odds"]
+                        if current_odds is None or outcome["price"] > current_odds:
+                            best_odds[team_key]["odds"] = outcome["price"]
+                            best_odds[team_key]["bookmaker"] = bookmaker["title"]
+                            best_odds[team_key]["last_update"] = bookmaker["last_update"]
 
         filtered_data.append({
             "id": game["id"],

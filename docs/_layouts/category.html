@@ -64,6 +64,13 @@ layout: default
             </article>
         {% endfor %}
     </div>
+
+    {% if page.title == 'Sports' %}
+    <div class="odds-stats">
+      <h2>NCAAF Odds</h2>
+      <div id="oddsChart"></div>
+    </div>
+    {% endif %}
 </div>
 
 {% if page.title == '日本語' %}
@@ -323,5 +330,71 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching accuracy stats:', error);
         });
 });
+<script>
+{% endif %}
+
+{% if page.title == 'Sports' %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, attempting to fetch Odds stats...');
+
+    if (typeof fetch !== 'function') {
+        console.error('Fetch function not available');
+        return;
+    }
+
+    const url = 'https://github-pages-data.s3.amazonaws.com/odds_stats_filtered_20240926_200613.json';
+    console.log('Fetching from URL:', url);
+
+    fetch(url)
+        .then(response => {
+            console.log('Received response:', response);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data parsed successfully:', data);
+            if (!Array.isArray(data)) {
+                throw new Error('Unexpected data structure');
+            }
+            renderOddsChart(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
+function renderOddsChart(data) {
+    const chartContainer = document.getElementById('oddsChart');
+
+    data.forEach(game => {
+        const gameDiv = document.createElement('div');
+        gameDiv.className = 'game-scoreboard';
+
+        const homeTeam = game.home_team;
+        const awayTeam = game.away_team;
+
+        gameDiv.innerHTML = `
+            <div class="team-row">
+                <span class="team-name">${homeTeam.name}</span>
+                <span class="team-odds">${homeTeam.odds !== null ? homeTeam.odds : 'N/A'}</span>
+                <span class="team-bookmaker">${homeTeam.bookmaker || 'N/A'}</span>
+            </div>
+            <div class="team-row">
+                <span class="team-name">${awayTeam.name}</span>
+                <span class="team-odds">${awayTeam.odds !== null ? awayTeam.odds : 'N/A'}</span>
+                <span class="team-bookmaker">${awayTeam.bookmaker || 'N/A'}</span>
+            </div>
+            <div class="game-info">
+                <div>Game Time: ${new Date(game.commence_time).toLocaleString()}</div>
+                <div>Last Updated: ${homeTeam.last_update ? new Date(homeTeam.last_update).toLocaleString() : 'N/A'}</div>
+            </div>
+        `;
+
+        chartContainer.appendChild(gameDiv);
+    });
+}
 </script>
 {% endif %}
