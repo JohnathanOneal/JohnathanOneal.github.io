@@ -330,7 +330,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching accuracy stats:', error);
         });
 });
-<script>
 {% endif %}
 
 {% if page.title == 'Sports' %}
@@ -343,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
-    const url = 'https://github-pages-data.s3.amazonaws.com/odds_stats_filtered_20240926_200613.json';
+    const url = 'https://github-pages-data.s3.amazonaws.com/odds_stats_filtered_20240926_211949.json';
     console.log('Fetching from URL:', url);
 
     fetch(url)
@@ -357,17 +356,48 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Data parsed successfully:', data);
             if (!Array.isArray(data)) {
-                throw new Error('Unexpected data structure');
+                throw new Error('Unexpected data structure: not an array');
             }
             renderOddsChart(data);
         })
         .catch(error => {
             console.error('Error:', error);
+            document.getElementById('oddsChart').innerHTML = `<p>Error loading odds data: ${error.message}</p>`;
         });
 });
 
+function calculateHold(homeOdds, awayOdds) {
+    if (homeOdds === null || awayOdds === null) return null;
+
+    const toProb = (odds) => (odds > 0) ? 100 / (odds + 100) : -odds / (-odds + 100);
+    const homeProb = toProb(homeOdds);
+    const awayProb = toProb(awayOdds);
+
+    return ((homeProb + awayProb) - 1) * 100;
+}
+
+function getHoldColor(hold) {
+    if (hold === null) return '#888888'; // Gray for N/A
+    if (hold < 1) return '#006400'; // Dark Green
+    if (hold < 2) return '#FFA500'; // Orange
+    return '#8B0000'; // Dark Red
+}
+
 function renderOddsChart(data) {
     const chartContainer = document.getElementById('oddsChart');
+
+    // Calculate hold for each game and add it to the data
+    data.forEach(game => {
+        game.hold = calculateHold(game.home_team.odds, game.away_team.odds);
+    });
+
+    // Sort games by hold (lowest to highest)
+    data.sort((a, b) => {
+        if (a.hold === null && b.hold === null) return 0;
+        if (a.hold === null) return 1;
+        if (b.hold === null) return -1;
+        return a.hold - b.hold;
+    });
 
     data.forEach(game => {
         const gameDiv = document.createElement('div');
@@ -375,8 +405,14 @@ function renderOddsChart(data) {
 
         const homeTeam = game.home_team;
         const awayTeam = game.away_team;
+        const holdColor = getHoldColor(game.hold);
 
         gameDiv.innerHTML = `
+            <div class="hold-info">
+                Hold: <span class="hold-percentage" style="color: ${holdColor}">
+                    ${game.hold !== null ? game.hold.toFixed(2) + '%' : 'N/A'}
+                </span>
+            </div>
             <div class="team-row">
                 <span class="team-name">${homeTeam.name}</span>
                 <span class="team-odds">${homeTeam.odds !== null ? homeTeam.odds : 'N/A'}</span>
