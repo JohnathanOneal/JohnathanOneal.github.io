@@ -335,26 +335,41 @@ document.addEventListener('DOMContentLoaded', function() {
 {% if page.title == 'Sports' %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, attempting to fetch Odds stats...');
-
+    console.log('DOM loaded, attempting to fetch latest Odds stats...');
     if (typeof fetch !== 'function') {
         console.error('Fetch function not available');
         return;
     }
+    fetchLatestOddsData();
+});
 
-    const url = 'https://github-pages-data.s3.amazonaws.com/odds_stats_filtered_20240926_211949.json';
-    console.log('Fetching from URL:', url);
+function fetchLatestOddsData() {
+    const latestFileInfoUrl = 'https://github-pages-data.s3.amazonaws.com/latest_file_info.json';
+    console.log('Fetching latest file info from:', latestFileInfoUrl);
 
-    fetch(url)
+    fetch(latestFileInfoUrl)
         .then(response => {
-            console.log('Received response:', response);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(fileInfo => {
+            if (!fileInfo.latest_file) {
+                throw new Error('Latest file information not found');
+            }
+            const oddsDataUrl = `https://github-pages-data.s3.amazonaws.com/${fileInfo.latest_file}`;
+            console.log('Fetching odds data from:', oddsDataUrl);
+            return fetch(oddsDataUrl);
+        })
+        .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            console.log('Data parsed successfully:', data);
+            console.log('Odds data parsed successfully');
             if (!Array.isArray(data)) {
                 throw new Error('Unexpected data structure: not an array');
             }
@@ -364,15 +379,13 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
             document.getElementById('oddsChart').innerHTML = `<p>Error loading odds data: ${error.message}</p>`;
         });
-});
+}
 
 function calculateHold(homeOdds, awayOdds) {
     if (homeOdds === null || awayOdds === null) return null;
-
     const toProb = (odds) => (odds > 0) ? 100 / (odds + 100) : -odds / (-odds + 100);
     const homeProb = toProb(homeOdds);
     const awayProb = toProb(awayOdds);
-
     return ((homeProb + awayProb) - 1) * 100;
 }
 
