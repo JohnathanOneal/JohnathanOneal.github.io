@@ -41,11 +41,11 @@ def fetch_odds_stats():
 
     # Upload raw data to S3
     upload_to_s3(s3, bucket_name, raw_filename, raw_data)
-    upload_pointer(s3, bucket_name, raw_filename)
+    upload_pointer(s3, bucket_name, raw_filename, 'latest_ncaaf_raw.json')
 
     # Upload filtered data to S3
     upload_to_s3(s3, bucket_name, filtered_filename, filtered_data)
-    upload_pointer(s3, bucket_name, filtered_filename)
+    upload_pointer(s3, bucket_name, filtered_filename, 'latest_ncaaf_filtered.json')
 
 def filter_odds_data(raw_data):
     filtered_data = []
@@ -90,12 +90,12 @@ def upload_to_s3(s3_client, bucket_name, filename, data):
     except ClientError as e:
         raise Exception(f"Error uploading {filename} to S3: {e}")
 
-def upload_pointer(s3_client, bucket_name, filename):
+def upload_pointer(s3_client, bucket_name, filename, pointer_filename):
     try:
         pointer = {'latest_file': filename}
         s3_client.put_object(
             Bucket=bucket_name,
-            Key='latest_file_info.json',
+            Key=pointer_filename,
             Body=json.dumps(pointer),
             ContentType='application/json'
         )
