@@ -14,6 +14,31 @@ layout: default
         {% endif %}
     </h1>
 
+    <div class="newspaper-columns">
+        {% for post in site.categories[page.category] %}
+            <article class="newspaper-article">
+                <h2 class="article-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                <p class="post-meta">
+                    {% if page.category == 'nihongo' %}
+                        {{ post.date | date: "%Y年%m月%d日" }}
+                    {% else %}
+                        {{ post.date | date: "%B %d, %Y" }}
+                    {% endif %}
+                </p>
+                <div class="article-excerpt">
+                    {{ post.excerpt | strip_html | truncate: 100 }}
+                </div>
+                <a href="{{ post.url | relative_url }}" class="read-more">
+                    {% if page.category == 'nihongo' %}
+                        続きを読む...
+                    {% else %}
+                        Read more...
+                    {% endif %}
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+
     {% if page.title == '日本語' %}
     <div class="wanikani-stats">
         <h2>WaniKani レベル進捗</h2>
@@ -39,31 +64,6 @@ layout: default
         </table>
     </div>
     {% endif %}
-
-    <div class="newspaper-columns">
-        {% for post in site.categories[page.category] %}
-            <article class="newspaper-article">
-                <h2 class="article-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-                <p class="post-meta">
-                    {% if page.category == 'nihongo' %}
-                        {{ post.date | date: "%Y年%m月%d日" }}
-                    {% else %}
-                        {{ post.date | date: "%B %d, %Y" }}
-                    {% endif %}
-                </p>
-                <div class="article-excerpt">
-                    {{ post.excerpt | strip_html | truncate: 100 }}
-                </div>
-                <a href="{{ post.url | relative_url }}" class="read-more">
-                    {% if page.category == 'nihongo' %}
-                        続きを読む...
-                    {% else %}
-                        Read more...
-                    {% endif %}
-                </a>
-            </article>
-        {% endfor %}
-    </div>
 
     {% if page.title == 'Sports' %}
     <div class="odds-stats">
