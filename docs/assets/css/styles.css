@@ -438,35 +438,94 @@ footer {
         padding-top: 15px;
     }
 }
-
 .wanikani-stats {
-    margin: 2em 0;
+    margin: 2em auto;
     padding: 1.5em;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    max-width: 800px;
+}
+
+.wanikani-stats::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, #f9b96e, #1a1501);
+}
+
+.wanikani-stats:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .wanikani-stats h2 {
     margin-bottom: 1em;
     color: #333;
-    font-size: 1.5em;
+    font-size: 1.8em;
     text-align: center;
+    font-weight: bold;
+    line-height: 1.2;
 }
 
-#levelProgressionChart {
+.chart-container {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+#levelProgressionChart,
+#categoryDistributionChart {
     max-width: 100%;
     height: auto;
     margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+/* Customizing chart tooltips */
+.chartjs-tooltip {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Customizing chart axes */
+.chartjs-render-monitor {
+    font-family: Arial, sans-serif;
+}
+
+.chartjs-axis-label {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
     .wanikani-stats {
-        max-width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+        padding: 1em;
+        margin: 1em auto;
+    }
+
+    .wanikani-stats h2 {
+        font-size: 1.5em;
+    }
+
+    .chart-container {
+        padding: 0.5em;
     }
 }
+
 /* Table container */
 .table-container {
     margin: 20px auto;
@@ -474,33 +533,52 @@ footer {
     max-width: 800px;
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.table-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, #f9b96e, #1a1501);
+}
+
+.table-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 /* Table styling */
 .accuracy-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     font-family: Arial, sans-serif;
     background-color: #ffffff;
-    border: 1px solid #ddd;
 }
 
 /* Header styling */
 .accuracy-table thead {
-    background-color: #4070a0;
+    background-color: #1a1501;
     color: #ffffff;
 }
 
 .accuracy-table th {
-    padding: 12px 15px;
+    padding: 15px;
     text-align: left;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 /* Body styling */
 .accuracy-table tbody tr:nth-child(even) {
-    background-color: #f9b96e;
+    background-color: #f9f9f9;
 }
 
 .accuracy-table tbody tr:nth-child(odd) {
@@ -509,24 +587,39 @@ footer {
 
 .accuracy-table td {
     padding: 12px 15px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #eee;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
 }
 
 /* Hover effect */
 .accuracy-table tbody tr:hover {
-    background-color: #f2c8a1;
+    background-color: #fff5e6;
 }
 
 /* Footer styling (if needed for total row) */
 .accuracy-table tfoot {
-    background-color: #4070a0;
+    background-color: #1a1501;
     color: #ffffff;
     font-weight: bold;
 }
 
 .accuracy-table tfoot td {
-    padding: 12px 15px;
-    border-top: 1px solid #ddd;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .table-container {
+        padding: 10px;
+    }
+
+    .accuracy-table th,
+    .accuracy-table td {
+        padding: 10px;
+    }
 }
 
 .odds-stats {

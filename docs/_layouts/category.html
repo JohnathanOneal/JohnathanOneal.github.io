@@ -122,7 +122,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     datasets: [{
                         label: 'レベル達成日数',
                         data: levelData.map(d => (d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24)),
-                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(249, 185, 110, 0.7)', // Lighter orange
+                        borderColor: 'rgba(0, 0, 0, 1)', // Black
                         tension: 0.1
                     }]
                 },
@@ -173,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 Burned: { kanji: 0, vocabulary: 0, radical: 0 }
             };
 
-            // Classify the data into the buckets
             data.forEach(item => {
                 const { meaning_current_streak, reading_current_streak, subject_type } = item.data;
                 const lowest_streak = Math.min(meaning_current_streak, reading_current_streak);
@@ -203,8 +203,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 buckets.Enlightened.kanji,
                                 buckets.Burned.kanji
                             ],
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(249, 185, 110, 0.7)', // Lighter orange
+                            borderColor: 'rgba(0, 0, 0, 1)', // Black
                             borderWidth: 1
                         },
                         {
@@ -216,8 +216,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                 buckets.Enlightened.vocabulary,
                                 buckets.Burned.vocabulary
                             ],
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(26, 21, 1, 0.7)', // Dark brown
+                            borderColor: 'rgba(0, 0, 0, 1)', // Black
                             borderWidth: 1
                         },
                         {
@@ -229,20 +229,76 @@ document.addEventListener('DOMContentLoaded', function() {
                                 buckets.Enlightened.radical,
                                 buckets.Burned.radical
                             ],
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(64, 112, 160, 0.7)', // Blue
+                            borderColor: 'rgba(0, 0, 0, 1)', // Black
                             borderWidth: 1
                         }
                     ]
                 },
                 options: {
                     responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 12
+                                },
+                                color: '#333'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                            titleColor: '#333',
+                            titleFont: {
+                                family: 'Arial, sans-serif',
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#555',
+                            bodyFont: {
+                                family: 'Arial, sans-serif',
+                                size: 12
+                            },
+                            borderColor: 'rgba(0, 0, 0, 0.1)',
+                            borderWidth: 1
+                        }
+                    },
                     scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 12
+                                },
+                                color: '#555'
+                            }
+                        },
                         y: {
                             beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 12
+                                },
+                                color: '#555'
+                            },
                             title: {
                                 display: true,
-                                text: '数量'
+                                text: '数量',
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                color: '#333'
                             }
                         }
                     }
@@ -260,35 +316,38 @@ document.addEventListener('DOMContentLoaded', function() {
             const stats = {
                 reading: { total: 0, correct: 0 },
                 meaning: { total: 0, correct: 0 },
-                radical: { total: 0, correct: 0 },   // 'radical' has no readings, only meaning
-                kanji: { total: 0, correct: 0 },
-                vocabulary: { total: 0, correct: 0 }
+                radical: { total: 0, correct: 0 },
+                kanji: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } },
+                vocabulary: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } },
+                kana_vocabulary: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } }
             };
 
             // Process the data
             data.forEach(item => {
                 const type = item.data.subject_type;
 
-                // Update meaning stats
-                stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
-                stats.meaning.correct += item.data.meaning_correct;
-
-                // Handle subject-specific stats
                 if (stats[type]) {
-                    // For radicals, only update meaning stats (no reading stats)
-                    stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
-                    stats[type].correct += item.data.meaning_correct;
+                    if (type === 'radical') {
+                        // Radicals only have meaning
+                        stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats[type].correct += item.data.meaning_correct;
+                        stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats.meaning.correct += item.data.meaning_correct;
+                    } else {
+                        // For kanji, vocabulary, and kana_vocabulary
+                        stats[type].reading.total += item.data.reading_correct + item.data.reading_incorrect;
+                        stats[type].reading.correct += item.data.reading_correct;
+                        stats[type].meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats[type].meaning.correct += item.data.meaning_correct;
 
-                    if (type !== 'radical') {
-                        // Update reading stats for kanji and vocabulary
+                        // Update overall reading and meaning stats
                         stats.reading.total += item.data.reading_correct + item.data.reading_incorrect;
                         stats.reading.correct += item.data.reading_correct;
-
-                        stats[type].total += item.data.reading_correct + item.data.reading_incorrect;
-                        stats[type].correct += item.data.reading_correct;
+                        stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats.meaning.correct += item.data.meaning_correct;
                     }
                 } else {
-                    console.error(`Unexpected subject type: ${type}`);
+                    console.warn(`Unexpected subject type: ${type}`);
                 }
             });
 
@@ -313,14 +372,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const accuracyRow = tableBody.insertRow();
             accuracyRow.innerHTML = `<td>Accuracy</td><td>${calcPercentage(stats.reading.correct, stats.reading.total)}</td><td>${calcPercentage(stats.meaning.correct, stats.meaning.total)}</td><td>${calcPercentage(stats.reading.correct + stats.meaning.correct, stats.reading.total + stats.meaning.total)}</td>`;
 
-            // Radical, Kanji, and Vocabulary rows
-            ['radical', 'kanji', 'vocabulary'].forEach(type => {
+            // Radical, Kanji, Vocabulary, and Kana Vocabulary rows
+            ['radical', 'kanji', 'vocabulary', 'kana_vocabulary'].forEach(type => {
                 const row = tableBody.insertRow();
-                const readingAccuracy = type === 'radical' ? '---' : calcPercentage(stats[type].correct, stats[type].total);
-                const meaningAccuracy = calcPercentage(stats[type].correct, stats[type].total);
-                const totalAccuracy = type === 'radical' ? meaningAccuracy : calcPercentage(stats[type].correct, stats[type].total);
+                let readingAccuracy, meaningAccuracy, totalAccuracy;
 
-                row.innerHTML = `<td>${type.charAt(0).toUpperCase() + type.slice(1)}</td>
+                if (type === 'radical') {
+                    readingAccuracy = '---';
+                    meaningAccuracy = calcPercentage(stats[type].correct, stats[type].total);
+                    totalAccuracy = meaningAccuracy;
+                } else {
+                    readingAccuracy = calcPercentage(stats[type].reading.correct, stats[type].reading.total);
+                    meaningAccuracy = calcPercentage(stats[type].meaning.correct, stats[type].meaning.total);
+                    totalAccuracy = calcPercentage(
+                        stats[type].reading.correct + stats[type].meaning.correct,
+                        stats[type].reading.total + stats[type].meaning.total
+                    );
+                }
+
+                row.innerHTML = `<td>${type.charAt(0).toUpperCase() + type.slice(1).replace('_', ' ')}</td>
                                  <td>${readingAccuracy}</td>
                                  <td>${meaningAccuracy}</td>
                                  <td>${totalAccuracy}</td>`;
@@ -330,6 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching accuracy stats:', error);
         });
 });
+</script>
 {% endif %}
 
 {% if page.title == 'Sports' %}
