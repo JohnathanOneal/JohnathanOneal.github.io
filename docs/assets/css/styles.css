@@ -611,12 +611,12 @@ code {
   color: #333; /* Dark color for light mode */
 }
 
-#darkModeToggle .sun-icon {
+#darkModeToggle .moon-icon {
   opacity: 1;
   transform: scale(1);
 }
 
-#darkModeToggle .moon-icon {
+#darkModeToggle .sun-icon {
   opacity: 0;
   transform: scale(0.8);
   position: absolute;
@@ -712,12 +712,12 @@ body.dark-mode {
   color: #e0e0e0; /* Light color for dark mode */
 }
 
-.dark-mode #darkModeToggle .sun-icon {
+.dark-mode #darkModeToggle .moon-icon {
   opacity: 0;
   transform: scale(0.8);
 }
 
-.dark-mode #darkModeToggle .moon-icon {
+.dark-mode #darkModeToggle .sun-icon {
   opacity: 1;
   transform: scale(1);
 }

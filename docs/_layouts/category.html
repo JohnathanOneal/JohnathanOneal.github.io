@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 radical: { total: 0, correct: 0 },
                 kanji: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } },
                 vocabulary: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } },
-                kana_vocabulary: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } }
+                kana_vocabulary: { total: 0, correct: 0 }
             };
 
             // Process the data
@@ -327,14 +327,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const type = item.data.subject_type;
 
                 if (stats[type]) {
-                    if (type === 'radical') {
-                        // Radicals only have meaning
+                    if (type === 'radical' || type === 'kana_vocabulary') {
+                        // Radicals and kana_vocabulary only have meaning
                         stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
                         stats[type].correct += item.data.meaning_correct;
                         stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
                         stats.meaning.correct += item.data.meaning_correct;
                     } else {
-                        // For kanji, vocabulary, and kana_vocabulary
+                        // For kanji and vocabulary
                         stats[type].reading.total += item.data.reading_correct + item.data.reading_incorrect;
                         stats[type].reading.correct += item.data.reading_correct;
                         stats[type].meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const row = tableBody.insertRow();
                 let readingAccuracy, meaningAccuracy, totalAccuracy;
 
-                if (type === 'radical') {
+                if (type === 'radical' || type === 'kana_vocabulary') {
                     readingAccuracy = '---';
                     meaningAccuracy = calcPercentage(stats[type].correct, stats[type].total);
                     totalAccuracy = meaningAccuracy;
