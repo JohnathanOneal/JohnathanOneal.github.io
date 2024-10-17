@@ -6,7 +6,7 @@ categories: [sports]
 ---
 
 <p align="center">
-  <img src="/assets/hal/halscreenshot.png">
+  <img src="/assets/hal/halscreenshot.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
 </p>
 
 Leveraging Machine Learning for Strategic Advantage in March Madness Predictions (Not responsible for broken relationships due to bracket challenge dominance)
@@ -33,7 +33,7 @@ Neural networks are powerful machine learning models inspired by the human brain
 The network learns by adjusting these weights based on the difference between its predictions and the actual results. This process, repeated many times with lots of data, allows the network to improve its accuracy.
 
 <p align="center">
-  <img src="/assets/hal/nndiagram.png">
+  <img src="/assets/hal/nndiagram.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
 </p>
 
 ### How Neural Networks Work
@@ -44,7 +44,7 @@ The network learns by adjusting these weights based on the difference between it
 4. **Learning Process**: The network "learns" by adjusting the weights between nodes. It compares its output to the correct answer and tweaks the weights to get closer to the right result.
 
 <p align="center">
-  <img src="/assets/hal/nnwithnumbers.png">
+  <img src="/assets/hal/nnwithnumbers.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
 </p>
 
 ## Proximal Policy Optimization (PPO): Advanced Neural Networks in Action
