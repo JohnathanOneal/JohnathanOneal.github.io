@@ -41,14 +41,14 @@ layout: default
 
     {% if page.title == '日本語' %}
     <div class="wanikani-stats">
-        <h2>WaniKani レベル進捗</h2>
+        <h2>WaniKani Level Up Graph / レベルアップグラフ</h2>
         <canvas id="levelProgressionChart"></canvas>
 
-        <h2>WaniKani カテゴリーバケツ分布</h2>
+        <h2>Number of Know Words / 知っている言葉の数</h2>
         <canvas id="categoryDistributionChart"></canvas> <!-- New chart for distribution -->
 
         <!-- New Accuracy Table Section -->
-        <h2>WaniKani 正確性</h2>
+        <h2>Review Accuracy / 復習の正確さ</h2>
         <table id="accuracyTable" class="accuracy-table">
             <thead>
                 <tr>
@@ -118,9 +118,9 @@ document.addEventListener('DOMContentLoaded', function() {
             new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: levelData.map(d => `レベル ${d.level}`),
+                    labels: levelData.map(d => `Level / レベル ${d.level}`),
                     datasets: [{
-                        label: 'レベル達成日数',
+                        label: 'Days on Level',
                         data: levelData.map(d => (d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24)),
                         backgroundColor: 'rgba(249, 185, 110, 0.7)', // Lighter orange
                         borderColor: 'rgba(0, 0, 0, 1)', // Black
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             beginAtZero: true,
                             title: {
                                 display: true,
-                                text: '日数'
+                                text: 'Day Count / 日数'
                             }
                         }
                     },
