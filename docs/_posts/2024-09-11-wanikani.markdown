@@ -4,56 +4,491 @@ title:  "How Did I Make This Page?"
 date:   2024-09-11 16:37:09 -0400
 categories: [nihongo]
 ---
-Api Calls, Github Actions, and Javascript Galore!
+Api Calls, Github Actions, AWS S3, and Javascript Galore!
 
 ## Introduction
-As you probably noticed this page differs drastically from the post layout of the other categories. Keeping with the theme of procesing and 
-visualizing data to glean insights as well as an excuse to incorporate many cool techonoliges I decided to post my kanji learning statics in
-a dashbaord style layout to this post
+My Japanese Language Journey Started in earnest Decmber 4th, 2023 when I began WaniKani. WaniKani is an application that uses a Spaced Repition System (SRS) and Mneomics to help Japanese learns learn Kanji and Vocbulary. Insert sentence about why kanji is so hard to learn. insert quick sentce about spaced repition system. While my Japanese language larning toolkit has since evolved to encompass more aspects of the language, (grammar, speaking, reading, talking) with the addictive nature of needing to stay on top of srs reviews and the sheer number of kanji needed to be able to read at a high level, WaniKani has remained a daily staple for me.
+
+With so much time spent on reviews and level ups, I thought it would be a great use of my data engineering background to employ some data ETL (extract, transform, load) to gather data about my learning history, and a personal develoment chalenge to learn front end programmoing to display it nicely.
 
 ## Getting the Data via API
+The first step is our data extraction. Luckily WaniKani comes with a developer frinedly API (Application programming interface) that lets us programitclly access the data.
 
 ### Github Secrets
 
 ### Level Data
 ```python
-api_key = os.environ['WANIKANI_API_KEY']
-headers = {
-'Authorization': f'Bearer {api_key}'
-}
+import requests
+import json
+import os
+from datetime import datetime
+import boto3
+from botocore.exceptions import ClientError
 
-# Fetch level up stats and write to JSON
-level_url = 'https://api.wanikani.com/v2/level_progressions'
-response = requests.get(level_url, headers=headers)
-data = response.json()
 
-with open('../data/wanikani_stats.json', 'w') as f:
-json.dump(data, f, indent=2)
-```
-### Full Stats
-```python
-stats_url = 'https://api.wanikani.com/v2/review_statistics'
-all_data = []
+def fetch_wanikani_stats():
+    api_key = os.environ['WANIKANI_API_KEY']
+    headers = {
+        'Authorization': f'Bearer {api_key}'
+    }
 
-# API call returns in pages of 500 have to go in batches
-while stats_url:
-response = requests.get(stats_url, headers=headers)
-response_data = response.json()
+    # Initialize S3 client
+    s3 = boto3.client('s3',
+        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+    )
+    bucket_name = os.environ['S3_BUCKET_NAME']
 
-# Add the current batch of data to the all_data list
-all_data.extend(response_data['data'])
+    # Fetch level up stats and write to JSON
+    level_url = 'https://api.wanikani.com/v2/level_progressions'
+    response = requests.get(level_url, headers=headers)
+    data = response.json()
 
-# Get the next URL from the response, if available
-stats_url = response_data['pages'].get('next_url')
+    # Upload level stats to S3
+    try:
+        s3.put_object(
+            Bucket=bucket_name,
+            Key='wanikani_stats.json',
+            Body=json.dumps(data, indent=2),
+            ContentType='application/json'
+        )
+    except ClientError as e:
+        print(f"Error uploading wanikani_stats.json to S3: {e}")
 
-# Write the complete data to a JSON file
-with open('../data/all_review_statistics.json', 'w') as file:
-json.dump(all_data, file, indent=4)
+
+    stats_url = 'https://api.wanikani.com/v2/review_statistics'
+    all_data = []
+
+    # API call returns in pages of 500 have to go in batches
+    while stats_url:
+        response = requests.get(stats_url, headers=headers)
+        response_data = response.json()
+    
+        # Add the current batch of data to the all_data list
+        all_data.extend(response_data['data'])
+    
+        # Get the next URL from the response, if available
+        stats_url = response_data['pages'].get('next_url')
+
+        # Upload review statistics to S3
+    try:
+        s3.put_object(
+            Bucket=bucket_name,
+            Key='all_review_statistics.json',
+            Body=json.dumps(all_data, indent=4),
+            ContentType='application/json'
+        )
+    except ClientError as e:
+        print(f"Error uploading all_review_statistics.json to S3: {e}")
+
+if __name__ == "__main__":
+    fetch_wanikani_stats()
 ```
 
 ## Publishing Data Every Day
 
 ### Github Actions
-### Personal Access Token
+``` python 
+name: Update WaniKani Stats to S3
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests boto3
+
+    - name: Fetch WaniKani stats and upload to S3
+      env:
+        WANIKANI_API_KEY: ${{ secrets.WANIKANI_API_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+      run: python docs/scripts/wanikani.py
+
+    - name: Check S3 upload
+      run: |
+        echo "WaniKani stats have been uploaded to S3 bucket: ${{ secrets.S3_BUCKET_NAME }}"
+        echo "Files uploaded: wanikani_stats.json and all_review_statistics.json"
+
+```
 
 ## Reading Data to Webpage
+
+```
+    {% if page.title == '日本語' %}
+    <div class="wanikani-stats">
+        <h2>WaniKani Level Up Graph / レベルアップグラフ</h2>
+        <canvas id="levelProgressionChart"></canvas>
+
+        <h2>Number of Know Words / 知っている言葉の数</h2>
+        <canvas id="categoryDistributionChart"></canvas> <!-- New chart for distribution -->
+
+        <!-- New Accuracy Table Section -->
+        <h2>Review Accuracy / 復習の正確さ</h2>
+        <table id="accuracyTable" class="accuracy-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Reading</th>
+                    <th>Meaning</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- This will be dynamically populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+    
+{% if page.title == '日本語' %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, attempting to fetch WaniKani stats...');
+
+    // Check if the fetch function exists
+    if (typeof fetch !== 'function') {
+        console.error('Fetch function not available');
+        return;
+    }
+
+    const url = 'https://github-pages-data.s3.amazonaws.com/wanikani_stats.json';
+    console.log('Fetching from URL:', url);
+
+    fetch(url)
+        .then(response => {
+            console.log('Received response:', response);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data parsed successfully:', data);
+            if (!data.data || !Array.isArray(data.data)) {
+                throw new Error('Unexpected data structure');
+            }
+            const levelData = data.data
+                .filter(item => item.data.passed_at) // Only include levels that have been passed
+                .map(item => ({
+                    level: item.data.level,
+                    startedAt: new Date(item.data.started_at),
+                    passedAt: new Date(item.data.passed_at)
+                }))
+                .sort((a, b) => a.level - b.level); // Sort by level
+
+            console.log('Processed level data:', levelData);
+            const ctx = document.getElementById('levelProgressionChart');
+            if (!ctx) {
+                throw new Error('Could not find chart canvas element');
+            }
+            console.log('Chart canvas element found');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: levelData.map(d => `Level / レベル ${d.level}`),
+                    datasets: [{
+                        label: 'Days on Level',
+                        data: levelData.map(d => (d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24)),
+                        backgroundColor: 'rgba(249, 185, 110, 0.7)', // Lighter orange
+                        borderColor: 'rgba(0, 0, 0, 1)', // Black
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Day Count / 日数'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += Math.round(context.parsed.y) + ' 日';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            console.log('Chart created successfully');
+        })
+        .catch(error => {
+            console.error('Error creating WaniKani chart:', error);
+            document.getElementById('levelProgressionChart').insertAdjacentHTML('afterend', `<p style="color: red;">エラーが発生しました: ${error.message}</p>`);
+        });
+
+    fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
+        .then(response => response.json())
+        .then(data => {
+            const buckets = {
+                Apprentice: { kanji: 0, vocabulary: 0, radical: 0 },
+                Guru: { kanji: 0, vocabulary: 0, radical: 0 },
+                Master: { kanji: 0, vocabulary: 0, radical: 0 },
+                Enlightened: { kanji: 0, vocabulary: 0, radical: 0 },
+                Burned: { kanji: 0, vocabulary: 0, radical: 0 }
+            };
+
+            data.forEach(item => {
+                const { meaning_current_streak, reading_current_streak, subject_type } = item.data;
+                const lowest_streak = Math.min(meaning_current_streak, reading_current_streak);
+
+                let bucket;
+                if (lowest_streak < 5) bucket = 'Apprentice';
+                else if (lowest_streak === 5) bucket = 'Guru';
+                else if (lowest_streak === 6) bucket = 'Master';
+                else if (lowest_streak === 7) bucket = 'Enlightened';
+                else bucket = 'Burned';
+
+                buckets[bucket][subject_type]++;
+            });
+
+            const ctx2 = document.getElementById('categoryDistributionChart');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Apprentice', 'Guru', 'Master', 'Enlightened', 'Burned'],
+                    datasets: [
+                        {
+                            label: 'Kanji',
+                            data: [
+                                buckets.Apprentice.kanji,
+                                buckets.Guru.kanji,
+                                buckets.Master.kanji,
+                                buckets.Enlightened.kanji,
+                                buckets.Burned.kanji
+                            ],
+                            backgroundColor: 'rgba(249, 185, 110, 0.7)', // Lighter orange
+                            borderColor: 'rgba(0, 0, 0, 1)', // Black
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Vocabulary',
+                            data: [
+                                buckets.Apprentice.vocabulary,
+                                buckets.Guru.vocabulary,
+                                buckets.Master.vocabulary,
+                                buckets.Enlightened.vocabulary,
+                                buckets.Burned.vocabulary
+                            ],
+                            backgroundColor: 'rgba(26, 21, 1, 0.7)', // Dark brown
+                            borderColor: 'rgba(0, 0, 0, 1)', // Black
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Radical',
+                            data: [
+                                buckets.Apprentice.radical,
+                                buckets.Guru.radical,
+                                buckets.Master.radical,
+                                buckets.Enlightened.radical,
+                                buckets.Burned.radical
+                            ],
+                            backgroundColor: 'rgba(64, 112, 160, 0.7)', // Blue
+                            borderColor: 'rgba(0, 0, 0, 1)', // Black
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 12
+                                },
+                                color: '#333'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                            titleColor: '#333',
+                            titleFont: {
+                                family: 'Arial, sans-serif',
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#555',
+                            bodyFont: {
+                                family: 'Arial, sans-serif',
+                                size: 12
+                            },
+                            borderColor: 'rgba(0, 0, 0, 0.1)',
+                            borderWidth: 1
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 12
+                                },
+                                color: '#555'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            },
+                            ticks: {
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 12
+                                },
+                                color: '#555'
+                            },
+                            title: {
+                                display: true,
+                                text: '数量',
+                                font: {
+                                    family: 'Arial, sans-serif',
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                color: '#333'
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching WaniKani review stats:', error);
+        });
+
+    fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
+        .then(response => response.json())
+        .then(data => {
+            // Initialize stats object
+            const stats = {
+                reading: { total: 0, correct: 0 },
+                meaning: { total: 0, correct: 0 },
+                radical: { total: 0, correct: 0 },
+                kanji: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } },
+                vocabulary: { reading: { total: 0, correct: 0 }, meaning: { total: 0, correct: 0 } },
+                kana_vocabulary: { total: 0, correct: 0 }
+            };
+
+            // Process the data
+            data.forEach(item => {
+                const type = item.data.subject_type;
+
+                if (stats[type]) {
+                    if (type === 'radical' || type === 'kana_vocabulary') {
+                        // Radicals and kana_vocabulary only have meaning
+                        stats[type].total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats[type].correct += item.data.meaning_correct;
+                        stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats.meaning.correct += item.data.meaning_correct;
+                    } else {
+                        // For kanji and vocabulary
+                        stats[type].reading.total += item.data.reading_correct + item.data.reading_incorrect;
+                        stats[type].reading.correct += item.data.reading_correct;
+                        stats[type].meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats[type].meaning.correct += item.data.meaning_correct;
+
+                        // Update overall reading and meaning stats
+                        stats.reading.total += item.data.reading_correct + item.data.reading_incorrect;
+                        stats.reading.correct += item.data.reading_correct;
+                        stats.meaning.total += item.data.meaning_correct + item.data.meaning_incorrect;
+                        stats.meaning.correct += item.data.meaning_correct;
+                    }
+                } else {
+                    console.warn(`Unexpected subject type: ${type}`);
+                }
+            });
+
+            // Helper function to calculate percentage
+            const calcPercentage = (correct, total) => (total > 0 ? ((correct / total) * 100).toFixed(2) : 0) + '%';
+
+            // Populate the accuracy table
+            const tableBody = document.getElementById('accuracyTable').getElementsByTagName('tbody')[0];
+
+            // Clear existing rows
+            tableBody.innerHTML = '';
+
+            // Total reviews row
+            const totalRow = tableBody.insertRow();
+            totalRow.innerHTML = `<td>Total Reviews</td><td>${stats.reading.total}</td><td>${stats.meaning.total}</td><td>${stats.reading.total + stats.meaning.total}</td>`;
+
+            // Correct reviews row
+            const correctRow = tableBody.insertRow();
+            correctRow.innerHTML = `<td>Correct</td><td>${stats.reading.correct}</td><td>${stats.meaning.correct}</td><td>${stats.reading.correct + stats.meaning.correct}</td>`;
+
+            // Accuracy row
+            const accuracyRow = tableBody.insertRow();
+            accuracyRow.innerHTML = `<td>Accuracy</td><td>${calcPercentage(stats.reading.correct, stats.reading.total)}</td><td>${calcPercentage(stats.meaning.correct, stats.meaning.total)}</td><td>${calcPercentage(stats.reading.correct + stats.meaning.correct, stats.reading.total + stats.meaning.total)}</td>`;
+
+            // Radical, Kanji, Vocabulary, and Kana Vocabulary rows
+            ['radical', 'kanji', 'vocabulary', 'kana_vocabulary'].forEach(type => {
+                const row = tableBody.insertRow();
+                let readingAccuracy, meaningAccuracy, totalAccuracy;
+
+                if (type === 'radical' || type === 'kana_vocabulary') {
+                    readingAccuracy = '---';
+                    meaningAccuracy = calcPercentage(stats[type].correct, stats[type].total);
+                    totalAccuracy = meaningAccuracy;
+                } else {
+                    readingAccuracy = calcPercentage(stats[type].reading.correct, stats[type].reading.total);
+                    meaningAccuracy = calcPercentage(stats[type].meaning.correct, stats[type].meaning.total);
+                    totalAccuracy = calcPercentage(
+                        stats[type].reading.correct + stats[type].meaning.correct,
+                        stats[type].reading.total + stats[type].meaning.total
+                    );
+                }
+
+                row.innerHTML = `<td>${type.charAt(0).toUpperCase() + type.slice(1).replace('_', ' ')}</td>
+                                 <td>${readingAccuracy}</td>
+                                 <td>${meaningAccuracy}</td>
+                                 <td>${totalAccuracy}</td>`;
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching accuracy stats:', error);
+        });
+});
+</script>
+{% endif %}
+```
+
+
+
+
+
+
+
