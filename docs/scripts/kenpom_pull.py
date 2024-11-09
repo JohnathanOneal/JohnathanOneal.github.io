@@ -58,7 +58,7 @@ def scrape_kenpom_table(page, url, year):
 
 def fetch_kenpom_data(begin_season=2025,end_season=2025):
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         page = browser.new_page()
 
         # Login to kenpom
