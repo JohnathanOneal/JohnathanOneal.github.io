@@ -4,6 +4,7 @@ import kenpom_constants
 import boto3
 import os
 from botocore.exceptions import ClientError
+import argparse
 
 
 def extract_table_rows(page):
