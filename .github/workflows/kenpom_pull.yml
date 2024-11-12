@@ -1,8 +1,8 @@
 name: Update KenPom Data to S3
 
 on:
-  schedule:
-    - cron: '0 10 * * *'  # Runs at 10:00 UTC every day (5:00 AM Eastern Time)
+  # schedule:
+  #   - cron: '0 10 * * *'  # Runs at 10:00 UTC every day (5:00 AM Eastern Time)
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
