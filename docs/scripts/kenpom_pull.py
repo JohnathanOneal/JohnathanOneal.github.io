@@ -63,6 +63,7 @@ def fetch_kenpom_data(begin_season=2025,end_season=2025):
 
         # Login to kenpom
         page.goto("https://kenpom.com/")
+        print(page.content())
         page.fill("input[name='email']", os.environ['KENPOM_USERNAME'], timeout=20000)
         page.fill("input[name='password']", os.environ['KENPOM_PASSWORD'])
         page.click("input[type='submit']")
