@@ -14,6 +14,16 @@ layout: default
         {% endif %}
     </h1>
 
+    {% if page.title == 'Sports' %}
+    <div class="basketball-odds-box">
+        <h2>Basketball Odds</h2>
+        <a href="{{ '/categories/sports/basketball' | relative_url }}" class="odds-link">
+            <i class="fas fa-basketball-ball"></i>
+            <span>View Basketball Odds by Date</span>
+        </a>
+    </div>
+    {% endif %}
+
     <div class="newspaper-columns">
         {% for post in site.categories[page.category] %}
             <article class="newspaper-article">

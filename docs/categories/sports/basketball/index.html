@@ -1,4 +1,97 @@
 ---
-layout: basketball-odds
+layout: default
 title: Basketball Odds
 ---
+<div class="newspaper-category">
+    <h1 class="category-title">Basketball Odds</h1>
+    
+    <div class="navigation-links">
+        <a href="{{ '/categories/sports' | relative_url }}" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Sports
+        </a>
+    </div>
+
+    <div class="odds-dates">
+        <h2>Available Dates</h2>
+        <div class="date-grid" id="dateList"></div>
+    </div>
+</div>
+
+<style>
+.navigation-links {
+    margin: 1rem 0;
+}
+
+.back-link {
+    color: var(--text-primary, #333);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.date-card {
+    background: var(--bg-secondary, #f5f5f5);
+    border: 2px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.date-card a {
+    color: var(--text-primary, #333);
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+}
+
+.date-card:hover {
+    background: var(--bg-primary, #fff);
+    border-color: var(--accent-color, #4a4a4a);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    fetchAvailableDates();
+});
+
+function fetchAvailableDates() {
+    // You'll need to create this JSON file that lists available dates
+    fetch('https://github-pages-data.s3.amazonaws.com/basketball/available_dates.json')
+        .then(response => response.json())
+        .then(dates => {
+            const dateList = document.getElementById('dateList');
+            dates.forEach(date => {
+                const [year, month, day] = date.split('/');
+                const dateObj = new Date(year, month - 1, day);
+                const formattedDate = dateObj.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                const dateCard = document.createElement('div');
+                dateCard.className = 'date-card';
+                dateCard.innerHTML = `
+                    <a href="/categories/sports/basketball/${date}">
+                        ${formattedDate}
+                    </a>
+                `;
+                dateList.appendChild(dateCard);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching dates:', error);
+            document.getElementById('dateList').innerHTML = 'Error loading available dates.';
+        });
+}
+</script>
