@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+    Basketball Odds
+    
+    
+        {% assign current_year = site.time | date: "%Y" %}
+        {% assign current_month = site.time | date: "%m" %}
+        {% assign current_day = site.time | date: "%d" %}
+        
+        Recent Days
+        
+            {% for i in (0..6) %}
+                {% assign date = site.time | date: "%Y-%m-%d" | minus: i %}
+                {% capture path %}/categories/sports/basketball/{{ date | date: "%Y/%m/%d" }}{% endcapture %}
+                
+                    
+                        {{ date | date: "%B %d, %Y" }}
+                    
+                
+            {% endfor %}
