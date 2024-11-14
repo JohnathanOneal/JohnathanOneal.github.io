@@ -60,7 +60,7 @@ def fetch_kenpom_data(begin_season=2025,end_season=2025):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-
+        breakpoint()
         # Login to kenpom
         page.goto("https://kenpom.com/")
         page.fill("input[name='email']", os.environ['KENPOM_USERNAME'])
@@ -115,12 +115,12 @@ def upload_to_s3(s3_client, bucket_name, filename, data):
 
 def main(begin_season, end_season):
     # Initialize S3 client and bucket name
-    s3 = boto3.client(
-        's3',
-        aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-        aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
-    )
-    bucket_name = os.environ['S3_BUCKET_NAME']
+    #s3 = boto3.client(
+    #    's3',
+    #    aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+    #    aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
+    #)
+    #bucket_name = os.environ['S3_BUCKET_NAME']
 
     # Fetch data for each season
     seasonFrames = fetch_kenpom_data(begin_season=begin_season, end_season=end_season)

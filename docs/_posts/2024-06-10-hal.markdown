@@ -8,324 +8,199 @@ categories: [sports]
   <img src="/assets/hal/halscreenshot.svg alt="Responsive SVG" style="max-width: 100%; height: auto;">
 </p>
 
-Leveraging Machine Learning for Strategic Advantage in March Madness Predictions (Not responsible for broken relationships due to bracket challenge dominance)
+# Leveraging Python and Playwright to Unlock Insights from KenPom Basketball Data
 
 ## Introduction
-The annual NCAA basketball tournament, colloquially known as March Madness, presents a unique opportunity to apply data science and machine learning techniques to sports prediction. This series will explore the development of a predictive model designed to optimize bracket selections. While we'll delve into some technical aspects, the core concepts should be accessible to anyone with an interest in data-driven decision making.This will be a four part series, with the first two articles detailing our data extraction and analyzation before splitting into two different modeling approaches. 
+As a data engineer, I'm constantly on the lookout for fascinating datasets that can provide valuable insights. One such dataset is the renowned KenPom college basketball ratings, which offer a comprehensive analysis of team performance and efficiency. In this article, we'll explore how to leverage Python and the Playwright automation library to scrape and analyze this data.
 
-<p align="center">
-  <img src="/assets/hal/haldiagram.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
-</p>
+## Understanding the KenPom Dataset
 
-## The Primacy of Data in Predictive Modeling
-In the realm of predictive analytics, the quality and comprehensiveness of input data are paramount. For our March Madness model, we'll leverage two primary data sources, each offering unique insights into team performance and tournament dynamics.
+The KenPom ratings include a wealth of metrics that we can categorize into several key areas:
 
-## Data Sources
-1. Kaggle's March Machine Learning Mania: This annual competition provides a robust, well-curated dataset specifically tailored for March Madness predictions. It serves as our foundational data source, offering historical game results, team statistics, and tournament outcomes.
-2. Ken Pomeroy's Advanced Metrics: Widely respected in basketball analytics circles, Ken Pomeroy's statistical models offer deeper insights into team efficiency, pace of play, and strength of schedule. These metrics provide valuable context beyond raw game results.
+### Core Performance Metrics
+- Team ranking and rating
+- Offensive and defensive efficiency
+- Adjusted tempo
+- Strength of schedule metrics
 
-# ⚠️ Warning: Important Notice
+### Advanced Statistics
+- Shooting percentages (3P%, 2P%, FT%)
+- Turnover rates
+- Rebound percentages
+- Free throw rates
 
-> **Attention:** Webscraping is the automated extraction of data from websites and can impact website preformance. While it is against Kenpom.com terms of use the kenpompy package had express consent for its (responsible) use. However since writing this article the web scraping methods employed here no longer work. 
+### Team Composition Data
+- Player heights by position
+- Team experience
+- Bench metrics
+- Team continuity
 
-## Data Acquisition and Processing
-For those interested in the technical implementation, we utilize the kenpompy Python library to programmatically access Ken Pomeroy's data. This automated approach allows for efficient, repeatable data collection – a crucial aspect of maintaining an up-to-date predictive model.
-First, let's install the kenpompy library to help us pull the stats from kenpom.com:
-```python
-!pip install kenpompy
-```
+## Implementation
 
-```python
-import pandas as pd
-import numpy as np
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import List, Tuple
-import logging
-from functools import reduce
-from kenpompy.utils import login
-import kenpompy.misc as misc
-import kenpompy.summary as summary
-import kenpompy.team as team
-
-# Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-```
-
-Next, we'll define some helper functions:
-```python
-def drop_unwanted_columns(df, columns_to_drop):
-    return df.drop(columns=[col for col in df.columns if any(key in col.lower() for key in columns_to_drop)], errors='ignore')
-
-def merge_dataframes(dfs, on='Team', how='outer'):
-    return reduce(lambda left, right: pd.merge(left, right, on=on, how=how), dfs)
-```
-
-Now it is time for the meat of the data processing. While calls are automated getting a clean and usable dataframe does require a lot of manual inspection. 
-The KenPom landing page presented unique challenges in data structure compared to other sources. After standard data cleaning procedures (removing duplicates, eliminating ranking columns, and filtering out non-numeric rows where 'Rk'='Rk'), we encountered a naming convention issue. To standardize team names across all data frames, we employed a two-step process: first, we merged the cleaned data with an example frame using uniquely identifying statistical columns as keys. Then, we transferred the standardized team names from this merged frame to our primary dataset, effectively aligning team nomenclature without relying on the inconsistent original names.
+### Key Data Structure
+First, let's look at how we define our key metrics:
 
 ```python
-def process_pomeroy_data(pom, df):
-    pom = (pom.loc[:, ~pom.columns.duplicated(keep='first')].dropna()
-                                                            .query('Rk != "Rk"')
-                                                            .reset_index(drop=True))
-
-    pom = drop_unwanted_columns(pom, ['rank','Rk', 'index'])
-    
-    merged_df = pd.merge(pom, df, how='inner',
-                         left_on=['AdjO', 'AdjD', 'AdjT'],
-                         right_on=['Off. Efficiency-Adj', 'Def. Efficiency-Adj', 'Tempo-Adj'])
-    
-    pom['Team'] = merged_df['Team_y']
-    return pom
+KENPOM_RATING = 'Rank'  # Team ranking based on overall performance
+TEAM = 'Team'  # Name of the team
+CONFERENCE = 'Conference'  # Name of the conference the team belongs to
+RECORD = 'Record'  # Team's win-loss record
+NET_RTG = 'NetRtg'  # Net rating, difference between offensive and defensive efficiency
+ADJUSTED_OFFENSIVE_EFFICIENCY = 'AdjOE'  # Adjusted offensive efficiency rating
+ADJUSTED_DEFENSIVE_EFFICIENCY = 'AdjDE'  # Adjusted defensive efficiency rating
+ADJUSTED_TEMPO = 'AdjT'  # Adjusted tempo, the speed at which a team plays
 ```
 
-<p align="center">
-  <img src="/assets/hal/namenormalize.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
-</p>
-
-
-The remaining data frames adhere to a consistent structure, allowing for a uniform construction process. We combine all the statistical data into a single frame, where each row represents a unique team. Finally, we annotate each entry with its corresponding season, ensuring we maintain a clear temporal context for all data points.
+### Table Definitions
+We organize our data collection into distinct tables:
 
 ```python
-def get_season_data(browser, season):
-    
-    data_sources = {
-        'efficiency': summary.get_efficiency,
-        'four_factors': summary.get_fourfactors,
-        'height': summary.get_height,
-        'team_stats': summary.get_teamstats,
-        'point_distribution': summary.get_pointdist
-    }
+INDEX_COLUMN_HEADERS = [
+    KENPOM_RATING, TEAM, CONFERENCE, RECORD, NET_RTG, ADJUSTED_OFFENSIVE_EFFICIENCY, 
+    ADJUSTED_OFFENSIVE_EFFICIENCY_RANK, ADJUSTED_DEFENSIVE_EFFICIENCY, 
+    ADJUSTED_DEFENSIVE_EFFICIENCY_RANK, ADJUSTED_TEMPO, ADJUSTED_TEMPO_RANK,
+    LUCK, LUCK_RANK, SOS_NET_RTG, SOS_NET_RTG_RANK, SOS_OFFENSIVE_EFFICIENCY, 
+    SOS_OFFENSIVE_EFFICIENCY_RANK, SOS_DEFENSIVE_EFFICIENCY, SOS_DEFENSIVE_EFFICIENCY_RANK, 
+    NCSOS_NET_RTG, NCSOS_NET_RTG_RANK
+]
 
-    data = {name: drop_unwanted_columns(func(browser, season=season) if name != 'team_stats' 
-                else func(browser, defense=False, season=season), ['conference', 'rank', 'raw'])
-            for name, func in data_sources.items()}
-    
-    # Drop specific columns
-    data['four_factors'].drop(columns=['AdjOE', 'AdjDE'], errors='ignore', inplace=True)
-    data['team_stats'].drop(columns=['AdjOE'], errors='ignore', inplace=True)
-    
-    # Merge all dataframes
-    combined_stats = merge_dataframes(list(data.values()))
-    
-    # Process Pomeroy ratings
-    pomeroy_ratings = process_pomeroy_data(misc.get_pomeroy_ratings(browser, season=season), combined_stats)
-    combined_stats = pd.merge(combined_stats, pomeroy_ratings, on='Team', how='outer')
-    
-    # Final cleanup
-    columns_to_drop = ['Conference', 'Conf', 'Seed', 'W-L', 'Off. Efficiency-Adj', 
-                       'Def. Efficiency-Adj', 'Tempo-Adj', 'AdjTempo']
-    combined_stats.drop(columns=columns_to_drop, errors='ignore', inplace=True)
-    
-    combined_stats['Season'] = season
-    
-    return combined_stats
+PAGE_INFO = {
+    'https://kenpom.com/index.php': INDEX_COLUMN_HEADERS,
+    'https://kenpom.com/summary.php': SUMMARY_COLUMN_HEADERS,
+    'https://kenpom.com/stats.php': STATS_COLUMN_HEADERS,
+    'https://kenpom.com/pointdist.php': POINTDIST_COLUMN_HEADERS,
+    'https://kenpom.com/height.php': HEIGHT_COLUMN_HEADERS,
+    'https://kenpom.com/teamstats.php': TEAMSTATS_COLUMN_HEADERS
+}
 ```
 
-<p align="center">
-  <img src="/assets/hal/statsfunnel.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
-</p>
+### Core Extraction Functions
 
-
-Lastly, lets establish some helper functions that give us descriptive context of the data collection process. Here we go overboard
-on error detection and logging. Data gathering through webscrapping is far from ocnsisent and many erros can arise. It is important
-during collection to have clear insight into the health of the task. 
-then at the very end to address potential issues with mixed data types introduced by bad data, we perform one last pass to enforce float types for relevant columns, noting if our collection was complete. 
-While we could big hammer the data frame this approach provides clear context to the final desired column set. 
-```python
-def process_season(browser, season):
-    """Process data for a single season."""
-    try:
-        logging.info(f"Processing season {season}")
-        season_data = get_season_data(browser, season)
-        return season, season_data.reset_index(drop=True)
-    except Exception as e:
-        logging.error(f"Error processing season {season}: {str(e)}")
-        return season, pd.DataFrame()
-    
-def gather_kenpom_data(begin_season= 2009, end_season= 2025, max_workers = 3):
-    """
-    Gather KenPom data for multiple seasons.
-    """
-    browser = login('johmathanoneal@gmail.com', 'tunafishtroglodyte2806')
-    
-    seasons = range(begin_season, end_season)
-    all_season_data = {}
-
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_season = {executor.submit(process_season, browser, season): season for season in seasons}
-        for future in as_completed(future_to_season):
-            season, data = future.result()
-            if not data.empty:
-                all_season_data[season] = data
-
-    if not all_season_data:
-        raise ValueError("No data was successfully gathered for any season.")
-
-    final_df = pd.concat(all_season_data.values(), ignore_index=True)
-
-    float_columns = [
-        'Off-eFG%', 'Off-TO%', 'Off-OR%', 'Off-FTRate', 'Def-eFG%', 'Def-TO%', 'Def-OR%', 'Def-FTRate', 
-        'AvgHgt', 'EffHgt', 'C-Hgt', 'PF-Hgt', 'SF-Hgt', 'SG-Hgt', 'PG-Hgt', 'Experience', 'Bench', 'Continuity', 
-        '3P%', '2P%', 'FT%', 'Blk%', 'Stl%', 'A%', '3PA%', 'Off-FT', 'Off-2P', 'Off-3P', 'Def-FT', 'Def-2P', 'Def-3P', 
-        'AdjEM', 'AdjO', 'AdjD', 'AdjT', 'Luck', 'Season', 'Avg. Poss Length-Offense', 'Avg. Poss Length-Defense'
-    ]
-    
-    for col in float_columns:
-        if col in final_df.columns:
-            final_df[col] = pd.to_numeric(final_df[col], errors='coerce')
-        else:
-            logging.warning(f"Column '{col}' not found in the data.")
-
-    return final_df
-```
-
-<p align="center">
-  <img src="/assets/hal/seasonfunnel.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
-</p>
-
-Do note the above uses multithreading. Since we are not worried about cpu usage but instead about request time we can multithread our calls
-to signifcantly speed up the overall time to gahter our data. However due to the fincky nature of our webscrapping requests and given that without multithreading
-the collection takes only around 2~3 minutes the above could easily be converted to a simple loop wihtout the use of multithreading.
-
-## Data Integration
-One of the more nuanced challenges in this process is the integration of data from disparate sources. A key issue is the inconsistency in team naming conventions across datasets. For instance, "North Carolina State University" might be variously referred to as "NC State," "N.C. State," or "North Carolina St."
-Resolving these discrepancies is crucial for accurate data merging. While fuzzy string matching algorithms can assist in this process, they're not infallible. Manual verification and correction are often necessary to ensure data integrity.
+Here's how we extract the data using Playwright:
 
 ```python
-def map_team_ids(final_df, start_season=2010):
-  stat_master = final_df.loc[final_df['Season'] >= start_season]
-  teams =  pd.read_csv('MTeams.csv')
+def extract_table_rows(page):
+    """Extract the table rows from the page."""
+    return page.evaluate("""
+        () => {
+            return Array.from(document.querySelectorAll('#ratings-table tbody tr'))
+                        .map(row => Array.from(row.querySelectorAll('td'))
+                             .map(td => td.innerText.trim()));
+        }
+    """)
 
-  paul_pierce = pd.read_csv('paulpierce.csv')
-  team_id_mapping = dict(zip(paul_pierce['Team'], paul_pierce['TeamID']))
-  stat_master['TeamID'] = stat_master['Team'].map(team_id_mapping)
-  return stat_master
+def is_current_season(season):
+    now = pd.Timestamp.now()
+    return season == now.year if now.month <= 5 else season - 1 == now.year
+
+def scrape_kenpom_table(page, url, year):
+    """Scrape the KenPom table from the page."""
+    headers = PAGE_INFO[url]
+    rows = extract_table_rows(page)
+
+    # Check if the number of rows matches the number of columns
+    if len(rows) > 0 and len(rows[0]) != len(headers):
+        raise ValueError(f"Number of columns ({len(headers)}) does not match number of columns in data ({len(rows[0])})")
+
+    # Create a DataFrame from the extracted data
+    df = pd.DataFrame(rows, columns=headers)
+
+    # Convert columns to appropriate data types
+    if 'Kenpom_Rating' in df.columns:
+        df['Kenpom_Rating'] = df['Kenpom_Rating'].astype(int)
+    if 'Record' in df.columns:
+        df[['Wins', 'Losses']] = df['Record'].str.split('-', expand=True)
+        df = df.drop(columns='Record')
+
+    for col in df.columns:
+        if col.endswith('Rtg') or col.endswith('T'):
+            df[col] = df[col].str.replace(',', '').astype(float)
+        elif col.endswith('_Rank'):
+            df[col] = df[col].str.extract(r'(\d+)', expand=False).astype(int)
+
+    df['Team'] = df['Team'].str.replace(r'[\d*]', '', regex=True).str.strip().str.lower()
+    df['Season'] = int(year)
+
+    return df
 ```
 
-At this point here's what our main event loop would look like. Since these stats are static let's also write the result to csv. This prevents dealing with the runtime of the data collection, and doesn't spam kenpom.com with webscraping 
+### Main Data Collection Function
+
+The main function that orchestrates the data collection:
+
+```python
+def fetch_kenpom_data(begin_season=2025, end_season=2025):
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        page = browser.new_page()
+
+        # Login to kenpom
+        page.goto("https://kenpom.com/")
+        page.fill("input[name='email']", 'your_email')
+        page.fill("input[name='password']", "your_password")
+        page.click("input[type='submit']")
+
+        # Wait for navigation to complete
+        page.wait_for_timeout(7000)
+
+        seasonFrames = {}
+
+        # Confirm login success and scrape data
+        if "logout" in page.content():
+            for season in range(begin_season, end_season + 1):
+                frames = []
+                for url in PAGE_INFO.keys():
+                    page.goto(f"{url}?y={season}")
+                    df = scrape_kenpom_table(page, url, season)
+                    frames.append(df)
+
+                merged_df = frames[0]
+                for df in frames[1:]:
+                    merged_df = pd.merge(merged_df, df, on=['Team', 'Season'], 
+                                       how='outer', suffixes=('', '_drop'))
+                merged_df = merged_df.loc[:, ~merged_df.columns.str.endswith('_drop')]
+
+                if is_current_season(season):
+                    merged_df['date_pulled'] = pd.Timestamp.now().strftime('%Y-%m-%d')
+                    month_and_day = pd.Timestamp.now().strftime('%m%d')
+                    seasonFrames.update({f"{season}_{month_and_day}": merged_df})
+                else:
+                    seasonFrames.update({f"{season}": merged_df})
+
+        browser.close()
+        return seasonFrames
+```
+
+## Running the Script
+
+To execute the data collection:
 
 ```python
 if __name__ == "__main__":
-    try:
-        stat_master = gather_kenpom_data()
-        print(f"Successfully gathered data for {len(data)} rows.")
-    except Exception as e:
-        logging.error(f"An error occurred: {str(e)}")
-
-    stat_master = map_team_ids(final_df)
-    stat_master.to_csv('stat_master.csv', index=False)
+    seasonFrames = fetch_kenpom_data(begin_season=2025, end_season=2025)
+    for key, value in seasonFrames.items():
+        value.to_csv(f"kenpom_{key}.csv", index=False)
 ```
 
-## Training Data Selection: A Strategic Decision
-The selection of training data significantly impacts model performance. We must balance relevance, recency, and volume. Here are the primary options we consider:
+## Data Analysis Possibilities
 
-- March Madness Games: Highest relevance but smallest dataset.
-- Conference Tournament Games: Increases data volume while maintaining postseason context.
-- Secondary Tournament Games (e.g., NIT): Further expands the dataset but introduces potential noise.
-- Regular Season Games: Largest dataset but less directly applicable to tournament conditions.
+With this data structure, you can perform various analyses:
 
-Each option presents a trade-off between data volume and contextual relevance. Our approach involves experimenting with various combinations to optimize model performance.
-Here's a function to generate the game frame based on our selected criteria:
-```python
-def generate_game_frame(stat_master, start_season=2010, use_mm_games=True, use_conf_games=False, use_secondary_tourney=False, regular_season_lookback=0, keep_season=False):
-  games = pd.DataFrame()
+1. **Performance Trends**: Track team efficiency metrics over time
+2. **Conference Analysis**: Compare performance metrics across conferences
+3. **Team Composition Impact**: Analyze how factors like experience and height affect performance
+4. **Strength of Schedule Analysis**: Evaluate the impact of schedule difficulty on team performance
 
-  if use_mm_games:
-    tourney_results = pd.read_csv('MNCAATourneyCompactResults.csv')
-    tourney_results = tourney_results[(tourney_results['Season']>= start_season)]
-    tourney_results.drop(columns=['DayNum', 'WLoc'], inplace=True)
-    games = pd.concat([games, tourney_results])
+## Next Steps
 
-  if use_conf_games:
-    #Todo
-    pass
+Consider these potential enhancements to the analysis:
 
-  if use_secondary_tourney:
-    second_tourney_results = pd.read_csv('MSecondaryTourneyCompactResults.csv')
-    second_tourney_results = second_tourney_results[ (second_tourney_results['Season']>= 2010)]
-    second_tourney_results.drop(columns=['DayNum', 'WLoc','SecondaryTourney'], inplace=True)
-    games = pd.concat([games, second_tourney_results])
+1. **Automated Updates**: Schedule regular data pulls to track changes over a season
+2. **Advanced Analytics**: Develop predictive models using the collected metrics
+3. **Data Visualization**: Create dashboards to visualize team and conference trends
+4. **Historical Analysis**: Compare current season performance to historical benchmarks
 
-  train = pd.merge(games, stat_master,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
-  train = pd.merge(train, stat_master,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
-  train.dropna(inplace=True)
-  train['Spread'] = train['WScore'] - train['LScore']
-  train['Total'] = train['WScore'] + train['LScore']
-  train['WL'] = 1
+## Conclusion
 
-  # tournament games are nuetral site so swap order of teams to create more training data
-  # when training on home/away games the home team will go second
-  cols = list(games)
-  cols[4], cols[3], cols[2], cols[1] = cols[2], cols[1], cols[4], cols[3]
-  tourney_results_swap = tourney_results.reindex(columns=cols)
-  tourney_results_swap.head()
-
-
-  swap = pd.merge(tourney_results_swap, stat_master,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
-  swap = pd.merge(swap, stat_master,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
-  swap['Spread'] = swap['LScore'] - swap['WScore']
-  swap['Total'] = swap['LScore'] + swap['WScore']
-  swap['WL'] = 0
-  swap.dropna(inplace=True)
-
-  result = pd.concat([train,swap])
-  result.drop(columns=[ 'WScore', 'LScore', 'NumOT','Team_x','TeamID_x', 'Team_y', 'TeamID_y'], inplace=True)
-
-  if regular_season_lookback == 0 and not use_secondary_tourney:
-    seeds = pd.read_csv('MNCAATourneySeeds.csv')
-    result = pd.merge(result, seeds,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
-    result = pd.merge(result, seeds,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
-    pattern = r'\d+'
-    for seed in ['Seed_x','Seed_y']:
-      result.loc[result[seed].notna(), seed] = result.loc[result[seed].notna(), seed].astype(str).apply(lambda x: re.search(pattern, x).group() if re.search(pattern, x) else x)
-
-    result['Seed_x'] = result['Seed_x'].astype(float)
-    result['Seed_y'] = result['Seed_y'].astype(float)
-    if not keep_season:
-          result.drop(columns=['Season'], inplace=True)
-    result.drop(columns=['WTeamID', 'LTeamID','TeamID_x',	'TeamID_y'], inplace=True)
-  elif regular_season_lookback > 0:
-    df = pd.read_csv('MRegularSeasonCompactResults.csv')
-    df = df.loc[(df.Season >= 2010) & (df.DayNum > (132 - regular_season_lookback))]
-    mask = df['WLoc'] == 'A'
-    df.loc[mask, ['WTeamID', 'WScore', 'LTeamID', 'LScore']] = df.loc[mask, ['LTeamID', 'LScore', 'WTeamID', 'WScore']].values
-
-    mask_n = df['WLoc'] == 'N'
-    df_n = df[mask_n].copy()
-    df_n[['WTeamID', 'WScore', 'LTeamID', 'LScore']] = df_n[['LTeamID', 'LScore', 'WTeamID', 'WScore']].values
-    df = pd.concat([df, df_n], ignore_index=True)
-
-    df = pd.merge(df, stat_master,  how='left', left_on=['Season','WTeamID'], right_on = ['Season','TeamID'])
-    df = pd.merge(df, stat_master,  how='left', left_on=['Season','LTeamID'], right_on = ['Season','TeamID'])
-    df['Spread'] = df['WScore'] - df['LScore']
-    df['Total'] = df['WScore'] + df['LScore']
-    df['WL'] = np.where(df['Spread'] > 0, 1, 0)
-    df.dropna(inplace=True)
-    if not keep_season:
-          df.drop(columns=['Season'], inplace=True)
-    df.drop(columns=['DayNum','WLoc','WTeamID', 'LTeamID','WScore', 'LScore', 'NumOT','Team_x','TeamID_x', 'Team_y', 'TeamID_y'], inplace=True)
-
-    result = pd.concat([result, df])
-
-  float_cols = ['SOS-AdjEM_x','SOS-OppO_x','SOS-OppD_x','NCSOS-AdjEM_x','SOS-AdjEM_y',
-  'SOS-OppO_y','SOS-OppD_y','NCSOS-AdjEM_y']
-  result[float_cols] = result[float_cols].astype(float)
-  result = result.sample(frac = 1)
-
-  return result
-
-def trim_bad_rows(result, threshold=5):
-  non_zero_counts = (result != 0).sum(axis=1)
-  result = result[non_zero_counts >= threshold]
-
-  return result
-```
-
-<p align="center">
-  <img src="/assets/hal/statpipeline.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">
-</p>
-
-Now that the hard work is done we have a clean robust dataframe in hand and can preforme analyzation and begin to construct our model
-keep reading to part 2 to find out more! 
+This implementation provides a robust foundation for analyzing college basketball performance using KenPom data. The modular design allows for easy maintenance and extension as analytical needs evolve. Remember to use the data responsibly and in accordance with KenPom's terms of service.
 
