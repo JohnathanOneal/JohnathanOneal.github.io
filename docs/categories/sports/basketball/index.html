@@ -23,8 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchAvailableDates() {
-    fetch('/categories/sports/basketball/available_dates.json')
-        .then(response => response.json())
+    fetch('available_dates.json')  // Changed from absolute to relative path
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             const datesList = document.getElementById('datesList');
             data.dates.forEach(date => {
@@ -48,7 +53,7 @@ function fetchAvailableDates() {
             });
         })
         .catch(error => {
-            console.error('Error loading dates:', error);
+            console.error('Error fetching dates:', error);
             document.getElementById('datesList').innerHTML = 
                 '<p class="error-message">Error loading available dates. Please try again later.</p>';
         });
