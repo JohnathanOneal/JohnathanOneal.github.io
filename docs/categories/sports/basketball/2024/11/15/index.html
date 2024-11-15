@@ -1,0 +1,83 @@
+---
+layout: default
+title: Basketball Odds - November 15, 2024
+---
+<div class="newspaper-category">
+    <h1 class="category-title">Basketball Odds - November 15, 2024</h1>
+    
+    <div class="navigation-links">
+        <a href="{{ '/categories/sports/basketball' | relative_url }}" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Dates
+        </a>
+    </div>
+
+    <div id="oddsContainer" class="odds-container"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    loadOdds();
+});
+
+function loadOdds() {
+    fetch('odds.json')
+        .then(response => response.json())
+        .then(renderOdds)
+        .catch(error => {
+            console.error('Error loading odds:', error);
+            document.getElementById('oddsContainer').innerHTML = 
+                '<p class="error-message">Error loading odds data. Please try again later.</p>';
+        });
+}
+
+function formatOdds(price) {
+    return price > 0 ? `+${price}` : price;
+}
+
+function renderOdds(games) {
+    const container = document.getElementById('oddsContainer');
+    container.innerHTML = '';
+    
+    games.forEach(game => {
+        const gameCard = document.createElement('div');
+        gameCard.className = 'game-card';
+        gameCard.innerHTML = `
+            <div class="game-header">
+                <h3>${game.game_info.away} @ ${game.game_info.home}</h3>
+                <div class="game-time">
+                    ${new Date(game.game_info.commence_time).toLocaleString()}
+                </div>
+            </div>
+            
+            <div class="odds-grid">
+                <div class="odds-section">
+                    <h4>Moneyline</h4>
+                    <p>${game.game_info.away}: ${formatOdds(game.best_odds.h2h[game.game_info.away].price)} (${game.best_odds.h2h[game.game_info.away].bookmaker})</p>
+                    <p>${game.game_info.home}: ${formatOdds(game.best_odds.h2h[game.game_info.home].price)} (${game.best_odds.h2h[game.game_info.home].bookmaker})</p>
+                </div>
+                
+                <div class="odds-section">
+                    <h4>Spread</h4>
+                    <p>${game.game_info.away}: ${game.best_odds.spread[game.game_info.away].point} (${formatOdds(game.best_odds.spread[game.game_info.away].price)}) - ${game.best_odds.spread[game.game_info.away].bookmaker}</p>
+                    <p>${game.game_info.home}: ${game.best_odds.spread[game.game_info.home].point} (${formatOdds(game.best_odds.spread[game.game_info.home].price)}) - ${game.best_odds.spread[game.game_info.home].bookmaker}</p>
+                </div>
+                
+                <div class="odds-section">
+                    <h4>Total</h4>
+                    <p>Over ${game.best_odds.total.Over.point}: ${formatOdds(game.best_odds.total.Over.price)} (${game.best_odds.total.Over.bookmaker})</p>
+                    <p>Under ${game.best_odds.total.Under.point}: ${formatOdds(game.best_odds.total.Under.price)} (${game.best_odds.total.Under.bookmaker})</p>
+                </div>
+                
+                <div class="odds-section prediction-section">
+                    <h4>Predictions</h4>
+                    <p>Home Win Probability: ${(game.home_team_win_prediction * 100).toFixed(1)}%</p>
+                    <p>Away Win Probability: ${(game.away_team_win_prediction * 100).toFixed(1)}%</p>
+                    <p>Predicted Total: ${game.total_prediction[0].toFixed(1)}</p>
+                    <p>Predicted Margin: ${game.home_team_win_margin_prediction[0].toFixed(1)}</p>
+                </div>
+            </div>
+        `;
+        container.appendChild(gameCard);
+    });
+}
+</script>
