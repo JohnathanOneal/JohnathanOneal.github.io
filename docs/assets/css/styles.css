@@ -844,24 +844,6 @@ body.dark-mode {
     color: #e0e0e0;
 }
 
-Copy.basketball-odds-box {
-    background: var(--bg-secondary, #f5f5f5);
-    border: 2px solid var(--border-color, #ddd);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.basketball-odds-box h2 {
-    margin-top: 0;
-    color: var(--text-primary, #333);
-    font-family: 'Roboto', sans-serif;
-    border-bottom: 2px solid var(--border-color, #ddd);
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
 .odds-link {
     display: inline-flex;
     align-items: center;
@@ -880,17 +862,6 @@ Copy.basketball-odds-box {
 
 .odds-link i {
     font-size: 1.2em;
-}
-
-/* Dark mode styles for basketball odds box */
-.dark-mode .basketball-odds-box {
-    background-color: #2a2a2a;
-    border-color: #444;
-}
-
-.dark-mode .basketball-odds-box h2 {
-    color: #e0e0e0;
-    border-color: #444;
 }
 
 .dark-mode .odds-link {

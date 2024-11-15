@@ -5,7 +5,25 @@ layout: default
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endif %}
 
+{% if page.title == 'Sports' %}
+<article class="newspaper-article">
+    <h2 class="article-title">
+        <a href="{{ '/categories/sports/basketball' | relative_url }}">
+            <i class="fas fa-basketball-ball"></i> Basketball Odds
+        </a>
+    </h2>
+    <p class="post-meta">{{ site.time | date: "%B %d, %Y" }}</p>
+    <div class="article-excerpt">
+        View daily basketball odds and predictions. Updated with the latest odds and predictions for upcoming games.
+    </div>
+    <a href="{{ '/categories/sports/basketball' | relative_url }}" class="read-more">
+        View Odds...
+    </a>
+</article>
+{% endif %}
+
 <div class="newspaper-category">
+
     <h1 class="category-title">
         {% if page.title == '日本語' %}
             {{ page.title }} 記事
@@ -13,16 +31,6 @@ layout: default
             {{ page.title }} Posts
         {% endif %}
     </h1>
-
-    {% if page.title == 'Sports' %}
-    <div class="basketball-odds-box">
-        <h2>Basketball Odds</h2>
-        <a href="{{ '/categories/sports/basketball' | relative_url }}" class="odds-link">
-            <i class="fas fa-basketball-ball"></i>
-            <span>View Basketball Odds by Date</span>
-        </a>
-    </div>
-    {% endif %}
 
     <div class="newspaper-columns">
         {% for post in site.categories[page.category] %}
