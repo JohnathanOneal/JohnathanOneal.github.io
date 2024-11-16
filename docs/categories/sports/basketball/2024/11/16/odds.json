@@ -1,0 +1,3722 @@
+[
+    {
+        "game_info": {
+            "home": "Oregon St Beavers",
+            "away": "CSU Fullerton Titans",
+            "commence_time": "2024-11-16T03:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Oregon St Beavers": {
+                    "price": -3300,
+                    "bookmaker": "Bovada"
+                },
+                "CSU Fullerton Titans": {
+                    "price": 1200,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "spread": {
+                "Oregon St Beavers": {
+                    "price": -115,
+                    "point": -9.5,
+                    "bookmaker": "Bovada"
+                },
+                "CSU Fullerton Titans": {
+                    "price": -115,
+                    "point": 9.5,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 120.5,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -120,
+                    "point": 120.5,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9920551103327527,
+        "home_team_win_margin_prediction": [
+            18.548677259723576
+        ],
+        "away_team_win_prediction": 0.007944889667247294,
+        "away_team_win_margin_prediction": [
+            -18.548677259723576
+        ],
+        "total_prediction": [
+            126.77998424687867
+        ]
+    },
+    {
+        "game_info": {
+            "home": "UCLA Bruins",
+            "away": "Lehigh Mountain Hawks",
+            "commence_time": "2024-11-16T03:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "UCLA Bruins": {
+                    "price": -100000,
+                    "bookmaker": ""
+                },
+                "Lehigh Mountain Hawks": {
+                    "price": -100000,
+                    "bookmaker": ""
+                }
+            },
+            "spread": {
+                "UCLA Bruins": {
+                    "price": -135,
+                    "point": -36.5,
+                    "bookmaker": "Caesars"
+                },
+                "Lehigh Mountain Hawks": {
+                    "price": 105,
+                    "point": 36.5,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -120,
+                    "point": 132.0,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 132.0,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9841698114454767,
+        "home_team_win_margin_prediction": [
+            10.10108318717151
+        ],
+        "away_team_win_prediction": 0.01583018855452329,
+        "away_team_win_margin_prediction": [
+            -10.10108318717151
+        ],
+        "total_prediction": [
+            155.89897283812718
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Kennesaw St Owls",
+            "away": "Presbyterian Blue Hose",
+            "commence_time": "2024-11-16T16:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Kennesaw St Owls": {
+                    "price": -205,
+                    "bookmaker": "FanDuel"
+                },
+                "Presbyterian Blue Hose": {
+                    "price": 170,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Kennesaw St Owls": {
+                    "price": -120,
+                    "point": -4.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Presbyterian Blue Hose": {
+                    "price": -105,
+                    "point": 4.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 159.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 160.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.891120399292656,
+        "home_team_win_margin_prediction": [
+            3.7044353784555164
+        ],
+        "away_team_win_prediction": 0.10887960070734401,
+        "away_team_win_margin_prediction": [
+            -3.7044353784555164
+        ],
+        "total_prediction": [
+            138.12860875699522
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Morgan St Bears",
+            "away": "NJIT Highlanders",
+            "commence_time": "2024-11-16T16:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Morgan St Bears": {
+                    "price": -275,
+                    "bookmaker": "BetMGM"
+                },
+                "NJIT Highlanders": {
+                    "price": 260,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Morgan St Bears": {
+                    "price": -110,
+                    "point": -6.5,
+                    "bookmaker": "FanDuel"
+                },
+                "NJIT Highlanders": {
+                    "price": -112,
+                    "point": 6.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 143.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 144.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8653135990618267,
+        "home_team_win_margin_prediction": [
+            6.167790272742093
+        ],
+        "away_team_win_prediction": 0.13468640093817325,
+        "away_team_win_margin_prediction": [
+            -6.167790272742093
+        ],
+        "total_prediction": [
+            167.99061947736962
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Bucknell Bison",
+            "away": "Richmond Spiders",
+            "commence_time": "2024-11-16T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Bucknell Bison": {
+                    "price": 110,
+                    "bookmaker": "BetMGM"
+                },
+                "Richmond Spiders": {
+                    "price": -120,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Bucknell Bison": {
+                    "price": -110,
+                    "point": 1.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Richmond Spiders": {
+                    "price": -115,
+                    "point": -1.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 140.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -120,
+                    "point": 141.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8850932260666244,
+        "home_team_win_margin_prediction": [
+            12.377662658172376
+        ],
+        "away_team_win_prediction": 0.1149067739333756,
+        "away_team_win_margin_prediction": [
+            -12.377662658172376
+        ],
+        "total_prediction": [
+            155.37272078857112
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Columbia Lions",
+            "away": "Mercyhurst Lakers",
+            "commence_time": "2024-11-16T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Columbia Lions": {
+                    "price": -750,
+                    "bookmaker": "DraftKings"
+                },
+                "Mercyhurst Lakers": {
+                    "price": 540,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Columbia Lions": {
+                    "price": -115,
+                    "point": -11.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Mercyhurst Lakers": {
+                    "price": -110,
+                    "point": 11.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8341862187028358,
+        "home_team_win_margin_prediction": [
+            2.036089146193565
+        ],
+        "away_team_win_prediction": 0.16581378129716423,
+        "away_team_win_margin_prediction": [
+            -2.036089146193565
+        ],
+        "total_prediction": [
+            135.36044816761878
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Cornell Big Red",
+            "away": "Lafayette Leopards",
+            "commence_time": "2024-11-16T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Cornell Big Red": {
+                    "price": -320,
+                    "bookmaker": "FanDuel"
+                },
+                "Lafayette Leopards": {
+                    "price": 260,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Cornell Big Red": {
+                    "price": -112,
+                    "point": -7.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Lafayette Leopards": {
+                    "price": -110,
+                    "point": 7.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -118,
+                    "point": 148.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 149.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9734357145596974,
+        "home_team_win_margin_prediction": [
+            7.805409070586222
+        ],
+        "away_team_win_prediction": 0.026564285440302628,
+        "away_team_win_margin_prediction": [
+            -7.805409070586222
+        ],
+        "total_prediction": [
+            151.167109906447
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Duke Blue Devils",
+            "away": "Wofford Terriers",
+            "commence_time": "2024-11-16T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Duke Blue Devils": {
+                    "price": -10000,
+                    "bookmaker": "FanDuel"
+                },
+                "Wofford Terriers": {
+                    "price": 3000,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Duke Blue Devils": {
+                    "price": -115,
+                    "point": -25.5,
+                    "bookmaker": "Bovada"
+                },
+                "Wofford Terriers": {
+                    "price": -110,
+                    "point": 25.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 147.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -120,
+                    "point": 148.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9793617018797214,
+        "home_team_win_margin_prediction": [
+            15.657859812962622
+        ],
+        "away_team_win_prediction": 0.020638298120278474,
+        "away_team_win_margin_prediction": [
+            -15.657859812962622
+        ],
+        "total_prediction": [
+            143.2396417035072
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Seton Hall Pirates",
+            "away": "Wagner Seahawks",
+            "commence_time": "2024-11-16T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Seton Hall Pirates": {
+                    "price": -1000,
+                    "bookmaker": "BetMGM"
+                },
+                "Wagner Seahawks": {
+                    "price": 660,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Seton Hall Pirates": {
+                    "price": -110,
+                    "point": -12.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Wagner Seahawks": {
+                    "price": -110,
+                    "point": 12.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 120.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 120.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9761615337837775,
+        "home_team_win_margin_prediction": [
+            23.93839356761838
+        ],
+        "away_team_win_prediction": 0.023838466216222556,
+        "away_team_win_margin_prediction": [
+            -23.93839356761838
+        ],
+        "total_prediction": [
+            135.1799154597434
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Xavier Musketeers",
+            "away": "Wake Forest Demon Deacons",
+            "commence_time": "2024-11-16T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Xavier Musketeers": {
+                    "price": -205,
+                    "bookmaker": "DraftKings"
+                },
+                "Wake Forest Demon Deacons": {
+                    "price": 190,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "Xavier Musketeers": {
+                    "price": -115,
+                    "point": -5.5,
+                    "bookmaker": "Bovada"
+                },
+                "Wake Forest Demon Deacons": {
+                    "price": -115,
+                    "point": 5.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 156.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 157.0,
+                    "bookmaker": "Caesars"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.3610427033856446,
+        "home_team_win_margin_prediction": [
+            -2.2667938464192647
+        ],
+        "away_team_win_prediction": 0.6389572966143552,
+        "away_team_win_margin_prediction": [
+            2.2667938464192647
+        ],
+        "total_prediction": [
+            129.07295857194163
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Boston Univ. Terriers",
+            "away": "Dartmouth Big Green",
+            "commence_time": "2024-11-16T18:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Boston Univ. Terriers": {
+                    "price": -198,
+                    "bookmaker": "DraftKings"
+                },
+                "Dartmouth Big Green": {
+                    "price": 172,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Boston Univ. Terriers": {
+                    "price": -110,
+                    "point": -4.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Dartmouth Big Green": {
+                    "price": -110,
+                    "point": 4.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 136.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 137.0,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.2775834176517652,
+        "home_team_win_margin_prediction": [
+            -1.0099548972666454
+        ],
+        "away_team_win_prediction": 0.7224165823482347,
+        "away_team_win_margin_prediction": [
+            1.0099548972666454
+        ],
+        "total_prediction": [
+            162.1336729908792
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Georgetown Hoyas",
+            "away": "Notre Dame Fighting Irish",
+            "commence_time": "2024-11-16T18:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Georgetown Hoyas": {
+                    "price": 125,
+                    "bookmaker": "BetMGM"
+                },
+                "Notre Dame Fighting Irish": {
+                    "price": -144,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Georgetown Hoyas": {
+                    "price": -110,
+                    "point": 2.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Notre Dame Fighting Irish": {
+                    "price": -115,
+                    "point": -2.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 145.5,
+                    "bookmaker": "Caesars"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.20518058563686367,
+        "home_team_win_margin_prediction": [
+            1.2837403832700371
+        ],
+        "away_team_win_prediction": 0.7948194143631364,
+        "away_team_win_margin_prediction": [
+            -1.2837403832700371
+        ],
+        "total_prediction": [
+            127.97721927640394
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Longwood Lancers",
+            "away": "Tenn-Martin Skyhawks",
+            "commence_time": "2024-11-16T18:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Longwood Lancers": {
+                    "price": -650,
+                    "bookmaker": "DraftKings"
+                },
+                "Tenn-Martin Skyhawks": {
+                    "price": 570,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Longwood Lancers": {
+                    "price": -110,
+                    "point": -11.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Tenn-Martin Skyhawks": {
+                    "price": -110,
+                    "point": 11.0,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -118,
+                    "point": 149.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 150.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.6925504727226552,
+        "home_team_win_margin_prediction": [
+            4.230116176735589
+        ],
+        "away_team_win_prediction": 0.30744952727734476,
+        "away_team_win_margin_prediction": [
+            -4.230116176735589
+        ],
+        "total_prediction": [
+            115.00708258580651
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Syracuse Orange",
+            "away": "Youngstown St Penguins",
+            "commence_time": "2024-11-16T18:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Syracuse Orange": {
+                    "price": -600,
+                    "bookmaker": "Caesars"
+                },
+                "Youngstown St Penguins": {
+                    "price": 500,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Syracuse Orange": {
+                    "price": -110,
+                    "point": -11.0,
+                    "bookmaker": "Bovada"
+                },
+                "Youngstown St Penguins": {
+                    "price": -110,
+                    "point": 11.0,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 151.0,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 151.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9265480111214461,
+        "home_team_win_margin_prediction": [
+            7.514073809122462
+        ],
+        "away_team_win_prediction": 0.07345198887855377,
+        "away_team_win_margin_prediction": [
+            -7.514073809122462
+        ],
+        "total_prediction": [
+            137.25584584207098
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Ball State Cardinals",
+            "away": "Indiana St Sycamores",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Ball State Cardinals": {
+                    "price": -250,
+                    "bookmaker": "BetMGM"
+                },
+                "Indiana St Sycamores": {
+                    "price": 210,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "Ball State Cardinals": {
+                    "price": -115,
+                    "point": -5.0,
+                    "bookmaker": "Bovada"
+                },
+                "Indiana St Sycamores": {
+                    "price": -110,
+                    "point": 5.0,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 153.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 153.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8634950096171329,
+        "home_team_win_margin_prediction": [
+            11.110396877223712
+        ],
+        "away_team_win_prediction": 0.13650499038286706,
+        "away_team_win_margin_prediction": [
+            -11.110396877223712
+        ],
+        "total_prediction": [
+            150.21580928856292
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Bethune-Cookman Wildcats",
+            "away": "South Carolina St Bulldogs",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Bethune-Cookman Wildcats": {
+                    "price": -125,
+                    "bookmaker": "DraftKings"
+                },
+                "South Carolina St Bulldogs": {
+                    "price": 105,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Bethune-Cookman Wildcats": {
+                    "price": -115,
+                    "point": -1.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "South Carolina St Bulldogs": {
+                    "price": -110,
+                    "point": 1.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -116,
+                    "point": 149.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 150.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.4591369777472282,
+        "home_team_win_margin_prediction": [
+            -8.353785896714067
+        ],
+        "away_team_win_prediction": 0.5408630222527717,
+        "away_team_win_margin_prediction": [
+            8.353785896714067
+        ],
+        "total_prediction": [
+            141.22934638349383
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Western Illinois Leathernecks",
+            "away": "Central Arkansas Bears",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Western Illinois Leathernecks": {
+                    "price": -325,
+                    "bookmaker": "DraftKings"
+                },
+                "Central Arkansas Bears": {
+                    "price": 285,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Western Illinois Leathernecks": {
+                    "price": -110,
+                    "point": -7.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Central Arkansas Bears": {
+                    "price": -112,
+                    "point": 7.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 140.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -116,
+                    "point": 140.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8526149529253496,
+        "home_team_win_margin_prediction": [
+            -1.259335157451474
+        ],
+        "away_team_win_prediction": 0.14738504707465036,
+        "away_team_win_margin_prediction": [
+            1.259335157451474
+        ],
+        "total_prediction": [
+            120.38910147853807
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Drexel Dragons",
+            "away": "La Salle Explorers",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Drexel Dragons": {
+                    "price": 110,
+                    "bookmaker": "BetMGM"
+                },
+                "La Salle Explorers": {
+                    "price": -120,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "Drexel Dragons": {
+                    "price": -110,
+                    "point": 2.0,
+                    "bookmaker": "Caesars"
+                },
+                "La Salle Explorers": {
+                    "price": -115,
+                    "point": -2.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 135.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 136.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.14246158182585905,
+        "home_team_win_margin_prediction": [
+            -3.995019669182202
+        ],
+        "away_team_win_prediction": 0.8575384181741409,
+        "away_team_win_margin_prediction": [
+            3.995019669182202
+        ],
+        "total_prediction": [
+            118.97047026469822
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Evansville Purple Aces",
+            "away": "Radford Highlanders",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Evansville Purple Aces": {
+                    "price": -190,
+                    "bookmaker": "BetMGM"
+                },
+                "Radford Highlanders": {
+                    "price": 172,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Evansville Purple Aces": {
+                    "price": -115,
+                    "point": -4.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Radford Highlanders": {
+                    "price": -110,
+                    "point": 4.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.5767547091702109,
+        "home_team_win_margin_prediction": [
+            -1.1715983923558269
+        ],
+        "away_team_win_prediction": 0.4232452908297891,
+        "away_team_win_margin_prediction": [
+            1.1715983923558269
+        ],
+        "total_prediction": [
+            123.14585863225277
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Missouri St Bears",
+            "away": "Tulsa Golden Hurricane",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Missouri St Bears": {
+                    "price": 114,
+                    "bookmaker": "DraftKings"
+                },
+                "Tulsa Golden Hurricane": {
+                    "price": -130,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "Missouri St Bears": {
+                    "price": -110,
+                    "point": 1.0,
+                    "bookmaker": "Bovada"
+                },
+                "Tulsa Golden Hurricane": {
+                    "price": -110,
+                    "point": -1.0,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 146.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 147.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.0319468990994868,
+        "home_team_win_margin_prediction": [
+            -15.635782202135475
+        ],
+        "away_team_win_prediction": 0.9680531009005131,
+        "away_team_win_margin_prediction": [
+            15.635782202135475
+        ],
+        "total_prediction": [
+            136.40898006522087
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Oklahoma Sooners",
+            "away": "Stetson Hatters",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Oklahoma Sooners": {
+                    "price": -20000,
+                    "bookmaker": "FanDuel"
+                },
+                "Stetson Hatters": {
+                    "price": 3000,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Oklahoma Sooners": {
+                    "price": -112,
+                    "point": -25.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Stetson Hatters": {
+                    "price": -110,
+                    "point": 25.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.37695267778524266,
+        "home_team_win_margin_prediction": [
+            -6.439488923615648
+        ],
+        "away_team_win_prediction": 0.6230473222147573,
+        "away_team_win_margin_prediction": [
+            6.439488923615648
+        ],
+        "total_prediction": [
+            142.37329316548173
+        ]
+    },
+    {
+        "game_info": {
+            "home": "UMBC Retrievers",
+            "away": "Saint Peter's Peacocks",
+            "commence_time": "2024-11-16T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "UMBC Retrievers": {
+                    "price": -105,
+                    "bookmaker": "DraftKings"
+                },
+                "Saint Peter's Peacocks": {
+                    "price": -114,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "UMBC Retrievers": {
+                    "price": -110,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Saint Peter's Peacocks": {
+                    "price": -110,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 146.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -116,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9735426203319577,
+        "home_team_win_margin_prediction": [
+            17.658030654122566
+        ],
+        "away_team_win_prediction": 0.026457379668042257,
+        "away_team_win_margin_prediction": [
+            -17.658030654122566
+        ],
+        "total_prediction": [
+            163.79363249569778
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Arkansas St Red Wolves",
+            "away": "Stephen F. Austin Lumberjacks",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Arkansas St Red Wolves": {
+                    "price": -298,
+                    "bookmaker": "DraftKings"
+                },
+                "Stephen F. Austin Lumberjacks": {
+                    "price": 270,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Arkansas St Red Wolves": {
+                    "price": -110,
+                    "point": -7.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Stephen F. Austin Lumberjacks": {
+                    "price": -114,
+                    "point": 7.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 146.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 147.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8643698003995579,
+        "home_team_win_margin_prediction": [
+            5.549997863782707
+        ],
+        "away_team_win_prediction": 0.13563019960044215,
+        "away_team_win_margin_prediction": [
+            -5.549997863782707
+        ],
+        "total_prediction": [
+            124.06987385192207
+        ]
+    },
+    {
+        "game_info": {
+            "home": "BYU Cougars",
+            "away": "Idaho Vandals",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "BYU Cougars": {
+                    "price": -10000,
+                    "bookmaker": "BetMGM"
+                },
+                "Idaho Vandals": {
+                    "price": 3000,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "BYU Cougars": {
+                    "price": -115,
+                    "point": -27.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Idaho Vandals": {
+                    "price": -105,
+                    "point": 27.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 153.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 154.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9673008850880359,
+        "home_team_win_margin_prediction": [
+            15.905144132211086
+        ],
+        "away_team_win_prediction": 0.03269911491196409,
+        "away_team_win_margin_prediction": [
+            -15.905144132211086
+        ],
+        "total_prediction": [
+            157.47402338001962
+        ]
+    },
+    {
+        "game_info": {
+            "home": "SIU-Edwardsville Cougars",
+            "away": "Canisius Golden Griffins",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "SIU-Edwardsville Cougars": {
+                    "price": -175,
+                    "bookmaker": "DraftKings"
+                },
+                "Canisius Golden Griffins": {
+                    "price": 146,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "SIU-Edwardsville Cougars": {
+                    "price": -110,
+                    "point": -3.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Canisius Golden Griffins": {
+                    "price": -110,
+                    "point": 3.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 142.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 142.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9753846689970975,
+        "home_team_win_margin_prediction": [
+            8.369333583416369
+        ],
+        "away_team_win_prediction": 0.024615331002902373,
+        "away_team_win_margin_prediction": [
+            -8.369333583416369
+        ],
+        "total_prediction": [
+            148.40561087732524
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Cleveland St Vikings",
+            "away": "Eastern Michigan Eagles",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Cleveland St Vikings": {
+                    "price": -400,
+                    "bookmaker": "BetMGM"
+                },
+                "Eastern Michigan Eagles": {
+                    "price": 350,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Cleveland St Vikings": {
+                    "price": -110,
+                    "point": -8.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Eastern Michigan Eagles": {
+                    "price": -110,
+                    "point": 8.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 138.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 138.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.4615518187746609,
+        "home_team_win_margin_prediction": [
+            5.629362562458831
+        ],
+        "away_team_win_prediction": 0.5384481812253391,
+        "away_team_win_margin_prediction": [
+            -5.629362562458831
+        ],
+        "total_prediction": [
+            160.94081630872984
+        ]
+    },
+    {
+        "game_info": {
+            "home": "San Diego Toreros",
+            "away": "Idaho State Bengals",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "San Diego Toreros": {
+                    "price": -110,
+                    "bookmaker": "FanDuel"
+                },
+                "Idaho State Bengals": {
+                    "price": -105,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "San Diego Toreros": {
+                    "price": -120,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Idaho State Bengals": {
+                    "price": 100,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -118,
+                    "point": 137.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 138.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9658110052533363,
+        "home_team_win_margin_prediction": [
+            18.10954507400586
+        ],
+        "away_team_win_prediction": 0.0341889947466637,
+        "away_team_win_margin_prediction": [
+            -18.10954507400586
+        ],
+        "total_prediction": [
+            145.51334814581392
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Indiana Hoosiers",
+            "away": "South Carolina Gamecocks",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Indiana Hoosiers": {
+                    "price": -300,
+                    "bookmaker": "BetMGM"
+                },
+                "South Carolina Gamecocks": {
+                    "price": 255,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Indiana Hoosiers": {
+                    "price": -110,
+                    "point": -7.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "South Carolina Gamecocks": {
+                    "price": -115,
+                    "point": 7.0,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 144.0,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 145.0,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8183336552788569,
+        "home_team_win_margin_prediction": [
+            6.951547793656548
+        ],
+        "away_team_win_prediction": 0.18166634472114307,
+        "away_team_win_margin_prediction": [
+            -6.951547793656548
+        ],
+        "total_prediction": [
+            151.61286673119403
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Vanderbilt Commodores",
+            "away": "Jackson St Tigers",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Vanderbilt Commodores": {
+                    "price": -9000,
+                    "bookmaker": "DraftKings"
+                },
+                "Jackson St Tigers": {
+                    "price": 2800,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "Vanderbilt Commodores": {
+                    "price": -112,
+                    "point": -25.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Jackson St Tigers": {
+                    "price": -110,
+                    "point": 25.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 152.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 152.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9781466630519378,
+        "home_team_win_margin_prediction": [
+            13.1582645308673
+        ],
+        "away_team_win_prediction": 0.0218533369480624,
+        "away_team_win_margin_prediction": [
+            -13.1582645308673
+        ],
+        "total_prediction": [
+            142.79974911339352
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Rice Owls",
+            "away": "Northwestern St Demons",
+            "commence_time": "2024-11-16T20:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Rice Owls": {
+                    "price": -440,
+                    "bookmaker": "DraftKings"
+                },
+                "Northwestern St Demons": {
+                    "price": 340,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Rice Owls": {
+                    "price": -112,
+                    "point": -9.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Northwestern St Demons": {
+                    "price": -108,
+                    "point": 9.0,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 139.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 140.0,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9767146555153671,
+        "home_team_win_margin_prediction": [
+            13.435616539697705
+        ],
+        "away_team_win_prediction": 0.023285344484633028,
+        "away_team_win_margin_prediction": [
+            -13.435616539697705
+        ],
+        "total_prediction": [
+            139.6742685462697
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Abilene Christian Wildcats",
+            "away": "Texas State Bobcats",
+            "commence_time": "2024-11-16T20:30:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Abilene Christian Wildcats": {
+                    "price": -110,
+                    "bookmaker": "FanDuel"
+                },
+                "Texas State Bobcats": {
+                    "price": -108,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Abilene Christian Wildcats": {
+                    "price": -110,
+                    "point": 0.0,
+                    "bookmaker": "Caesars"
+                },
+                "Texas State Bobcats": {
+                    "price": -110,
+                    "point": -0.0,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 136.5,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 137.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.4585959015443882,
+        "home_team_win_margin_prediction": [
+            5.232874880010395
+        ],
+        "away_team_win_prediction": 0.5414040984556119,
+        "away_team_win_margin_prediction": [
+            -5.232874880010395
+        ],
+        "total_prediction": [
+            162.01709480694313
+        ]
+    },
+    {
+        "game_info": {
+            "home": "UTSA Roadrunners",
+            "away": "Arkansas-Little Rock Trojans",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "UTSA Roadrunners": {
+                    "price": -310,
+                    "bookmaker": "DraftKings"
+                },
+                "Arkansas-Little Rock Trojans": {
+                    "price": 275,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "UTSA Roadrunners": {
+                    "price": -110,
+                    "point": -8.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Arkansas-Little Rock Trojans": {
+                    "price": -110,
+                    "point": 8.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 155.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 156.0,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.41941238467061676,
+        "home_team_win_margin_prediction": [
+            -5.274166393978374
+        ],
+        "away_team_win_prediction": 0.5805876153293833,
+        "away_team_win_margin_prediction": [
+            5.274166393978374
+        ],
+        "total_prediction": [
+            149.31700278273465
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Incarnate Word Cardinals",
+            "away": "Arkansas-Pine Bluff Golden Lions",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Incarnate Word Cardinals": {
+                    "price": -600,
+                    "bookmaker": "BetMGM"
+                },
+                "Arkansas-Pine Bluff Golden Lions": {
+                    "price": 490,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Incarnate Word Cardinals": {
+                    "price": -118,
+                    "point": -10.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Arkansas-Pine Bluff Golden Lions": {
+                    "price": -105,
+                    "point": 10.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 159.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 159.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.7829099679752934,
+        "home_team_win_margin_prediction": [
+            -1.025979612383986
+        ],
+        "away_team_win_prediction": 0.21709003202470667,
+        "away_team_win_margin_prediction": [
+            1.025979612383986
+        ],
+        "total_prediction": [
+            139.77610867914635
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Detroit Mercy Titans",
+            "away": "Toledo Rockets",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Detroit Mercy Titans": {
+                    "price": 520,
+                    "bookmaker": "FanDuel"
+                },
+                "Toledo Rockets": {
+                    "price": -625,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Detroit Mercy Titans": {
+                    "price": -115,
+                    "point": 10.5,
+                    "bookmaker": "Bovada"
+                },
+                "Toledo Rockets": {
+                    "price": -115,
+                    "point": -10.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 153.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 154.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.2894366829862446,
+        "home_team_win_margin_prediction": [
+            -3.996665655142225
+        ],
+        "away_team_win_prediction": 0.7105633170137555,
+        "away_team_win_margin_prediction": [
+            3.996665655142225
+        ],
+        "total_prediction": [
+            130.78975454053332
+        ]
+    },
+    {
+        "game_info": {
+            "home": "East Carolina Pirates",
+            "away": "George Mason Patriots",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "East Carolina Pirates": {
+                    "price": 140,
+                    "bookmaker": "FanDuel"
+                },
+                "George Mason Patriots": {
+                    "price": -160,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "East Carolina Pirates": {
+                    "price": -110,
+                    "point": 3.0,
+                    "bookmaker": "Caesars"
+                },
+                "George Mason Patriots": {
+                    "price": -115,
+                    "point": -3.0,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 136.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 137.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.27892294781960747,
+        "home_team_win_margin_prediction": [
+            -1.1729737048073436
+        ],
+        "away_team_win_prediction": 0.7210770521803925,
+        "away_team_win_margin_prediction": [
+            1.1729737048073436
+        ],
+        "total_prediction": [
+            113.40727674451769
+        ]
+    },
+    {
+        "game_info": {
+            "home": "St. Bonaventure Bonnies",
+            "away": "Le Moyne Dolphins",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "St. Bonaventure Bonnies": {
+                    "price": -2100,
+                    "bookmaker": "DraftKings"
+                },
+                "Le Moyne Dolphins": {
+                    "price": 1300,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "St. Bonaventure Bonnies": {
+                    "price": -115,
+                    "point": -17.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Le Moyne Dolphins": {
+                    "price": -108,
+                    "point": 17.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 146.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 146.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9594580947277983,
+        "home_team_win_margin_prediction": [
+            6.509781090954376
+        ],
+        "away_team_win_prediction": 0.04054190527220177,
+        "away_team_win_margin_prediction": [
+            -6.509781090954376
+        ],
+        "total_prediction": [
+            128.48232097036598
+        ]
+    },
+    {
+        "game_info": {
+            "home": "South Alabama Jaguars",
+            "away": "Mercer Bears",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "South Alabama Jaguars": {
+                    "price": -200,
+                    "bookmaker": "BetMGM"
+                },
+                "Mercer Bears": {
+                    "price": 176,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "South Alabama Jaguars": {
+                    "price": -112,
+                    "point": -4.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Mercer Bears": {
+                    "price": -110,
+                    "point": 4.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -116,
+                    "point": 149.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 150.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.2066241202477423,
+        "home_team_win_margin_prediction": [
+            -9.052464603923251
+        ],
+        "away_team_win_prediction": 0.7933758797522577,
+        "away_team_win_margin_prediction": [
+            9.052464603923251
+        ],
+        "total_prediction": [
+            89.59795230942005
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Middle Tennessee Blue Raiders",
+            "away": "Murray St Racers",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Middle Tennessee Blue Raiders": {
+                    "price": -175,
+                    "bookmaker": "BetMGM"
+                },
+                "Murray St Racers": {
+                    "price": 162,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "Middle Tennessee Blue Raiders": {
+                    "price": -115,
+                    "point": -3.5,
+                    "bookmaker": "Bovada"
+                },
+                "Murray St Racers": {
+                    "price": -110,
+                    "point": 3.5,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 140.0,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 140.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.89472646772413,
+        "home_team_win_margin_prediction": [
+            16.7497715028153
+        ],
+        "away_team_win_prediction": 0.10527353227587,
+        "away_team_win_margin_prediction": [
+            -16.7497715028153
+        ],
+        "total_prediction": [
+            128.9106872298995
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Minnesota Golden Gophers",
+            "away": "Yale Bulldogs",
+            "commence_time": "2024-11-16T21:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Minnesota Golden Gophers": {
+                    "price": -185,
+                    "bookmaker": "DraftKings"
+                },
+                "Yale Bulldogs": {
+                    "price": 158,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Minnesota Golden Gophers": {
+                    "price": -120,
+                    "point": -3.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Yale Bulldogs": {
+                    "price": 100,
+                    "point": 3.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 138.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 138.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.5395080822077234,
+        "home_team_win_margin_prediction": [
+            9.221930642564276
+        ],
+        "away_team_win_prediction": 0.4604919177922767,
+        "away_team_win_margin_prediction": [
+            -9.221930642564276
+        ],
+        "total_prediction": [
+            143.40543929750058
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Ole Miss Rebels",
+            "away": "Colorado St Rams",
+            "commence_time": "2024-11-16T21:00:16Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Ole Miss Rebels": {
+                    "price": -155,
+                    "bookmaker": "Caesars"
+                },
+                "Colorado St Rams": {
+                    "price": 145,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "Ole Miss Rebels": {
+                    "price": -115,
+                    "point": -3.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Colorado St Rams": {
+                    "price": -110,
+                    "point": 3.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 141.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 141.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.11989008949686719,
+        "home_team_win_margin_prediction": [
+            -5.817947009220963
+        ],
+        "away_team_win_prediction": 0.8801099105031327,
+        "away_team_win_margin_prediction": [
+            5.817947009220963
+        ],
+        "total_prediction": [
+            130.14120636323446
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Davidson Wildcats",
+            "away": "East Tennessee St Buccaneers",
+            "commence_time": "2024-11-16T22:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Davidson Wildcats": {
+                    "price": -250,
+                    "bookmaker": "FanDuel"
+                },
+                "East Tennessee St Buccaneers": {
+                    "price": 222,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "Davidson Wildcats": {
+                    "price": -120,
+                    "point": -5.5,
+                    "bookmaker": "FanDuel"
+                },
+                "East Tennessee St Buccaneers": {
+                    "price": -115,
+                    "point": 5.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 145.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 146.0,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.7455579098786103,
+        "home_team_win_margin_prediction": [
+            -5.08941245455047
+        ],
+        "away_team_win_prediction": 0.2544420901213898,
+        "away_team_win_margin_prediction": [
+            5.08941245455047
+        ],
+        "total_prediction": [
+            160.15812854342843
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Providence Friars",
+            "away": "Green Bay Phoenix",
+            "commence_time": "2024-11-16T22:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Providence Friars": {
+                    "price": -1600,
+                    "bookmaker": "Caesars"
+                },
+                "Green Bay Phoenix": {
+                    "price": 1060,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Providence Friars": {
+                    "price": -120,
+                    "point": -15.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Green Bay Phoenix": {
+                    "price": -110,
+                    "point": 15.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 142.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -114,
+                    "point": 143.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9580300035705938,
+        "home_team_win_margin_prediction": [
+            13.527957647546218
+        ],
+        "away_team_win_prediction": 0.04196999642940634,
+        "away_team_win_margin_prediction": [
+            -13.527957647546218
+        ],
+        "total_prediction": [
+            135.48417864804273
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Long Beach St 49ers",
+            "away": "Portland Pilots",
+            "commence_time": "2024-11-16T22:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Long Beach St 49ers": {
+                    "price": -190,
+                    "bookmaker": "BetMGM"
+                },
+                "Portland Pilots": {
+                    "price": 172,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Long Beach St 49ers": {
+                    "price": -112,
+                    "point": -4.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Portland Pilots": {
+                    "price": -110,
+                    "point": 4.5,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 144.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 145.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.4913988091372955,
+        "home_team_win_margin_prediction": [
+            3.550693542253312
+        ],
+        "away_team_win_prediction": 0.5086011908627044,
+        "away_team_win_margin_prediction": [
+            -3.550693542253312
+        ],
+        "total_prediction": [
+            163.62965564914722
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Texas Longhorns",
+            "away": "Miss Valley St Delta Devils",
+            "commence_time": "2024-11-16T22:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Texas Longhorns": {
+                    "price": -100000,
+                    "bookmaker": ""
+                },
+                "Miss Valley St Delta Devils": {
+                    "price": -100000,
+                    "bookmaker": ""
+                }
+            },
+            "spread": {
+                "Texas Longhorns": {
+                    "price": -110,
+                    "point": -38.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Miss Valley St Delta Devils": {
+                    "price": -115,
+                    "point": 38.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 139.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -105,
+                    "point": 140.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9910543337563003,
+        "home_team_win_margin_prediction": [
+            16.398762832178903
+        ],
+        "away_team_win_prediction": 0.008945666243699876,
+        "away_team_win_margin_prediction": [
+            -16.398762832178903
+        ],
+        "total_prediction": [
+            117.88781736671784
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Michigan St Spartans",
+            "away": "Bowling Green Falcons",
+            "commence_time": "2024-11-16T23:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Michigan St Spartans": {
+                    "price": -10000,
+                    "bookmaker": "FanDuel"
+                },
+                "Bowling Green Falcons": {
+                    "price": 3000,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Michigan St Spartans": {
+                    "price": -110,
+                    "point": -23.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Bowling Green Falcons": {
+                    "price": -110,
+                    "point": 23.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 150.5,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 152.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9254189815813421,
+        "home_team_win_margin_prediction": [
+            16.885782613363585
+        ],
+        "away_team_win_prediction": 0.0745810184186578,
+        "away_team_win_margin_prediction": [
+            -16.885782613363585
+        ],
+        "total_prediction": [
+            155.71917714095736
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Northeastern Huskies",
+            "away": "Central Connecticut St Blue Devils",
+            "commence_time": "2024-11-16T23:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Northeastern Huskies": {
+                    "price": -155,
+                    "bookmaker": "DraftKings"
+                },
+                "Central Connecticut St Blue Devils": {
+                    "price": 136,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Northeastern Huskies": {
+                    "price": -118,
+                    "point": -2.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Central Connecticut St Blue Devils": {
+                    "price": -104,
+                    "point": 2.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 137.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 137.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.873136133059716,
+        "home_team_win_margin_prediction": [
+            1.7123731296228708
+        ],
+        "away_team_win_prediction": 0.126863866940284,
+        "away_team_win_margin_prediction": [
+            -1.7123731296228708
+        ],
+        "total_prediction": [
+            130.30902529631683
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Florida Atlantic Owls",
+            "away": "Liberty Flames",
+            "commence_time": "2024-11-16T23:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Florida Atlantic Owls": {
+                    "price": -128,
+                    "bookmaker": "FanDuel"
+                },
+                "Liberty Flames": {
+                    "price": 106,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Florida Atlantic Owls": {
+                    "price": -120,
+                    "point": -1.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Liberty Flames": {
+                    "price": -102,
+                    "point": 1.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -105,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.7126178210802638,
+        "home_team_win_margin_prediction": [
+            4.0249055916228
+        ],
+        "away_team_win_prediction": 0.2873821789197363,
+        "away_team_win_margin_prediction": [
+            -4.0249055916228
+        ],
+        "total_prediction": [
+            124.35106636252817
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Kansas Jayhawks",
+            "away": "Oakland Golden Grizzlies",
+            "commence_time": "2024-11-16T23:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Kansas Jayhawks": {
+                    "price": -100000,
+                    "bookmaker": ""
+                },
+                "Oakland Golden Grizzlies": {
+                    "price": -100000,
+                    "bookmaker": ""
+                }
+            },
+            "spread": {
+                "Kansas Jayhawks": {
+                    "price": -115,
+                    "point": -26.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Oakland Golden Grizzlies": {
+                    "price": -110,
+                    "point": 26.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 148.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 149.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9806287435049,
+        "home_team_win_margin_prediction": [
+            5.045501919367003
+        ],
+        "away_team_win_prediction": 0.019371256495099944,
+        "away_team_win_margin_prediction": [
+            -5.045501919367003
+        ],
+        "total_prediction": [
+            141.29211940879088
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Albany Great Danes",
+            "away": "Siena Saints",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Albany Great Danes": {
+                    "price": -198,
+                    "bookmaker": "DraftKings"
+                },
+                "Siena Saints": {
+                    "price": 176,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Albany Great Danes": {
+                    "price": -115,
+                    "point": -4.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Siena Saints": {
+                    "price": -110,
+                    "point": 4.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -116,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 147.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.2527191028932251,
+        "home_team_win_margin_prediction": [
+            -8.864232887715376
+        ],
+        "away_team_win_prediction": 0.7472808971067749,
+        "away_team_win_margin_prediction": [
+            8.864232887715376
+        ],
+        "total_prediction": [
+            122.59027216710179
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Marshall Thundering Herd",
+            "away": "Bellarmine Knights",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Marshall Thundering Herd": {
+                    "price": -400,
+                    "bookmaker": "BetMGM"
+                },
+                "Bellarmine Knights": {
+                    "price": 320,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Marshall Thundering Herd": {
+                    "price": -120,
+                    "point": -8.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Bellarmine Knights": {
+                    "price": 100,
+                    "point": 8.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 144.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 145.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9404875137562859,
+        "home_team_win_margin_prediction": [
+            7.018358735242642
+        ],
+        "away_team_win_prediction": 0.0595124862437141,
+        "away_team_win_margin_prediction": [
+            -7.018358735242642
+        ],
+        "total_prediction": [
+            158.99165602014727
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Creighton Bluejays",
+            "away": "UMKC Kangaroos",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Creighton Bluejays": {
+                    "price": -3600,
+                    "bookmaker": "DraftKings"
+                },
+                "UMKC Kangaroos": {
+                    "price": 2000,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Creighton Bluejays": {
+                    "price": -110,
+                    "point": -20.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "UMKC Kangaroos": {
+                    "price": -110,
+                    "point": 20.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 147.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 148.0,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9842923050142807,
+        "home_team_win_margin_prediction": [
+            18.539158559489888
+        ],
+        "away_team_win_prediction": 0.015707694985719403,
+        "away_team_win_margin_prediction": [
+            -18.539158559489888
+        ],
+        "total_prediction": [
+            135.94027558220728
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Fort Wayne Mastodons",
+            "away": "Southern Indiana Screaming Eagles",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Fort Wayne Mastodons": {
+                    "price": -900,
+                    "bookmaker": "DraftKings"
+                },
+                "Southern Indiana Screaming Eagles": {
+                    "price": 750,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "Fort Wayne Mastodons": {
+                    "price": -105,
+                    "point": -14.0,
+                    "bookmaker": "Bovada"
+                },
+                "Southern Indiana Screaming Eagles": {
+                    "price": -115,
+                    "point": 14.0,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 148.5,
+                    "bookmaker": "BetUS"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 148.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.5860040528279716,
+        "home_team_win_margin_prediction": [
+            5.272401278296954
+        ],
+        "away_team_win_prediction": 0.41399594717202826,
+        "away_team_win_margin_prediction": [
+            -5.272401278296954
+        ],
+        "total_prediction": [
+            147.34368177375953
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Massachusetts Minutemen",
+            "away": "Hofstra Pride",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Massachusetts Minutemen": {
+                    "price": -235,
+                    "bookmaker": "FanDuel"
+                },
+                "Hofstra Pride": {
+                    "price": 210,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "Massachusetts Minutemen": {
+                    "price": -115,
+                    "point": -5.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Hofstra Pride": {
+                    "price": -110,
+                    "point": 5.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 145.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 146.0,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.34651517019948114,
+        "home_team_win_margin_prediction": [
+            -2.977002006855128
+        ],
+        "away_team_win_prediction": 0.6534848298005188,
+        "away_team_win_margin_prediction": [
+            2.977002006855128
+        ],
+        "total_prediction": [
+            143.1285226603318
+        ]
+    },
+    {
+        "game_info": {
+            "home": "VCU Rams",
+            "away": "Loyola (MD) Greyhounds",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "VCU Rams": {
+                    "price": -6500,
+                    "bookmaker": "DraftKings"
+                },
+                "Loyola (MD) Greyhounds": {
+                    "price": 2400,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "VCU Rams": {
+                    "price": -120,
+                    "point": -22.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Loyola (MD) Greyhounds": {
+                    "price": -110,
+                    "point": 22.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 137.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 137.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.7167983794190917,
+        "home_team_win_margin_prediction": [
+            6.183286885046795
+        ],
+        "away_team_win_prediction": 0.2832016205809082,
+        "away_team_win_margin_prediction": [
+            -6.183286885046795
+        ],
+        "total_prediction": [
+            145.00791519173842
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Mt. St. Mary's Mountaineers",
+            "away": "St. Francis (PA) Red Flash",
+            "commence_time": "2024-11-17T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Mt. St. Mary's Mountaineers": {
+                    "price": -290,
+                    "bookmaker": "FanDuel"
+                },
+                "St. Francis (PA) Red Flash": {
+                    "price": 235,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Mt. St. Mary's Mountaineers": {
+                    "price": -115,
+                    "point": -6.5,
+                    "bookmaker": "FanDuel"
+                },
+                "St. Francis (PA) Red Flash": {
+                    "price": -105,
+                    "point": 6.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -116,
+                    "point": 143.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 144.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.967626405534649,
+        "home_team_win_margin_prediction": [
+            6.8160932224474
+        ],
+        "away_team_win_prediction": 0.032373594465350916,
+        "away_team_win_margin_prediction": [
+            -6.8160932224474
+        ],
+        "total_prediction": [
+            128.75844611870576
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Tennessee St Tigers",
+            "away": "Alabama A&M Bulldogs",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Tennessee St Tigers": {
+                    "price": -245,
+                    "bookmaker": "DraftKings"
+                },
+                "Alabama A&M Bulldogs": {
+                    "price": 200,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Tennessee St Tigers": {
+                    "price": -120,
+                    "point": -5.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Alabama A&M Bulldogs": {
+                    "price": 100,
+                    "point": 5.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 147.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 148.0,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": "N/A",
+        "home_team_win_margin_prediction": "N/A",
+        "away_team_win_prediction": "N/A",
+        "away_team_win_margin_prediction": "N/A",
+        "total_prediction": "N/A"
+    },
+    {
+        "game_info": {
+            "home": "Bradley Braves",
+            "away": "Northern Illinois Huskies",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Bradley Braves": {
+                    "price": -1650,
+                    "bookmaker": "DraftKings"
+                },
+                "Northern Illinois Huskies": {
+                    "price": 1400,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Bradley Braves": {
+                    "price": -110,
+                    "point": -17.5,
+                    "bookmaker": "Bovada"
+                },
+                "Northern Illinois Huskies": {
+                    "price": -110,
+                    "point": 17.5,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 146.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 147.5,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8681837047143401,
+        "home_team_win_margin_prediction": [
+            9.315975141362935
+        ],
+        "away_team_win_prediction": 0.13181629528565983,
+        "away_team_win_margin_prediction": [
+            -9.315975141362935
+        ],
+        "total_prediction": [
+            138.22789727185435
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Sacramento St Hornets",
+            "away": "CSU Northridge Matadors",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Sacramento St Hornets": {
+                    "price": 172,
+                    "bookmaker": "FanDuel"
+                },
+                "CSU Northridge Matadors": {
+                    "price": -190,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "Sacramento St Hornets": {
+                    "price": -110,
+                    "point": 4.5,
+                    "bookmaker": "FanDuel"
+                },
+                "CSU Northridge Matadors": {
+                    "price": -110,
+                    "point": -4.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -118,
+                    "point": 143.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 144.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.823080074047463,
+        "home_team_win_margin_prediction": [
+            21.73835189610314
+        ],
+        "away_team_win_prediction": 0.1769199259525371,
+        "away_team_win_margin_prediction": [
+            -21.73835189610314
+        ],
+        "total_prediction": [
+            145.75392127699877
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Drake Bulldogs",
+            "away": "Florida Gulf Coast Eagles",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Drake Bulldogs": {
+                    "price": -650,
+                    "bookmaker": "BetMGM"
+                },
+                "Florida Gulf Coast Eagles": {
+                    "price": 540,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Drake Bulldogs": {
+                    "price": -115,
+                    "point": -11.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Florida Gulf Coast Eagles": {
+                    "price": -110,
+                    "point": 11.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -114,
+                    "point": 135.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 136.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8691486721934778,
+        "home_team_win_margin_prediction": [
+            1.6102232526872202
+        ],
+        "away_team_win_prediction": 0.1308513278065223,
+        "away_team_win_margin_prediction": [
+            -1.6102232526872202
+        ],
+        "total_prediction": [
+            110.75340784738962
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Hampton Pirates",
+            "away": "Norfolk St Spartans",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Hampton Pirates": {
+                    "price": 124,
+                    "bookmaker": "FanDuel"
+                },
+                "Norfolk St Spartans": {
+                    "price": -142,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Hampton Pirates": {
+                    "price": -110,
+                    "point": 2.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Norfolk St Spartans": {
+                    "price": -110,
+                    "point": -2.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 140.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 140.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.043165662451367375,
+        "home_team_win_margin_prediction": [
+            -21.299794202138948
+        ],
+        "away_team_win_prediction": 0.9568343375486326,
+        "away_team_win_margin_prediction": [
+            21.299794202138948
+        ],
+        "total_prediction": [
+            142.30069355270103
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Towson Tigers",
+            "away": "James Madison Dukes",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Towson Tigers": {
+                    "price": -160,
+                    "bookmaker": "BetMGM"
+                },
+                "James Madison Dukes": {
+                    "price": 154,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Towson Tigers": {
+                    "price": -108,
+                    "point": -3.0,
+                    "bookmaker": "DraftKings"
+                },
+                "James Madison Dukes": {
+                    "price": -112,
+                    "point": 3.0,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 138.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 138.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8543595709774336,
+        "home_team_win_margin_prediction": [
+            22.741312013740394
+        ],
+        "away_team_win_prediction": 0.1456404290225663,
+        "away_team_win_margin_prediction": [
+            -22.741312013740394
+        ],
+        "total_prediction": [
+            137.19956016872493
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Saint Louis Billikens",
+            "away": "Loyola Marymount Lions",
+            "commence_time": "2024-11-17T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Saint Louis Billikens": {
+                    "price": -180,
+                    "bookmaker": "Caesars"
+                },
+                "Loyola Marymount Lions": {
+                    "price": 162,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Saint Louis Billikens": {
+                    "price": -115,
+                    "point": -4.0,
+                    "bookmaker": "Bovada"
+                },
+                "Loyola Marymount Lions": {
+                    "price": -110,
+                    "point": 4.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 150.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 151.5,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.6941022813043045,
+        "home_team_win_margin_prediction": [
+            10.5052598947725
+        ],
+        "away_team_win_prediction": 0.30589771869569554,
+        "away_team_win_margin_prediction": [
+            -10.5052598947725
+        ],
+        "total_prediction": [
+            127.56946596453315
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Southern Utah Thunderbirds",
+            "away": "Omaha Mavericks",
+            "commence_time": "2024-11-17T01:30:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Southern Utah Thunderbirds": {
+                    "price": -250,
+                    "bookmaker": "BetMGM"
+                },
+                "Omaha Mavericks": {
+                    "price": 210,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Southern Utah Thunderbirds": {
+                    "price": -120,
+                    "point": -5.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Omaha Mavericks": {
+                    "price": -110,
+                    "point": 5.5,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 152.0,
+                    "bookmaker": "BetUS"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 152.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.4087598124690956,
+        "home_team_win_margin_prediction": [
+            -0.38605813867718314
+        ],
+        "away_team_win_prediction": 0.5912401875309043,
+        "away_team_win_margin_prediction": [
+            0.38605813867718314
+        ],
+        "total_prediction": [
+            123.72218221274302
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Wyoming Cowboys",
+            "away": "Utah Tech Trailblazers",
+            "commence_time": "2024-11-17T02:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Wyoming Cowboys": {
+                    "price": -470,
+                    "bookmaker": "DraftKings"
+                },
+                "Utah Tech Trailblazers": {
+                    "price": 390,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Wyoming Cowboys": {
+                    "price": -120,
+                    "point": -9.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Utah Tech Trailblazers": {
+                    "price": -105,
+                    "point": 9.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 145.0,
+                    "bookmaker": "Bovada"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 145.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9666999032373849,
+        "home_team_win_margin_prediction": [
+            11.597939895672516
+        ],
+        "away_team_win_prediction": 0.033300096762615104,
+        "away_team_win_margin_prediction": [
+            -11.597939895672516
+        ],
+        "total_prediction": [
+            142.70870127319074
+        ]
+    },
+    {
+        "game_info": {
+            "home": "CSU Bakersfield Roadrunners",
+            "away": "Fresno St Bulldogs",
+            "commence_time": "2024-11-17T02:30:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "CSU Bakersfield Roadrunners": {
+                    "price": -125,
+                    "bookmaker": "BetMGM"
+                },
+                "Fresno St Bulldogs": {
+                    "price": 110,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "CSU Bakersfield Roadrunners": {
+                    "price": -110,
+                    "point": -1.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Fresno St Bulldogs": {
+                    "price": -110,
+                    "point": 1.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 152.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 152.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9342741725513861,
+        "home_team_win_margin_prediction": [
+            13.587802046309703
+        ],
+        "away_team_win_prediction": 0.06572582744861379,
+        "away_team_win_margin_prediction": [
+            -13.587802046309703
+        ],
+        "total_prediction": [
+            137.02542927106688
+        ]
+    },
+    {
+        "game_info": {
+            "home": "San Francisco Dons",
+            "away": "Chicago St Cougars",
+            "commence_time": "2024-11-17T03:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "San Francisco Dons": {
+                    "price": -8000,
+                    "bookmaker": "FanDuel"
+                },
+                "Chicago St Cougars": {
+                    "price": 2200,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "San Francisco Dons": {
+                    "price": -120,
+                    "point": -22.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Chicago St Cougars": {
+                    "price": -102,
+                    "point": 22.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 148.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 149.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9862417925121374,
+        "home_team_win_margin_prediction": [
+            19.196465148024497
+        ],
+        "away_team_win_prediction": 0.013758207487862596,
+        "away_team_win_margin_prediction": [
+            -19.196465148024497
+        ],
+        "total_prediction": [
+            140.52920255828025
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Nevada Wolf Pack",
+            "away": "Santa Clara Broncos",
+            "commence_time": "2024-11-17T03:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Nevada Wolf Pack": {
+                    "price": -300,
+                    "bookmaker": "BetMGM"
+                },
+                "Santa Clara Broncos": {
+                    "price": 275,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Nevada Wolf Pack": {
+                    "price": -120,
+                    "point": -7.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Santa Clara Broncos": {
+                    "price": -115,
+                    "point": 7.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 147.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 148.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9425770016959827,
+        "home_team_win_margin_prediction": [
+            15.07020799526402
+        ],
+        "away_team_win_prediction": 0.05742299830401733,
+        "away_team_win_margin_prediction": [
+            -15.07020799526402
+        ],
+        "total_prediction": [
+            143.5738361401859
+        ]
+    },
+    {
+        "game_info": {
+            "home": "UC Irvine Anteaters",
+            "away": "Pepperdine Waves",
+            "commence_time": "2024-11-17T03:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "UC Irvine Anteaters": {
+                    "price": -2000,
+                    "bookmaker": "BetMGM"
+                },
+                "Pepperdine Waves": {
+                    "price": 1350,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "UC Irvine Anteaters": {
+                    "price": -120,
+                    "point": -16.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Pepperdine Waves": {
+                    "price": -110,
+                    "point": 16.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 144.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 145.0,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.7762707293062854,
+        "home_team_win_margin_prediction": [
+            4.142750040473996
+        ],
+        "away_team_win_prediction": 0.22372927069371454,
+        "away_team_win_margin_prediction": [
+            -4.142750040473996
+        ],
+        "total_prediction": [
+            134.1040149857597
+        ]
+    },
+    {
+        "game_info": {
+            "home": "UC San Diego Tritons",
+            "away": "Seattle Redhawks",
+            "commence_time": "2024-11-17T03:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "UC San Diego Tritons": {
+                    "price": -205,
+                    "bookmaker": "FanDuel"
+                },
+                "Seattle Redhawks": {
+                    "price": 185,
+                    "bookmaker": "Caesars"
+                }
+            },
+            "spread": {
+                "UC San Diego Tritons": {
+                    "price": -115,
+                    "point": -4.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Seattle Redhawks": {
+                    "price": -105,
+                    "point": 4.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 140.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -132,
+                    "point": 141.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8914306711469762,
+        "home_team_win_margin_prediction": [
+            11.349280138668584
+        ],
+        "away_team_win_prediction": 0.1085693288530238,
+        "away_team_win_margin_prediction": [
+            -11.349280138668584
+        ],
+        "total_prediction": [
+            146.451475796545
+        ]
+    }
+]
