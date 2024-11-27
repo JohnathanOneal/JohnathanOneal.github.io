@@ -1043,13 +1043,117 @@ body.dark-mode {
     color: #ff6b6b;
 }
 
-/* Signup Section Base Styles */
-.signup-section {
+/* Newsletter content layout */
+.newsletter-content {
+    display: flex;
+    gap: 2em;
     margin: 2em 0;
+}
+
+.article-excerpt {
+    flex: 1;
+    min-width: 300px;
     padding: 1.5em;
-    background: var(--bg-primary, #fff);
-    border-radius: 4px;
-    border: 1px solid var(--border-color, #ddd);
+    background: white;
+    border-radius: 12px;
+    position: relative;
+}
+
+/* Creates gradient border effect */
+.article-excerpt::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f9b96e, #2d2d2d);
+    z-index: -1;
+}
+
+.excerpt-header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.excerpt-header i {
+    font-size: 1.8em;
+    color: #f9b96e;
+}
+
+.excerpt-header h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0;
+    color: #2d2d2d;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.benefit-item {
+    padding: 1em;
+    background: #fff;
+    border: 1px solid rgba(249, 185, 110, 0.3);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-2px);
+}
+
+.benefit-item i {
+    font-size: 1.2em;
+    color: #f9b96e;
+    margin-bottom: 0.5em;
+}
+
+.benefit-item h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0.5em 0;
+    color: #2d2d2d;
+}
+
+.benefit-item p {
+    font-size: 0.95em;
+    margin: 0;
+    color: #2d2d2d;
+    line-height: 1.4;
+}
+
+.join-prompt {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    background: linear-gradient(135deg, #f9b96e, #2d2d2d);
+    color: white;
+    border-radius: 8px;
+    margin-top: 1.5em;
+}
+
+.join-prompt p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.join-prompt i {
+    font-size: 1.5em;
+}
+
+.signup-section {
+    flex: 1;
+    min-width: 300px;
 }
 
 .signup-section iframe {
@@ -1058,17 +1162,20 @@ body.dark-mode {
     border: none;
 }
 
-/* Dark Mode Styles */
-.dark-mode .signup-section {
-    background-color: #2a2a2a;
-    border-color: #444;
-}
-
 /* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
-    .signup-section {
-        padding: 1em;
-        margin: 1em 0;
+    .newsletter-content {
+        flex-direction: column;
+        gap: 1.5em;
+    }
+    
+    .article-excerpt, .signup-section {
+        width: 100%;
+    }
+    
+    .benefits-list {
+        grid-template-columns: 1fr;
+        gap: 1em;
     }
     
     .signup-section iframe {
@@ -1076,3 +1183,26 @@ body.dark-mode {
     }
 }
 
+/* Small screen optimization */
+@media screen and (max-width: 480px) {
+    .article-excerpt {
+        padding: 1em;
+    }
+    
+    .excerpt-header {
+        gap: 0.5em;
+    }
+    
+    .excerpt-header h3 {
+        font-size: 1.3em;
+    }
+    
+    .join-prompt {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .signup-section iframe {
+        min-height: 600px;
+    }
+}
