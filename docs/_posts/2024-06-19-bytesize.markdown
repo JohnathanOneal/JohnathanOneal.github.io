@@ -2,7 +2,7 @@
 layout: post
 title:  "TARS: AI Generated Travel Newsletter"
 date:   2024-06-19 16:37:09 -0400
-categories: [llm]
+categories: [llm,bytesize]
 ---
 
 Creating the comprehensive travel newletter humans alone can't

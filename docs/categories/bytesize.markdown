@@ -1,6 +1,5 @@
 ---
 layout: category
-title: ByteSize Travel
+title: Bytesize Travel
 category: bytesize
 ---
-

@@ -1043,3 +1043,14 @@ body.dark-mode {
     color: #ff6b6b;
 }
 
+.signup-section {
+    margin: 2em 0;
+    padding: 1.5em;
+}
+
+.signup-section iframe {
+    width: 100%;
+    min-height: 500px;
+    border: none;
+}
+

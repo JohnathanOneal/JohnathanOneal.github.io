@@ -1,6 +1,29 @@
 ---
 layout: default
 ---
+{% if page.title == 'Bytesize Travel' %}
+<article class="newspaper-article">
+    <h2 class="article-title">
+        <i class="fas fa-envelope"></i> Stay Updated with Bytesize
+    </h2>
+    <p class="post-meta">{{ site.time | date: "%B %d, %Y" }}</p>
+    <div class="article-excerpt">
+        ByteSize Travel Deals brings you the smartest ways to explore the world for less. Each newsletter packs: 
+        Insider travel hacks and money-saving tips, Current airline and hotel promotions, Expert strategies for reward points
+        and miles, Hidden gems and destination insights. Skip the endless research and get travel-savvy tips and deals that work,  delivered right to your inbox.
+    </div>
+    <div class="signup-section">
+        <iframe 
+            src="https://cdn.forms-content-1.sg-form.com/74c7c4af-ac55-11ef-8984-42f35d32cba1"
+            width="100%"
+            height="500px"
+            frameborder="0"
+            scrolling="no">
+        </iframe>
+    </div>
+</article>
+{% endif %}
+
 {% if page.title == '日本語' %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endif %}
