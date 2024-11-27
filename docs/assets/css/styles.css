@@ -1042,60 +1042,37 @@ body.dark-mode {
     background: rgba(220, 53, 69, 0.2);
     color: #ff6b6b;
 }
-/* Newsletter Section Styles - Updated to match site theme */
+
+/* Signup Section Base Styles */
 .signup-section {
     margin: 2em 0;
     padding: 1.5em;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-    position: relative;
-}
-
-.signup-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(to right, #f9b96e, #1a1501);
-}
-
-.signup-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    background: var(--bg-primary, #fff);
+    border-radius: 4px;
+    border: 1px solid var(--border-color, #ddd);
 }
 
 .signup-section iframe {
     width: 100%;
     min-height: 500px;
     border: none;
-    background: transparent;
 }
 
-/* Dark Mode Newsletter Styles */
+/* Dark Mode Styles */
 .dark-mode .signup-section {
     background-color: #2a2a2a;
     border-color: #444;
-    box-shadow: 0 10px 20px rgba(255,255,255,0.1);
 }
 
-.dark-mode .signup-section:hover {
-    box-shadow: 0 15px 30px rgba(255,255,255,0.15);
-}
-
-/* Mobile Responsive Newsletter Adjustments */
+/* Mobile Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .signup-section {
-        margin: 1em 0;
         padding: 1em;
+        margin: 1em 0;
     }
     
     .signup-section iframe {
-        min-height: 550px; /* Slightly taller on mobile */
+        min-height: 550px;
     }
 }
 
