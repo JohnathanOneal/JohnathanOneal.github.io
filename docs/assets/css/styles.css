@@ -1043,14 +1043,36 @@ body.dark-mode {
     color: #ff6b6b;
 }
 
+/* Signup Section Base Styles */
 .signup-section {
     margin: 2em 0;
     padding: 1.5em;
+    background: var(--bg-primary, #fff);
+    border-radius: 4px;
+    border: 1px solid var(--border-color, #ddd);
 }
 
 .signup-section iframe {
     width: 100%;
     min-height: 500px;
     border: none;
+}
+
+/* Dark Mode Styles */
+.dark-mode .signup-section {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .signup-section {
+        padding: 1em;
+        margin: 1em 0;
+    }
+    
+    .signup-section iframe {
+        min-height: 550px;
+    }
 }
 
