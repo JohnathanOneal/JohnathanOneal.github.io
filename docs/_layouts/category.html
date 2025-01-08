@@ -74,6 +74,116 @@ layout: default
 </article>
 {% endif %}
 
+{% if page.title == 'Better Everyday' %}
+<div class="activity-heatmap">
+    <h2>Did you Get Better Today? </h2>
+    <div id="heatmap-container" class="heatmap-container"></div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentYear = new Date().getFullYear();
+    const heatmapContainer = document.getElementById('heatmap-container');
+
+    // Fetch activity data from your JSON file
+    fetch('{{ "../categories/bettereveryday/data/activity-data.json" | relative_url }}')
+      .then(response => response.json())
+      .then(data => {
+        const yearData = data[currentYear] || {};
+
+        // Find the last date in the data
+        const dates = Object.keys(yearData).sort();
+        const lastDate = dates[dates.length - 1];
+        const lastDateObj = new Date(currentYear,
+          parseInt(lastDate.split('-')[0]) - 1,
+          parseInt(lastDate.split('-')[1])
+        );
+
+        // Create a header row with month names
+        const headerRow = document.createElement('div');
+        headerRow.classList.add('heatmap-header');
+
+        // Add empty cell for day of week column
+        const emptyHeader = document.createElement('div');
+        emptyHeader.classList.add('heatmap-header-cell');
+        headerRow.appendChild(emptyHeader);
+
+        // Calculate the first day position for each month
+        const monthPositions = [];
+        let currentDate = new Date(currentYear, 0, 1);
+        let weekCounter = 0;
+
+        while (currentDate <= lastDateObj) {
+            if (currentDate.getDate() === 1) {
+                monthPositions.push({
+                    month: currentDate.getMonth(),
+                    position: weekCounter + 1
+                });
+            }
+
+            currentDate.setDate(currentDate.getDate() + 7);
+            weekCounter++;
+        }
+
+        // Add month labels at calculated positions
+        monthPositions.forEach(({month, position}) => {
+            const monthHeader = document.createElement('div');
+            monthHeader.classList.add('heatmap-header-cell');
+            monthHeader.textContent = new Date(currentYear, month)
+                .toLocaleString('default', { month: 'short' });
+            monthHeader.style.gridColumn = position + 1;
+            headerRow.appendChild(monthHeader);
+        });
+
+        heatmapContainer.appendChild(headerRow);
+
+        // Create rows for days of the week
+        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        weekdays.forEach((weekday, rowIndex) => {
+          const weekRow = document.createElement('div');
+          weekRow.classList.add('heatmap-row');
+
+          // Add weekday label
+          const weekdayLabel = document.createElement('div');
+          weekdayLabel.classList.add('heatmap-row-header');
+          weekdayLabel.textContent = weekday;
+          weekRow.appendChild(weekdayLabel);
+
+          // Calculate dates for this day of week
+          let currentDate = new Date(currentYear, 0, 1);
+          // Adjust start date to match this day of week
+          while (currentDate.getDay() !== rowIndex) {
+            currentDate.setDate(currentDate.getDate() + 1);
+          }
+
+          // Create cells up to the last date
+          while (currentDate <= lastDateObj) {
+            const monthStr = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+            const dayStr = currentDate.getDate().toString().padStart(2, '0');
+            const dateKey = `${monthStr}-${dayStr}`;
+
+            const cell = document.createElement('div');
+            cell.classList.add('heatmap-cell');
+
+            if (yearData.hasOwnProperty(dateKey)) {
+              const activityLevel = yearData[dateKey];
+              cell.classList.add(`level-${activityLevel}`);
+              cell.title = `${currentDate.toLocaleString('default', { month: 'short' })} ${currentDate.getDate()}: Level ${activityLevel}`;
+            }
+
+            weekRow.appendChild(cell);
+            currentDate.setDate(currentDate.getDate() + 7);
+          }
+
+          heatmapContainer.appendChild(weekRow);
+        });
+      })
+      .catch(error => {
+        console.error('Failed to load activity data:', error);
+      });
+  });
+</script>
+{% endif %}
+
 <div class="newspaper-category">
 
     <h1 class="category-title">
