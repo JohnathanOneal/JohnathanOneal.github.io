@@ -1306,3 +1306,29 @@ body.dark-mode {
     color: #24292f;
     margin-bottom: 8px;
 }
+
+.image-grid {
+  display: flex;
+  justify-content: center; /* Centers the grid */
+  gap: 16px; /* Adjust the gap between images */
+}
+
+.image-grid img {
+  max-width: calc(50% - 16px); /* Images take up 50% minus the gap */
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  /* For medium screens, images still stack if needed */
+  .image-grid img {
+    max-width: calc(100% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  /* For small screens, images stack fully */
+  .image-grid img {
+    max-width: 100%;
+  }
+}
+
