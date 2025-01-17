@@ -1,0 +1,434 @@
+[
+    {
+        "game_info": {
+            "home": "Virginia Cavaliers",
+            "away": "Bethune-Cookman Wildcats",
+            "commence_time": "2024-12-13T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Virginia Cavaliers": {
+                    "price": -2000,
+                    "bookmaker": "Bovada"
+                },
+                "Bethune-Cookman Wildcats": {
+                    "price": 1160,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Virginia Cavaliers": {
+                    "price": -113,
+                    "point": -16.0,
+                    "bookmaker": "BetRivers"
+                },
+                "Bethune-Cookman Wildcats": {
+                    "price": -108,
+                    "point": 16.0,
+                    "bookmaker": "BetRivers"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 125.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 126.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.9809138756026297,
+        "home_team_win_margin_prediction": [
+            20.6637989699131
+        ],
+        "away_team_win_prediction": 0.01908612439737031,
+        "away_team_win_margin_prediction": [
+            -20.6637989699131
+        ],
+        "total_prediction": [
+            132.7269079392968
+        ]
+    },
+    {
+        "game_info": {
+            "home": "The Citadel Bulldogs",
+            "away": "Campbell Fighting Camels",
+            "commence_time": "2024-12-13T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "The Citadel Bulldogs": {
+                    "price": 106,
+                    "bookmaker": "BetRivers"
+                },
+                "Campbell Fighting Camels": {
+                    "price": -115,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "The Citadel Bulldogs": {
+                    "price": -114,
+                    "point": 1.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Campbell Fighting Camels": {
+                    "price": -112,
+                    "point": -1.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 132.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -113,
+                    "point": 133.5,
+                    "bookmaker": "BetRivers"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.47930941050226794,
+        "home_team_win_margin_prediction": [
+            -8.059171836782479
+        ],
+        "away_team_win_prediction": 0.5206905894977321,
+        "away_team_win_margin_prediction": [
+            8.059171836782479
+        ],
+        "total_prediction": [
+            141.7772172582818
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Virginia Tech Hokies",
+            "away": "North Carolina A&T Aggies",
+            "commence_time": "2024-12-13T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Virginia Tech Hokies": {
+                    "price": -1400,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "North Carolina A&T Aggies": {
+                    "price": 900,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Virginia Tech Hokies": {
+                    "price": -108,
+                    "point": -14.0,
+                    "bookmaker": "BetRivers"
+                },
+                "North Carolina A&T Aggies": {
+                    "price": -112,
+                    "point": 14.0,
+                    "bookmaker": "BetRivers"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 144.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Under": {
+                    "price": -108,
+                    "point": 146.0,
+                    "bookmaker": "BetRivers"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8379017271427738,
+        "home_team_win_margin_prediction": [
+            17.538680593703983
+        ],
+        "away_team_win_prediction": 0.162098272857226,
+        "away_team_win_margin_prediction": [
+            -17.538680593703983
+        ],
+        "total_prediction": [
+            146.1268130257641
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Iowa Hawkeyes",
+            "away": "Iowa State Cyclones",
+            "commence_time": "2024-12-13T00:30:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Iowa Hawkeyes": {
+                    "price": 215,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Iowa State Cyclones": {
+                    "price": -250,
+                    "bookmaker": "LowVig.ag"
+                }
+            },
+            "spread": {
+                "Iowa Hawkeyes": {
+                    "price": -110,
+                    "point": 5.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Iowa State Cyclones": {
+                    "price": -110,
+                    "point": -5.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -120,
+                    "point": 159.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 160.5,
+                    "bookmaker": "BetMGM"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.19194449088800097,
+        "home_team_win_margin_prediction": [
+            -11.828701584482097
+        ],
+        "away_team_win_prediction": 0.808055509111999,
+        "away_team_win_margin_prediction": [
+            11.828701584482097
+        ],
+        "total_prediction": [
+            151.6658259838615
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Arkansas St Red Wolves",
+            "away": "UT-Arlington Mavericks",
+            "commence_time": "2024-12-13T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Arkansas St Red Wolves": {
+                    "price": -435,
+                    "bookmaker": "BetRivers"
+                },
+                "UT-Arlington Mavericks": {
+                    "price": 380,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "spread": {
+                "Arkansas St Red Wolves": {
+                    "price": -120,
+                    "point": -9.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "UT-Arlington Mavericks": {
+                    "price": 100,
+                    "point": 9.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 156.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 157.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.5838438583174788,
+        "home_team_win_margin_prediction": [
+            13.12901330678031
+        ],
+        "away_team_win_prediction": 0.41615614168252113,
+        "away_team_win_margin_prediction": [
+            -13.12901330678031
+        ],
+        "total_prediction": [
+            138.89975587246605
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Evansville Purple Aces",
+            "away": "Chattanooga Mocs",
+            "commence_time": "2024-12-13T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Evansville Purple Aces": {
+                    "price": 100,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Chattanooga Mocs": {
+                    "price": -118,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Evansville Purple Aces": {
+                    "price": -115,
+                    "point": 1.5,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Chattanooga Mocs": {
+                    "price": -110,
+                    "point": -1.5,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -112,
+                    "point": 147.5,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -118,
+                    "point": 148.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.741676773485549,
+        "home_team_win_margin_prediction": [
+            7.715358797192946
+        ],
+        "away_team_win_prediction": 0.25832322651445105,
+        "away_team_win_margin_prediction": [
+            -7.715358797192946
+        ],
+        "total_prediction": [
+            123.18574860617703
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Texas Longhorns",
+            "away": "New Mexico St Aggies",
+            "commence_time": "2024-12-13T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Texas Longhorns": {
+                    "price": -3000,
+                    "bookmaker": "BetMGM"
+                },
+                "New Mexico St Aggies": {
+                    "price": 1500,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "spread": {
+                "Texas Longhorns": {
+                    "price": -112,
+                    "point": -19.0,
+                    "bookmaker": "BetRivers"
+                },
+                "New Mexico St Aggies": {
+                    "price": -109,
+                    "point": 19.0,
+                    "bookmaker": "BetRivers"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 139.0,
+                    "bookmaker": "BetRivers"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 140.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.8518207013115804,
+        "home_team_win_margin_prediction": [
+            8.215154320612843
+        ],
+        "away_team_win_prediction": 0.14817929868841975,
+        "away_team_win_margin_prediction": [
+            -8.215154320612843
+        ],
+        "total_prediction": [
+            117.67742790896007
+        ]
+    },
+    {
+        "game_info": {
+            "home": "Nebraska Cornhuskers",
+            "away": "Indiana Hoosiers",
+            "commence_time": "2024-12-14T01:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Nebraska Cornhuskers": {
+                    "price": -126,
+                    "bookmaker": "FanDuel"
+                },
+                "Indiana Hoosiers": {
+                    "price": 105,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Nebraska Cornhuskers": {
+                    "price": -115,
+                    "point": -1.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Indiana Hoosiers": {
+                    "price": -105,
+                    "point": 1.5,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 150.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -105,
+                    "point": 150.5,
+                    "bookmaker": "FanDuel"
+                }
+            }
+        },
+        "home_team_win_prediction": 0.7766692201022087,
+        "home_team_win_margin_prediction": [
+            1.534609556840137
+        ],
+        "away_team_win_prediction": 0.22333077989779118,
+        "away_team_win_margin_prediction": [
+            -1.534609556840137
+        ],
+        "total_prediction": [
+            131.33236587653616
+        ]
+    }
+]
