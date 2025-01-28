@@ -3,6 +3,6 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-.idea/
-../.idea/
 .bundle/
+.idea/
+__pycache__/

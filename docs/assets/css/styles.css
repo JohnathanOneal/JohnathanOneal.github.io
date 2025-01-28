@@ -1261,10 +1261,7 @@ body.dark-mode {
     transition: background-color 0.1s ease-in-out;
 }
 
-.heatmap-cell {
-    background-color: #ebedf0;  /* Light gray/no color for no activity (0) */
-}
-
+/* Only style cells with activity levels */
 .heatmap-cell.level-1 {
     background-color: #e48c4e;  /* Muted orange */
 }
