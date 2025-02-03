@@ -1183,6 +1183,53 @@ body.dark-mode {
     }
 }
 
+/* Dark mode styles for the info and excerpt */
+.dark-mode .article-excerpt {
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+/* Dark mode gradient border for article-excerpt */
+.dark-mode .article-excerpt::before {
+    background: linear-gradient(135deg, #f9b96e, #444);
+}
+
+/* Dark mode styles for excerpt header */
+.dark-mode .excerpt-header h3 {
+    color: #f9b96e;
+}
+
+/* Dark mode for benefits list items */
+.dark-mode .benefit-item {
+    background: #444;
+    border: 1px solid rgba(249, 185, 110, 0.2);
+}
+
+.dark-mode .benefit-item i {
+    color: #f9b96e;
+}
+
+.dark-mode .benefit-item h4, 
+.dark-mode .benefit-item p {
+    color: #e0e0e0;
+}
+
+/* Dark mode join prompt */
+.dark-mode .join-prompt {
+    background: linear-gradient(135deg, #f9b96e, #444);
+    color: #e0e0e0;
+}
+
+.dark-mode .join-prompt i {
+    color: #f9b96e;
+}
+
+/* Dark mode styles for signup section */
+.dark-mode .signup-section iframe {
+    border: 1px solid #444;
+}
+
 /* Small screen optimization */
 @media screen and (max-width: 480px) {
     .article-excerpt {
@@ -1261,36 +1308,26 @@ body.dark-mode {
     transition: background-color 0.1s ease-in-out;
 }
 
-.heatmap-cell {
-    background-color: #ebedf0;  /* Light gray/no color for no activity (0) */
-}
-
 .heatmap-cell.level-1 {
-    background-color: #e48c4e;  /* Muted orange */
+    background-color: #e74c3c;  /* Bright red */
 }
-
 .heatmap-cell.level-2 {
-    background-color: #e0a960;  /* Muted light orange */
+    background-color: #e67e22;  /* Orange-red */
 }
-
 .heatmap-cell.level-3 {
-    background-color: #d4c66a;  /* Muted yellow-orange */
+    background-color: #f39c12;  /* Orange */
 }
-
 .heatmap-cell.level-4 {
-    background-color: #abc978;  /* Muted yellow-green */
+    background-color: #f1c40f;  /* Yellow */
 }
-
 .heatmap-cell.level-5 {
-    background-color: #8fc086;  /* Muted light green */
+    background-color: #c1e11c;  /* Yellow-green */
 }
-
 .heatmap-cell.level-6 {
-    background-color: #75b792;  /* Muted medium green */
+    background-color: #7cb342;  /* Light green */
 }
-
 .heatmap-cell.level-7 {
-    background-color: #5caa8f;  /* Muted dark green */
+    background-color: #388e3c;  /* Dark green */
 }
 
 /* Hover effect */
