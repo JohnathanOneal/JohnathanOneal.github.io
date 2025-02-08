@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Basketball Odds - February 08, 2024
+title: Basketball Odds - December 12, 2024
 ---
 <div class="newspaper-category">
-    <h1 class="category-title">Basketball Odds - February 08, 2024</h1>
+    <h1 class="category-title">Basketball Odds - December 12, 2024</h1>
     
     <div class="navigation-links">
         <a href="{{ '/categories/sports/basketball' | relative_url }}" class="back-link">
@@ -36,25 +36,25 @@ function formatOdds(price) {
 
 function renderModelPredictions(predictions, type, team) {
     if (!predictions || !predictions[type] || !predictions[type][team]) {
-        return '<p>No model predictions available</p>';
+        return '<p class="no-predictions">No model predictions available</p>';
     }
 
     return predictions[type][team].map(model => `
-        <div class="model-prediction">
-            <span class="model-name">${model.modelName}</span>: 
-            <span class="prediction-value">${model.point || model.ml_odds}</span>
+        <div class="prediction-row">
+            <span class="model-name">${model.modelName}:</span>
+            <span class="prediction-value">${model.point || formatOdds(model.ml_odds)}</span>
         </div>
     `).join('');
 }
 
 function renderTotalPredictions(predictions) {
-    if (!predictions || !predictions.Total || !predictions.Total.Over) {
-        return '<p>No total predictions available</p>';
+    if (!predictions?.Total?.Over) {
+        return '<p class="no-predictions">No model predictions available</p>';
     }
-
+    
     return predictions.Total.Over.map(model => `
-        <div class="model-prediction">
-            <span class="model-name">${model.modelName}</span>: 
+        <div class="prediction-row">
+            <span class="model-name">${model.modelName}:</span>
             <span class="prediction-value">${model.point}</span>
         </div>
     `).join('');
@@ -79,92 +79,87 @@ function renderOdds(games) {
             <div class="odds-grid">
                 <div class="odds-section">
                     <h4>Moneyline</h4>
-                    <p>${game.game_info.away}: ${formatOdds(game.best_odds.h2h[game.game_info.away]?.price || 'N/A')} (${game.best_odds.h2h[game.game_info.away]?.bookmaker || 'N/A'})</p>
-                    <p>${game.game_info.home}: ${formatOdds(game.best_odds.h2h[game.game_info.home]?.price || 'N/A')} (${game.best_odds.h2h[game.game_info.home]?.bookmaker || 'N/A'})</p>
+                    <div class="odds-content">
+                        <div class="odds-subsection">
+                            <h5>Best Odds</h5>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.away}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.h2h[game.game_info.away]?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.h2h[game.game_info.away]?.bookmaker || 'N/A'})</span>
+                            </div>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.home}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.h2h[game.game_info.home]?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.h2h[game.game_info.home]?.bookmaker || 'N/A'})</span>
+                            </div>
+                        </div>
+                        <div class="odds-subsection">
+                            <h5>Model Predictions</h5>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.away}</span>
+                                ${renderModelPredictions(game.predictions, 'h2h', game.game_info.away)}
+                            </div>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.home}</span>
+                                ${renderModelPredictions(game.predictions, 'h2h', game.game_info.home)}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="odds-section">
                     <h4>Spread</h4>
-                    <p>${game.game_info.away}: ${game.best_odds.spread[game.game_info.away]?.point || 'N/A'} (${formatOdds(game.best_odds.spread[game.game_info.away]?.price || 'N/A')}) - ${game.best_odds.spread[game.game_info.away]?.bookmaker || 'N/A'}</p>
-                    <p>${game.game_info.home}: ${game.best_odds.spread[game.game_info.home]?.point || 'N/A'} (${formatOdds(game.best_odds.spread[game.game_info.home]?.price || 'N/A')}) - ${game.best_odds.spread[game.game_info.home]?.bookmaker || 'N/A'}</p>
+                    <div class="odds-content">
+                        <div class="odds-subsection">
+                            <h5>Best Odds</h5>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.away}:</span>
+                                <span class="odds-value">${game.best_odds.spread[game.game_info.away]?.point || 'N/A'} (${formatOdds(game.best_odds.spread[game.game_info.away]?.price || 'N/A')})</span>
+                                <span class="bookmaker">(${game.best_odds.spread[game.game_info.away]?.bookmaker || 'N/A'})</span>
+                            </div>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.home}:</span>
+                                <span class="odds-value">${game.best_odds.spread[game.game_info.home]?.point || 'N/A'} (${formatOdds(game.best_odds.spread[game.game_info.home]?.price || 'N/A')})</span>
+                                <span class="bookmaker">(${game.best_odds.spread[game.game_info.home]?.bookmaker || 'N/A'})</span>
+                            </div>
+                        </div>
+                        <div class="odds-subsection">
+                            <h5>Model Predictions</h5>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.away}</span>
+                                ${renderModelPredictions(game.predictions, 'Spread', game.game_info.away)}
+                            </div>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.home}</span>
+                                ${renderModelPredictions(game.predictions, 'Spread', game.game_info.home)}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="odds-section">
                     <h4>Total</h4>
-                    <p>Over ${game.best_odds.total.Over?.point || 'N/A'}: ${formatOdds(game.best_odds.total.Over?.price || 'N/A')} (${game.best_odds.total.Over?.bookmaker || 'N/A'})</p>
-                    <p>Under ${game.best_odds.total.Under?.point || 'N/A'}: ${formatOdds(game.best_odds.total.Under?.price || 'N/A')} (${game.best_odds.total.Under?.bookmaker || 'N/A'})</p>
-                </div>
-
-                <div class="model-predictions">
-                    <div class="prediction-section">
-                        <h4>Moneyline Model Predictions</h4>
-                        <div class="team-predictions">
-                            <h5>${game.game_info.home}</h5>
-                            ${renderModelPredictions(game.predictions, 'h2h', game.game_info.home)}
+                    <div class="odds-content">
+                        <div class="odds-subsection">
+                            <h5>Best Odds</h5>
+                            <div class="odds-row">
+                                <span class="team-name">Over ${game.best_odds.total.Over?.point || 'N/A'}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.total.Over?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.total.Over?.bookmaker || 'N/A'})</span>
+                            </div>
+                            <div class="odds-row">
+                                <span class="team-name">Under ${game.best_odds.total.Under?.point || 'N/A'}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.total.Under?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.total.Under?.bookmaker || 'N/A'})</span>
+                            </div>
                         </div>
-                        <div class="team-predictions">
-                            <h5>${game.game_info.away}</h5>
-                            ${renderModelPredictions(game.predictions, 'h2h', game.game_info.away)}
+                        <div class="odds-subsection">
+                            <h5>Model Predictions</h5>
+                            ${renderTotalPredictions(game.predictions)}
                         </div>
-                    </div>
-
-                    <div class="prediction-section">
-                        <h4>Spread Model Predictions</h4>
-                        <div class="team-predictions">
-                            <h5>${game.game_info.home}</h5>
-                            ${renderModelPredictions(game.predictions, 'Spread', game.game_info.home)}
-                        </div>
-                        <div class="team-predictions">
-                            <h5>${game.game_info.away}</h5>
-                            ${renderModelPredictions(game.predictions, 'Spread', game.game_info.away)}
-                        </div>
-                    </div>
-
-                    <div class="prediction-section">
-                        <h4>Total Model Predictions</h4>
-                        ${renderTotalPredictions(game.predictions)}
                     </div>
                 </div>
             </div>
-
-            <style>
-                .model-predictions {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 1rem;
-                    margin-top: 1rem;
-                    padding: 1rem;
-                    background: #f5f5f5;
-                    border-radius: 8px;
-                }
-                
-                .prediction-section {
-                    padding: 1rem;
-                    background: white;
-                    border-radius: 6px;
-                    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-                }
-                
-                .team-predictions {
-                    margin: 1rem 0;
-                }
-                
-                .model-prediction {
-                    padding: 0.5rem;
-                    border-bottom: 1px solid #eee;
-                }
-                
-                .model-name {
-                    font-family: monospace;
-                    font-size: 0.9em;
-                    color: #666;
-                }
-                
-                .prediction-value {
-                    font-weight: bold;
-                    float: right;
-                }
-            </style>
         `;
 
         container.appendChild(gameCard);

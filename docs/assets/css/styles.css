@@ -1369,3 +1369,170 @@ body.dark-mode {
   }
 }
 
+/* Updated Odds Display Styles */
+.odds-section {
+    background: var(--bg-primary, #fff);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.odds-section h4 {
+    margin: 0 0 1.5rem 0;
+    color: var(--text-primary, #333);
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color, #ddd);
+    padding-bottom: 0.5rem;
+}
+
+.odds-section h5 {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary, #333);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.odds-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.odds-subsection {
+    padding: 1rem;
+    background: var(--bg-secondary, #f5f5f5);
+    border-radius: 6px;
+}
+
+.odds-row {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.prediction-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    gap: 0.25rem;
+    font-size: 1rem;
+}
+
+.team-name {
+    font-weight: 500;
+    min-width: 100px;
+    color: var(--text-primary, #333);
+}
+
+.odds-value, .prediction-value {
+    font-weight: 600;
+    color: var(--text-primary, #333);
+}
+
+.bookmaker {
+    color: var(--text-secondary, #666);
+    font-size: 0.9rem;
+}
+
+.model-name {
+    font-weight: 500;
+    color: var(--text-primary, #333);
+}
+
+.team-predictions {
+    margin-bottom: 1rem;
+}
+
+.team-predictions .team-name {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-primary, #333);
+}
+
+.no-predictions {
+    color: var(--text-secondary, #666);
+    font-style: italic;
+    padding: 0.5rem 0;
+}
+
+/* Dark mode updates */
+.dark-mode .odds-section {
+    background-color: #2a2a2a;
+}
+
+.dark-mode .odds-subsection {
+    background-color: #333;
+}
+
+.dark-mode .odds-section h4,
+.dark-mode .odds-section h5 {
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+.dark-mode .team-name,
+.dark-mode .model-name {
+    color: #e0e0e0;
+}
+
+.dark-mode .odds-value,
+.dark-mode .prediction-value {
+    color: #e0e0e0;
+}
+
+.dark-mode .bookmaker {
+    color: #aaa;
+}
+
+.dark-mode .no-predictions {
+    color: #aaa;
+}
+
+/* Responsive adjustments for odds sections */
+@media (max-width: 768px) {
+    .odds-section {
+        padding: 1rem;
+    }
+
+    .odds-subsection {
+        padding: 0.75rem;
+    }
+
+    .team-name, .model-name {
+        min-width: 80px;
+        font-size: 0.9rem;
+    }
+
+    .odds-row {
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+    }
+
+    .bookmaker {
+        width: 100%;
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .odds-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .odds-section {
+        padding: 0.75rem;
+    }
+
+    .odds-section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .odds-section h5 {
+        font-size: 1rem;
+    }
+}
