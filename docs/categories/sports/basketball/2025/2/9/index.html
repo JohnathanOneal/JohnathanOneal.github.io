@@ -1,0 +1,168 @@
+---
+layout: default
+title: Basketball Odds - February 9, 2025
+---
+<div class="newspaper-category">
+    <h1 class="category-title">Basketball Odds - February 9, 2025</h1>
+    
+    <div class="navigation-links">
+        <a href="{{ '/categories/sports/basketball' | relative_url }}" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Dates
+        </a>
+    </div>
+
+    <div id="oddsContainer" class="odds-container"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    loadOdds();
+});
+
+function loadOdds() {
+    fetch('odds.json')
+        .then(response => response.json())
+        .then(renderOdds)
+        .catch(error => {
+            console.error('Error loading odds:', error);
+            document.getElementById('oddsContainer').innerHTML = 
+                '<p class="error-message">Error loading odds data. Please try again later.</p>';
+        });
+}
+
+function formatOdds(price) {
+    return price > 0 ? `+${price}` : price;
+}
+
+function renderModelPredictions(predictions, type, team) {
+    if (!predictions || !predictions[type] || !predictions[type][team]) {
+        return '<p class="no-predictions">No model predictions available</p>';
+    }
+
+    return predictions[type][team].map(model => `
+        <div class="prediction-row">
+            <span class="model-name">${model.modelName}:</span>
+            <span class="prediction-value">${model.point || formatOdds(model.ml_odds)}</span>
+        </div>
+    `).join('');
+}
+
+function renderTotalPredictions(predictions) {
+    if (!predictions?.Total?.Over) {
+        return '<p class="no-predictions">No model predictions available</p>';
+    }
+    
+    return predictions.Total.Over.map(model => `
+        <div class="prediction-row">
+            <span class="model-name">${model.modelName}:</span>
+            <span class="prediction-value">${model.point}</span>
+        </div>
+    `).join('');
+}
+
+function renderOdds(games) {
+    const container = document.getElementById('oddsContainer');
+    container.innerHTML = '';
+    
+    games.forEach(game => {
+        const gameCard = document.createElement('div');
+        gameCard.className = 'game-card';
+
+        gameCard.innerHTML = `
+            <div class="game-header">
+                <h3>${game.game_info.away} @ ${game.game_info.home}</h3>
+                <div class="game-time">
+                    ${new Date(game.game_info.commence_time).toLocaleString()}
+                </div>
+            </div>
+
+            <div class="odds-grid">
+                <div class="odds-section">
+                    <h4>Moneyline</h4>
+                    <div class="odds-content">
+                        <div class="odds-subsection">
+                            <h5>Best Odds</h5>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.away}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.h2h[game.game_info.away]?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.h2h[game.game_info.away]?.bookmaker || 'N/A'})</span>
+                            </div>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.home}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.h2h[game.game_info.home]?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.h2h[game.game_info.home]?.bookmaker || 'N/A'})</span>
+                            </div>
+                        </div>
+                        <div class="odds-subsection">
+                            <h5>Model Predictions</h5>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.away}</span>
+                                ${renderModelPredictions(game.predictions, 'h2h', game.game_info.away)}
+                            </div>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.home}</span>
+                                ${renderModelPredictions(game.predictions, 'h2h', game.game_info.home)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="odds-section">
+                    <h4>Spread</h4>
+                    <div class="odds-content">
+                        <div class="odds-subsection">
+                            <h5>Best Odds</h5>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.away}:</span>
+                                <span class="odds-value">${game.best_odds.spread[game.game_info.away]?.point || 'N/A'} (${formatOdds(game.best_odds.spread[game.game_info.away]?.price || 'N/A')})</span>
+                                <span class="bookmaker">(${game.best_odds.spread[game.game_info.away]?.bookmaker || 'N/A'})</span>
+                            </div>
+                            <div class="odds-row">
+                                <span class="team-name">${game.game_info.home}:</span>
+                                <span class="odds-value">${game.best_odds.spread[game.game_info.home]?.point || 'N/A'} (${formatOdds(game.best_odds.spread[game.game_info.home]?.price || 'N/A')})</span>
+                                <span class="bookmaker">(${game.best_odds.spread[game.game_info.home]?.bookmaker || 'N/A'})</span>
+                            </div>
+                        </div>
+                        <div class="odds-subsection">
+                            <h5>Model Predictions</h5>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.away}</span>
+                                ${renderModelPredictions(game.predictions, 'Spread', game.game_info.away)}
+                            </div>
+                            <div class="team-predictions">
+                                <span class="team-name">${game.game_info.home}</span>
+                                ${renderModelPredictions(game.predictions, 'Spread', game.game_info.home)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="odds-section">
+                    <h4>Total</h4>
+                    <div class="odds-content">
+                        <div class="odds-subsection">
+                            <h5>Best Odds</h5>
+                            <div class="odds-row">
+                                <span class="team-name">Over ${game.best_odds.total.Over?.point || 'N/A'}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.total.Over?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.total.Over?.bookmaker || 'N/A'})</span>
+                            </div>
+                            <div class="odds-row">
+                                <span class="team-name">Under ${game.best_odds.total.Under?.point || 'N/A'}:</span>
+                                <span class="odds-value">${formatOdds(game.best_odds.total.Under?.price || 'N/A')}</span>
+                                <span class="bookmaker">(${game.best_odds.total.Under?.bookmaker || 'N/A'})</span>
+                            </div>
+                        </div>
+                        <div class="odds-subsection">
+                            <h5>Model Predictions</h5>
+                            ${renderTotalPredictions(game.predictions)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(gameCard);
+    });
+}
+</script>

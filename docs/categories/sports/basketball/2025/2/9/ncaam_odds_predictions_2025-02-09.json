@@ -1,0 +1,1145 @@
+[
+    {
+        "game_info": {
+            "home": "St. Bonaventure Bonnies",
+            "away": "GW Revolutionaries",
+            "commence_time": "2025-02-09T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "St. Bonaventure Bonnies": {
+                    "price": -185,
+                    "bookmaker": "Bovada"
+                },
+                "GW Revolutionaries": {
+                    "price": 170,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "spread": {
+                "St. Bonaventure Bonnies": {
+                    "price": -112,
+                    "point": -4.0,
+                    "bookmaker": "DraftKings"
+                },
+                "GW Revolutionaries": {
+                    "price": -110,
+                    "point": 4.0,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -114,
+                    "point": 136.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 137.5,
+                    "bookmaker": "BetRivers"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "134.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "134.5"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "134.8"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "138.9"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "134.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "134.5"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "134.8"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "138.9"
+                    }
+                ]
+            },
+            "h2h": {
+                "St. Bonaventure Bonnies": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-141"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-414"
+                    }
+                ],
+                "GW Revolutionaries": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "141"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "414"
+                    }
+                ]
+            },
+            "Spread": {
+                "St. Bonaventure Bonnies": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-4.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-5.8"
+                    }
+                ],
+                "GW Revolutionaries": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "4.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "5.8"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "Maryland Terrapins",
+            "away": "Rutgers Scarlet Knights",
+            "commence_time": "2025-02-09T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Maryland Terrapins": {
+                    "price": -420,
+                    "bookmaker": "FanDuel"
+                },
+                "Rutgers Scarlet Knights": {
+                    "price": 360,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "spread": {
+                "Maryland Terrapins": {
+                    "price": -120,
+                    "point": -8.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Rutgers Scarlet Knights": {
+                    "price": -113,
+                    "point": 8.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 150.0,
+                    "bookmaker": "BetUS"
+                },
+                "Under": {
+                    "price": -115,
+                    "point": 150.5,
+                    "bookmaker": "BetOnline.ag"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "153.9"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "156.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "155.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "156.4"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "153.9"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "156.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "155.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "156.4"
+                    }
+                ]
+            },
+            "h2h": {
+                "Maryland Terrapins": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-450"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-799"
+                    }
+                ],
+                "Rutgers Scarlet Knights": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "450"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "799"
+                    }
+                ]
+            },
+            "Spread": {
+                "Maryland Terrapins": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-10.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-8.0"
+                    }
+                ],
+                "Rutgers Scarlet Knights": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "10.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "8.0"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "Villanova Wildcats",
+            "away": "Xavier Musketeers",
+            "commence_time": "2025-02-09T17:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Villanova Wildcats": {
+                    "price": -141,
+                    "bookmaker": "BetRivers"
+                },
+                "Xavier Musketeers": {
+                    "price": 130,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "spread": {
+                "Villanova Wildcats": {
+                    "price": -112,
+                    "point": -2.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Xavier Musketeers": {
+                    "price": -112,
+                    "point": 2.5,
+                    "bookmaker": "DraftKings"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 140.0,
+                    "bookmaker": "DraftKings"
+                },
+                "Under": {
+                    "price": -105,
+                    "point": 141.0,
+                    "bookmaker": "BetUS"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "140.5"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "149.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "138.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "149.1"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "140.5"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "149.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "138.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "149.1"
+                    }
+                ]
+            },
+            "h2h": {
+                "Villanova Wildcats": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "140"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "164"
+                    }
+                ],
+                "Xavier Musketeers": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-140"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-164"
+                    }
+                ]
+            },
+            "Spread": {
+                "Villanova Wildcats": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "1.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "0.6"
+                    }
+                ],
+                "Xavier Musketeers": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-1.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-0.6"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "Oklahoma St Cowboys",
+            "away": "Arizona St Sun Devils",
+            "commence_time": "2025-02-09T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Oklahoma St Cowboys": {
+                    "price": -103,
+                    "bookmaker": "MyBookie.ag"
+                },
+                "Arizona St Sun Devils": {
+                    "price": -110,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "Oklahoma St Cowboys": {
+                    "price": -105,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Arizona St Sun Devils": {
+                    "price": -115,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 143.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 145.0,
+                    "bookmaker": "Bovada"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "147.1"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "146.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "145.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "147.4"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "147.1"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "146.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "145.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "147.4"
+                    }
+                ]
+            },
+            "h2h": {
+                "Oklahoma St Cowboys": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "465"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "312"
+                    }
+                ],
+                "Arizona St Sun Devils": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-465"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-312"
+                    }
+                ]
+            },
+            "Spread": {
+                "Oklahoma St Cowboys": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "6.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "8.3"
+                    }
+                ],
+                "Arizona St Sun Devils": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-6.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-8.3"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "La Salle Explorers",
+            "away": "Massachusetts Minutemen",
+            "commence_time": "2025-02-09T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "La Salle Explorers": {
+                    "price": -104,
+                    "bookmaker": "FanDuel"
+                },
+                "Massachusetts Minutemen": {
+                    "price": -110,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "spread": {
+                "La Salle Explorers": {
+                    "price": -105,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                },
+                "Massachusetts Minutemen": {
+                    "price": -115,
+                    "point": 0.0,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 152.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 152.5,
+                    "bookmaker": "BetRivers"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "154.6"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "152.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "155.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "154.6"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "154.6"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "152.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "155.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "154.6"
+                    }
+                ]
+            },
+            "h2h": {
+                "La Salle Explorers": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "102"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "101"
+                    }
+                ],
+                "Massachusetts Minutemen": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-102"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-101"
+                    }
+                ]
+            },
+            "Spread": {
+                "La Salle Explorers": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "0.6"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "0.8"
+                    }
+                ],
+                "Massachusetts Minutemen": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-0.6"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-0.8"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "Memphis Tigers",
+            "away": "Temple Owls",
+            "commence_time": "2025-02-09T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Memphis Tigers": {
+                    "price": -1000,
+                    "bookmaker": "BetMGM"
+                },
+                "Temple Owls": {
+                    "price": 700,
+                    "bookmaker": "BetOnline.ag"
+                }
+            },
+            "spread": {
+                "Memphis Tigers": {
+                    "price": -118,
+                    "point": -12.5,
+                    "bookmaker": "BetMGM"
+                },
+                "Temple Owls": {
+                    "price": -102,
+                    "point": 12.5,
+                    "bookmaker": "BetMGM"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 156.5,
+                    "bookmaker": "BetRivers"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 157.5,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "152.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "157.6"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "154.3"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "158.5"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "152.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "157.6"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "154.3"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "158.5"
+                    }
+                ]
+            },
+            "h2h": {
+                "Memphis Tigers": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-631"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-885"
+                    }
+                ],
+                "Temple Owls": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "631"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "885"
+                    }
+                ]
+            },
+            "Spread": {
+                "Memphis Tigers": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-12.5"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-12.8"
+                    }
+                ],
+                "Temple Owls": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "12.5"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "12.8"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "Nebraska Cornhuskers",
+            "away": "Ohio State Buckeyes",
+            "commence_time": "2025-02-09T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Nebraska Cornhuskers": {
+                    "price": -139,
+                    "bookmaker": "BetRivers"
+                },
+                "Ohio State Buckeyes": {
+                    "price": 128,
+                    "bookmaker": "FanDuel"
+                }
+            },
+            "spread": {
+                "Nebraska Cornhuskers": {
+                    "price": -115,
+                    "point": -2.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Ohio State Buckeyes": {
+                    "price": -115,
+                    "point": 2.5,
+                    "bookmaker": "Bovada"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -114,
+                    "point": 143.5,
+                    "bookmaker": "FanDuel"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 145.0,
+                    "bookmaker": "BetUS"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "144.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "143.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "142.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "144.8"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "144.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "143.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "142.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "144.8"
+                    }
+                ]
+            },
+            "h2h": {
+                "Nebraska Cornhuskers": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "187"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "196"
+                    }
+                ],
+                "Ohio State Buckeyes": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-187"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-196"
+                    }
+                ]
+            },
+            "Spread": {
+                "Nebraska Cornhuskers": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "3.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "6.5"
+                    }
+                ],
+                "Ohio State Buckeyes": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-3.7"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-6.5"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "South Florida Bulls",
+            "away": "Wichita St Shockers",
+            "commence_time": "2025-02-09T19:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "South Florida Bulls": {
+                    "price": -114,
+                    "bookmaker": "FanDuel"
+                },
+                "Wichita St Shockers": {
+                    "price": 100,
+                    "bookmaker": "BetUS"
+                }
+            },
+            "spread": {
+                "South Florida Bulls": {
+                    "price": -114,
+                    "point": -1.0,
+                    "bookmaker": "BetRivers"
+                },
+                "Wichita St Shockers": {
+                    "price": -110,
+                    "point": 1.0,
+                    "bookmaker": "MyBookie.ag"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -115,
+                    "point": 146.5,
+                    "bookmaker": "BetRivers"
+                },
+                "Under": {
+                    "price": -112,
+                    "point": 147.5,
+                    "bookmaker": "DraftKings"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "148.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "151.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "131.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "154.9"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "148.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "151.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "131.0"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "154.9"
+                    }
+                ]
+            },
+            "h2h": {
+                "South Florida Bulls": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "237"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "238"
+                    }
+                ],
+                "Wichita St Shockers": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-237"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-238"
+                    }
+                ]
+            },
+            "Spread": {
+                "South Florida Bulls": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "4.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "4.3"
+                    }
+                ],
+                "Wichita St Shockers": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-4.4"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-4.3"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "game_info": {
+            "home": "Clemson Tigers",
+            "away": "North Carolina Tar Heels",
+            "commence_time": "2025-02-11T00:00:00Z"
+        },
+        "best_odds": {
+            "h2h": {
+                "Clemson Tigers": {
+                    "price": -100000,
+                    "bookmaker": ""
+                },
+                "North Carolina Tar Heels": {
+                    "price": -100000,
+                    "bookmaker": ""
+                }
+            },
+            "spread": {
+                "Clemson Tigers": {
+                    "price": -114,
+                    "point": -6.5,
+                    "bookmaker": "BetRivers"
+                },
+                "North Carolina Tar Heels": {
+                    "price": -107,
+                    "point": 6.5,
+                    "bookmaker": "BetRivers"
+                }
+            },
+            "total": {
+                "Over": {
+                    "price": -110,
+                    "point": 147.5,
+                    "bookmaker": "BetRivers"
+                },
+                "Under": {
+                    "price": -110,
+                    "point": 147.5,
+                    "bookmaker": "BetRivers"
+                }
+            }
+        },
+        "predictions": {
+            "Total": {
+                "Over": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "145.3"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "152.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "148.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "151.9"
+                    }
+                ],
+                "Under": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_rf",
+                        "point": "145.3"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_ridge",
+                        "point": "152.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Total_full_rf",
+                        "point": "148.2"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_Total_medium_ridge",
+                        "point": "151.9"
+                    }
+                ]
+            },
+            "h2h": {
+                "Clemson Tigers": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "104"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "-157"
+                    }
+                ],
+                "North Carolina Tar Heels": [
+                    {
+                        "modelName": "s2010_tTrue_l0_WL_full_xgb",
+                        "ml_odds": "-104"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l20_WL_medium_xgb",
+                        "ml_odds": "157"
+                    }
+                ]
+            },
+            "Spread": {
+                "Clemson Tigers": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "-5.1"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "-4.4"
+                    }
+                ],
+                "North Carolina Tar Heels": [
+                    {
+                        "modelName": "s2010_tTrue_l20_Spread_medium_xgb",
+                        "point": "5.1"
+                    },
+                    {
+                        "modelName": "s2010_tTrue_l0_Spread_full_xgb",
+                        "point": "4.4"
+                    }
+                ]
+            }
+        }
+    }
+]
