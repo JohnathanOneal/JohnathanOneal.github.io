@@ -1057,6 +1057,7 @@ body.dark-mode {
     background: white;
     border-radius: 12px;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* Creates gradient border effect */
