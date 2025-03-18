@@ -49,7 +49,7 @@ I welcome opportunities for professional connection and intellectual exchange. P
         Tufts University, Medford, MA</p>
         
         <ul>
-            <li>Activities: Varsity Football Team, Student Athlete Advisory Committee Team Representative, Eco Rep, Tufts Financial Group, Tufts Trading Club</li>
+            <li>Activities: Varsity Football Team, Student Athlete Advisory Committee Team Representative, Eco Rep, Tufts Financial Group, Tufts Trading Club, Ginn Library Supervisor, Student Grader for Mathematical Modeling, Student Moving Coordinator, Athletics Department Student Worker, Coding and Math Tutor</li>
             <li>William Campbell Trophy Semi-Finalist (Awarded to the NCAA football player with the best combination of academics, community service, and on-field performance)</li>
             <li>NESCAC All-Sportsmanship Team, NFF Hampshire Honor Society, 4x NESCAC All Academic Team, Academic All-District New England</li>
         </ul>
