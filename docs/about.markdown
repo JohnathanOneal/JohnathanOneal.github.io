@@ -29,14 +29,14 @@ I welcome opportunities for professional connection and intellectual exchange. P
 <hr class="resume-divider">
 
 # RESUME
-<a href="/assets/resume/johnathan-oneal-resume.pdf" class="resume-download-button">Download PDF Resume</a>
+<a href="/assets/resume/johnathan-oneal-resume.pdf" class="resume-download-button" target="_blank" rel="noopener noreferrer">Download PDF Resume</a>
 
 <div class="resume-container">
     <div class="resume-header">
         <h1>JOHNATHAN O'NEAL</h1>
         <div class="contact-info">
             <p>Email: johnjay2806@gmail.com | Phone: (858) 210-1610 | Location: Boston, MA</p>
-            <p><a href="https://www.linkedin.com/in/johnathan-oneal/" class="resume-link">LinkedIn</a> | <a href="https://github.com/JohnathanOneal" class="resume-link">GitHub</a></p>
+            <p><a href="https://www.linkedin.com/in/johnathan-oneal/" class="resume-link" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://github.com/JohnathanOneal" class="resume-link" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </div>
     </div>
 
@@ -72,7 +72,7 @@ I welcome opportunities for professional connection and intellectual exchange. P
         <h2>PROJECTS</h2>
         <p><span class="job-title">Personal Website</span> - HTML, CSS, Markdown, Jekyll, GitHub Pages</p>
         <ul>
-            <li>Designed and implemented a personal portfolio using GitHub pages (<a href="https://johnathanoneal.github.io/" class="resume-link">website</a>, <a href="https://github.com/JohnathanOneal/JohnathanOneal.github.io" class="resume-link">source code</a>)</li>
+            <li>Designed and implemented a personal portfolio using GitHub pages (<a href="https://johnathanoneal.github.io/" class="resume-link" target="_blank" rel="noopener noreferrer">website</a>, <a href="https://github.com/JohnathanOneal/JohnathanOneal.github.io" class="resume-link" target="_blank" rel="noopener noreferrer">source code</a>)</li>
         </ul>
         
         <p><span class="job-title">HAL 9000</span> - Python, Mechanical Soup, Pandas, Scikit-Learn</p>
