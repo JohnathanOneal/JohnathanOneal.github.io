@@ -36,7 +36,7 @@ I welcome opportunities for professional connection and intellectual exchange. P
         <h1>JOHNATHAN O'NEAL</h1>
         <div class="contact-info">
             <p>Email: johnjay2806@gmail.com | Phone: (858) 210-1610 | Location: Boston, MA</p>
-            <p><a href="https://www.linkedin.com/in/johnathan-oneal/">Linkedin</a> | <a href="https://github.com/JohnathanOneal">Github</a></p>
+            <p><a href="https://www.linkedin.com/in/johnathan-oneal/" class="resume-link">LinkedIn</a> | <a href="https://github.com/JohnathanOneal" class="resume-link">GitHub</a></p>
         </div>
     </div>
 
@@ -90,91 +90,3 @@ I welcome opportunities for professional connection and intellectual exchange. P
         </ul>
     </div>
 </div>
-
-<style>
-.page-content {
-    font-family: 'Times New Roman', Times, serif;
-    padding: 40px;
-    background-color: #fff;
-}
-blockquote {
-    font-style: italic;
-    border-left: 3px solid #333;
-    padding-left: 20px;
-    margin: 20px 0;
-    color: #555;
-}
-.author-image {
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    width: 100px;
-    height: 150px;
-    object-fit: fill;
-    border: 1px solid #000;
-    padding: 5px;
-    background: #fff;
-    box-shadow: 3px 3px 0 #888;
-}
-@media (min-width: 768px) {
-    .page-content {
-        column-count: 2;
-        column-gap: 40px;
-    }
-}
-
-/* Resume Specific Styling */
-.resume-divider {
-    margin: 40px 0;
-    border: 0;
-    height: 1px;
-    background-color: #333;
-}
-.resume-container {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #000;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-.resume-header h1 {
-    font-size: 1.5em;
-    border-bottom: 1px solid #000;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-.resume-section h2 {
-    font-size: 1.2em;
-    margin-top: 20px;
-    border-bottom: 1px solid #000;
-    padding-bottom: 5px;
-}
-.resume-section {
-    margin-bottom: 20px;
-}
-.contact-info p {
-    margin: 0;
-}
-.job-title, .degree {
-    font-weight: bold;
-}
-.job-date, .edu-date {
-    float: right;
-}
-.resume-link {
-    color: blue;
-    text-decoration: underline;
-}
-@media print {
-    .resume-link {
-        color: black;
-        text-decoration: none;
-    }
-}
-
-@media (min-width: 768px) {
-    .resume-container {
-        column-span: all;
-    }
-}
-</style>

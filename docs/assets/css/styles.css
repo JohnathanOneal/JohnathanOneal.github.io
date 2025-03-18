@@ -1004,257 +1004,194 @@ body.dark-mode {
     box-shadow: 0 4px 8px rgba(255,255,255,0.1);
 }
 
-.dark-mode .game-card {
+/* About Page and Resume Styles */
+.page-content {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 40px;
+    background-color: #fff;
+}
+
+.dark-mode .page-content {
     background-color: #2a2a2a;
-    border-color: #444;
-}
-
-.dark-mode .game-header {
-    border-color: #444;
-}
-
-.dark-mode .game-header h3 {
     color: #e0e0e0;
 }
 
-.dark-mode .game-time {
+blockquote {
+    font-style: italic;
+    border-left: 3px solid #333;
+    padding-left: 20px;
+    margin: 20px 0;
+    color: #555;
+}
+
+.dark-mode blockquote {
+    border-left-color: #f9b96e;
     color: #aaa;
 }
 
-.dark-mode .odds-section {
-    background-color: #333;
-    color: #e0e0e0;
-}
-
-.dark-mode .odds-section h4 {
-    color: #e0e0e0;
-}
-
-.dark-mode .back-link {
-    color: #e0e0e0;
-}
-
-.dark-mode .back-link:hover {
-    color: #f9b96e;
-}
-
-.dark-mode .error-message {
-    background: rgba(220, 53, 69, 0.2);
-    color: #ff6b6b;
-}
-
-/* Newsletter content layout */
-.newsletter-content {
-    display: flex;
-    gap: 2em;
-    margin: 2em 0;
-}
-
-.article-excerpt {
-    flex: 1;
-    min-width: 300px;
-    padding: 1.5em;
-    background: white;
-    border-radius: 12px;
-    position: relative;
-    box-sizing: border-box;
-}
-
-/* Creates gradient border effect */
-.article-excerpt::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #f9b96e, #2d2d2d);
-    z-index: -1;
-}
-
-.excerpt-header {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-bottom: 1.5em;
-}
-
-.excerpt-header i {
-    font-size: 1.8em;
-    color: #f9b96e;
-}
-
-.excerpt-header h3 {
-    font-size: 1.5em;
-    font-weight: 700;
-    margin: 0;
-    color: #2d2d2d;
-}
-
-.benefits-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5em;
-    margin-bottom: 1.5em;
-}
-
-.benefit-item {
-    padding: 1em;
+.author-image {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 150px;
+    object-fit: fill;
+    border: 1px solid #000;
+    padding: 5px;
     background: #fff;
-    border: 1px solid rgba(249, 185, 110, 0.3);
-    border-radius: 8px;
-    transition: transform 0.2s ease;
+    box-shadow: 3px 3px 0 #888;
 }
 
-.benefit-item:hover {
-    transform: translateY(-2px);
-}
-
-.benefit-item i {
-    font-size: 1.2em;
-    color: #f9b96e;
-    margin-bottom: 0.5em;
-}
-
-.benefit-item h4 {
-    font-size: 1.1em;
-    font-weight: 600;
-    margin: 0.5em 0;
-    color: #2d2d2d;
-}
-
-.benefit-item p {
-    font-size: 0.95em;
-    margin: 0;
-    color: #2d2d2d;
-    line-height: 1.4;
-}
-
-.join-prompt {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    padding: 1em;
-    background: linear-gradient(135deg, #f9b96e, #2d2d2d);
-    color: white;
-    border-radius: 8px;
-    margin-top: 1.5em;
-}
-
-.join-prompt p {
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: 500;
-}
-
-.join-prompt i {
-    font-size: 1.5em;
-}
-
-.signup-section {
-    flex: 1;
-    min-width: 300px;
-}
-
-.signup-section iframe {
-    width: 100%;
-    min-height: 500px;
-    border: none;
-}
-
-/* Mobile Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .newsletter-content {
-        flex-direction: column;
-        gap: 1.5em;
-    }
-    
-    .article-excerpt, .signup-section {
-        width: 100%;
-    }
-    
-    .benefits-list {
-        grid-template-columns: 1fr;
-        gap: 1em;
-    }
-    
-    .signup-section iframe {
-        min-height: 550px;
-    }
-}
-
-/* Dark mode styles for the info and excerpt */
-.dark-mode .article-excerpt {
+.dark-mode .author-image {
+    border-color: #e0e0e0;
     background: #333;
+    box-shadow: 3px 3px 0 #555;
+}
+
+@media (min-width: 768px) {
+    .page-content {
+        column-count: 2;
+        column-gap: 40px;
+    }
+}
+
+/* Resume Specific Styling */
+.resume-divider {
+    margin: 40px 0;
+    border: 0;
+    height: 1px;
+    background-color: #333;
+}
+
+.dark-mode .resume-divider {
+    background-color: #f9b96e;
+}
+
+.resume-container {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #000;
+    margin: 0 auto;
+    padding: 20px 0;
+    column-span: all;
+}
+
+.dark-mode .resume-container {
     color: #e0e0e0;
-    border: 1px solid #444;
 }
 
-/* Dark mode gradient border for article-excerpt */
-.dark-mode .article-excerpt::before {
-    background: linear-gradient(135deg, #f9b96e, #444);
+.resume-header h1 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-/* Dark mode styles for excerpt header */
-.dark-mode .excerpt-header h3 {
+.dark-mode .resume-header h1 {
+    border-bottom-color: #f9b96e;
+}
+
+.resume-section h2 {
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+}
+
+.dark-mode .resume-section h2 {
+    border-bottom-color: #f9b96e;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin: 0;
+}
+
+.dark-mode .contact-info p {
+    color: #e0e0e0;
+}
+
+.job-title, .degree {
+    font-weight: bold;
+}
+
+.job-date, .edu-date {
+    float: right;
+}
+
+.resume-link {
+    color: blue;
+    text-decoration: underline;
+}
+
+.dark-mode .resume-link {
     color: #f9b96e;
 }
 
-/* Dark mode for benefits list items */
-.dark-mode .benefit-item {
-    background: #444;
-    border: 1px solid rgba(249, 185, 110, 0.2);
+.resume-download-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
 }
 
-.dark-mode .benefit-item i {
-    color: #f9b96e;
+.resume-download-button:hover {
+    background-color: #555;
 }
 
-.dark-mode .benefit-item h4, 
-.dark-mode .benefit-item p {
-    color: #e0e0e0;
+.dark-mode .resume-download-button {
+    background-color: #f9b96e;
+    color: #1a1501;
 }
 
-/* Dark mode join prompt */
-.dark-mode .join-prompt {
-    background: linear-gradient(135deg, #f9b96e, #444);
-    color: #e0e0e0;
+.dark-mode .resume-download-button:hover {
+    background-color: #ffa500;
 }
 
-.dark-mode .join-prompt i {
-    color: #f9b96e;
-}
-
-/* Dark mode styles for signup section */
-.dark-mode .signup-section iframe {
-    border: 1px solid #444;
-}
-
-/* Small screen optimization */
-@media screen and (max-width: 480px) {
-    .article-excerpt {
-        padding: 1em;
+@media print {
+    .resume-link {
+        color: black;
+        text-decoration: none;
     }
     
-    .excerpt-header {
-        gap: 0.5em;
-    }
-    
-    .excerpt-header h3 {
-        font-size: 1.3em;
-    }
-    
-    .join-prompt {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .signup-section iframe {
-        min-height: 600px;
+    .dark-mode .resume-link {
+        color: black;
     }
 }
 
+/* Image grid for portfolio displays */
+.image-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.image-grid img {
+  max-width: calc(50% - 16px);
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .image-grid img {
+    max-width: calc(100% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .image-grid img {
+    max-width: 100%;
+  }
+}
+
+/* Heatmap container (GitHub-style contribution graph) */
 .heatmap-container {
     display: grid;
     gap: 3px;
@@ -1283,10 +1220,15 @@ body.dark-mode {
     position: relative;
 }
 
+.dark-mode .heatmap-header-cell {
+    color: #aaa;
+}
+
 /* Rows for days of week */
 .heatmap-row {
     display: grid;
-    grid-template-columns: 30px repeat(53, 10px);
+    grid-template-columns: A month by month comparison:
+30px repeat(53, 10px);
     gap: 3px;
     margin-bottom: 3px;
     height: 10px;
@@ -1301,6 +1243,10 @@ body.dark-mode {
     font-weight: normal;
 }
 
+.dark-mode .heatmap-row-header {
+    color: #aaa;
+}
+
 /* Individual cells (days) */
 .heatmap-cell {
     width: 10px;
@@ -1309,231 +1255,10 @@ body.dark-mode {
     transition: background-color 0.1s ease-in-out;
 }
 
-.heatmap-cell.level-1 {
-    background-color: #e74c3c;  /* Bright red */
-}
-.heatmap-cell.level-2 {
-    background-color: #e67e22;  /* Orange-red */
-}
-.heatmap-cell.level-3 {
-    background-color: #f39c12;  /* Orange */
-}
-.heatmap-cell.level-4 {
-    background-color: #f1c40f;  /* Yellow */
-}
-.heatmap-cell.level-5 {
-    background-color: #c1e11c;  /* Yellow-green */
-}
-.heatmap-cell.level-6 {
-    background-color: #7cb342;  /* Light green */
-}
-.heatmap-cell.level-7 {
-    background-color: #388e3c;  /* Dark green */
+.heatmap-cell.level-0 {
+    background-color: #ebedf0;
 }
 
-/* Hover effect */
-.heatmap-cell:hover {
-    border: 1px solid rgba(27, 31, 35, 0.06);
-    cursor: pointer;
-}
-
-/* Container title styling */
-.activity-heatmap h2 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #24292f;
-    margin-bottom: 8px;
-}
-
-.image-grid {
-  display: flex;
-  justify-content: center; /* Centers the grid */
-  gap: 16px; /* Adjust the gap between images */
-}
-
-.image-grid img {
-  max-width: calc(50% - 16px); /* Images take up 50% minus the gap */
-  height: auto;
-}
-
-@media (max-width: 1024px) {
-  /* For medium screens, images still stack if needed */
-  .image-grid img {
-    max-width: calc(100% - 16px);
-  }
-}
-
-@media (max-width: 768px) {
-  /* For small screens, images stack fully */
-  .image-grid img {
-    max-width: 100%;
-  }
-}
-
-/* Updated Odds Display Styles */
-.odds-section {
-    background: var(--bg-primary, #fff);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.odds-section h4 {
-    margin: 0 0 1.5rem 0;
-    color: var(--text-primary, #333);
-    font-size: 1.3rem;
-    font-weight: 600;
-    border-bottom: 2px solid var(--border-color, #ddd);
-    padding-bottom: 0.5rem;
-}
-
-.odds-section h5 {
-    margin: 0 0 1rem 0;
-    color: var(--text-primary, #333);
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.odds-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.odds-subsection {
-    padding: 1rem;
-    background: var(--bg-secondary, #f5f5f5);
-    border-radius: 6px;
-}
-
-.odds-row {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0;
-    gap: 0.5rem;
-    font-size: 1rem;
-}
-
-.prediction-row {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem 0;
-    gap: 0.25rem;
-    font-size: 1rem;
-}
-
-.team-name {
-    font-weight: 500;
-    min-width: 100px;
-    color: var(--text-primary, #333);
-}
-
-.odds-value, .prediction-value {
-    font-weight: 600;
-    color: var(--text-primary, #333);
-}
-
-.bookmaker {
-    color: var(--text-secondary, #666);
-    font-size: 0.9rem;
-}
-
-.model-name {
-    font-weight: 500;
-    color: var(--text-primary, #333);
-}
-
-.team-predictions {
-    margin-bottom: 1rem;
-}
-
-.team-predictions .team-name {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--text-primary, #333);
-}
-
-.no-predictions {
-    color: var(--text-secondary, #666);
-    font-style: italic;
-    padding: 0.5rem 0;
-}
-
-/* Dark mode updates */
-.dark-mode .odds-section {
-    background-color: #2a2a2a;
-}
-
-.dark-mode .odds-subsection {
+.dark-mode .heatmap-cell.level-0 {
     background-color: #333;
-}
-
-.dark-mode .odds-section h4,
-.dark-mode .odds-section h5 {
-    color: #e0e0e0;
-    border-color: #444;
-}
-
-.dark-mode .team-name,
-.dark-mode .model-name {
-    color: #e0e0e0;
-}
-
-.dark-mode .odds-value,
-.dark-mode .prediction-value {
-    color: #e0e0e0;
-}
-
-.dark-mode .bookmaker {
-    color: #aaa;
-}
-
-.dark-mode .no-predictions {
-    color: #aaa;
-}
-
-/* Responsive adjustments for odds sections */
-@media (max-width: 768px) {
-    .odds-section {
-        padding: 1rem;
-    }
-
-    .odds-subsection {
-        padding: 0.75rem;
-    }
-
-    .team-name, .model-name {
-        min-width: 80px;
-        font-size: 0.9rem;
-    }
-
-    .odds-row {
-        flex-wrap: wrap;
-        font-size: 0.9rem;
-    }
-
-    .bookmaker {
-        width: 100%;
-        margin-left: 80px;
-    }
-}
-
-@media (max-width: 480px) {
-    .odds-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .odds-section {
-        padding: 0.75rem;
-    }
-
-    .odds-section h4 {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-
-    .odds-section h5 {
-        font-size: 1rem;
-    }
 }
