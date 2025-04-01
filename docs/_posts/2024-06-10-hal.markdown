@@ -5,13 +5,15 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 <p align="center">
-  <img src="/assets/hal/halscreenshot.svg alt="Responsive SVG" style="max-width: 100%; height: auto;">
+  <img src="/assets/hal/halscreenshot.svg">
 </p>
 
 # Leveraging Python and Playwright to Unlock Insights from KenPom Basketball Data
 
 ## Introduction
 As a data engineer, I'm constantly on the lookout for fascinating datasets that can provide valuable insights. One such dataset is the renowned KenPom college basketball ratings, which offer a comprehensive analysis of team performance and efficiency. In this article, we'll explore how to leverage Python and the Playwright automation library to scrape and analyze this data.
+
+Before we continue I must acknowledge that programtic access that adversly impacts site performance is againts the KenPom terms of use as well as creating data stores that serve as a subtitute for the product. As this is a purely personal project with minimal web scrappign (outside of hte inital load just 5 url redirects over 5 seconds only on a day the program is run) and any local data is not being distributed in any means but rather acting as a means to cache responses and limit network traffic all whiel mainting an active kenpom substricution, we are abibing by the terms of use. To avoid abusing the kenpom site by supllying an off the shelf program. certain code has been left out and the code here is meant to illustrate the functiinality. 
 
 ## Understanding the KenPom Dataset
 
