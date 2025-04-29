@@ -75,10 +75,12 @@ I welcome opportunities for professional connection and intellectual exchange. P
             <li>Designed and implemented a personal portfolio using GitHub pages (<a href="https://johnathanoneal.github.io/" class="resume-link" target="_blank" rel="noopener noreferrer">website</a>, <a href="https://github.com/JohnathanOneal/JohnathanOneal.github.io" class="resume-link" target="_blank" rel="noopener noreferrer">source code</a>)</li>
         </ul>
         
-        <p><span class="job-title">HAL 9000</span> - Python, Mechanical Soup, Pandas, Scikit-Learn</p>
-        <ul>
-            <li>March Madness model scoring the highest win percentage in the Tufts National Data Science Student Corps (NSDC) machine learning challenge and undefeated against friends and family for two years</li>
-        </ul>
+        <p><span class="job-title">ByteSize Travel</span> - Python, SQLite, OpenAI API, HTML/CSS/Handlebars, Boto3, AWS Lambda, API Gateway, S3, CloudFront, AWS SES, Imaplib, RSS</p>
+	<ul>
+    		<li>Designed a comprehensive ETL framework to collect, normalize, and enrich thousands of articles from Gmail and RSS feeds—leveraging SQL for advanced selection logic and a multi-agent OpenAI architecture to transform raw emails and feeds into a polished, timely, and relevant daily travel newsletter.</li>
+    		<li>Engineered a scalable, full stack, serverless AWS infrastructure: implemented Lambda/API Gateway for secure, two-step email subscription workflows; hosted the website on S3 with CloudFront for global HTTPS delivery; and integrated AWS SES for reliable newsletter distribution.</li>
+	</ul>
+
     </div>
 
     <div class="resume-section">
