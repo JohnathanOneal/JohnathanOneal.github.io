@@ -89,6 +89,7 @@ I welcome opportunities for professional connection and intellectual exchange. P
             <li>Programming Languages & Tools: Python, SQL, C++, Git, Jupyter Notebooks, HTML/CSS</li>
             <li>Data & Machine Learning: ETL pipelines, Pandas, Scikit-Learn, PyTorch, Llama / LangChain frameworks</li>
             <li>Frameworks & Methodologies: Agile, RESTful APIs, database management, trunk development</li>
+	    <li>Certifications: JLPT N4, The Odin Project</li>
         </ul>
     </div>
 </div>
