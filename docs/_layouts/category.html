@@ -75,12 +75,10 @@ layout: default
 document.addEventListener("DOMContentLoaded", function () {
   const currentYear = new Date().getFullYear();
   const heatmapContainer = document.getElementById('heatmap-container');
-
   fetch('{{ "../categories/bettereveryday/data/activity-data.json" | relative_url }}')
     .then(response => response.json())
     .then(data => {
       const yearData = data[currentYear] || {};
-
       // Find the last date in the data
       const dates = Object.keys(yearData).sort();
       const lastDate = dates[dates.length - 1];
@@ -88,32 +86,43 @@ document.addEventListener("DOMContentLoaded", function () {
         parseInt(lastDate.split('-')[0]) - 1,
         parseInt(lastDate.split('-')[1])
       );
-
       // Create header row with month names
       const headerRow = document.createElement('div');
       headerRow.classList.add('heatmap-header');
-
       const emptyHeader = document.createElement('div');
       emptyHeader.classList.add('heatmap-header-cell');
       headerRow.appendChild(emptyHeader);
-
       // Calculate month positions
       const monthPositions = [];
-      let currentDate = new Date(currentYear, 0, 1);
       let weekCounter = 0;
-
-      while (currentDate <= lastDateObj) {
-        if (currentDate.getDate() === 1) {
-          monthPositions.push({
-            month: currentDate.getMonth(),
-            position: weekCounter + 1
-          });
+      
+      // First, determine which week contains each month's start
+      let startOfWeek = new Date(currentYear, 0, 1);
+      // Adjust to the previous Sunday
+      while (startOfWeek.getDay() !== 0) {
+        startOfWeek.setDate(startOfWeek.getDate() - 1);
+      }
+      
+      // Process week by week
+      while (startOfWeek <= lastDateObj) {
+        // Check each day of this week
+        for (let i = 0; i < 7; i++) {
+          const checkDate = new Date(startOfWeek);
+          checkDate.setDate(checkDate.getDate() + i);
+          
+          // If this is the first day of a month, record this week's position
+          if (checkDate <= lastDateObj && checkDate.getDate() === 1) {
+            monthPositions.push({
+              month: checkDate.getMonth(),
+              position: weekCounter + 1  // +1 to account for the label column
+            });
+          }
         }
-
-        currentDate.setDate(currentDate.getDate() + 7);
+        
+        // Move to next week
+        startOfWeek.setDate(startOfWeek.getDate() + 7);
         weekCounter++;
       }
-
       // Add month labels
       monthPositions.forEach(({month, position}) => {
         const monthHeader = document.createElement('div');
@@ -123,20 +132,16 @@ document.addEventListener("DOMContentLoaded", function () {
         monthHeader.style.gridColumn = position + 1;
         headerRow.appendChild(monthHeader);
       });
-
       heatmapContainer.appendChild(headerRow);
-
       // Create rows for days of the week
       const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       weekdays.forEach((weekday, rowIndex) => {
         const weekRow = document.createElement('div');
         weekRow.classList.add('heatmap-row');
-
         const weekdayLabel = document.createElement('div');
         weekdayLabel.classList.add('heatmap-row-header');
         weekdayLabel.textContent = weekday;
         weekRow.appendChild(weekdayLabel);
-
         // Start from the first day of the year
         let currentDate = new Date(currentYear, 0, 1);
         
@@ -146,30 +151,24 @@ document.addEventListener("DOMContentLoaded", function () {
           cell.classList.add('heatmap-cell');
           weekRow.appendChild(cell);
         }
-
         // Adjust start date to the first occurrence of this weekday
         while (currentDate.getDay() !== rowIndex) {
           currentDate.setDate(currentDate.getDate() + 1);
         }
-
         while (currentDate <= lastDateObj) {
           const monthStr = (currentDate.getMonth() + 1).toString().padStart(2, '0');
           const dayStr = currentDate.getDate().toString().padStart(2, '0');
           const dateKey = `${monthStr}-${dayStr}`;
-
           const cell = document.createElement('div');
           cell.classList.add('heatmap-cell');
-
           if (yearData.hasOwnProperty(dateKey)) {
             const activityLevel = yearData[dateKey];
             cell.classList.add(`level-${activityLevel}`);
             cell.title = `${currentDate.toLocaleString('default', { month: 'short' })} ${currentDate.getDate()}: Level ${activityLevel}`;
           }
-
           weekRow.appendChild(cell);
           currentDate.setDate(currentDate.getDate() + 7);
         }
-
         heatmapContainer.appendChild(weekRow);
       });
     })
