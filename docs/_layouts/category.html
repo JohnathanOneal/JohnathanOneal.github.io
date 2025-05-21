@@ -8,47 +8,39 @@ layout: default
     </h2>
     <p class="post-meta">{{ site.time | date: "%B %d, %Y" }}</p>
     <div class="newsletter-content">
-        <div class="article-excerpt">
-            <div class="excerpt-header">
-                <i class="fas fa-plane"></i>
-                <h3>Why Join ByteSize Travel?</h3>
+        <a href="https://www.bytesizetraveldeals.com/" class="join-prompt-link" style="text-decoration:none" target="_blank" rel="noopener noreferrer">
+            <div class="article-excerpt">
+                <div class="excerpt-header">
+                    <i class="fas fa-plane"></i>
+                    <h3>Why Join ByteSize Travel?</h3>
+                </div>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h4>Smart Savings</h4>
+                        <p>Insider travel hacks and exclusive money-saving tips delivered to your inbox</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-gift"></i>
+                        <h4>Latest Deals</h4>
+                        <p>Current airline promotions and hotel deals you won't find elsewhere</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-star"></i>
+                        <h4>Reward Strategies</h4>
+                        <p>Expert tips to maximize your points and miles for free travel</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4>Hidden Gems</h4>
+                        <p>Discover unique destinations and authentic travel experiences</p>
+                    </div>
+                </div>
+                <div class="join-prompt">
+                    <p>Click Now to skip the endless research and get travel-savvy tips and deals that work, delivered right to your inbox.</p>
+                </div>
             </div>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <i class="fas fa-piggy-bank"></i>
-                    <h4>Smart Savings</h4>
-                    <p>Insider travel hacks and exclusive money-saving tips delivered to your inbox</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-gift"></i>
-                    <h4>Latest Deals</h4>
-                    <p>Current airline promotions and hotel deals you won't find elsewhere</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-star"></i>
-                    <h4>Reward Strategies</h4>
-                    <p>Expert tips to maximize your points and miles for free travel</p>
-                </div>
-                <div class="benefit-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h4>Hidden Gems</h4>
-                    <p>Discover unique destinations and authentic travel experiences</p>
-                </div>
-            </div>
-            <div class="join-prompt">
-                <p>Skip the endless research! Get travel-savvy tips and deals that work, delivered right to your inbox.</p>
-                <i class="fas fa-arrow-right"></i>
-            </div>
-        </div>
-        <div class="signup-section">
-            <iframe 
-                src="https://cdn.forms-content-1.sg-form.com/74c7c4af-ac55-11ef-8984-42f35d32cba1"
-                width="100%"
-                height="500px"
-                frameborder="0"
-                scrolling="no">
-            </iframe>
-        </div>
+        </a>
     </div>
 </article>
 {% endif %}
@@ -83,12 +75,10 @@ layout: default
 document.addEventListener("DOMContentLoaded", function () {
   const currentYear = new Date().getFullYear();
   const heatmapContainer = document.getElementById('heatmap-container');
-
   fetch('{{ "../categories/bettereveryday/data/activity-data.json" | relative_url }}')
     .then(response => response.json())
     .then(data => {
       const yearData = data[currentYear] || {};
-
       // Find the last date in the data
       const dates = Object.keys(yearData).sort();
       const lastDate = dates[dates.length - 1];
@@ -96,32 +86,43 @@ document.addEventListener("DOMContentLoaded", function () {
         parseInt(lastDate.split('-')[0]) - 1,
         parseInt(lastDate.split('-')[1])
       );
-
       // Create header row with month names
       const headerRow = document.createElement('div');
       headerRow.classList.add('heatmap-header');
-
       const emptyHeader = document.createElement('div');
       emptyHeader.classList.add('heatmap-header-cell');
       headerRow.appendChild(emptyHeader);
-
       // Calculate month positions
       const monthPositions = [];
-      let currentDate = new Date(currentYear, 0, 1);
       let weekCounter = 0;
-
-      while (currentDate <= lastDateObj) {
-        if (currentDate.getDate() === 1) {
-          monthPositions.push({
-            month: currentDate.getMonth(),
-            position: weekCounter + 1
-          });
+      
+      // First, determine which week contains each month's start
+      let startOfWeek = new Date(currentYear, 0, 1);
+      // Adjust to the previous Sunday
+      while (startOfWeek.getDay() !== 0) {
+        startOfWeek.setDate(startOfWeek.getDate() - 1);
+      }
+      
+      // Process week by week
+      while (startOfWeek <= lastDateObj) {
+        // Check each day of this week
+        for (let i = 0; i < 7; i++) {
+          const checkDate = new Date(startOfWeek);
+          checkDate.setDate(checkDate.getDate() + i);
+          
+          // If this is the first day of a month, record this week's position
+          if (checkDate <= lastDateObj && checkDate.getDate() === 1) {
+            monthPositions.push({
+              month: checkDate.getMonth(),
+              position: weekCounter + 1  // +1 to account for the label column
+            });
+          }
         }
-
-        currentDate.setDate(currentDate.getDate() + 7);
+        
+        // Move to next week
+        startOfWeek.setDate(startOfWeek.getDate() + 7);
         weekCounter++;
       }
-
       // Add month labels
       monthPositions.forEach(({month, position}) => {
         const monthHeader = document.createElement('div');
@@ -131,20 +132,16 @@ document.addEventListener("DOMContentLoaded", function () {
         monthHeader.style.gridColumn = position + 1;
         headerRow.appendChild(monthHeader);
       });
-
       heatmapContainer.appendChild(headerRow);
-
       // Create rows for days of the week
       const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       weekdays.forEach((weekday, rowIndex) => {
         const weekRow = document.createElement('div');
         weekRow.classList.add('heatmap-row');
-
         const weekdayLabel = document.createElement('div');
         weekdayLabel.classList.add('heatmap-row-header');
         weekdayLabel.textContent = weekday;
         weekRow.appendChild(weekdayLabel);
-
         // Start from the first day of the year
         let currentDate = new Date(currentYear, 0, 1);
         
@@ -154,30 +151,24 @@ document.addEventListener("DOMContentLoaded", function () {
           cell.classList.add('heatmap-cell');
           weekRow.appendChild(cell);
         }
-
         // Adjust start date to the first occurrence of this weekday
         while (currentDate.getDay() !== rowIndex) {
           currentDate.setDate(currentDate.getDate() + 1);
         }
-
         while (currentDate <= lastDateObj) {
           const monthStr = (currentDate.getMonth() + 1).toString().padStart(2, '0');
           const dayStr = currentDate.getDate().toString().padStart(2, '0');
           const dateKey = `${monthStr}-${dayStr}`;
-
           const cell = document.createElement('div');
           cell.classList.add('heatmap-cell');
-
           if (yearData.hasOwnProperty(dateKey)) {
             const activityLevel = yearData[dateKey];
             cell.classList.add(`level-${activityLevel}`);
             cell.title = `${currentDate.toLocaleString('default', { month: 'short' })} ${currentDate.getDate()}: Level ${activityLevel}`;
           }
-
           weekRow.appendChild(cell);
           currentDate.setDate(currentDate.getDate() + 7);
         }
-
         heatmapContainer.appendChild(weekRow);
       });
     })
