@@ -31,6 +31,159 @@ I welcome opportunities for professional connection and intellectual exchange. P
 # RESUME
 <a href="/assets/resume/johnathan-oneal-resume.pdf" class="resume-download-button" target="_blank" rel="noopener noreferrer">Download PDF Resume</a>
 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Base styles and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto','Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.4;
+    font-size: 10pt;
+    padding: 20px 0;
+}
+
+/* Main container */
+.resume-container {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0 30px;
+    background-color: #fff;
+}
+
+/* Header section */
+.resume-header {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #2c3e50;
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+.resume-header h1 {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.contact-info {
+    font-size: 9pt;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Links - UPDATED to include underline */
+.resume-link {
+    color: #3498db;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Section styling */
+.resume-section {
+    margin-bottom: 14px;
+}
+
+.resume-section h2 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Education/Experience dates alignment */
+.degree, .job-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 10pt;
+}
+
+.edu-date, .job-date {
+    float: right;
+    font-style: italic;
+    color: #777;
+    font-size: 9pt;
+}
+
+.company, .school {
+    font-weight: 500;
+    font-size: 9pt;
+}
+
+/* List styling */
+ul {
+    margin-left: 20px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
+
+li {
+    margin-bottom: 3px;
+    font-size: 9pt;
+    word-spacing: normal;
+    line-height: 1.4;
+}
+
+/* Spacing for sections */
+p {
+    margin-bottom: 4px;
+}
+
+/* Skills section */
+.skills-list li {
+    display: inline;
+    margin-right: 8px;
+}
+
+.skills-category {
+    font-weight: 600;
+}
+
+/* Two-column layout for projects */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.project {
+    width: 48%;
+}
+
+/* Print-specific styles */
+@media print {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .resume-container {
+        max-width: 100%;
+        padding: 15px 30px;
+    }
+    
+    a {
+        color: #2c3e50 !important;
+        text-decoration: underline !important;
+    }
+    
+    .resume-section {
+        page-break-inside: avoid;
+    }
+}
+</style>
 <div class="resume-container">
     <div class="resume-header">
         <h1>Johnathan O'Neal</h1>
