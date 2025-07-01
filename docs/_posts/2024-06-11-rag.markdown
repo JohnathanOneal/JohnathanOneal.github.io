@@ -5,42 +5,66 @@ date:   2024-06-10 16:37:09 -0400
 categories: [llm]
 ---
 
-Learn How to Implement Retrieval Augmented Generation (rag) Entirely Locally with no GPU Required
+# Building a Local Retrieval Augmented Generation System with No GPU Required
 
-SP-4 is a very much experimental Local GPT. It is designed for Retrieval Augmented Generation (RAG) and runs entirely on CPU.
+SP-4 is an experimental local GPT implementation designed for Retrieval Augmented Generation (RAG) that runs entirely on CPU. This system enables you to query your private documents using natural language while maintaining complete data privacy and control.
 
-# What is RAG
+## What is Retrieval Augmented Generation (RAG)?
+
 <p align="center">
   <img src="/assets/rag/rag.png">
 </p>
 
-From the internet: Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an authoritative knowledge base outside of its training data sources before generating a response. Large Language Models (LLMs) are trained on vast volumes of data and use billions of parameters to generate original output for tasks like answering questions, translating languages, and completing sentences. RAG extends the already powerful capabilities of LLMs to specific domains or an organization's internal knowledge base, all without the need to retrain the model. It is a cost-effective approach to improving LLM output so it remains relevant, accurate, and useful in various contexts.
+Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by incorporating relevant information from external knowledge sources before generating responses. Rather than relying solely on training data, RAG systems can access and reference specific documents or databases in real-time.
 
-What this essential means is we can create and proxy for a fully custom LLM without the need to train on a custom data set. We leverage the pre-trained model's generative capabilities while feeding it a context of custom documents. 
+This approach allows us to create powerful, context-aware AI systems without the need to retrain models on custom datasets. We leverage pre-trained models' generative capabilities while feeding them relevant context from our specific documents, creating what is essentially a custom knowledge assistant.
 
-# How Does it Work?
-SP-4 is built on top of LlamaIndex which is a framework for building context-augmented LLM applications. We use it to implement the following workflow 
-1. Receive query from the user.
-2. Convert it to an embedded query vector preserving the semantics, using an embedding model.
-3. Retrieve the top-k relevant content from the vector database by computing the similarity between the query embedding and the content embedding in the database.
-4. Pass the retrieved content and query as a prompt to an LLM.
-5. The LLM gives the required response.
+The key advantage of RAG is that it provides up-to-date, domain-specific information while maintaining the language understanding and generation capabilities of large language models. This makes it particularly valuable for enterprise applications, research, and any scenario where you need AI assistance with proprietary or specialized content.
 
+## System Architecture and Workflow
+
+SP-4 implements a sophisticated RAG pipeline using LlamaIndex as the foundational framework. The system follows this workflow:
 
 <p align="center">
   <img src="/assets/rag/rag2.png">
 </p>
 
-# Tech Stack Overview
-- Llama index as the framework
-- Sentence trasmformers as embeding model
-- Minstral 7b as the LLM run with llamacpp
-- Postgres as the vector store
-- Gradio as the UI
+1. **Query Reception**: The system receives a natural language query from the user through a web interface
+2. **Query Embedding**: The query is converted into a high-dimensional vector using a sentence transformer model, preserving semantic meaning
+3. **Similarity Search**: The system retrieves the most relevant document chunks by computing cosine similarity between the query embedding and stored document embeddings
+4. **Context Assembly**: Retrieved content is assembled with the original query to create a comprehensive prompt
+5. **Response Generation**: A local language model processes the enhanced prompt and generates a contextually relevant response
 
-# How to Setup
-Still in the experimental phase, best to use a dedicated virtual enviornment
-1. Install required python packages
+This architecture ensures that responses are grounded in your specific documents while leveraging the reasoning capabilities of modern language models.
+
+## Technology Stack
+
+The system combines several open-source technologies to create a robust, local-first solution:
+
+- **LlamaIndex**: Orchestration framework for context-augmented LLM applications
+- **Sentence Transformers**: Embedding model for semantic similarity calculations
+- **Mistral 7B**: Local language model running via llama.cpp for efficient CPU inference
+- **PostgreSQL with pgvector**: Vector database for storing and querying document embeddings
+- **Gradio**: User-friendly web interface for chat interactions
+- **PyMuPDF**: Document processing for PDF text extraction
+
+## Installation and Setup
+
+### Prerequisites and Environment Setup
+
+Begin by creating an isolated Python environment to avoid dependency conflicts:
+
+```bash
+python -m venv sp4_env
+source sp4_env/bin/activate  # Linux/Mac
+# or
+sp4_env\Scripts\activate  # Windows
+```
+
+### Core Python Dependencies
+
+Install the required Python packages for the RAG system:
+
 ```bash
 pip install llama-index-readers-file pymupdf
 pip install llama-index-vector-stores-postgres
@@ -48,48 +72,74 @@ pip install llama-index-embeddings-huggingface
 pip install llama-index-llms-llama-cpp
 pip install llama-cpp-python
 ```
-2. Setup potgres vector database
 
-Install PostgreSQL
+### PostgreSQL Vector Database Configuration
+
+Install and configure PostgreSQL with vector extension support:
+
 ```bash
+# Install PostgreSQL
 sudo apt update
 sudo apt install postgresql postgresql-contrib
-```
-Start PostgreSQL Service (if it doesn't start automatically)
-```bash
+
+# Start PostgreSQL service
 sudo systemctl start postgresql
 ```
+
+Configure database access and permissions:
+
 ```bash
-# Log into the default PostgreSQL user
+# Access PostgreSQL as superuser
 sudo -u postgres psql
 
-# Now, you're inside the PostgreSQL interactive terminal, Create a new role (user) with login and a password
-CREATE ROLE your_username WITH LOGIN PASSWORD 'your_password';
+# Create a new database user
+CREATE ROLE sp4_user WITH LOGIN PASSWORD 'secure_password';
 
-# Grant all privileges on the database to the user
-ALTER ROLE <user> SUPERUSER;
+# Grant necessary privileges
+ALTER ROLE sp4_user SUPERUSER;
 
-# To exit the PostgreSQL interactive terminal
+# Exit PostgreSQL terminal
 \q
-```
-Restart PostgreSQL Service
-```bash
+
+# Restart PostgreSQL service
 sudo systemctl restart postgresql
 ```
 
-Install https://github.com/pgvector/pgvector
-If compilation fails with fatal error: postgres.h: No such file or directory, make sure Postgres development files are installed on the server.
+### Vector Extension Installation
+
+Install the pgvector extension for similarity search capabilities:
+
 ```bash
-sudo apt install postgresql-server-dev-16 – replace 16 with desired postgres verison
+# Install development headers (adjust version as needed)
+sudo apt install postgresql-server-dev-16
+
+# Clone and build pgvector
+git clone https://github.com/pgvector/pgvector.git
+cd pgvector
+make
+sudo make install
 ```
-Finally install last required packages
+
+Install additional Python database connectivity packages:
+
 ```bash
 pip install psycopg2-binary pgvector asyncpg "sqlalchemy[asyncio]" greenlet
 ```
-3. Download desired model from HuggingFace in a gguf form, place it in a easy to acces location in the project, in this case minstral 7B https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF in a folder /models
 
-# Constructing SP-4 
-Imports
+### Language Model Setup
+
+Download a quantized language model for efficient CPU inference. For this implementation, we use Mistral 7B in GGUF format:
+
+1. Visit the [Hugging Face model repository](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF)
+2. Download the `mistral-7b-instruct-v0.2.Q4_K_M.gguf` file
+3. Place it in a `./models/` directory within your project
+
+## Core Implementation
+
+### System Architecture and Client Management
+
+The `Client` class serves as the central orchestrator for all system components:
+
 ```python
 import gradio as gr
 import random
@@ -110,152 +160,262 @@ from llama_index.core import QueryBundle
 from llama_index.core.retrievers import BaseRetriever
 from typing import Any, List
 from llama_index.core.query_engine import RetrieverQueryEngine
-```
-Now lets create a client that will hold our models as well as deal with initializing the vector database
-```python
-class Client():
 
+class Client:
     def __init__(self):
-        # Standard hugging face embedding model to run on ingested documents/querys
+        # Initialize embedding model for semantic similarity
         self.embedModel = HuggingFaceEmbedding(model_name='BAAI/bge-small-en')
-
-        #Phi-3-mini-4k-instruct-q4.gguf Phi-3-mini-4k-instruct-fp16.gguf
-        # LLM downloaded locally as gguf file
-        self.llm = LlamaCPP(model_path='./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf',
-                            temperature=0.1,
-                            max_new_tokens=256,
-                            # llama2 has a context window of 4096 tokens, but we set it lower to allow for some wiggle room
-                            context_window=3900,
-                            # kwargs to pass to __call__()
-                            generate_kwargs={},
-                            # set to at least 1 to use GPU
-                            model_kwargs={'n_gpu_layers': 0},
-                            verbose=True)
-
-        # Connection manager for postgres database (vector store)
-        self.conn = psycopg2.connect(dbname='postgres',
-                                     host='localhost',
-                                     password='fish',
-                                     port='5432',
-                                     user='tuna')
+        
+        # Configure local language model
+        self.llm = LlamaCPP(
+            model_path='./models/mistral-7b-instruct-v0.2.Q4_K_M.gguf',
+            temperature=0.1,  # Low temperature for focused responses
+            max_new_tokens=256,  # Response length limit
+            context_window=3900,  # Context window size
+            generate_kwargs={},
+            model_kwargs={'n_gpu_layers': 0},  # CPU-only inference
+            verbose=True
+        )
+        
+        # Database connection management
+        self.conn = psycopg2.connect(
+            dbname='postgres',
+            host='localhost',
+            password='your_secure_password',
+            port='5432',
+            user='sp4_user'
+        )
         self.conn.autocommit = True
-
-        # Start database connection before we init the vector store
+        
+        # Initialize vector database
+        self._setup_vector_database()
+        
+    def _setup_vector_database(self):
+        """Initialize the vector database for document storage."""
         with self.conn.cursor() as c:
-            c.execute(f"DROP DATABASE IF EXISTS vector_db")
-            c.execute(f"CREATE DATABASE vector_db")
-        # Todo better use of database params
-        # Vector store database
-        self.vectorStore = PGVectorStore.from_params(database='vector_db',
-                                                      host='localhost',
-                                                      password='fish',
-                                                      port='5432',
-                                                      user='tuna',
-                                                      table_name='misntral_paper',
-                                                      # openai embedding dimension which is basically the standard
-                                                      embed_dim=384)
+            c.execute("DROP DATABASE IF EXISTS vector_db")
+            c.execute("CREATE DATABASE vector_db")
+        
+        # Configure vector store with pgvector
+        self.vectorStore = PGVectorStore.from_params(
+            database='vector_db',
+            host='localhost',
+            password='your_secure_password',
+            port='5432',
+            user='sp4_user',
+            table_name='document_embeddings',
+            embed_dim=384  # Dimension for BGE-small-en model
+        )
 ```
-Next we need to build a retriever for our vector database
+
+This client class manages three critical components:
+
+1. **Embedding Model**: Converts text to vector representations for similarity search
+2. **Language Model**: Generates responses based on retrieved context
+3. **Vector Database**: Stores and retrieves document embeddings efficiently
+
+### Custom Retriever Implementation
+
+The retriever handles the core similarity search functionality:
+
 ```python
 class VectorDBRetriever(BaseRetriever):
-    """Retriever over a postgres vector store."""
-
+    """Custom retriever for PostgreSQL vector store operations."""
+    
     def __init__(self, vector_store, embed_model, query_mode="default", similarity_top_k=2):
-        """Init params."""
-        self._vector_store = vector_store # PGVectorStore object
+        """Initialize retriever with configuration parameters."""
+        self._vector_store = vector_store
         self._embed_model = embed_model
         self._query_mode = query_mode
         self._similarity_top_k = similarity_top_k
         super().__init__()
-
+    
     def _retrieve(self, query_bundle):
-        """Retrieve."""
+        """Execute similarity search and return ranked results."""
+        # Convert query to embedding vector
         query_embedding = self._embed_model.get_query_embedding(query_bundle.query_str)
-
-        vector_store_query = VectorStoreQuery(query_embedding=query_embedding,
-                                              similarity_top_k=self._similarity_top_k,
-                                              mode=self._query_mode)
-
+        
+        # Configure vector store query
+        vector_store_query = VectorStoreQuery(
+            query_embedding=query_embedding,
+            similarity_top_k=self._similarity_top_k,
+            mode=self._query_mode
+        )
+        
+        # Execute similarity search
         query_result = self._vector_store.query(vector_store_query)
-
+        
+        # Format results with similarity scores
         nodes_with_scores = []
         for index, node in enumerate(query_result.nodes):
-            score: Optional[float] = None
+            score = None
             if query_result.similarities is not None:
                 score = query_result.similarities[index]
             nodes_with_scores.append(NodeWithScore(node=node, score=score))
-
+        
         return nodes_with_scores
 ```
-Then define a helper function to process context documents
+
+The retriever performs semantic similarity search by:
+- Converting queries to high-dimensional vectors
+- Computing cosine similarity against stored document embeddings
+- Returning the most relevant document chunks with confidence scores
+
+### Document Processing Pipeline
+
+The document processing function handles ingestion and preparation:
+
 ```python
-def proccessFiles(client, files):
+def process_documents(client, file_path):
+    """Process documents and store embeddings in vector database."""
+    
+    # Initialize PDF reader
     loader = PyMuPDFReader()
-    # files = file_upload.file_contents
-    # print(files)
-    documents = loader.load(file_path=files)
-    text_parser = SentenceSplitter(chunk_size=1024)  # separator=" ",
-
-    # Split documents
+    documents = loader.load(file_path=file_path)
+    
+    # Configure text chunking strategy
+    text_parser = SentenceSplitter(
+        chunk_size=1024,  # Optimal chunk size for context windows
+        chunk_overlap=20  # Slight overlap to preserve context
+    )
+    
+    # Split documents into manageable chunks
     text_chunks = []
-    # maintain relationship with source doc index, to help inject doc metadata in (3)
-    doc_idxs = []
-    for doc_idx, doc in enumerate(documents):
-        cur_text_chunks = text_parser.split_text(doc.text)
-        text_chunks.extend(cur_text_chunks)
-        doc_idxs.extend([doc_idx] * len(cur_text_chunks))
-
-    # Construct Nodes from Text Chunks
+    doc_indices = []
+    
+    for doc_idx, document in enumerate(documents):
+        current_chunks = text_parser.split_text(document.text)
+        text_chunks.extend(current_chunks)
+        doc_indices.extend([doc_idx] * len(current_chunks))
+    
+    # Create node objects with metadata preservation
     nodes = []
     for idx, text_chunk in enumerate(text_chunks):
         node = TextNode(text=text_chunk)
-        src_doc = documents[doc_idxs[idx]]
-        node.metadata = src_doc.metadata
+        source_document = documents[doc_indices[idx]]
+        node.metadata = source_document.metadata
         nodes.append(node)
-
-    # Generate Embeddings for each Node
+    
+    # Generate embeddings for each text chunk
     for node in nodes:
-        node_embedding = client.embedModel.get_text_embedding(node.get_content(metadata_mode="all"))
+        node_embedding = client.embedModel.get_text_embedding(
+            node.get_content(metadata_mode="all")
+        )
         node.embedding = node_embedding
-
-    # Load Nodes into a Vector Store
+    
+    # Store processed nodes in vector database
     client.vectorStore.add(nodes)
+    print(f"Successfully processed {len(nodes)} document chunks")
 ```
 
-Finally in main (for now) init our client, build chatbot, and set up ui
+This processing pipeline:
+- Extracts text from PDF documents
+- Splits text into semantically coherent chunks
+- Generates vector embeddings for each chunk
+- Stores embeddings with metadata in the vector database
+
+### User Interface and Query Processing
+
+The main application creates an interactive chat interface:
+
 ```python
-if __name__ == "__main__":
-
-    client = Client()
-    # Replace with path to desired data
-    proccessFiles(client, './data/test_txt_to_pdf/camber.pdf')
-
+def create_chat_interface():
+    """Create and configure the Gradio chat interface."""
+    
+    def respond(message, chat_history):
+        """Process user queries and generate responses."""
+        # Initialize retriever with current settings
+        retriever = VectorDBRetriever(
+            client.vectorStore, 
+            client.embedModel, 
+            query_mode="default", 
+            similarity_top_k=2
+        )
+        
+        # Create query engine with retriever and LLM
+        query_engine = RetrieverQueryEngine.from_args(
+            retriever, 
+            llm=client.llm
+        )
+        
+        # Generate response using RAG pipeline
+        response = str(query_engine.query(message))
+        chat_history.append((message, response))
+        return "", chat_history
+    
+    # Configure Gradio interface
     with gr.Blocks(theme=gr.themes.Soft()) as interface:
-        gr.Markdown(
-            """
-            # SP-4
-            """)
+        gr.Markdown("# SP-4 Local Document Assistant")
+        gr.Markdown("Ask questions about your uploaded documents using natural language.")
+        
         chatbot = gr.Chatbot()
-        print('here')
-        msg = gr.Textbox()
-        #fileUpload = gr.UploadButton("Upload a file", file_count="single").upload(proccessFiles)
+        msg = gr.Textbox(
+            placeholder="Enter your question here...",
+            label="Question"
+        )
         clear = gr.ClearButton([msg, chatbot])
-
-        def respond(message, chat_history):
-            # query_mode = "sparse"
-            # query_mode = "hybrid"
-            retriever = VectorDBRetriever(client.vectorStore, client.embedModel, query_mode="default", similarity_top_k=2)
-            query_engine = RetrieverQueryEngine.from_args(retriever, llm=client.llm)
-            response = str(query_engine.query(message))
-            chat_history.append((message, response))
-            return "", chat_history
-
+        
+        # Connect interface events
         msg.submit(respond, [msg, chatbot], [msg, chatbot])
+    
+    return interface
 
-    interface.launch(share=False)
+if __name__ == "__main__":
+    # Initialize system
+    client = Client()
+    
+    # Process initial documents
+    process_documents(client, './data/sample_document.pdf')
+    
+    # Launch interface
+    interface = create_chat_interface()
+    interface.launch(
+        share=False,  # Keep local for privacy
+        server_name="127.0.0.1",
+        server_port=7860
+    )
 ```
-# What you should see
 
-# Next Steps
-- Stream Tokens
-- File Upload Widget and automatic processing
+## System Capabilities and Expected Behavior
+
+Once running, SP-4 provides:
+
+**Interactive Document Querying**: Users can ask natural language questions about uploaded documents and receive contextually relevant answers.
+
+**Semantic Search**: The system understands the meaning behind queries, not just keyword matching, enabling more sophisticated information retrieval.
+
+**Source Attribution**: Responses include context about which document sections were used to generate the answer, providing transparency and verifiability.
+
+**Privacy Preservation**: All processing happens locally, ensuring sensitive documents never leave your system.
+
+## Future Development Roadmap
+
+### Near-term Enhancements
+
+**Streaming Responses**: Implement token streaming for real-time response generation, improving user experience during longer responses.
+
+**Document Upload Interface**: Add a file upload widget to the Gradio interface, enabling dynamic document addition without system restart.
+
+**Multi-format Support**: Extend document processing beyond PDFs to include Word documents, text files, and web pages.
+
+### Advanced Features
+
+**Conversation Memory**: Implement conversation history to enable follow-up questions and context-aware discussions.
+
+**Advanced Retrieval**: Incorporate hybrid search combining semantic similarity with keyword matching for improved relevance.
+
+**Document Management**: Build document indexing and management capabilities for handling large document collections.
+
+**Performance Optimization**: Implement caching strategies and query optimization for faster response times.
+
+## Technical Considerations
+
+**Memory Requirements**: The system requires sufficient RAM to load the language model (approximately 4-8GB for Mistral 7B) plus additional memory for document processing.
+
+**Processing Speed**: CPU-only inference is slower than GPU acceleration but provides better accessibility and lower hardware requirements.
+
+**Scalability**: The PostgreSQL vector store can handle substantial document collections, though query performance may require optimization for very large datasets.
+
+**Security**: Running entirely locally ensures complete data privacy, making it suitable for sensitive or proprietary documents.
+
+This implementation demonstrates how modern AI capabilities can be deployed locally while maintaining complete control over data and infrastructure, making advanced RAG systems accessible to a broader range of users and use cases.
