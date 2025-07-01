@@ -1508,29 +1508,28 @@ body.dark-mode .highlight .gl { background-color: transparent; padding: 0; }
 }
 
 .image-grid {
-  display: flex;
-  justify-content: center; /* Centers the grid */
-  gap: 16px; /* Adjust the gap between images */
-}
-
-.image-grid img {
-  max-width: calc(50% - 16px); /* Images take up 50% minus the gap */
-  height: auto;
-}
-
-@media (max-width: 1024px) {
-  /* For medium screens, images still stack if needed */
-  .image-grid img {
-    max-width: calc(100% - 16px);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap; 
   }
-}
-
-@media (max-width: 768px) {
-  /* For small screens, images stack fully */
+  
   .image-grid img {
-    max-width: 100%;
+    max-width: calc(50% - 16px);
+    height: auto;
+    flex: 1 1 250px;
   }
-}
+  
+  @media (max-width: 768px) {
+    .image-grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .image-grid img {
+      max-width: 100%;
+    }
+  }
 
 /* Updated Odds Display Styles */
 .odds-section {

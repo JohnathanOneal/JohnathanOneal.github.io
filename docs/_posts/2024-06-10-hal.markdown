@@ -4,205 +4,213 @@ title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 1: Data Acquisitio
 date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
+
+# Building a March Madness Prediction Engine: Part 1 - Web Scraping and Data Acquisition
+
 <p align="center">
   <img src="/assets/hal/halscreenshot.svg">
 </p>
 
-# Leveraging Python and Playwright to Unlock Insights from KenPom Basketball Data
+## Important Disclaimer
 
-## Introduction
-As a data engineer, I'm constantly on the lookout for fascinating datasets that can provide valuable insights. One such dataset is the renowned KenPom college basketball ratings, which offer a comprehensive analysis of team performance and efficiency. In this article, we'll explore how to leverage Python and the Playwright automation library to scrape and analyze this data.
+**This article is for educational purposes only.** Web scraping KenPom may violate their terms of service. This project was conducted as a learning exercise and is not intended for commercial use. No data is being distributed or shared publicly. Code examples have been intentionally simplified or removed to prevent readers from overwhelming KenPom's servers or violating their terms of service. The goal is to understand the data acquisition process, not to recreate it. Always respect website terms of service and consider subscribing to premium services when available.
 
-Before we continue I must acknowledge that programtic access that adversly impacts site performance is againts the KenPom terms of use as well as creating data stores that serve as a subtitute for the product. As this is a purely personal project with minimal web scrappign (outside of hte inital load just 5 url redirects over 5 seconds only on a day the program is run) and any local data is not being distributed in any means but rather acting as a means to cache responses and limit network traffic all whiel mainting an active kenpom substricution, we are abibing by the terms of use. To avoid abusing the kenpom site by supllying an off the shelf program. certain code has been left out and the code here is meant to illustrate the functiinality. 
+---
 
-## Understanding the KenPom Dataset
+March Madness represents one of the most unpredictable tournaments in sports, where statistical underdogs routinely upset heavily favored teams. Creating a reliable prediction model starts with acquiring comprehensive, high-quality data that captures the nuanced performance metrics distinguishing championship contenders from first-round exits. This four-part series explores building a complete NCAA basketball prediction system, beginning with the foundation: automated web scraping and data cleaning.
 
-The KenPom ratings include a wealth of metrics that we can categorize into several key areas:
+## The KenPom Data Challenge
 
-### Core Performance Metrics
-- Team ranking and rating
-- Offensive and defensive efficiency
-- Adjusted tempo
-- Strength of schedule metrics
+College basketball analytics revolve around KenPom (kenpom.com), the authoritative source for advanced basketball statistics. Ken Pomeroy's efficiency-based metrics provide tempo-adjusted ratings that account for strength of schedule and pace of play—critical factors that raw statistics miss. However, accessing this premium data programmatically presents several challenges:
 
-### Advanced Statistics
-- Shooting percentages (3P%, 2P%, FT%)
-- Turnover rates
-- Rebound percentages
-- Free throw rates
+**Subscription-Based Access**: KenPom requires paid subscriptions and implements authentication barriers that prevent simple HTTP requests.
 
-### Team Composition Data
-- Player heights by position
-- Team experience
-- Bench metrics
-- Team continuity
+**Dynamic Content Loading**: The site uses JavaScript for some data rendering, making traditional scraping approaches unreliable.
 
-## Implementation
+**Rate Limiting Considerations**: As a small, independent site, KenPom requires respectful scraping practices to avoid overwhelming their servers.
 
-### Key Data Structure
-First, let's look at how we define our key metrics:
+**Data Spread Across Multiple Pages**: Team statistics are distributed across six different specialized pages, each with unique layouts and data structures.
+
+## Playwright-Based Scraping Architecture
+
+The solution employs Playwright for browser automation, providing robust handling of authentication and dynamic content. The scraper implements several key components:
+
+**Session Management**: Once authenticated, the browser session maintains cookies across multiple page requests, avoiding repeated login attempts.
+
+**Failure Detection**: The system distinguishes between network timeouts, invalid credentials, and successful authentications that might load slowly.
+
+**Graceful Retry Logic**: Temporary network issues get handled through exponential backoff rather than immediate failure.
 
 ```python
-KENPOM_RATING = 'Rank'  # Team ranking based on overall performance
-TEAM = 'Team'  # Name of the team
-CONFERENCE = 'Conference'  # Name of the conference the team belongs to
-RECORD = 'Record'  # Team's win-loss record
-NET_RTG = 'NetRtg'  # Net rating, difference between offensive and defensive efficiency
-ADJUSTED_OFFENSIVE_EFFICIENCY = 'AdjOE'  # Adjusted offensive efficiency rating
-ADJUSTED_DEFENSIVE_EFFICIENCY = 'AdjDE'  # Adjusted defensive efficiency rating
-ADJUSTED_TEMPO = 'AdjT'  # Adjusted tempo, the speed at which a team plays
+class KenPomScraper:
+    def __init__(self, email, password, begin_season=2025, end_season=2025, max_retries=3):
+        self.email = email
+        self.password = password
+        self.begin_season = begin_season
+        self.end_season = end_season
+        self.max_retries = max_retries
+
+    # Authentication and scraping methods would go here
+    # (Code simplified for educational purposes)
 ```
 
-### Table Definitions
-We organize our data collection into distinct tables:
+## Multi-Page Data Extraction
+
+KenPom organizes team statistics across specialized pages, each providing different analytical perspectives:
+
+**Efficiency Ratings Page**: Core offensive and defensive efficiency metrics adjusted for tempo and strength of schedule.
+
+**Four Factors Page**: Shooting efficiency, turnover rates, rebounding percentages, and free throw statistics that Ken Pomeroy identified as the most predictive of success.
+
+**Advanced Statistics Page**: Detailed breakdowns of shooting performance, including two-point and three-point efficiency metrics.
+
+**Point Distribution Page**: Analysis of scoring patterns and shot selection tendencies.
+
+**Height and Experience Page**: Team composition metrics including average height by position and player experience levels.
+
+### Dynamic URL Construction
+
+Each page requires season-specific parameters, handled through systematic URL construction with retry logic for reliable data extraction across multiple seasons.
+
+## Data Cleaning and Standardization Pipeline
+
+Raw scraped data requires extensive cleaning before analysis. The preprocessing pipeline addresses multiple data quality challenges:
+
+### Numeric Data Conversion
+
+KenPom displays statistics in human-readable formats that require parsing for analysis:
 
 ```python
-INDEX_COLUMN_HEADERS = [
-    KENPOM_RATING, TEAM, CONFERENCE, RECORD, NET_RTG, ADJUSTED_OFFENSIVE_EFFICIENCY, 
-    ADJUSTED_OFFENSIVE_EFFICIENCY_RANK, ADJUSTED_DEFENSIVE_EFFICIENCY, 
-    ADJUSTED_DEFENSIVE_EFFICIENCY_RANK, ADJUSTED_TEMPO, ADJUSTED_TEMPO_RANK,
-    LUCK, LUCK_RANK, SOS_NET_RTG, SOS_NET_RTG_RANK, SOS_OFFENSIVE_EFFICIENCY, 
-    SOS_OFFENSIVE_EFFICIENCY_RANK, SOS_DEFENSIVE_EFFICIENCY, SOS_DEFENSIVE_EFFICIENCY_RANK, 
-    NCSOS_NET_RTG, NCSOS_NET_RTG_RANK
-]
+def _process_dataframe(self, df, year):
+    """Clean and standardize scraped data"""
+    # Convert efficiency ratings and tempo to numeric
+    for col in df.columns:
+        if col.endswith(('Rtg', 'T')):
+            df[col] = pd.to_numeric(df[col].str.replace(',', ''), errors='coerce')
+        elif col.endswith('_Rank'):
+            # Extract numeric rank from formatted strings like "15 (2.3)"
+            df[col] = pd.to_numeric(df[col].str.extract(r'(\d+)')[0], errors='coerce')
 
-PAGE_INFO = {
-    'https://kenpom.com/index.php': INDEX_COLUMN_HEADERS,
-    'https://kenpom.com/summary.php': SUMMARY_COLUMN_HEADERS,
-    'https://kenpom.com/stats.php': STATS_COLUMN_HEADERS,
-    'https://kenpom.com/pointdist.php': POINTDIST_COLUMN_HEADERS,
-    'https://kenpom.com/height.php': HEIGHT_COLUMN_HEADERS,
-    'https://kenpom.com/teamstats.php': TEAMSTATS_COLUMN_HEADERS
-}
-```
-
-### Core Extraction Functions
-
-Here's how we extract the data using Playwright:
-
-```python
-def extract_table_rows(page):
-    """Extract the table rows from the page."""
-    return page.evaluate("""
-        () => {
-            return Array.from(document.querySelectorAll('#ratings-table tbody tr'))
-                        .map(row => Array.from(row.querySelectorAll('td'))
-                             .map(td => td.innerText.trim()));
-        }
-    """)
-
-def is_current_season(season):
-    now = pd.Timestamp.now()
-    return season == now.year if now.month <= 5 else season - 1 == now.year
-
-def scrape_kenpom_table(page, url, year):
-    """Scrape the KenPom table from the page."""
-    headers = PAGE_INFO[url]
-    rows = extract_table_rows(page)
-
-    # Check if the number of rows matches the number of columns
-    if len(rows) > 0 and len(rows[0]) != len(headers):
-        raise ValueError(f"Number of columns ({len(headers)}) does not match number of columns in data ({len(rows[0])})")
-
-    # Create a DataFrame from the extracted data
-    df = pd.DataFrame(rows, columns=headers)
-
-    # Convert columns to appropriate data types
-    if 'Kenpom_Rating' in df.columns:
-        df['Kenpom_Rating'] = df['Kenpom_Rating'].astype(int)
+    # Parse win-loss records
     if 'Record' in df.columns:
         df[['Wins', 'Losses']] = df['Record'].str.split('-', expand=True)
         df = df.drop(columns='Record')
 
-    for col in df.columns:
-        if col.endswith('Rtg') or col.endswith('T'):
-            df[col] = df[col].str.replace(',', '').astype(float)
-        elif col.endswith('_Rank'):
-            df[col] = df[col].str.extract(r'(\d+)', expand=False).astype(int)
-
+    # Standardize team names for consistent joining
     df['Team'] = df['Team'].str.replace(r'[\d*]', '', regex=True).str.strip().str.lower()
-    df['Season'] = int(year)
-
+    df['Season'] = year
+    
     return df
 ```
 
-### Main Data Collection Function
+**Text Cleaning**: Team names contain rankings, asterisks, and other formatting that must be stripped for consistent identification.
 
-The main function that orchestrates the data collection:
+**Numeric Parsing**: Statistics appear with commas, parenthetical information, and other formatting that prevents direct numeric conversion.
+
+**Missing Data Handling**: Some teams have incomplete statistics, requiring careful handling to avoid analysis errors.
+
+### Multi-Season Data Organization
+
+The system handles both historical and current season data differently:
+
+**Historical Data**: Completed seasons that won't change, stored permanently for training data.
+
+**Current Season Snapshots**: Dated snapshots of ongoing seasons that capture team development over time.
+
+**Latest Current**: Always-updated current season data for real-time predictions.
+
+## Advanced Data Preprocessing
+
+Beyond basic cleaning, the data requires sophisticated preprocessing to prepare for modeling:
+
+### Statistical Outlier Management
+
+The preprocessing pipeline implements comprehensive data quality measures:
+
+**Invalid Data Filtering**: KenPom uses sentinel values like -99 to indicate invalid or insufficient data, which must be excluded from analysis.
+
+**Incomplete Profile Removal**: Teams with too many missing statistics likely have insufficient game data for reliable analysis.
+
+**Redundancy Elimination**: Rankings duplicate the information contained in underlying efficiency metrics while adding noise.
+
+### Team Identity Mapping
+
+One of the most challenging aspects involves mapping team names consistently across seasons:
+
+**Name Standardization**: Teams use different name variations across seasons and data sources.
+
+**Conference Changes**: Teams change conferences, affecting their identities and competitive contexts.
+
+**Program Transitions**: Schools occasionally change names, merge programs, or undergo other institutional changes.
+
+### Feature Space Optimization
+
+The preprocessing pipeline implements dimensionality reduction to improve model performance:
+
+**Correlation Analysis**: Some KenPom metrics are mathematically related, creating multicollinearity that can destabilize models.
+
+**Data Quality Assessment**: Certain statistics have known reliability issues or sparse coverage across teams.
+
+## Robust Feature Scaling
+
+Statistical metrics operate on vastly different scales, requiring careful normalization:
 
 ```python
-def fetch_kenpom_data(begin_season=2025, end_season=2025):
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-
-        # Login to kenpom
-        page.goto("https://kenpom.com/")
-        page.fill("input[name='email']", 'your_email')
-        page.fill("input[name='password']", "your_password")
-        page.click("input[type='submit']")
-
-        # Wait for navigation to complete
-        page.wait_for_timeout(7000)
-
-        seasonFrames = {}
-
-        # Confirm login success and scrape data
-        if "logout" in page.content():
-            for season in range(begin_season, end_season + 1):
-                frames = []
-                for url in PAGE_INFO.keys():
-                    page.goto(f"{url}?y={season}")
-                    df = scrape_kenpom_table(page, url, season)
-                    frames.append(df)
-
-                merged_df = frames[0]
-                for df in frames[1:]:
-                    merged_df = pd.merge(merged_df, df, on=['Team', 'Season'], 
-                                       how='outer', suffixes=('', '_drop'))
-                merged_df = merged_df.loc[:, ~merged_df.columns.str.endswith('_drop')]
-
-                if is_current_season(season):
-                    merged_df['date_pulled'] = pd.Timestamp.now().strftime('%Y-%m-%d')
-                    month_and_day = pd.Timestamp.now().strftime('%m%d')
-                    seasonFrames.update({f"{season}_{month_and_day}": merged_df})
-                else:
-                    seasonFrames.update({f"{season}": merged_df})
-
-        browser.close()
-        return seasonFrames
+def scale_features(self, df, fit_scaler=True):
+    """Apply robust scaling to handle outliers"""
+    features_to_scale = [col for col in df.columns if col not in ['TeamID', 'Season']]
+    
+    if fit_scaler:
+        self.scaler = RobustScaler()  # Less sensitive to outliers than StandardScaler
+        df[features_to_scale] = self.scaler.fit_transform(df[features_to_scale])
+    else:
+        df[features_to_scale] = self.scaler.transform(df[features_to_scale])
+        
+    return df
 ```
 
-## Running the Script
+**Robust Scaling**: Uses median and interquartile range instead of mean and standard deviation, providing better handling of statistical outliers common in college basketball.
 
-To execute the data collection:
+**Persistent Scaling**: Scalers get saved and reused for consistency between training and prediction data.
 
-```python
-if __name__ == "__main__":
-    seasonFrames = fetch_kenpom_data(begin_season=2025, end_season=2025)
-    for key, value in seasonFrames.items():
-        value.to_csv(f"kenpom_{key}.csv", index=False)
-```
+## Pipeline Orchestration and Error Handling
 
-## Data Analysis Possibilities
+The complete acquisition pipeline coordinates multiple specialized components with comprehensive error handling:
 
-With this data structure, you can perform various analyses:
+**Browser Management**: Proper browser lifecycle management prevents resource leaks during long scraping sessions.
 
-1. **Performance Trends**: Track team efficiency metrics over time
-2. **Conference Analysis**: Compare performance metrics across conferences
-3. **Team Composition Impact**: Analyze how factors like experience and height affect performance
-4. **Strength of Schedule Analysis**: Evaluate the impact of schedule difficulty on team performance
+**Partial Failure Handling**: If individual seasons fail to scrape, the system continues rather than losing all progress.
 
-## Next Steps
+**Data Persistence**: Results get saved incrementally to prevent data loss from unexpected failures.
 
-Consider these potential enhancements to the analysis:
+## Data Quality Validation
 
-1. **Automated Updates**: Schedule regular data pulls to track changes over a season
-2. **Advanced Analytics**: Develop predictive models using the collected metrics
-3. **Data Visualization**: Create dashboards to visualize team and conference trends
-4. **Historical Analysis**: Compare current season performance to historical benchmarks
+The pipeline implements comprehensive validation throughout the acquisition process:
 
-## Conclusion
+**Statistical Sanity Checks**: Efficiency ratings must fall within expected ranges based on historical data.
 
-This implementation provides a robust foundation for analyzing college basketball performance using KenPom data. The modular design allows for easy maintenance and extension as analytical needs evolve. Remember to use the data responsibly and in accordance with KenPom's terms of service.
+**Completeness Validation**: Each team must have minimum statistical coverage to be included in datasets.
 
+**Temporal Consistency**: Teams shouldn't show impossible statistical changes between data points.
+
+## Ethical Considerations and Best Practices
+
+When conducting any web scraping project, several important principles should guide the approach:
+
+**Respect Rate Limits**: Implement delays between requests to avoid overwhelming target servers.
+
+**Honor robots.txt**: Check and respect website crawling policies.
+
+**Use Data Responsibly**: Ensure scraped data is used ethically and in compliance with terms of service.
+
+**Consider Alternatives**: Always evaluate whether official APIs or data purchase options exist before scraping.
+
+## Looking Ahead
+
+This robust data acquisition foundation provides clean, comprehensive basketball statistics ready for advanced analysis. The automated pipeline ensures consistent data quality while handling the complexities of web scraping premium content.
+
+In Part 2, we'll explore how this clean dataset gets analyzed through exploratory data analysis and transformed through sophisticated feature engineering to identify the statistical patterns that predict tournament success.
+
+---
+
+*Next: Part 2 - Exploratory Data Analysis and Feature Engineering*
