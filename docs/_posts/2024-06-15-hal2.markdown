@@ -7,18 +7,12 @@ categories: [sports]
 
 # Building a March Madness Prediction Engine: Part 2 - Exploratory Data Analysis and Feature Engineering
 
-<div style="display: flex; justify-content: center;">
-  <div style="text-align: center; margin-right: 10px;">
-    <img src="/assets/hal/halsosoutlier.png" alt="Image 1">
-    <br>
-    <em>Outlier from bad data</em>
-  </div>
-  <div style="text-align: center; margin-left: 10px;">
-    <img src="/assets/hal/halshortpg.png" alt="Image 2">
-    <br>
-    <em>Natural Mugsy Bouges-Esc Outlier</em>
-  </div>
+<div class="image-grid">
+  <img src="/assets/hal/halsosoutlier.png" alt="Outlier from bad data">
+  <img src="/assets/hal/halshortpg.png" alt="Natural Outlier">
 </div>
+
+**Image 1:** Outlier from bad data **Image 2:** Natural Mugsy Bouges-Esc Outlier
 
 With clean KenPom data acquired through the web scraping pipeline established in Part 1, the next critical phase involves understanding the statistical relationships in college basketball and engineering features that capture game-level dynamics. This process transforms individual team statistics into predictive features that distinguish between different types of basketball outcomes.
 
