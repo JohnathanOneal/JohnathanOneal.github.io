@@ -29,7 +29,19 @@ The journey of the Endurance crew is one of the most extraordinary examples of p
 
 What stands out to me is their ability to find moments of joy and camaraderie even in the face of adversity. It’s a reminder that hard work and teamwork don’t just help overcome challenges—they can also create shared strength and resilience. While I’ll probably never face anything as extreme as the Endurance crew’s journey, their story inspires me to work hard, support those around me, and keep pushing forward. Whenever I look at these images, I feel an energy boost, reminding me that perseverance and finding light in tough moments can make all the difference.
 
-The book about this journey remains one of my favorites of all time, and I strongly encourage you to give it a read! [Endurance on Goodreads](https://www.goodreads.com/book/show/139069.Endurance)
+The book about this journey remains one of my favorites of all time, and I strongly encourage you to give it a read, click to open in Goodreads! 
+
+<div class="bookshelf-grid">
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/139069.Endurance" target="_blank">
+    <img src="/assets/bookshelf/endurance.jpg" alt="Endurance" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Endurance</h3>
+      <p>Alfred Lansing</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: Jun 2, 2020</div>
+    </div>
+  </a>
+</div>
 
 ---
 

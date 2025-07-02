@@ -5,7 +5,7 @@ date:   2024-06-10 16:37:09 -0400
 categories: [sports]
 ---
 
-# Building a March Madness Prediction Engine: Part 1 - Web Scraping and Data Acquisition
+Building a March Madness Prediction Engine: Part 1 - Web Scraping and Data Acquisition
 
 <p align="center">
   <img src="/assets/hal/halscreenshot.svg">

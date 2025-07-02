@@ -4,7 +4,8 @@ title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 4: Bracket"
 date:   2024-07-15 16:37:09 -0400
 categories: [sports]
 ---
-# Building a March Madness Prediction Engine: Part 4 - Tournament Simulation and Bracket Optimization
+
+Building a March Madness Prediction Engine: Part 4 - Tournament Simulation and Bracket Optimization
 
 <p align="center">
   <img src="/assets/hal/halscreenshot.svg" alt="Responsive SVG" style="max-width: 100%; height: auto;">

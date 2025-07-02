@@ -4,7 +4,8 @@ title:  "HAL 9000: (Gradient)Descent into (March)Madness Part 3: Modeling"
 date:   2024-06-15 16:37:09 -0400
 categories: [sports]
 ---
-# Building a March Madness Prediction Engine: Part 3 - Machine Learning Models and Prediction Systems
+
+Building a March Madness Prediction Engine: Part 3 - Machine Learning Models and Prediction Systems
 
 <p align="center">
   <img src="/assets/hal/halscreenshot.png">

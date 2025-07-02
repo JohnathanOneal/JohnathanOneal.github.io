@@ -5,7 +5,7 @@ date:   2024-06-15 16:37:09 -0400
 categories: [sports]
 ---
 
-# Building a March Madness Prediction Engine: Part 2 - Exploratory Data Analysis and Feature Engineering
+Building a March Madness Prediction Engine: Part 2 - Exploratory Data Analysis and Feature Engineering
 
 <div class="image-grid">
   <img src="/assets/hal/halsosoutlier.png" alt="Outlier from bad data">

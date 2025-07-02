@@ -5,7 +5,7 @@ date:   2024-06-10 16:37:09 -0400
 categories: [llm]
 ---
 
-# Building a Local Retrieval Augmented Generation System with No GPU Required
+Building a Local Retrieval Augmented Generation System with No GPU Required
 
 SP-4 is an experimental local GPT implementation designed for Retrieval Augmented Generation (RAG) that runs entirely on CPU. This system enables you to query your private documents using natural language while maintaining complete data privacy and control.
 
