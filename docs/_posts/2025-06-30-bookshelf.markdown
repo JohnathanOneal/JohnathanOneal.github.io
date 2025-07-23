@@ -18,6 +18,16 @@ Keeping tabs on the books I read this year, click on a tile to open in Goodreads
 
 <div class="bookshelf-grid">
 
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/217245583-things-become-other-things" target="_blank">
+    <img src="/assets/bookshelf/things-become-other-things.jpg" alt="Things Become Other Things" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Things Become Other Things</h3>
+      <p>Craig Mod</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: Jul 23, 2025</div>
+    </div>
+  </a>
+
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/31423133-make-your-bed" target="_blank">
     <img src="/assets/bookshelf/make-your-bed.jpg" alt="Make Your Bed" class="bookshelf-cover">
     <div class="bookshelf-content">
