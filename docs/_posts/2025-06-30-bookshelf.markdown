@@ -8,15 +8,25 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>
-  <span class="goal-current">15</span>
+  <span class="goal-current">17</span>
   <span class="goal-divider">/</span>
   <span class="goal-total">20</span>
   <div class="goal-meter-bar">
-    <div class="goal-meter-fill" style="width: 75%"></div>
+    <div class="goal-meter-fill" style="width: 85%"></div>
   </div>
 </div>
 
 <div class="bookshelf-grid">
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/58984654-the-mosquito-bowl" target="_blank">
+    <img src="/assets/bookshelf/mosquito-bowl.jpg" alt="Mosquito Bowl" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Mosquito Bowl</h3>
+      <p>Buzz Bissinger</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: Jul 29, 2025</div>
+    </div>
+  </a>
 
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/217245583-things-become-other-things" target="_blank">
     <img src="/assets/bookshelf/things-become-other-things.jpg" alt="Things Become Other Things" class="bookshelf-cover">
