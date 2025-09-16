@@ -21,7 +21,7 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/59641216-friends-lovers-and-the-big-terrible-thing" target="_blank">
     <img src="/assets/bookshelf/friends.jpg" alt="Friends, Lovers, and The Big Terrible Thing" class="bookshelf-cover">
     <div class="bookshelf-content">
-      <h3>"Friends, Lovers, and The Big Terrible Thing" </h3>
+      <h3>Friends, Lovers, and The Big Terrible Thing</h3>
       <p>Matthew Perry</p>
       <div class="bookshelf-rating">★★★★☆</div>
       <div class="bookshelf-date">Finished: Aug 27, 2025</div>
