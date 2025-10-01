@@ -8,7 +8,7 @@ Api Calls, Github Actions, AWS S3, and Javascript Galore!
 
 ## Introduction
 My Japanese language journey started in earnest December 4th, 2023 when I began WaniKani. WaniKani is an application that uses a Spaced Repetition System (SRS) and mnemonics to help Japanese learners master kanji and vocabulary. Kanji presents a unique challenge for language learners because it requires memorizing thousands of complex characters, each with multiple readings and meanings that change depending on context. The spaced repetition system optimizes learning by scheduling reviews at scientifically-determined intervals, showing you items just before you're likely to forget them, which maximizes retention while minimizing study time.
-While my Japanese language learning toolkit has since evolved to encompass more aspects of the language—grammar, speaking, reading, and listening—WaniKani has remained a daily staple. The compelling nature of maintaining review streaks combined with the sheer volume of kanji needed for high-level reading comprehension means I rarely miss a day.
+While my Japanese language learning toolkit has since evolved to encompass more aspects of the language: grammar, speaking, reading, and listening, WaniKani has remained a daily staple. The compelling nature of maintaining review streaks combined with the sheer volume of kanji needed for high-level reading comprehension means I rarely miss a day.
 With so much time invested in reviews and level progressions, I thought it would be an excellent opportunity to leverage my data engineering background to implement some ETL (extract, transform, load) processes for gathering insights about my learning history. Additionally, it presented a perfect personal development challenge to learn frontend programming and create an engaging way to visualize this data
 
 ## System Overview
@@ -165,7 +165,7 @@ This Jekyll template syntax ensures the JavaScript only runs on pages with the t
 ### Level Progression Chart Creation
 {% raw %}
 ```javascript
-const url = 'https://github-pages-data.s3.amazonaws.com/wanikani_stats.json';
+const url = 'https://YOUR-BUCKET-NAME.s3.amazonaws.com/wanikani_stats.json';
 console.log('Fetching from URL:', url);
 
 fetch(url)
@@ -235,7 +235,7 @@ The date calculation `(d.passedAt - d.startedAt) / (1000 * 60 * 60 * 24)` conver
 ### Knowledge Distribution Analysis
 {% raw %}
 ```javascript
-fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
+fetch('https://YOUR-BUCKET-NAME.s3.amazonaws.com/all_review_statistics.json')
     .then(response => response.json())
     .then(data => {
         const buckets = {
@@ -323,7 +323,7 @@ The visualization helps you see where your knowledge is concentrated and what ar
 ### Accuracy Statistics Table
 {% raw %}
 ```javascript
-fetch('https://github-pages-data.s3.amazonaws.com/all_review_statistics.json')
+fetch('https://YOUR-BUCKET-NAME.s3.amazonaws.com/all_review_statistics.json')
     .then(response => response.json())
     .then(data => {
         // Initialize stats object
