@@ -8,15 +8,25 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>
-  <span class="goal-current">19</span>
+  <span class="goal-current">20</span>
   <span class="goal-divider">/</span>
   <span class="goal-total">20</span>
   <div class="goal-meter-bar">
-    <div class="goal-meter-fill" style="width: 90%"></div>
+    <div class="goal-meter-fill" style="width: 100%"></div>
   </div>
 </div>
 
 <div class="bookshelf-grid">
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/4980.Breakfast_of_Champions" target="_blank">
+    <img src="/assets/bookshelf/boc.jpg" alt="Breakfast of Champions" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Breakfast of Champions</h3>
+      <p>Kurt Vonnegut Jr.</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: October 5, 2025</div>
+    </div>
+  </a>
 
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/220341389-everything-is-tuberculosis" target="_blank">
     <img src="/assets/bookshelf/tuberculosis.jpg" alt="Everything is Tuberculosis" class="bookshelf-cover">
