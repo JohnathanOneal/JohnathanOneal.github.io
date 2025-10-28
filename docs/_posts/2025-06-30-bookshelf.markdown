@@ -18,6 +18,26 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-grid">
 
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/223436601-careless-people" target="_blank">
+    <img src="/assets/bookshelf/carelesspeople.jpg" alt="Careless People" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Careless People</h3>
+      <p>Sarah Wynn-Williams</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: October 20, 2025</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/9791.A_Walk_in_the_Woods" target="_blank">
+    <img src="/assets/bookshelf/walkinthewoods.jpg" alt="A Walk in the Woods" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>A Walk in the Woods</h3>
+      <p>Bill Bryson</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: October 17, 2025</div>
+    </div>
+  </a>
+
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/4980.Breakfast_of_Champions" target="_blank">
     <img src="/assets/bookshelf/boc.jpg" alt="Breakfast of Champions" class="bookshelf-cover">
     <div class="bookshelf-content">
