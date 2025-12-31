@@ -8,7 +8,7 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>
-  <span class="goal-current">22</span>
+  <span class="goal-current">28</span>
   <span class="goal-divider">/</span>
   <span class="goal-total">20</span>
   <div class="goal-meter-bar">
@@ -17,6 +17,57 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 </div>
 
 <div class="bookshelf-grid">
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/214331246-sunrise-on-the-reaping" target="_blank">
+    <img src="/assets/bookshelf/sunrise.jpg" alt="Sunrise on the Reaping" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Sunrise on the Reaping</h3>
+      <p>Suzanne Collins</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: December 26, 2025</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/1495595.Max_and_the_Cats" target="_blank">
+    <img src="/assets/bookshelf/max_cats.jpg" alt="Max and the Cats" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Max and the Cats</h3>
+      <p>Moacyr Scilar</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: December 23, 2025</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/413177.Beasts_of_No_Nation" target="_blank">
+    <img src="/assets/bookshelf/beasts.jpg" alt="Beasts of no Nation" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Beasts of no Nation</h3>
+      <p>Uzodinma Izweala</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: December 21, 2025</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/1132808.Desperate_Passage" target="_blank">
+    <img src="/assets/bookshelf/passage.jpg" alt="Desperate Passage" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Desperate Passage</h3>
+      <p>Ethan Rarick</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: December 20, 2025</div>
+    </div>
+  </a>
+
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/223319316-every-day-i-read" target="_blank">
+    <img src="/assets/bookshelf/everyday_read.jpg" alt="Everyday I Read" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Everyday I Read</h3>
+      <p>Hwang Bo-Reum</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: December 16, 2025</div>
+    </div>
+  </a>
 
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/223436601-careless-people" target="_blank">
     <img src="/assets/bookshelf/carelesspeople.jpg" alt="Careless People" class="bookshelf-cover">
