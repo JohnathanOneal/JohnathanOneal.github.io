@@ -2426,13 +2426,9 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 .day-row {
     display: flex;
     gap: 3px;
-    margin-bottom: 0;
     height: 12px;
     align-items: center;
-}
-
-.day-row + .day-row {
-    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .day-label {
@@ -2444,6 +2440,7 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     flex-shrink: 0;
 }
 
+/* Cell colors - same for light and dark mode */
 .heat-cell {
     width: 12px;
     height: 12px;
@@ -2459,10 +2456,6 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 
 .heat-cell.outside {
     visibility: hidden;
-}
-
-.heat-cell.empty {
-    background: #ebedf0;
 }
 
 .heat-cell.level-1 { background: #e74c3c; }
@@ -2547,12 +2540,6 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     color: rgba(0,0,0,0.5);
 }
 
-.month-cell.level-1,
-.month-cell.level-2,
-.month-cell.level-3 {
-    color: #fff;
-}
-
 .month-cell.level-1 .day-num,
 .month-cell.level-2 .day-num,
 .month-cell.level-3 .day-num {
@@ -2632,11 +2619,11 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 
 /* ==================== */
 /* HEATMAP DARK MODE    */
+/* Only backgrounds and text - cell colors stay the same */
 /* ==================== */
 
 .dark-mode .activity-heatmap-wrapper {
     background: #2a2a2a;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .dark-mode .heatmap-nav-btn {
@@ -2671,23 +2658,9 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     color: #aaa;
 }
 
-/* Dark mode base cell color */
 .dark-mode .heat-cell {
     background: #1a1a1a;
 }
-
-.dark-mode .heat-cell.empty {
-    background: #1a1a1a;
-}
-
-/* Dark mode level colors - must come AFTER base styles */
-.dark-mode .heat-cell.level-1 { background: #e74c3c; }
-.dark-mode .heat-cell.level-2 { background: #e67e22; }
-.dark-mode .heat-cell.level-3 { background: #f39c12; }
-.dark-mode .heat-cell.level-4 { background: #f1c40f; }
-.dark-mode .heat-cell.level-5 { background: #c1e11c; }
-.dark-mode .heat-cell.level-6 { background: #7cb342; }
-.dark-mode .heat-cell.level-7 { background: #388e3c; }
 
 .dark-mode .month-block {
     background: #333;
@@ -2701,14 +2674,6 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     background: #1a1a1a;
 }
 
-.dark-mode .month-cell.level-1 { background: #e74c3c; }
-.dark-mode .month-cell.level-2 { background: #e67e22; }
-.dark-mode .month-cell.level-3 { background: #f39c12; }
-.dark-mode .month-cell.level-4 { background: #f1c40f; }
-.dark-mode .month-cell.level-5 { background: #c1e11c; }
-.dark-mode .month-cell.level-6 { background: #7cb342; }
-.dark-mode .month-cell.level-7 { background: #388e3c; }
-
 .dark-mode .month-cell.future {
     border-color: #444;
 }
@@ -2720,14 +2685,6 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 .dark-mode .heatmap-legend {
     color: #aaa;
 }
-
-.dark-mode .legend-cell.level-1 { background: #e74c3c; }
-.dark-mode .legend-cell.level-2 { background: #e67e22; }
-.dark-mode .legend-cell.level-3 { background: #f39c12; }
-.dark-mode .legend-cell.level-4 { background: #f1c40f; }
-.dark-mode .legend-cell.level-5 { background: #c1e11c; }
-.dark-mode .legend-cell.level-6 { background: #7cb342; }
-.dark-mode .legend-cell.level-7 { background: #388e3c; }
 
 .dark-mode .heatmap-tooltip {
     background: #f9b96e;
