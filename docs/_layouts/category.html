@@ -159,7 +159,6 @@ layout: default
         const today = new Date();
         const isCurrentYear = year === today.getFullYear();
         
-        // Calculate stats
         const entries = Object.entries(yearData);
         const total = entries.length;
         const sum = entries.reduce((acc, [_, v]) => acc + v, 0);
@@ -181,88 +180,7 @@ layout: default
             </div>
         `;
         
-        // Check viewport width for layout
-        const isMobile = window.innerWidth < 600;
-        
-        if (isMobile) {
-            renderMonthGrid(year, yearData, isCurrentYear, today);
-        } else {
-            renderGithubStyle(year, yearData, isCurrentYear, today);
-        }
-    }
-    
-    function renderGithubStyle(year, data, isCurrentYear, today) {
-        view.className = 'heatmap-view github-style';
-        view.innerHTML = '';
-        
-        const container = document.createElement('div');
-        container.className = 'github-heatmap';
-        
-        // Month headers
-        const monthRow = document.createElement('div');
-        monthRow.className = 'month-row';
-        monthRow.innerHTML = '<div class="weekday-spacer"></div>';
-        
-        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        const endMonth = isCurrentYear ? today.getMonth() : 11;
-        
-        for (let m = 0; m <= endMonth; m++) {
-            const span = document.createElement('span');
-            span.className = 'month-label';
-            span.textContent = months[m];
-            monthRow.appendChild(span);
-        }
-        container.appendChild(monthRow);
-        
-        // Day rows
-        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        const startDate = new Date(year, 0, 1);
-        const endDate = isCurrentYear ? today : new Date(year, 11, 31);
-        
-        // Find first Sunday
-        const firstSunday = new Date(startDate);
-        while (firstSunday.getDay() !== 0) firstSunday.setDate(firstSunday.getDate() - 1);
-        
-        for (let dayIdx = 0; dayIdx < 7; dayIdx++) {
-            const row = document.createElement('div');
-            row.className = 'day-row';
-            
-            const label = document.createElement('span');
-            label.className = 'day-label';
-            // Show Mon, Wed, Fri only
-            label.textContent = (dayIdx === 1 || dayIdx === 3 || dayIdx === 5) ? dayNames[dayIdx] : '';
-            row.appendChild(label);
-            
-            let d = new Date(firstSunday);
-            d.setDate(d.getDate() + dayIdx);
-            
-            while (d <= endDate) {
-                const cell = document.createElement('div');
-                cell.className = 'heat-cell';
-                
-                if (d >= startDate && d <= endDate && d.getFullYear() === year) {
-                    const key = `${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-                    const val = data[key];
-                    
-                    if (val !== undefined) {
-                        cell.classList.add(`level-${val}`);
-                        cell.dataset.date = `${months[d.getMonth()]} ${d.getDate()}`;
-                        cell.dataset.level = val;
-                    } else {
-                        cell.classList.add('empty');
-                    }
-                } else {
-                    cell.classList.add('outside');
-                }
-                
-                row.appendChild(cell);
-                d.setDate(d.getDate() + 7);
-            }
-            container.appendChild(row);
-        }
-        
-        view.appendChild(container);
-        addTooltip();
+        renderMonthGrid(year, yearData, isCurrentYear, today);
     }
     
     function renderMonthGrid(year, data, isCurrentYear, today) {
@@ -284,7 +202,6 @@ layout: default
             const grid = document.createElement('div');
             grid.className = 'month-grid';
             
-            // Day headers
             ['S','M','T','W','T','F','S'].forEach(d => {
                 const h = document.createElement('div');
                 h.className = 'month-day-header';
@@ -296,14 +213,12 @@ layout: default
             const daysInMonth = new Date(year, m + 1, 0).getDate();
             const lastDay = isCurrentYear && m === today.getMonth() ? today.getDate() : daysInMonth;
             
-            // Empty cells before first day
             for (let i = 0; i < firstDay; i++) {
                 const empty = document.createElement('div');
                 empty.className = 'month-cell empty';
                 grid.appendChild(empty);
             }
             
-            // Day cells
             for (let d = 1; d <= daysInMonth; d++) {
                 const cell = document.createElement('div');
                 cell.className = 'month-cell';
@@ -311,7 +226,6 @@ layout: default
                 if (d <= lastDay) {
                     const key = `${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
                     const val = data[key];
-                    
                     if (val !== undefined) {
                         cell.classList.add(`level-${val}`);
                         cell.dataset.date = `${months[m].slice(0,3)} ${d}`;
@@ -322,14 +236,11 @@ layout: default
                     cell.classList.add('future');
                     cell.innerHTML = `<span class="day-num">${d}</span>`;
                 }
-                
                 grid.appendChild(cell);
             }
-            
             monthDiv.appendChild(grid);
             view.appendChild(monthDiv);
         }
-        
         addTooltip();
     }
     
@@ -341,7 +252,6 @@ layout: default
                 tooltip.className = 'heatmap-tooltip';
                 tooltip.innerHTML = `<strong>${cell.dataset.date}</strong><br>Level: ${cell.dataset.level}/7`;
                 document.body.appendChild(tooltip);
-                
                 const rect = cell.getBoundingClientRect();
                 tooltip.style.left = rect.left + rect.width/2 - tooltip.offsetWidth/2 + 'px';
                 tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + window.scrollY + 'px';
@@ -351,13 +261,6 @@ layout: default
             });
         });
     }
-    
-    // Re-render on resize for layout switch
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => renderYear(currentYear), 250);
-    });
 })();
 </script>
 {% endif %} 

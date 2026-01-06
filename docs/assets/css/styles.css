@@ -2314,10 +2314,7 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 .activity-heatmap-wrapper::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
+    top: 0; left: 0; right: 0; height: 5px;
     background: linear-gradient(to right, #f9b96e, #1a1501);
 }
 
@@ -2368,9 +2365,7 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     margin-bottom: 20px;
 }
 
-.stat-item {
-    text-align: center;
-}
+.stat-item { text-align: center; }
 
 .stat-value {
     display: block;
@@ -2384,34 +2379,6 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     color: #666;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.github-heatmap {
-    overflow-x: auto;
-    padding: 10px 0;
-}
-
-.month-row, .day-row {
-    display: flex;
-    gap: 3px;
-}
-
-.day-row {
-    height: 12px;
-    align-items: center;
-    margin-bottom: 3px;
-}
-
-.month-label, .day-label, .month-day-header {
-    font-size: 11px;
-    color: #666;
-}
-
-.day-label {
-    width: 30px;
-    text-align: right;
-    padding-right: 8px;
-    flex-shrink: 0;
 }
 
 .month-style {
@@ -2439,47 +2406,32 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     gap: 4px;
 }
 
-.heat-cell, .month-cell, .legend-cell {
-    background: #ebedf0;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: transform 0.1s;
-}
-
-.heat-cell {
-    width: 12px;
-    height: 12px;
+.month-day-header {
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    padding-bottom: 4px;
 }
 
 .month-cell {
     aspect-ratio: 1;
     border-radius: 4px;
+    background: #e8e5df;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s;
     position: relative;
 }
 
-.legend-cell {
-    width: 12px;
-    height: 12px;
-}
-
-.heat-cell:hover, .month-cell:hover:not(.empty):not(.future) {
-    transform: scale(1.2);
+.month-cell:hover:not(.empty):not(.future) {
+    transform: scale(1.15);
     z-index: 2;
 }
 
-.heat-cell.outside, .month-cell.empty {
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.month-cell.future {
-    background: transparent;
-    border: 1px dashed #ccc;
-    cursor: default;
-}
+.month-cell.empty { background: transparent; cursor: default; }
+.month-cell.future { background: transparent; border: 1px dashed #ccc; cursor: default; }
 
 .month-cell .day-num {
     font-size: 10px;
@@ -2494,9 +2446,7 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 .activity-heatmap-wrapper .level-6 { background: #7cb342 !important; }
 .activity-heatmap-wrapper .level-7 { background: #388e3c !important; }
 
-.month-cell[class*="level-"] .day-num {
-    color: rgba(255,255,255,0.9);
-}
+.month-cell[class*="level-"] .day-num { color: #fff; }
 
 .heatmap-footer {
     margin-top: 20px;
@@ -2512,10 +2462,8 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
     color: #666;
 }
 
-.legend-scale {
-    display: flex;
-    gap: 3px;
-}
+.legend-scale { display: flex; gap: 3px; }
+.legend-cell { width: 12px; height: 12px; border-radius: 2px; background: #ebedf0; }
 
 .heatmap-tooltip {
     position: absolute;
@@ -2544,17 +2492,11 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 .dark-mode .heatmap-year-label { color: #e0e0e0; }
 .dark-mode .heatmap-stats, .dark-mode .month-block { background: #333; }
 .dark-mode .stat-value { color: #f9b96e; }
-.dark-mode .stat-label, .dark-mode .month-label, .dark-mode .day-label, .dark-mode .heatmap-legend { color: #aaa; }
+.dark-mode .stat-label, .dark-mode .heatmap-legend { color: #aaa; }
 .dark-mode .month-title { color: #e0e0e0; }
-.dark-mode .month-cell .day-num { color: rgba(255,255,255,0.4); }
+.dark-mode .month-cell { background: #1a1a1a; }
 .dark-mode .month-cell.future { border-color: #444; }
-
-.dark-mode .heat-cell,
-.dark-mode .month-cell,
-.dark-mode .legend-cell {
-    background: #1a1a1a;
-}
-
+.dark-mode .month-cell .day-num { color: rgba(255,255,255,0.4); }
 .dark-mode .heatmap-tooltip { background: #f9b96e; color: #1a1501; }
 .dark-mode .heatmap-tooltip::after { border-top-color: #f9b96e; }
 

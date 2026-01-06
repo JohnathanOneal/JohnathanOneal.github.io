@@ -18,7 +18,7 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-grid">
 
-  <!-- <a class="bookshelf-item" href="https://www.goodreads.com/book/show/214331246-sunrise-on-the-reaping" target="_blank">
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/214331246-sunrise-on-the-reaping" target="_blank">
     <img src="/assets/bookshelf/sunrise.jpg" alt="Sunrise on the Reaping" class="bookshelf-cover">
     <div class="bookshelf-content">
       <h3>Sunrise on the Reaping</h3>
@@ -26,6 +26,6 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
       <div class="bookshelf-rating">★★★★★</div>
       <div class="bookshelf-date">Finished: December 26, 2025</div>
     </div>
-  </a> -->
+  </a>
 
 </div>
