@@ -2507,16 +2507,26 @@ body.dark-mode .bookshelf-goal-meter .goal-meter-fill {
 }
 
 .link-icon {
-    color: #666; /* Subtle grey */
-    transition: color 0.2s ease;
+    color: #2d2d2d;
+    transition: all 0.18s ease;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 }
 
 .link-icon:hover {
-    color: #007bff; /* Change to your site's primary accent color */
+    color: #f9b96e;
+    transform: translateY(-1px);
 }
 
-/* Optional: Hide underline on the heading itself if your CSS targets H3 anchors */
+body.dark-mode .link-icon {
+    color: #f9b96e;
+}
+
+body.dark-mode .link-icon:hover {
+    color: #fff;
+}
+
 .app-content h3 a {
     text-decoration: none;
 }
