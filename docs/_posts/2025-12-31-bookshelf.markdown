@@ -8,7 +8,7 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>
-  <span class="goal-current">0</span>
+  <span class="goal-current">2</span>
   <span class="goal-divider">/</span>
   <span class="goal-total">30</span>
   <div class="goal-meter-bar">
