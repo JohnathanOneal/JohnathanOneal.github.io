@@ -18,13 +18,23 @@ Keeping tabs on the books I have read this year, click on a tile to open in Good
 
 <div class="bookshelf-grid">
 
-  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/214331246-sunrise-on-the-reaping" target="_blank">
-    <img src="/assets/bookshelf/sunrise.jpg" alt="Sunrise on the Reaping" class="bookshelf-cover">
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/58662236-small-things-like-these" target="_blank">
+    <img src="/assets/bookshelf/small_things.jpg" alt="Small Things Like These" class="bookshelf-cover">
     <div class="bookshelf-content">
-      <h3>Sunrise on the Reaping</h3>
-      <p>Suzanne Collins</p>
+      <h3>Small Things Like These</h3>
+      <p>Claire Keegan</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: January 3, 2026</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/11.The_Hitchhiker_s_Guide_to_the_Galaxy" target="_blank">
+    <img src="/assets/bookshelf/hitchhikers.jpg" alt="The Hitchhiker’s Guide to the Galaxy" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>The Hitchhiker’s Guide to the Galaxy</h3>
+      <p>Douglas Adamas</p>
       <div class="bookshelf-rating">★★★★★</div>
-      <div class="bookshelf-date">Finished: December 26, 2025</div>
+      <div class="bookshelf-date">Finished: January 3, 2026</div>
     </div>
   </a>
 
