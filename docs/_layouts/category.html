@@ -87,7 +87,7 @@ layout: default
     
     <div class="heatmap-footer">
         <div class="heatmap-legend">
-            <span>0 Daily Goals Completed</span>
+            <span>Rough day</span>
             <div class="legend-scale">
                 <div class="legend-cell level-1"></div>
                 <div class="legend-cell level-2"></div>
@@ -97,7 +97,7 @@ layout: default
                 <div class="legend-cell level-6"></div>
                 <div class="legend-cell level-7"></div>
             </div>
-            <span>7 Daily Goals Completed</span>
+            <span>Great day</span>
         </div>
     </div>
 </div>
@@ -234,7 +234,8 @@ layout: default
             
             const label = document.createElement('span');
             label.className = 'day-label';
-            label.textContent = dayIdx % 2 === 1 ? dayNames[dayIdx] : '';
+            // Show Mon, Wed, Fri only to save space
+            label.textContent = (dayIdx === 1 || dayIdx === 3 || dayIdx === 5) ? dayNames[dayIdx] : '';
             row.appendChild(label);
             
             let d = new Date(firstSunday);
@@ -339,19 +340,35 @@ layout: default
     
     function calculateStreak(data, year) {
         const today = new Date();
+        const isCurrentYear = year === today.getFullYear();
         let streak = 0;
-        let d = new Date(today);
         
-        if (year !== today.getFullYear()) {
-            d = new Date(year, 11, 31);
+        // Get all dates in the data, sorted descending
+        const dates = Object.keys(data).sort().reverse();
+        
+        if (dates.length === 0) return 0;
+        
+        // For current year, start from today and work backwards
+        // For past years, start from the last recorded date
+        let checkDate;
+        if (isCurrentYear) {
+            checkDate = new Date(today);
+        } else {
+            // Parse the last date in data (format: "MM-DD")
+            const lastEntry = dates[0];
+            const [month, day] = lastEntry.split('-').map(Number);
+            checkDate = new Date(year, month - 1, day);
         }
         
+        // Count consecutive days backwards
         while (true) {
-            const key = `${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+            const key = `${String(checkDate.getMonth()+1).padStart(2,'0')}-${String(checkDate.getDate()).padStart(2,'0')}`;
+            
+            if (checkDate.getFullYear() !== year) break;
+            
             if (data[key] !== undefined) {
                 streak++;
-                d.setDate(d.getDate() - 1);
-                if (d.getFullYear() !== year) break;
+                checkDate.setDate(checkDate.getDate() - 1);
             } else {
                 break;
             }
