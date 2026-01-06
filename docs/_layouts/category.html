@@ -66,205 +66,6 @@ layout: default
 </article>
 {% endif %}
 
-{% if page.title == 'Better Everyday' %}
-<div class="activity-heatmap-wrapper">
-    <div class="heatmap-header-section">
-        <h2 class="article-title">Did you Get Better Today?</h2>
-        <div class="heatmap-controls">
-            <button id="prev-year" class="heatmap-nav-btn" aria-label="Previous year">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <span id="current-year-display" class="heatmap-year-label"></span>
-            <button id="next-year" class="heatmap-nav-btn" aria-label="Next year">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-    </div>
-    
-    <div class="heatmap-stats" id="heatmap-stats"></div>
-    
-    <div id="heatmap-view" class="heatmap-view"></div>
-    
-    <div class="heatmap-footer">
-        <div class="heatmap-legend">
-            <span>0 Daily Goals Completed</span>
-            <div class="legend-scale">
-                <div class="legend-cell level-1"></div>
-                <div class="legend-cell level-2"></div>
-                <div class="legend-cell level-3"></div>
-                <div class="legend-cell level-4"></div>
-                <div class="legend-cell level-5"></div>
-                <div class="legend-cell level-6"></div>
-                <div class="legend-cell level-7"></div>
-            </div>
-            <span>7 Daily Goals Completed</span>
-        </div>
-    </div>
-</div>
-
-<script>
-(function() {
-    let allData = {};
-    let currentYear = new Date().getFullYear();
-    let availableYears = [];
-    
-    const view = document.getElementById('heatmap-view');
-    const stats = document.getElementById('heatmap-stats');
-    const yearLabel = document.getElementById('current-year-display');
-    const prevBtn = document.getElementById('prev-year');
-    const nextBtn = document.getElementById('next-year');
-    
-    fetch('{{ "../categories/bettereveryday/data/activity-data.json" | relative_url }}')
-        .then(r => r.json())
-        .then(data => {
-            allData = data;
-            availableYears = Object.keys(data).map(Number).sort((a, b) => b - a);
-            if (!availableYears.includes(currentYear)) {
-                currentYear = availableYears[0];
-            }
-            renderYear(currentYear);
-            updateNavButtons();
-        })
-        .catch(e => {
-            view.innerHTML = '<p class="heatmap-error">Failed to load data</p>';
-        });
-    
-    prevBtn.addEventListener('click', () => {
-        const idx = availableYears.indexOf(currentYear);
-        if (idx < availableYears.length - 1) {
-            currentYear = availableYears[idx + 1];
-            renderYear(currentYear);
-            updateNavButtons();
-        }
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        const idx = availableYears.indexOf(currentYear);
-        if (idx > 0) {
-            currentYear = availableYears[idx - 1];
-            renderYear(currentYear);
-            updateNavButtons();
-        }
-    });
-    
-    function updateNavButtons() {
-        const idx = availableYears.indexOf(currentYear);
-        prevBtn.disabled = idx >= availableYears.length - 1;
-        nextBtn.disabled = idx <= 0;
-    }
-    
-    function renderYear(year) {
-        yearLabel.textContent = year;
-        const yearData = allData[year] || {};
-        const today = new Date();
-        const isCurrentYear = year === today.getFullYear();
-        
-        const entries = Object.entries(yearData);
-        const total = entries.length;
-        const sum = entries.reduce((acc, [_, v]) => acc + v, 0);
-        const avg = total > 0 ? (sum / total).toFixed(1) : 0;
-        const perfect = entries.filter(([_, v]) => v === 7).length;
-        
-        stats.innerHTML = `
-            <div class="stat-item">
-                <span class="stat-value">${total}</span>
-                <span class="stat-label">Days tracked</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value">${avg}</span>
-                <span class="stat-label">Avg score</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value">${perfect}</span>
-                <span class="stat-label">Perfect days</span>
-            </div>
-        `;
-        
-        renderMonthGrid(year, yearData, isCurrentYear, today);
-    }
-    
-    function renderMonthGrid(year, data, isCurrentYear, today) {
-        view.className = 'heatmap-view month-style';
-        view.innerHTML = '';
-        
-        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-        const endMonth = isCurrentYear ? today.getMonth() : 11;
-        
-        for (let m = 0; m <= endMonth; m++) {
-            const monthDiv = document.createElement('div');
-            monthDiv.className = 'month-block';
-            
-            const title = document.createElement('h3');
-            title.className = 'month-title';
-            title.textContent = months[m];
-            monthDiv.appendChild(title);
-            
-            const grid = document.createElement('div');
-            grid.className = 'month-grid';
-            
-            ['S','M','T','W','T','F','S'].forEach(d => {
-                const h = document.createElement('div');
-                h.className = 'month-day-header';
-                h.textContent = d;
-                grid.appendChild(h);
-            });
-            
-            const firstDay = new Date(year, m, 1).getDay();
-            const daysInMonth = new Date(year, m + 1, 0).getDate();
-            const lastDay = isCurrentYear && m === today.getMonth() ? today.getDate() : daysInMonth;
-            
-            for (let i = 0; i < firstDay; i++) {
-                const empty = document.createElement('div');
-                empty.className = 'month-cell empty';
-                grid.appendChild(empty);
-            }
-            
-            for (let d = 1; d <= daysInMonth; d++) {
-                const cell = document.createElement('div');
-                cell.className = 'month-cell';
-                
-                if (d <= lastDay) {
-                    const key = `${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-                    const val = data[key];
-                    if (val !== undefined) {
-                        cell.classList.add(`level-${val}`);
-                        cell.dataset.date = `${months[m].slice(0,3)} ${d}`;
-                        cell.dataset.level = val;
-                    }
-                    cell.innerHTML = `<span class="day-num">${d}</span>`;
-                } else {
-                    cell.classList.add('future');
-                    cell.innerHTML = `<span class="day-num">${d}</span>`;
-                }
-                grid.appendChild(cell);
-            }
-            monthDiv.appendChild(grid);
-            view.appendChild(monthDiv);
-        }
-        addTooltip();
-    }
-    
-    function addTooltip() {
-        const cells = view.querySelectorAll('[data-date]');
-        cells.forEach(cell => {
-            cell.addEventListener('mouseenter', e => {
-                const tooltip = document.createElement('div');
-                tooltip.className = 'heatmap-tooltip';
-                tooltip.innerHTML = `<strong>${cell.dataset.date}</strong><br>Level: ${cell.dataset.level}/7`;
-                document.body.appendChild(tooltip);
-                const rect = cell.getBoundingClientRect();
-                tooltip.style.left = rect.left + rect.width/2 - tooltip.offsetWidth/2 + 'px';
-                tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + window.scrollY + 'px';
-            });
-            cell.addEventListener('mouseleave', () => {
-                document.querySelectorAll('.heatmap-tooltip').forEach(t => t.remove());
-            });
-        });
-    }
-})();
-</script>
-{% endif %} 
-
 <div class="newspaper-category">
 
     <h1 class="category-title">
@@ -779,3 +580,202 @@ function renderOddsChart(data) {
 }
 </script>
 {% endif %}
+
+{% if page.title == 'Better Everyday' %}
+<div class="activity-heatmap-wrapper">
+    <div class="heatmap-header-section">
+        <h2 class="article-title">Did you Get Better Today?</h2>
+        <div class="heatmap-controls">
+            <button id="prev-year" class="heatmap-nav-btn" aria-label="Previous year">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <span id="current-year-display" class="heatmap-year-label"></span>
+            <button id="next-year" class="heatmap-nav-btn" aria-label="Next year">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+    
+    <div class="heatmap-stats" id="heatmap-stats"></div>
+    
+    <div id="heatmap-view" class="heatmap-view"></div>
+    
+    <div class="heatmap-footer">
+        <div class="heatmap-legend">
+            <span>0 Daily Goals Completed</span>
+            <div class="legend-scale">
+                <div class="legend-cell level-1"></div>
+                <div class="legend-cell level-2"></div>
+                <div class="legend-cell level-3"></div>
+                <div class="legend-cell level-4"></div>
+                <div class="legend-cell level-5"></div>
+                <div class="legend-cell level-6"></div>
+                <div class="legend-cell level-7"></div>
+            </div>
+            <span>7 Daily Goals Completed</span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    let allData = {};
+    let currentYear = new Date().getFullYear();
+    let availableYears = [];
+    
+    const view = document.getElementById('heatmap-view');
+    const stats = document.getElementById('heatmap-stats');
+    const yearLabel = document.getElementById('current-year-display');
+    const prevBtn = document.getElementById('prev-year');
+    const nextBtn = document.getElementById('next-year');
+    
+    fetch('{{ "../categories/bettereveryday/data/activity-data.json" | relative_url }}')
+        .then(r => r.json())
+        .then(data => {
+            allData = data;
+            availableYears = Object.keys(data).map(Number).sort((a, b) => b - a);
+            if (!availableYears.includes(currentYear)) {
+                currentYear = availableYears[0];
+            }
+            renderYear(currentYear);
+            updateNavButtons();
+        })
+        .catch(e => {
+            view.innerHTML = '<p class="heatmap-error">Failed to load data</p>';
+        });
+    
+    prevBtn.addEventListener('click', () => {
+        const idx = availableYears.indexOf(currentYear);
+        if (idx < availableYears.length - 1) {
+            currentYear = availableYears[idx + 1];
+            renderYear(currentYear);
+            updateNavButtons();
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const idx = availableYears.indexOf(currentYear);
+        if (idx > 0) {
+            currentYear = availableYears[idx - 1];
+            renderYear(currentYear);
+            updateNavButtons();
+        }
+    });
+    
+    function updateNavButtons() {
+        const idx = availableYears.indexOf(currentYear);
+        prevBtn.disabled = idx >= availableYears.length - 1;
+        nextBtn.disabled = idx <= 0;
+    }
+    
+    function renderYear(year) {
+        yearLabel.textContent = year;
+        const yearData = allData[year] || {};
+        const today = new Date();
+        const isCurrentYear = year === today.getFullYear();
+        
+        const entries = Object.entries(yearData);
+        const total = entries.length;
+        const sum = entries.reduce((acc, [_, v]) => acc + v, 0);
+        const avg = total > 0 ? (sum / total).toFixed(1) : 0;
+        const perfect = entries.filter(([_, v]) => v === 7).length;
+        
+        stats.innerHTML = `
+            <div class="stat-item">
+                <span class="stat-value">${total}</span>
+                <span class="stat-label">Days tracked</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">${avg}</span>
+                <span class="stat-label">Avg score</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">${perfect}</span>
+                <span class="stat-label">Perfect days</span>
+            </div>
+        `;
+        
+        renderMonthGrid(year, yearData, isCurrentYear, today);
+    }
+    
+    function renderMonthGrid(year, data, isCurrentYear, today) {
+        view.className = 'heatmap-view month-style';
+        view.innerHTML = '';
+        
+        const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const endMonth = isCurrentYear ? today.getMonth() : 11;
+        
+        for (let m = 0; m <= endMonth; m++) {
+            const monthDiv = document.createElement('div');
+            monthDiv.className = 'month-block';
+            
+            const title = document.createElement('h3');
+            title.className = 'month-title';
+            title.textContent = months[m];
+            monthDiv.appendChild(title);
+            
+            const grid = document.createElement('div');
+            grid.className = 'month-grid';
+            
+            ['S','M','T','W','T','F','S'].forEach(d => {
+                const h = document.createElement('div');
+                h.className = 'month-day-header';
+                h.textContent = d;
+                grid.appendChild(h);
+            });
+            
+            const firstDay = new Date(year, m, 1).getDay();
+            const daysInMonth = new Date(year, m + 1, 0).getDate();
+            const lastDay = isCurrentYear && m === today.getMonth() ? today.getDate() : daysInMonth;
+            
+            for (let i = 0; i < firstDay; i++) {
+                const empty = document.createElement('div');
+                empty.className = 'month-cell empty';
+                grid.appendChild(empty);
+            }
+            
+            for (let d = 1; d <= daysInMonth; d++) {
+                const cell = document.createElement('div');
+                cell.className = 'month-cell';
+                
+                if (d <= lastDay) {
+                    const key = `${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+                    const val = data[key];
+                    if (val !== undefined) {
+                        cell.classList.add(`level-${val}`);
+                        cell.dataset.date = `${months[m].slice(0,3)} ${d}`;
+                        cell.dataset.level = val;
+                    }
+                    cell.innerHTML = `<span class="day-num">${d}</span>`;
+                } else {
+                    cell.classList.add('future');
+                    cell.innerHTML = `<span class="day-num">${d}</span>`;
+                }
+                grid.appendChild(cell);
+            }
+            monthDiv.appendChild(grid);
+            view.appendChild(monthDiv);
+        }
+        addTooltip();
+    }
+    
+    function addTooltip() {
+        const cells = view.querySelectorAll('[data-date]');
+        cells.forEach(cell => {
+            cell.addEventListener('mouseenter', e => {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'heatmap-tooltip';
+                tooltip.innerHTML = `<strong>${cell.dataset.date}</strong><br>Level: ${cell.dataset.level}/7`;
+                document.body.appendChild(tooltip);
+                const rect = cell.getBoundingClientRect();
+                tooltip.style.left = rect.left + rect.width/2 - tooltip.offsetWidth/2 + 'px';
+                tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + window.scrollY + 'px';
+            });
+            cell.addEventListener('mouseleave', () => {
+                document.querySelectorAll('.heatmap-tooltip').forEach(t => t.remove());
+            });
+        });
+    }
+})();
+</script>
+{% endif %} 
