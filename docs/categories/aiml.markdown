@@ -1,6 +1,6 @@
 ---
 layout: category
-title: aiml
+title: AI/ML
 category: aiml
 ---
 
