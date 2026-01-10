@@ -5,6 +5,8 @@ date: 2026-01-09 10:00:00 -0400
 categories: [aiml]
 ---
 
+Probabilistic machine-learning approach for re-identifying individual tigers from camera-trap images
+
 *Co-authored with Obafemi Jinadu*
 
 [Download Full Paper (PDF)](/assets/pdfs/tiger-reidentification.pdf)

@@ -4,7 +4,8 @@ title:  "My 2026 Bookshelf"
 date:   2025-12-31 16:37:09 -0400
 categories: [bettereveryday]
 ---
-Keeping tabs on the books I have read this year, click on a tile to open in Goodreads!
+The book tracker is back with higher goals. Some literary titans in the queue this year between 
+Thoreau, Hesse mixed in with the Scifi Satire duo of Vonnegut and Dogulas Adams. Stay Tuned!
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>

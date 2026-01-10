@@ -4,7 +4,7 @@ title:  "My 2025 Bookshelf"
 date:   2025-06-30 16:37:09 -0400
 categories: [bettereveryday]
 ---
-Keeping tabs on the books I have read this year, click on a tile to open in Goodreads!
+Keeping tabs on the books I have read in 2025, click on a tile to open in Goodreads!
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>
