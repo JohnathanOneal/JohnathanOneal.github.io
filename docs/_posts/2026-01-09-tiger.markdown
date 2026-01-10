@@ -9,6 +9,4 @@ categories: [llm]
 
 *Co-authored with Obafemi Jinadu*
 
-<object data="/assets/pdfs/tiger-reidentification.pdf" type="application/pdf" width="100%" height="600px">
-  <p>Your browser doesn't support PDFs. <a href="/assets/pdfs/tiger-reidentification.pdf">Download the PDF</a></p>
-</object>
+<embed src="/assets/pdfs/tiger-reidentification.pdf" type="application/pdf" width="100%" height="600px" />
