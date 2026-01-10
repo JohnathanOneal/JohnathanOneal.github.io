@@ -1,6 +1,6 @@
 ---
 layout: category
-title: LLM
-category: llm
+title: aiml
+category: aiml
 ---
 

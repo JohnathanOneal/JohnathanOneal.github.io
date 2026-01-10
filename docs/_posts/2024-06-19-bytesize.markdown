@@ -2,7 +2,7 @@
 layout: post
 title:  "TARS: AI Generated Travel Newsletter"
 date:   2024-06-19 16:37:09 -0400
-categories: [llm,bytesize]
+categories: [aiml,bytesize]
 ---
 
 # Building an Intelligent Travel Newsletter: Multi-Agent Content Curation at Scale

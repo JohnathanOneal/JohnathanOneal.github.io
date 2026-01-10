@@ -2,7 +2,7 @@
 layout: post
 title:  "SP-4: Local GPT on Secure Documents"
 date:   2024-06-10 16:37:09 -0400
-categories: [llm]
+categories: [aiml]
 ---
 
 Building a Local Retrieval Augmented Generation System with No GPU Required
