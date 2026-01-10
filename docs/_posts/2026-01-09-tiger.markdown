@@ -9,14 +9,6 @@ categories: [llm]
 
 *Co-authored with Obafemi Jinadu*
 
-<div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden; margin: 2rem 0;">
-  <iframe 
-    src="/assets/pdfs/tiger-reidentification.pdf" 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-    title="Tiger Re-identification Paper">
-    <p>Your browser doesn't support PDF viewing. Download the PDF below</a>
-    </p>
-  </iframe>
-</div>
-
-[Download Full Paper (PDF)](/assets/pdfs/tiger-reidentification.pdf)
+<object data="/assets/pdfs/tiger-reidentification.pdf" type="application/pdf" width="100%" height="600px">
+  <p>Your browser doesn't support PDFs. <a href="/assets/pdfs/tiger-reidentification.pdf">Download the PDF</a></p>
+</object>
