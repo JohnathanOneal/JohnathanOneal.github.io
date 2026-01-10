@@ -5,12 +5,10 @@ date: 2026-01-09 10:00:00 -0400
 categories: [llm]
 ---
 
-# Probabilistic Model for Amur Tiger Re-identification
-
 *Co-authored with Obafemi Jinadu*
 
 [Download Full Paper (PDF)](/assets/pdfs/tiger-reidentification.pdf)
 
 <object data="/assets/pdfs/tiger-reidentification.pdf" type="application/pdf" width="100%" height="700px">
-  <p>Unable to display PDF. <a href="/assets/pdfs/tiger-reidentification.pdf">Download instead</a>.</p>
+  <p>Unable to display PDF. Download using the link above</a>.</p>
 </object>
