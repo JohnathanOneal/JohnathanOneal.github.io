@@ -18,6 +18,16 @@ The book tracker is back with higher goals and more literary titans, stay tuned!
 
 <div class="bookshelf-grid">
 
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/4982.The_Sirens_of_Titan" target="_blank">
+    <img src="/assets/bookshelf/sirens.jpeg" alt="Sirens of Titan" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>The Sirens of Titan</h3>
+      <p>Kurt Vonnegut Jr.</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: January 8, 2026</div>
+    </div>
+  </a>
+
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/58662236-small-things-like-these" target="_blank">
     <img src="/assets/bookshelf/small_things.jpg" alt="Small Things Like These" class="bookshelf-cover">
     <div class="bookshelf-content">
