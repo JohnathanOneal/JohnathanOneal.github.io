@@ -8,7 +8,7 @@ The book tracker is back with higher goals and more literary titans, stay tuned!
 
 <div class="bookshelf-goal-meter">
   <span class="goal-label">Books read:</span>
-  <span class="goal-current">3</span>
+  <span class="goal-current">7</span>
   <span class="goal-divider">/</span>
   <span class="goal-total">30</span>
   <div class="goal-meter-bar">
@@ -17,6 +17,46 @@ The book tracker is back with higher goals and more literary titans, stay tuned!
 </div>
 
 <div class="bookshelf-grid">
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/54549763-walking-in-circles" target="_blank">
+    <img src="/assets/bookshelf/walking.jpg" alt="A Thief of Time" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>Walking In Circles</h3>
+      <p>Todd Wassel</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: January 28, 2026</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/40611510-the-last-lecture" target="_blank">
+    <img src="/assets/bookshelf/last_lecture.jpg" alt="The Last Lecture" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>The Last Lecture</h3>
+      <p>Randy Pausch</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: January 24, 2026</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/30043.A_River_Runs_Through_It_and_Other_Stories" target="_blank">
+    <img src="/assets/bookshelf/river.jpg" alt="A River Runs Through It and Other Stories" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>A River Runs Through It and Other Stories</h3>
+      <p>Norman Maclean</p>
+      <div class="bookshelf-rating">★★★★★</div>
+      <div class="bookshelf-date">Finished: January 24, 2026</div>
+    </div>
+  </a>
+
+  <a class="bookshelf-item" href="https://www.goodreads.com/book/show/425098.A_Thief_of_Time" target="_blank">
+    <img src="/assets/bookshelf/thief_of_time.jpeg" alt="A Thief of Time" class="bookshelf-cover">
+    <div class="bookshelf-content">
+      <h3>A Thief of Time</h3>
+      <p> Tony Hillerman</p>
+      <div class="bookshelf-rating">★★★★☆</div>
+      <div class="bookshelf-date">Finished: January 16, 2026</div>
+    </div>
+  </a>
 
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/4982.The_Sirens_of_Titan" target="_blank">
     <img src="/assets/bookshelf/sirens.jpeg" alt="Sirens of Titan" class="bookshelf-cover">
