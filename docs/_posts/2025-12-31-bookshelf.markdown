@@ -10,7 +10,7 @@ The book tracker is back with higher goals and more literary titans, stay tuned!
   <span class="goal-label">Books read:</span>
   <span class="goal-current">7</span>
   <span class="goal-divider">/</span>
-  <span class="goal-total">30</span>
+  <span class="goal-total">40</span>
   <div class="goal-meter-bar">
     <div class="goal-meter-fill" style="width: 1%"></div>
   </div>
