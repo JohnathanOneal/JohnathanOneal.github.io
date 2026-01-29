@@ -49,7 +49,7 @@ The book tracker is back with higher goals and more literary titans, stay tuned!
   </a>
 
   <a class="bookshelf-item" href="https://www.goodreads.com/book/show/425098.A_Thief_of_Time" target="_blank">
-    <img src="/assets/bookshelf/thief_of_time.jpeg" alt="A Thief of Time" class="bookshelf-cover">
+    <img src="/assets/bookshelf/thief_of_time.jpg" alt="A Thief of Time" class="bookshelf-cover">
     <div class="bookshelf-content">
       <h3>A Thief of Time</h3>
       <p> Tony Hillerman</p>
