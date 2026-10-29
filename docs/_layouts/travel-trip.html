@@ -1,0 +1,45 @@
+---
+layout: travel
+---
+{% assign trip = site.data.travels | where: 'slug', page.trip | first %}
+<article class="journey">
+  <header class="journey-cover{% unless trip.cover %} journey-cover-empty{% endunless %}">
+    {% if trip.cover %}<img class="journey-cover-photo" src="{{ trip.cover | relative_url }}" alt="{{ trip.cover_alt | escape }}" style="object-position: {{ trip.cover_position | default: '50% 50%' | escape }};">{% endif %}
+    <a class="journey-home" href="{{ '/travels/' | relative_url }}">← All travels</a>
+    <div class="journey-title"><h1>{{ trip.title }}</h1><p class="journey-subtitle">{{ trip.date_label }}</p><p class="journey-author">{{ site.title }}</p></div>
+    <a class="journey-scroll" href="#stop-1">Scroll to follow the journey <span aria-hidden="true">↓</span></a>
+  </header>
+  {% if trip.introduction != '' %}<div class="journey-introduction">{{ trip.introduction | markdownify }}</div>{% endif %}
+  <div class="journey-map" aria-label="Illustrated map following the journey" role="img">
+    <canvas id="journey-canvas" aria-hidden="true"></canvas>
+    <div class="journey-map-fallback" hidden>{{ trip.title }}</div>
+    <p class="journey-map-credit">Map data: <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth</a>{% if trip.story_map.terrain %} · <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a> · <a href="https://registry.opendata.aws/terrain-tiles/">Terrain: Mapzen/Tilezen</a>{% endif %}</p>
+  </div>
+  <div class="journey-text">
+    {% for stop in trip.stops %}
+    {% assign default_anchor = 'stop-' | append: forloop.index %}
+    <section class="journey-chapter" id="{{ stop.anchor | default: default_anchor }}" data-chapter-index="{{ forloop.index0 }}">
+      <h2><span class="journey-title-up">{{ stop.route_label | default: stop.title | escape }}</span><span class="journey-title-down">{{ stop.label | default: stop.title | escape }}</span></h2>
+      <p class="journey-text-intro">{{ stop.title | escape }}</p>
+      <p class="journey-date">{{ stop.date_label | escape }}</p>
+      {% if stop.notes != '' %}<div class="journey-notes">{{ stop.notes | markdownify }}</div>{% endif %}
+      {% if stop.opening_passage %}<div class="journey-flight-space"><p>{{ stop.opening_passage | escape }}</p></div>{% endif %}
+      {% for photo in stop.photos %}
+      <figure class="journey-photo" data-map-position="{{ photo.map_position | default: 0 }}">
+        <a href="{{ photo.src | relative_url }}" class="journey-photo-link" data-photo-open><img src="{{ photo.src | relative_url }}" alt="{{ photo.alt | escape }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" decoding="async" width="{{ photo.width }}" height="{{ photo.height }}"></a>
+        {% if photo.caption %}<figcaption>{{ photo.caption | escape }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+      {% if stop.flight_passage %}<div class="journey-flight-space"><p>Over the Atlantic</p></div>{% endif %}
+      {% if stop.travel_passage %}<div class="journey-flight-space"><p>{{ stop.travel_passage | escape }}</p></div>{% endif %}
+      {% if stop.arrival_passage %}<div class="journey-flight-space" data-map-arrival data-map-position="{{ stop.map_end | default: 1 }}"><p>{{ stop.arrival_passage | escape }}</p></div>{% endif %}
+      {% if stop.closing_note %}<p class="journey-text-intro">{{ stop.closing_note | escape }}</p>{% endif %}
+    </section>
+    {% else %}
+    <section class="journey-chapter" id="stop-1"><h2><span class="journey-title-down">{{ trip.title }}</span></h2><p class="journey-text-intro">The journal is taking shape.</p></section>
+    {% endfor %}
+    <footer class="journey-ending"><p>{{ trip.title }} · {{ trip.date_label }}</p><a href="{{ '/travels/' | relative_url }}">All travel journals →</a>{% if trip.route_references %}<p class="journey-route-references">Walking route references: {% for reference in trip.route_references %}<a href="{{ reference.url | escape }}">{{ reference.title | escape }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}</p>{% endif %}</footer>
+  </div>
+</article>
+<dialog class="journey-lightbox" aria-label="Photograph"><button type="button" aria-label="Close photograph">×</button><img alt=""></dialog>
+<script type="application/json" id="travel-data">{"trip": {{ trip | jsonify | replace: '</', '<\/' }}, "baseurl": {{ site.baseurl | jsonify }}}</script>

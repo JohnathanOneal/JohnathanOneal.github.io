@@ -1,0 +1,57 @@
+/* Koya Bound composition: a quiet photo column over a fixed map drawing. */
+body.journey-page { --paper: #fff; --ink: #222; margin: 0; background: #fff; color: #222; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; -webkit-font-smoothing: antialiased; }
+.journey-page a { color: #5e8179; text-decoration: none; }
+.journey { position: relative; isolation: isolate; }
+.journey-cover { position: relative; z-index: 5; display: flex; align-items: center; justify-content: center; min-height: 650px; height: 100svh; text-align: center; background: #181922; color: #fff; overflow: hidden; }
+.journey-cover-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.journey-cover::after { content: ''; position: absolute; inset: 0; background: rgba(24,25,34,.32); }
+.journey-title { position: relative; z-index: 1; padding: 14vh 20px 0; text-shadow: 0 1px 16px #2228; }
+.journey-title h1 { font-family: Baskerville, 'Baskerville Old Face', Georgia, serif; font-size: clamp(70px, 8vw, 120px); font-weight: 400; line-height: 1; margin: 0 0 28px; letter-spacing: -.025em; }
+.journey-subtitle { font-family: Georgia, serif; font-size: 15px; letter-spacing: 4px; text-transform: uppercase; }
+.journey-subtitle::before, .journey-subtitle::after { content: '—'; padding: 0 12px; }
+.journey-author { font-family: Georgia, serif; font-size: 20px; margin-top: 28px; }
+.journey-page .journey-home { position: absolute; z-index: 2; left: 32px; top: 28px; color: #fff; font-size: 13px; }
+.journey-page .journey-scroll { position: absolute; z-index: 2; bottom: 30px; left: 0; width: 100%; color: #fff; font-size: 12px; letter-spacing: 1px; }
+.journey-scroll span { display: block; font-size: 23px; margin-top: 7px; }
+.journey-introduction { position: relative; z-index: 5; min-height: 45svh; display: grid; place-content: center; padding: 70px 32px; background: #181922; color: #fff; text-align: center; font: 22px/1.7 Baskerville, Georgia, serif; }
+.journey-introduction p { max-width: 610px; margin: 0 auto; }
+.journey-map { position: fixed; inset: 0; z-index: 0; background: #fff; pointer-events: none; }
+#journey-canvas { display: block; width: 100%; height: 100%; }
+.journey-map-credit { position: absolute; right: 18px; bottom: 7px; margin: 0; font-size: 9px; color: #9d9c95; pointer-events: auto; }
+.journey-map-credit a { color: inherit; }
+.journey-map-fallback { position: absolute; left: 65%; top: 40%; color: #777; font: 22px Georgia, serif; }
+.journey-text { position: relative; z-index: 2; width: min(48vw, 696px); padding: 48px 48px 70px; }
+.journey-chapter { width: 100%; max-width: 600px; padding-top: 58px; scroll-margin-top: 35px; }
+.journey-chapter h2 { font-weight: 400; margin: 0; padding: 0; text-align: left; }
+.journey-title-up { display: block; font: 600 13px/1.6 'Helvetica Neue', Helvetica, Arial, sans-serif; letter-spacing: 3px; text-transform: uppercase; color: #a5a59e; }
+.journey-title-down { display: block; padding: 9px 0 14px; color: #5f646c; font: 400 48px/.95 Baskerville, Georgia, serif; }
+.journey-text-intro { font: italic 27px/1.5 Baskerville, Georgia, serif; color: #9d9c95; margin: 3px 0 10px; }
+.journey-date { font-size: 12px; color: #9d9c95; margin: 0 0 32px; }
+.journey-notes { font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+.journey-photo { margin: 30px 0 38px; }
+.journey-photo-link { display: block; cursor: zoom-in; }
+.journey-photo img { display: block; width: 100%; height: auto; background: #efefef; }
+.journey-photo figcaption { font-size: 13px; font-style: italic; line-height: 1.6; padding: 12px 20px 0; text-align: center; color: #5f646c; }
+.journey-flight-space { min-height: 65svh; display: flex; align-items: center; }
+.journey-flight-space p { font: italic 23px/1.7 Georgia, serif; color: #9d9c95; }
+.journey-ending { padding: 30px 0 70px; color: #9d9c95; font-size: 12px; line-height: 2; }
+.journey-route-references { font-size: 10px; line-height: 1.7; margin-top: 25px; }
+.journey-lightbox { max-width: 96vw; max-height: 96svh; padding: 0; border: 0; background: transparent; overflow: visible; }
+.journey-lightbox::backdrop { background: rgba(20,22,24,.94); }
+.journey-lightbox img { display: block; max-width: 94vw; max-height: 91svh; width: auto; height: auto; }
+.journey-lightbox button { position: absolute; right: 0; top: -38px; background: transparent; color: #fff; border: 0; cursor: pointer; font: 30px/1 Arial, sans-serif; }
+@media(max-width: 720px) {
+  .journey-cover { min-height: 520px; }
+  .journey-title h1 { font-size: 72px; }
+  .journey-subtitle { font-size: 12px; letter-spacing: 2px; }
+  .journey-subtitle::before, .journey-subtitle::after { content: none; }
+  .journey-introduction { min-height: 32svh; font-size: 20px; padding: 50px 28px; }
+  .journey-map { position: sticky; top: 0; height: 34svh; z-index: 4; border-bottom: 1px solid #efefeb; }
+  .journey-text { width: 100%; padding: 18px 22px 40px; }
+  .journey-chapter { max-width: none; padding-top: 25px; scroll-margin-top: 36svh; }
+  .journey-title-down { font-size: 40px; }
+  .journey-title-up { font-size: 11px; letter-spacing: 2px; }
+  .journey-map-credit { font-size: 8px; }
+  .journey-flight-space { min-height: 45svh; }
+}
+@media(prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

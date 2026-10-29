@@ -1,0 +1,54 @@
+:root { color-scheme: light; --paper: #faf9f6; --ink: #292e2a; --line: #dcded5; --accent: #896821; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font: 15px/1.55 system-ui, sans-serif; }
+button, select { font: inherit; }
+a { color: inherit; text-underline-offset: 4px; }
+button:focus-visible, select:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #547866; outline-offset: 4px; }
+.review-heading { padding: 35px 4% 27px; display: flex; gap: 30px; align-items: start; justify-content: space-between; }
+.eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
+h1 { font: 400 clamp(30px,4vw,50px)/1.1 Georgia,serif; margin: 0 0 14px; }
+.review-heading p:last-child { color: #62695f; max-width: 650px; margin-bottom: 0; }
+.journal-link { white-space: nowrap; font-size: 13px; padding-top: 7px; }
+.review-toolbar { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; padding: 15px 4%; border-block: 1px solid var(--line); background: #faf9f6f5; backdrop-filter: blur(8px); }
+.review-toolbar label { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+select { background: #fff; color: var(--ink); border: 1px solid #c5c9bd; border-radius: 3px; padding: 8px; max-width: 270px; }
+input { accent-color: var(--accent); }
+#selection-status { font-size: 12px; margin: 0 0 0 auto; color: #53674f; }
+#selection-status.error { color: #a13528; }
+main { padding: 16px 4% 40px; }
+.day-section { scroll-margin-top: 100px; }
+.day-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 15px; padding: 20px 0 15px; }
+.day-heading h2 { font: 400 23px/1.3 Georgia,serif; margin: 0; }
+.day-heading span { font-size: 12px; color: #72776d; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 17px; }
+.photo-card { min-width: 0; border: 2px solid transparent; background: #fff; box-shadow: 0 1px 3px #26372e0c; }
+.photo-card.is-favorite { border-color: #aa8535; }
+.photo-open { display: block; position: relative; cursor: zoom-in; background: #efeee9; }
+.photo-open img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
+.photo-number { position: absolute; left: 7px; top: 7px; min-width: 25px; text-align: center; padding: 2px 5px; background: #fffffff0; font-size: 11px; font-variant-numeric: tabular-nums; }
+.photo-info { padding: 10px; }
+.photo-meta { display: flex; justify-content: space-between; gap: 5px; align-items: center; margin-bottom: 8px; font-size: 10px; color: #74796d; font-variant-numeric: tabular-nums; }
+.favorite-button { display: block; padding: 7px; width: 100%; text-align: left; border: 1px solid #dedfd6; background: #faf9f6; color: #555b50; cursor: pointer; font-size: 12px; }
+.favorite-button[aria-pressed="true"] { color: #705215; background: #faf3df; border-color: #c5a25b; }
+.favorite-button:disabled { cursor: progress; opacity: .7; }
+.favorite-star { display: inline-block; width: 23px; font-size: 17px; line-height: 1; }
+.review-note { padding: 0 4% 30px; font-size: 13px; color: #70766b; max-width: 850px; }
+.empty-state { padding: 50px 0; color: #74796d; }
+dialog { width: max-content; max-width: 96vw; max-height: 97svh; padding: 12px; border: 0; background: #faf9f6; color: var(--ink); }
+dialog::backdrop { background: #171b18eb; }
+.dialog-controls { display: flex; align-items: center; gap: 16px; justify-content: space-between; padding: 0 0 10px; font-size: 12px; }
+.dialog-controls button { cursor: pointer; border: 1px solid #d0d2c8; padding: 6px 12px; background: #fff; color: var(--ink); font-size: 13px; }
+#dialog-close { border: 0; font-size: 25px; line-height: 1; }
+#large-photo { display: block; max-height: 82svh; max-width: 90vw; width: auto; height: auto; min-width: min(300px,80vw); object-fit: contain; }
+#large-photo[hidden], #preview-loading[hidden] { display: none; }
+#preview-loading { padding: 60px; text-align: center; }
+@media(max-width: 600px) {
+  .review-heading { display: block; padding-top: 25px; }
+  .journal-link { display: inline-block; margin-top: 15px; }
+  .review-toolbar { gap: 10px 15px; }
+  #selection-status { width: 100%; margin: 0; }
+  .photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .photo-meta { flex-wrap: wrap; }
+  .day-heading { flex-wrap: wrap; }
+  .dialog-controls { flex-wrap: wrap; }
+}

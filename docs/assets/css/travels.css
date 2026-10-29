@@ -1,0 +1,97 @@
+:root { --paper: #f6f3eb; --ink: #26372e; --muted: #62695e; --line: #d4d5c7; --accent: #365540; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body.travel-site { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 system-ui, sans-serif; }
+a { color: inherit; text-underline-offset: 5px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #b25732; outline-offset: 6px; }
+button { font: inherit; color: inherit; }
+.skip-link { position: fixed; top: -100px; left: 20px; padding: 12px; background: var(--paper); z-index: 2000; }
+.skip-link:focus { top: 10px; }
+.travel-header, .travel-footer { max-width: 1440px; margin: auto; padding: 28px 5%; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.travel-header { border-bottom: 1px solid var(--line); }
+.travel-brand { font-weight: 650; text-decoration: none; line-height: 1.4; }
+.travel-brand span { display: block; color: var(--muted); font-size: 12px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; }
+.home-link { font-size: 13px; text-decoration: none; }
+.home-link span { margin-left: 15px; }
+.travel-index, .trip { max-width: 1440px; margin: auto; padding: 0 5%; }
+.eyebrow { margin: 0 0 18px; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; line-height: 1.06; }
+.atlas-intro { padding: 68px 0 50px; display: grid; grid-template-columns: 1.3fr 1fr; column-gap: 40px; align-items: end; }
+.atlas-intro .eyebrow { grid-column: 1 / -1; }
+.atlas-intro h1 { font-size: clamp(72px, 9vw, 132px); margin: 4px 0 0; letter-spacing: -.055em; }
+.atlas-intro h1 em { font-weight: 400; }
+.atlas-description { max-width: 330px; padding-bottom: 6px; }
+.atlas-description p { color: var(--muted); }
+.text-link { display: inline-block; font-size: 13px; padding: 12px 0; }
+.atlas { border-top: 1px solid var(--line); }
+.atlas-map { height: 390px; background: #e0e5dc; }
+.leaflet-container { font-family: system-ui, sans-serif; background: #e0e5dc; }
+.map-caption { font-size: 12px; color: var(--muted); margin: 12px 0; }
+.map-fallback { padding: 20px; border: 1px solid var(--line); font-size: 14px; }
+.map-fallback[hidden] { display: none; }
+.journals { padding: 68px 0 80px; scroll-margin-top: 20px; }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-top: 1px solid var(--line); padding-top: 22px; margin-bottom: 30px; }
+.section-heading h2 { font-size: 35px; margin: 0; }
+.section-heading > span { font-size: 12px; color: var(--muted); }
+.journal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+.journal-card { text-decoration: none; min-width: 0; }
+.journal-cover { position: relative; height: clamp(240px, 29vw, 390px); overflow: hidden; background: #324c3c; color: #e8e6cf; display: flex; align-items: center; justify-content: center; }
+.cover-country { font-family: Georgia, serif; font-size: clamp(68px, 8vw, 120px); letter-spacing: -.04em; opacity: .85; transition: transform .25s ease; }
+.journal-card:hover .cover-country { transform: translateY(-6px); }
+.theme-japan { --accent: #a44332; }
+.theme-japan .journal-cover { background: #e7ded0; color: #9b4031; }
+.theme-japan .cover-country { letter-spacing: .12em; }
+.cover-number, .cover-date { position: absolute; left: 24px; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+.cover-number { top: 22px; }.cover-date { bottom: 22px; }
+.journal-cover img { height: 100%; width: 100%; object-fit: cover; }
+.has-photo .cover-number, .has-photo .cover-date { padding: 4px 9px; background: var(--paper); color: var(--ink); }
+.journal-details { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.journal-details .eyebrow { margin-bottom: 8px; color: var(--muted); }
+.journal-details h3 { font-size: 44px; margin: 0; }
+.journal-details p:last-child { font-size: 13px; color: var(--muted); margin: 12px 0 0; }
+.card-arrow { font-size: 30px; }
+.travel-footer { border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.trip-intro { padding: 40px 0 50px; }
+.trip-intro > .eyebrow { margin-top: 36px; }
+.trip-intro h1 { margin: 0; font-size: clamp(72px, 12vw, 160px); letter-spacing: -.055em; }
+.trip-summary { max-width: 660px; color: var(--muted); margin-top: 30px; }
+.trip-cover { display: block; width: 100%; max-height: 660px; object-fit: cover; margin-top: 36px; }
+.trip-body { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; border-top: 1px solid var(--line); padding-top: 30px; }
+.trip-atlas { position: sticky; top: 24px; min-width: 0; }
+.trip-map { height: min(65vh, 600px); min-height: 300px; }
+.trip-map-caption { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; font-size: 12px; color: var(--muted); }
+#fit-route { background: none; border: 0; padding: 8px 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.trip-story { min-width: 0; }
+.chapter-links { display: flex; flex-wrap: wrap; gap: 10px 20px; padding-bottom: 25px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.story-stop { padding: 50px 0 30px; scroll-margin-top: 32px; }
+.story-stop h2, .journal-pending h2 { font-size: clamp(32px, 4vw, 52px); margin: 0 0 24px; }
+.story-stop.is-active > .eyebrow { color: var(--accent); }
+.story-stop figure { margin: 35px 0; }
+.story-stop img { display: block; width: 100%; height: auto; }
+.story-stop figcaption { font-size: 12px; color: var(--muted); margin-top: 10px; }
+.journal-pending { padding: 60px 0; max-width: 380px; }
+.journal-pending > p:last-child { color: var(--muted); }
+.next-journals { border-top: 1px solid var(--line); margin: 70px 0; padding-top: 30px; }
+.next-journals > a { display: flex; justify-content: space-between; gap: 24px; align-items: baseline; font-family: Georgia, serif; font-size: 36px; text-decoration: none; }
+.next-journals > a span { font: 13px system-ui, sans-serif; }
+.map-stop-label { font-size: 12px; }
+@media (max-width: 700px) {
+  .travel-header, .travel-footer { padding: 22px 6%; }
+  .home-link { max-width: 105px; text-align: right; }
+  .travel-index, .trip { padding: 0 6%; }
+  .atlas-intro { grid-template-columns: 1fr; padding-top: 42px; gap: 15px; }
+  .atlas-description { max-width: 100%; }
+  .atlas-map { height: 290px; }
+  .journal-grid, .trip-body { grid-template-columns: 1fr; gap: 32px; }
+  .journal-cover { height: 320px; }
+  .cover-country { font-size: 100px; }
+  .journals { padding: 42px 0; }
+  .section-heading { align-items: start; }
+  .section-heading > span { max-width: 110px; text-align: right; }
+  .trip-atlas { position: relative; top: auto; }
+  .trip-map { height: 290px; min-height: 0; }
+  .story-stop { padding-top: 30px; }
+  .journal-pending { padding: 15px 0; }
+  .next-journals > a { flex-wrap: wrap; gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }

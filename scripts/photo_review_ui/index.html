@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scotland · Choose your favourites</title>
+  <link rel="stylesheet" href="/__photo-review/ui/style.css">
+  <script src="/__photo-review/ui/app.js" defer></script>
+</head>
+<body>
+  <header class="review-heading">
+    <div><p class="eyebrow">Scotland · October 2026</p><h1>Choose your favourites.</h1><p>Every photo, in capture-time order. Star the moments you want to keep; we’ll build each day around your picks.</p></div>
+    <a class="journal-link" href="/travels/scotland-2026/#stop-1">View the journal ↗</a>
+  </header>
+  <div class="review-toolbar">
+    <label>Show <select id="day-select" disabled><option>Loading photos…</option></select></label>
+    <label class="favorite-filter"><input type="checkbox" id="favorites-only"> Favourites only</label>
+    <p id="selection-status" role="status" aria-live="polite">Loading your picks…</p>
+  </div>
+  <main id="photo-sheet" aria-label="Chronological photo contact sheet"></main>
+  <p class="review-note">Picks save automatically on this computer. When a day’s ready, tell me and I’ll make the edit from your favourites, adding supporting photos where needed.</p>
+  <noscript>This photo picker needs JavaScript to show the contact sheet and save your picks.</noscript>
+  <dialog id="photo-dialog" aria-label="Larger photograph">
+    <div class="dialog-controls"><span id="dialog-label"></span><button type="button" id="dialog-favorite">☆ Favourite</button><button type="button" id="dialog-close" aria-label="Close photograph">×</button></div>
+    <p id="preview-loading">Loading larger photo…</p><img id="large-photo" alt="">
+  </dialog>
+</body>
+</html>

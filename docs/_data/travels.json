@@ -1,0 +1,4909 @@
+[
+  {
+    "slug": "scotland-2026",
+    "title": "Scotland",
+    "date_label": "October 2026",
+    "region": "United Kingdom & Ireland",
+    "theme": "scotland",
+    "center": [
+      56.8,
+      -4.2
+    ],
+    "zoom": 6,
+    "cover": "/assets/travels/scotland-2026/cover.webp",
+    "cover_alt": "The Hume statue wearing traffic cones",
+    "introduction": "From Boston to Scotland by way of London, then across to Dublin and home.",
+    "story_map": {
+      "geography": "/assets/travels/maps/north-atlantic.geojson",
+      "places": [
+        {
+          "id": "boston",
+          "name": "Boston",
+          "coordinates": [
+            42.3601,
+            -71.0589
+          ]
+        },
+        {
+          "id": "london",
+          "name": "London",
+          "coordinates": [
+            51.5074,
+            -0.1278
+          ]
+        },
+        {
+          "id": "heathrow",
+          "name": "Heathrow",
+          "coordinates": [
+            51.47,
+            -0.4543
+          ]
+        },
+        {
+          "id": "kings-cross",
+          "name": "King’s Cross",
+          "coordinates": [
+            51.5321,
+            -0.1233
+          ]
+        },
+        {
+          "id": "york",
+          "name": "York",
+          "coordinates": [
+            53.9583,
+            -1.093
+          ]
+        },
+        {
+          "id": "newcastle",
+          "name": "Newcastle",
+          "coordinates": [
+            54.968,
+            -1.6177
+          ]
+        },
+        {
+          "id": "berwick",
+          "name": "Berwick-upon-Tweed",
+          "coordinates": [
+            55.77,
+            -2.008
+          ]
+        },
+        {
+          "id": "edinburgh",
+          "name": "Edinburgh",
+          "coordinates": [
+            55.9533,
+            -3.189
+          ]
+        },
+        {
+          "id": "perth",
+          "name": "Perth",
+          "coordinates": [
+            56.392,
+            -3.439
+          ]
+        },
+        {
+          "id": "pitlochry",
+          "name": "Pitlochry",
+          "coordinates": [
+            56.703,
+            -3.735
+          ]
+        },
+        {
+          "id": "craigower-path",
+          "name": "Craigower path",
+          "coordinates": [
+            56.713513,
+            -3.73828
+          ]
+        },
+        {
+          "id": "craigower",
+          "name": "Craigower",
+          "coordinates": [
+            56.7243952,
+            -3.7548563
+          ]
+        },
+        {
+          "id": "pitlochry-station",
+          "name": "Pitlochry",
+          "coordinates": [
+            56.7023642,
+            -3.73564
+          ]
+        },
+        {
+          "id": "blair-atholl",
+          "name": "Blair Atholl",
+          "coordinates": [
+            56.7656,
+            -3.8497
+          ]
+        },
+        {
+          "id": "dalwhinnie",
+          "name": "Dalwhinnie",
+          "coordinates": [
+            56.9358,
+            -4.2462
+          ]
+        },
+        {
+          "id": "loch-loop",
+          "name": "Pitlochry",
+          "coordinates": [
+            56.701449,
+            -3.732803
+          ]
+        },
+        {
+          "id": "fish-ladder",
+          "name": "Fish ladder",
+          "coordinates": [
+            56.6988,
+            -3.7401
+          ]
+        },
+        {
+          "id": "loch-faskally",
+          "name": "Loch Faskally",
+          "coordinates": [
+            56.707588,
+            -3.758559
+          ],
+          "kind": "water"
+        },
+        {
+          "id": "bealach-start",
+          "name": "Pitlochry",
+          "coordinates": [
+            56.703452,
+            -3.738383
+          ]
+        },
+        {
+          "id": "bealach-pass",
+          "name": "Bealach na Searmoin",
+          "coordinates": [
+            56.7379174,
+            -3.7345122
+          ]
+        },
+        {
+          "id": "killiecrankie",
+          "name": "Killiecrankie",
+          "coordinates": [
+            56.7430139,
+            -3.77214
+          ]
+        },
+        {
+          "id": "river-garry",
+          "name": "River Garry",
+          "coordinates": [
+            56.72836,
+            -3.775404
+          ],
+          "kind": "water"
+        },
+        {
+          "id": "blair-athol",
+          "name": "Blair Athol",
+          "coordinates": [
+            56.698748,
+            -3.722072
+          ]
+        },
+        {
+          "id": "dunkeld-station",
+          "name": "Dunkeld & Birnam",
+          "coordinates": [
+            56.5565771,
+            -3.5775146
+          ]
+        },
+        {
+          "id": "dunkeld",
+          "name": "Dunkeld",
+          "coordinates": [
+            56.565078,
+            -3.590142
+          ]
+        },
+        {
+          "id": "ossians-hall",
+          "name": "Ossian's Hall",
+          "coordinates": [
+            56.557436,
+            -3.614402
+          ]
+        },
+        {
+          "id": "rumbling-bridge",
+          "name": "Rumbling Bridge",
+          "coordinates": [
+            56.552245,
+            -3.633775
+          ]
+        },
+        {
+          "id": "river-tay",
+          "name": "River Tay",
+          "coordinates": [
+            56.5629,
+            -3.597
+          ],
+          "kind": "water"
+        },
+        {
+          "id": "blair-atholl-station",
+          "name": "Blair Atholl",
+          "coordinates": [
+            56.7652712,
+            -3.8497055
+          ]
+        },
+        {
+          "id": "blair-castle",
+          "name": "Blair Castle",
+          "coordinates": [
+            56.773401,
+            -3.857501
+          ]
+        },
+        {
+          "id": "hercules-garden",
+          "name": "Hercules Garden",
+          "coordinates": [
+            56.774975,
+            -3.851553
+          ]
+        },
+        {
+          "id": "waverley",
+          "name": "Edinburgh Waverley",
+          "coordinates": [
+            55.951825,
+            -3.191932
+          ]
+        },
+        {
+          "id": "code-the-court",
+          "name": "CoDE The Court",
+          "coordinates": [
+            55.949449,
+            -3.18984
+          ]
+        },
+        {
+          "id": "johnnie-walker",
+          "name": "Johnnie Walker",
+          "coordinates": [
+            55.950421,
+            -3.207611
+          ]
+        },
+        {
+          "id": "fishers",
+          "name": "Fishers in the City",
+          "coordinates": [
+            55.953842,
+            -3.199534
+          ]
+        },
+        {
+          "id": "edinburgh-castle",
+          "name": "Edinburgh Castle",
+          "coordinates": [
+            55.948593,
+            -3.199913
+          ]
+        },
+        {
+          "id": "national-gallery",
+          "name": "National Gallery",
+          "coordinates": [
+            55.950891,
+            -3.195619
+          ]
+        },
+        {
+          "id": "calton-hill",
+          "name": "Calton Hill",
+          "coordinates": [
+            55.955557,
+            -3.182256
+          ]
+        },
+        {
+          "id": "stramash",
+          "name": "Stramash",
+          "coordinates": [
+            55.948563,
+            -3.187798
+          ]
+        },
+        {
+          "id": "stockbridge",
+          "name": "Stockbridge",
+          "coordinates": [
+            55.957972,
+            -3.20934
+          ]
+        },
+        {
+          "id": "botanic-garden",
+          "name": "Royal Botanic Garden",
+          "coordinates": [
+            55.965875,
+            -3.207689
+          ]
+        },
+        {
+          "id": "edinburgh-airport",
+          "name": "Edinburgh Airport",
+          "coordinates": [
+            55.950145,
+            -3.372288
+          ]
+        },
+        {
+          "id": "dublin-airport",
+          "name": "Dublin",
+          "coordinates": [
+            53.421389,
+            -6.27
+          ]
+        },
+        {
+          "id": "guinness",
+          "name": "Guinness Storehouse",
+          "coordinates": [
+            53.341853,
+            -6.286841
+          ]
+        },
+        {
+          "id": "collins-barracks",
+          "name": "Collins Barracks",
+          "coordinates": [
+            53.348807,
+            -6.285956
+          ],
+          "label_side": "left"
+        },
+        {
+          "id": "jameson",
+          "name": "Jameson Bow St.",
+          "coordinates": [
+            53.348117,
+            -6.277076
+          ],
+          "label_dy": 18
+        },
+        {
+          "id": "cobblestone",
+          "name": "The Cobblestone",
+          "coordinates": [
+            53.349916,
+            -6.2779
+          ]
+        },
+        {
+          "id": "dalymount",
+          "name": "Dalymount Park",
+          "coordinates": [
+            53.361878,
+            -6.275092
+          ]
+        },
+        {
+          "id": "boston-logan",
+          "name": "Boston",
+          "coordinates": [
+            42.362944,
+            -71.006389
+          ]
+        },
+        {
+          "id": "smithfield",
+          "name": "Smithfield",
+          "coordinates": [
+            53.348431,
+            -6.278237
+          ],
+          "label_side": "left",
+          "label_dy": -44
+        }
+      ],
+      "terrain": "/assets/travels/maps/pitlochry-terrain.json",
+      "terrain_layers": [
+        "/assets/travels/maps/dunkeld-terrain.json",
+        "/assets/travels/maps/blair-atholl-terrain.json",
+        "/assets/travels/maps/edinburgh-terrain.json",
+        "/assets/travels/maps/edinburgh-north-terrain.json",
+        "/assets/travels/maps/dublin-terrain.json"
+      ]
+    },
+    "stops": [
+      {
+        "label": "Day 0",
+        "title": "Departure",
+        "route_label": "Boston to London",
+        "date_label": "October 15, 2026",
+        "coordinates": [
+          42.3601,
+          -71.0589
+        ],
+        "transport": "plane",
+        "route_from": "boston",
+        "route_to": "heathrow",
+        "map_start": 0,
+        "map_end": 0.82,
+        "notes": "",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-0/mirror.webp",
+            "alt": "A mirror photo before departure",
+            "map_position": 0,
+            "width": 1350,
+            "height": 1800
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-0/meal.webp",
+            "alt": "A meal before the flight",
+            "map_position": 0,
+            "width": 1350,
+            "height": 1800
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-0/airplane-cabin.webp",
+            "alt": "The airplane cabin lit in purple",
+            "map_position": 0.16,
+            "width": 1800,
+            "height": 1350
+          }
+        ],
+        "flight_passage": true,
+        "map_view": "flight"
+      },
+      {
+        "label": "Day 1",
+        "day_number": 1,
+        "anchor": "day-1",
+        "title": "Arrival",
+        "route_label": "Boston to Heathrow",
+        "date_label": "October 16, 2026",
+        "transport": "plane",
+        "route_from": "boston",
+        "route_to": "heathrow",
+        "map_view": "flight",
+        "map_start": 0.82,
+        "map_end": 1,
+        "notes": "",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2897.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A wing above the clouds in the morning light",
+            "map_position": 0.96,
+            "source_filename": "IMG_2897.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Across London",
+        "day_number": 1,
+        "anchor": "day-1-london",
+        "title": "The Tube to King’s Cross",
+        "route_label": "Heathrow to King’s Cross",
+        "date_label": "October 16, 2026",
+        "transport": "train",
+        "route_from": "heathrow",
+        "route_to": "kings-cross",
+        "map_view": "city",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Heathrow, then the Tube to King’s Cross.",
+        "route_points": [
+          [
+            51.47,
+            -0.4543
+          ],
+          [
+            51.483,
+            -0.38
+          ],
+          [
+            51.492,
+            -0.29
+          ],
+          [
+            51.506,
+            -0.2
+          ],
+          [
+            51.516,
+            -0.16
+          ],
+          [
+            51.5321,
+            -0.1233
+          ]
+        ],
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2899.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Inside a London train on the way from Heathrow",
+            "map_position": 0.45,
+            "source_filename": "IMG_2899.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2902.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Platforms beneath the roof of a London station",
+            "map_position": 0.85,
+            "source_filename": "IMG_2902.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2903.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "The front of King's Cross station beneath blue sky",
+            "map_position": 1,
+            "source_filename": "IMG_2903.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2908.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A Sainsbury's entrance in London",
+            "map_position": 1,
+            "source_filename": "IMG_2908.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2911.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A London street reflected in a glass doorway",
+            "map_position": 1,
+            "source_filename": "IMG_2911.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2915.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The Platform 9¾ sign and visitors at King's Cross",
+            "map_position": 1,
+            "source_filename": "IMG_2915.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Northbound",
+        "day_number": 1,
+        "anchor": "day-1-north",
+        "title": "The LNER to Pitlochry",
+        "route_label": "King’s Cross to Pitlochry",
+        "date_label": "October 16, 2026",
+        "transport": "train",
+        "route_from": "kings-cross",
+        "route_to": "pitlochry",
+        "route_labels": [
+          "kings-cross",
+          "york",
+          "newcastle",
+          "berwick",
+          "edinburgh",
+          "perth",
+          "pitlochry"
+        ],
+        "route_points": [
+          [
+            51.5321,
+            -0.1233
+          ],
+          [
+            51.9,
+            -0.207
+          ],
+          [
+            52.573,
+            -0.25
+          ],
+          [
+            52.907,
+            -0.64
+          ],
+          [
+            53.075,
+            -0.8
+          ],
+          [
+            53.522,
+            -1.139
+          ],
+          [
+            53.9583,
+            -1.093
+          ],
+          [
+            54.338,
+            -1.434
+          ],
+          [
+            54.522,
+            -1.555
+          ],
+          [
+            54.779,
+            -1.581
+          ],
+          [
+            54.968,
+            -1.6177
+          ],
+          [
+            55.167,
+            -1.683
+          ],
+          [
+            55.392,
+            -1.636
+          ],
+          [
+            55.6,
+            -1.72
+          ],
+          [
+            55.77,
+            -2.008
+          ],
+          [
+            55.93,
+            -2.34
+          ],
+          [
+            56.003,
+            -2.518
+          ],
+          [
+            55.9533,
+            -3.189
+          ],
+          [
+            55.945,
+            -3.219
+          ],
+          [
+            56.002,
+            -3.785
+          ],
+          [
+            56.119,
+            -3.937
+          ],
+          [
+            56.185,
+            -3.965
+          ],
+          [
+            56.274,
+            -3.731
+          ],
+          [
+            56.392,
+            -3.439
+          ],
+          [
+            56.557,
+            -3.578
+          ],
+          [
+            56.703,
+            -3.735
+          ]
+        ],
+        "map_view": "regional",
+        "zoom_start": 16000,
+        "zoom_end": 28000,
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "The long train ride north. Most of the day at the window.",
+        "closing_note": "Pitlochry. Then bed.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2918.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Buildings and a castle seen from the train",
+            "map_position": 0.55,
+            "source_filename": "IMG_2918.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2920.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A rainbow above fields seen from the train",
+            "map_position": 0.56,
+            "source_filename": "IMG_2920.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2926.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A book and drink beside the train window",
+            "map_position": 0.65,
+            "source_filename": "IMG_2926.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2934.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Blue sea beyond the fields beside the railway",
+            "map_position": 0.69,
+            "source_filename": "IMG_2934.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2936.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Cliffs and sea seen from the train window",
+            "map_position": 0.7,
+            "source_filename": "IMG_2936.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2947.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Evening light across autumn fields",
+            "map_position": 0.9,
+            "source_filename": "IMG_2947.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-1/img_2949.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Low mist among the hills near the end of the journey",
+            "map_position": 0.97,
+            "source_filename": "IMG_2949.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 2",
+        "day_number": 2,
+        "anchor": "day-2",
+        "title": "Craigower",
+        "route_label": "The Craigower loop",
+        "date_label": "October 17, 2026",
+        "transport": "walk",
+        "route_from": "craigower-path",
+        "route_to": "craigower-path",
+        "route_labels": [
+          "craigower-path",
+          "craigower"
+        ],
+        "route_points": [
+          [
+            56.713513,
+            -3.73828
+          ],
+          [
+            56.713518,
+            -3.739104
+          ],
+          [
+            56.713961,
+            -3.739729
+          ],
+          [
+            56.714084,
+            -3.742087
+          ],
+          [
+            56.718063,
+            -3.750525
+          ],
+          [
+            56.721002,
+            -3.75182
+          ],
+          [
+            56.719601,
+            -3.746992
+          ],
+          [
+            56.722941,
+            -3.74899
+          ],
+          [
+            56.723918,
+            -3.751189
+          ],
+          [
+            56.724171,
+            -3.753421
+          ],
+          [
+            56.725453,
+            -3.753998
+          ],
+          [
+            56.724559,
+            -3.756723
+          ],
+          [
+            56.723905,
+            -3.757678
+          ],
+          [
+            56.723081,
+            -3.757603
+          ],
+          [
+            56.722728,
+            -3.756476
+          ],
+          [
+            56.722693,
+            -3.753719
+          ],
+          [
+            56.722445,
+            -3.753311
+          ],
+          [
+            56.71929,
+            -3.752249
+          ],
+          [
+            56.718171,
+            -3.75145
+          ],
+          [
+            56.718086,
+            -3.75057
+          ],
+          [
+            56.714084,
+            -3.742087
+          ],
+          [
+            56.713961,
+            -3.739729
+          ],
+          [
+            56.713518,
+            -3.739104
+          ],
+          [
+            56.713513,
+            -3.73828
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Up Craigower, then a shortcut back through the golf course. I met a couple on the way down and stopped for tea.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2956.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Crumpets at breakfast",
+            "map_position": 0,
+            "source_filename": "IMG_2956.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2957.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "The morning view across Pitlochry",
+            "map_position": 0,
+            "source_filename": "IMG_2957.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2963.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A red telephone box beside the path",
+            "map_position": 0.04,
+            "source_filename": "IMG_2963.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2967.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A signpost beside the golf course",
+            "map_position": 0.12,
+            "source_filename": "IMG_2967.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2970.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "A bench overlooking the valley",
+            "map_position": 0.18,
+            "source_filename": "IMG_2970.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2980.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "The golf course and the hills beyond",
+            "map_position": 0.25,
+            "source_filename": "IMG_2980.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2982.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Tree branches arching above the path",
+            "map_position": 0.32,
+            "source_filename": "IMG_2982.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2990.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A marker among the trees on Craigower",
+            "map_position": 0.48,
+            "source_filename": "IMG_2990.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_2998.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Sunlight and the view from Craigower",
+            "map_position": 0.54,
+            "source_filename": "IMG_2998.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3006.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Tea at a table overlooking the garden",
+            "map_position": 1,
+            "source_filename": "IMG_3006.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3007.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Toast with tea after the walk",
+            "map_position": 1,
+            "source_filename": "IMG_3007.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Dalwhinnie",
+        "day_number": 2,
+        "anchor": "day-2-dalwhinnie",
+        "title": "Out and back by train",
+        "route_label": "Pitlochry to Dalwhinnie and back",
+        "date_label": "October 17, 2026",
+        "transport": "train",
+        "route_from": "pitlochry-station",
+        "route_to": "pitlochry-station",
+        "route_labels": [
+          "pitlochry-station",
+          "blair-atholl",
+          "dalwhinnie"
+        ],
+        "route_points": [
+          [
+            56.7023642,
+            -3.73564
+          ],
+          [
+            56.727,
+            -3.752
+          ],
+          [
+            56.743,
+            -3.777
+          ],
+          [
+            56.7656,
+            -3.8497
+          ],
+          [
+            56.767,
+            -3.965
+          ],
+          [
+            56.813,
+            -4.055
+          ],
+          [
+            56.855,
+            -4.143
+          ],
+          [
+            56.887,
+            -4.226
+          ],
+          [
+            56.9358,
+            -4.2462
+          ],
+          [
+            56.887,
+            -4.226
+          ],
+          [
+            56.855,
+            -4.143
+          ],
+          [
+            56.813,
+            -4.055
+          ],
+          [
+            56.767,
+            -3.965
+          ],
+          [
+            56.7656,
+            -3.8497
+          ],
+          [
+            56.743,
+            -3.777
+          ],
+          [
+            56.727,
+            -3.752
+          ],
+          [
+            56.7023642,
+            -3.73564
+          ]
+        ],
+        "map_view": "regional",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "The train north to Dalwhinnie, and back to Pitlochry.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3019.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "The Dalwhinnie distillery buildings",
+            "map_position": 0.5,
+            "source_filename": "IMG_3019.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3022.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Copper stills inside the distillery",
+            "map_position": 0.5,
+            "source_filename": "IMG_3022.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3023.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Whisky casks in a warehouse",
+            "map_position": 0.5,
+            "source_filename": "IMG_3023.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3039.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Whisky glasses arranged for a tasting",
+            "map_position": 0.5,
+            "source_filename": "IMG_3039.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3041.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A bottle of Dalwhinnie whisky",
+            "map_position": 0.5,
+            "source_filename": "IMG_3041.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3050.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Water and hills on the return journey",
+            "map_position": 0.94,
+            "source_filename": "IMG_3050.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Loch Faskally",
+        "day_number": 2,
+        "anchor": "day-2-loch",
+        "title": "The loch loop",
+        "route_label": "Loch Faskally and the fish ladder",
+        "date_label": "October 17, 2026",
+        "transport": "walk",
+        "route_from": "loch-loop",
+        "route_to": "loch-loop",
+        "route_labels": [
+          "loch-loop",
+          "fish-ladder",
+          "loch-faskally"
+        ],
+        "route_points": [
+          [
+            56.701449,
+            -3.732803
+          ],
+          [
+            56.701101,
+            -3.731183
+          ],
+          [
+            56.70043,
+            -3.730588
+          ],
+          [
+            56.699349,
+            -3.731843
+          ],
+          [
+            56.699355,
+            -3.732272
+          ],
+          [
+            56.698076,
+            -3.733097
+          ],
+          [
+            56.698577,
+            -3.734729
+          ],
+          [
+            56.698524,
+            -3.737267
+          ],
+          [
+            56.698878,
+            -3.740528
+          ],
+          [
+            56.698925,
+            -3.742046
+          ],
+          [
+            56.698674,
+            -3.743076
+          ],
+          [
+            56.698807,
+            -3.745174
+          ],
+          [
+            56.698506,
+            -3.74585
+          ],
+          [
+            56.69909,
+            -3.747223
+          ],
+          [
+            56.701225,
+            -3.749991
+          ],
+          [
+            56.705901,
+            -3.751863
+          ],
+          [
+            56.706122,
+            -3.752888
+          ],
+          [
+            56.706965,
+            -3.752823
+          ],
+          [
+            56.707165,
+            -3.751418
+          ],
+          [
+            56.707574,
+            -3.751279
+          ],
+          [
+            56.707751,
+            -3.750694
+          ],
+          [
+            56.70627,
+            -3.745415
+          ],
+          [
+            56.70485,
+            -3.747314
+          ],
+          [
+            56.703808,
+            -3.746783
+          ],
+          [
+            56.702845,
+            -3.744396
+          ],
+          [
+            56.702371,
+            -3.741177
+          ],
+          [
+            56.701399,
+            -3.741446
+          ],
+          [
+            56.70015,
+            -3.74019
+          ],
+          [
+            56.700356,
+            -3.738828
+          ],
+          [
+            56.69954,
+            -3.737916
+          ],
+          [
+            56.699275,
+            -3.736719
+          ],
+          [
+            56.699048,
+            -3.732677
+          ],
+          [
+            56.70043,
+            -3.730588
+          ],
+          [
+            56.701101,
+            -3.731183
+          ],
+          [
+            56.701449,
+            -3.732803
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Back in Pitlochry for a loop around the loch and the fish ladder.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3070.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "The river from the suspension bridge",
+            "map_position": 0.11,
+            "source_filename": "IMG_3070.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3073.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A classic car outside a stone inn",
+            "map_position": 0.15,
+            "source_filename": "IMG_3073.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3081.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The fish ladder beside the dam",
+            "map_position": 0.27,
+            "source_filename": "IMG_3081.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3093.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Sunset reflected in Loch Faskally",
+            "map_position": 0.7,
+            "source_filename": "IMG_3093.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-2/img_3100.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Stone buildings in Pitlochry after dark",
+            "map_position": 1,
+            "source_filename": "IMG_3100.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 3",
+        "day_number": 3,
+        "anchor": "day-3",
+        "title": "Over the Bealach",
+        "route_label": "The Bealach circuit and Blair Athol",
+        "date_label": "October 18, 2026",
+        "transport": "walk",
+        "route_from": "bealach-start",
+        "route_to": "blair-athol",
+        "route_labels": [
+          "bealach-start",
+          "bealach-pass",
+          "killiecrankie",
+          "river-garry",
+          "loch-faskally",
+          "blair-athol"
+        ],
+        "route_points": [
+          [
+            56.703452,
+            -3.738383
+          ],
+          [
+            56.703657,
+            -3.738262
+          ],
+          [
+            56.703716,
+            -3.739581
+          ],
+          [
+            56.703269,
+            -3.741006
+          ],
+          [
+            56.702558,
+            -3.741588
+          ],
+          [
+            56.702495,
+            -3.74233
+          ],
+          [
+            56.704217,
+            -3.746285
+          ],
+          [
+            56.705208,
+            -3.747077
+          ],
+          [
+            56.706286,
+            -3.744953
+          ],
+          [
+            56.706825,
+            -3.745145
+          ],
+          [
+            56.707885,
+            -3.743803
+          ],
+          [
+            56.708391,
+            -3.742039
+          ],
+          [
+            56.708425,
+            -3.740786
+          ],
+          [
+            56.707773,
+            -3.737924
+          ],
+          [
+            56.706242,
+            -3.738432
+          ],
+          [
+            56.708593,
+            -3.737105
+          ],
+          [
+            56.710765,
+            -3.733
+          ],
+          [
+            56.713727,
+            -3.732249
+          ],
+          [
+            56.714127,
+            -3.729569
+          ],
+          [
+            56.714002,
+            -3.728253
+          ],
+          [
+            56.713453,
+            -3.728006
+          ],
+          [
+            56.713254,
+            -3.726717
+          ],
+          [
+            56.713453,
+            -3.728006
+          ],
+          [
+            56.713973,
+            -3.728176
+          ],
+          [
+            56.716338,
+            -3.727516
+          ],
+          [
+            56.718012,
+            -3.726382
+          ],
+          [
+            56.719947,
+            -3.726439
+          ],
+          [
+            56.720931,
+            -3.725851
+          ],
+          [
+            56.723301,
+            -3.728415
+          ],
+          [
+            56.725319,
+            -3.728724
+          ],
+          [
+            56.726553,
+            -3.730914
+          ],
+          [
+            56.728535,
+            -3.731003
+          ],
+          [
+            56.730255,
+            -3.731902
+          ],
+          [
+            56.730975,
+            -3.73049
+          ],
+          [
+            56.732141,
+            -3.729882
+          ],
+          [
+            56.73303,
+            -3.730069
+          ],
+          [
+            56.73377,
+            -3.731031
+          ],
+          [
+            56.735149,
+            -3.730052
+          ],
+          [
+            56.736214,
+            -3.731476
+          ],
+          [
+            56.736635,
+            -3.733032
+          ],
+          [
+            56.737294,
+            -3.733102
+          ],
+          [
+            56.737984,
+            -3.734552
+          ],
+          [
+            56.741481,
+            -3.738296
+          ],
+          [
+            56.741547,
+            -3.738976
+          ],
+          [
+            56.742703,
+            -3.738471
+          ],
+          [
+            56.742796,
+            -3.740457
+          ],
+          [
+            56.744349,
+            -3.741207
+          ],
+          [
+            56.744879,
+            -3.74251
+          ],
+          [
+            56.744862,
+            -3.745776
+          ],
+          [
+            56.746857,
+            -3.749715
+          ],
+          [
+            56.746545,
+            -3.751882
+          ],
+          [
+            56.747283,
+            -3.75286
+          ],
+          [
+            56.746642,
+            -3.75378
+          ],
+          [
+            56.746995,
+            -3.755566
+          ],
+          [
+            56.745269,
+            -3.756222
+          ],
+          [
+            56.746823,
+            -3.758472
+          ],
+          [
+            56.745913,
+            -3.760698
+          ],
+          [
+            56.744263,
+            -3.76148
+          ],
+          [
+            56.743609,
+            -3.762795
+          ],
+          [
+            56.744732,
+            -3.76326
+          ],
+          [
+            56.746963,
+            -3.762902
+          ],
+          [
+            56.747047,
+            -3.768038
+          ],
+          [
+            56.745643,
+            -3.770767
+          ],
+          [
+            56.744757,
+            -3.771036
+          ],
+          [
+            56.743942,
+            -3.772301
+          ],
+          [
+            56.743457,
+            -3.772497
+          ],
+          [
+            56.742811,
+            -3.771814
+          ],
+          [
+            56.743096,
+            -3.772087
+          ],
+          [
+            56.742811,
+            -3.771814
+          ],
+          [
+            56.743407,
+            -3.773029
+          ],
+          [
+            56.742883,
+            -3.773423
+          ],
+          [
+            56.742529,
+            -3.77519
+          ],
+          [
+            56.742296,
+            -3.775086
+          ],
+          [
+            56.742256,
+            -3.773325
+          ],
+          [
+            56.74103,
+            -3.772161
+          ],
+          [
+            56.735752,
+            -3.771917
+          ],
+          [
+            56.734354,
+            -3.773171
+          ],
+          [
+            56.729969,
+            -3.775399
+          ],
+          [
+            56.729141,
+            -3.774946
+          ],
+          [
+            56.724028,
+            -3.777205
+          ],
+          [
+            56.723695,
+            -3.777013
+          ],
+          [
+            56.723694,
+            -3.776247
+          ],
+          [
+            56.723444,
+            -3.777458
+          ],
+          [
+            56.721352,
+            -3.779555
+          ],
+          [
+            56.720809,
+            -3.775239
+          ],
+          [
+            56.719789,
+            -3.775224
+          ],
+          [
+            56.718425,
+            -3.771157
+          ],
+          [
+            56.718356,
+            -3.7703
+          ],
+          [
+            56.718806,
+            -3.770143
+          ],
+          [
+            56.718356,
+            -3.7703
+          ],
+          [
+            56.718183,
+            -3.76802
+          ],
+          [
+            56.717698,
+            -3.76667
+          ],
+          [
+            56.716728,
+            -3.766125
+          ],
+          [
+            56.714244,
+            -3.766608
+          ],
+          [
+            56.712868,
+            -3.765903
+          ],
+          [
+            56.711661,
+            -3.763906
+          ],
+          [
+            56.711684,
+            -3.762866
+          ],
+          [
+            56.71188,
+            -3.762521
+          ],
+          [
+            56.712158,
+            -3.762929
+          ],
+          [
+            56.711433,
+            -3.762609
+          ],
+          [
+            56.710648,
+            -3.760215
+          ],
+          [
+            56.709406,
+            -3.75864
+          ],
+          [
+            56.708673,
+            -3.758564
+          ],
+          [
+            56.708403,
+            -3.755707
+          ],
+          [
+            56.70798,
+            -3.755625
+          ],
+          [
+            56.70778,
+            -3.754462
+          ],
+          [
+            56.707004,
+            -3.753279
+          ],
+          [
+            56.707166,
+            -3.751507
+          ],
+          [
+            56.707808,
+            -3.750875
+          ],
+          [
+            56.706278,
+            -3.745409
+          ],
+          [
+            56.705097,
+            -3.747005
+          ],
+          [
+            56.704217,
+            -3.746285
+          ],
+          [
+            56.703141,
+            -3.743996
+          ],
+          [
+            56.704582,
+            -3.741933
+          ],
+          [
+            56.703232,
+            -3.74374
+          ],
+          [
+            56.702604,
+            -3.742765
+          ],
+          [
+            56.702558,
+            -3.741588
+          ],
+          [
+            56.703269,
+            -3.741006
+          ],
+          [
+            56.703716,
+            -3.739581
+          ],
+          [
+            56.703657,
+            -3.738262
+          ],
+          [
+            56.703452,
+            -3.738383
+          ],
+          [
+            56.703258,
+            -3.737112
+          ],
+          [
+            56.702734,
+            -3.736615
+          ],
+          [
+            56.702191,
+            -3.733728
+          ],
+          [
+            56.701321,
+            -3.734686
+          ],
+          [
+            56.700865,
+            -3.734643
+          ],
+          [
+            56.699994,
+            -3.73215
+          ],
+          [
+            56.699351,
+            -3.732301
+          ],
+          [
+            56.69932,
+            -3.731823
+          ],
+          [
+            56.698705,
+            -3.73113
+          ],
+          [
+            56.697636,
+            -3.725402
+          ],
+          [
+            56.698155,
+            -3.725147
+          ],
+          [
+            56.698893,
+            -3.723482
+          ],
+          [
+            56.699248,
+            -3.72356
+          ],
+          [
+            56.698806,
+            -3.722839
+          ],
+          [
+            56.698748,
+            -3.722072
+          ]
+        ],
+        "map_view": "trail",
+        "zoom_factor": 1.1,
+        "camera_follow": 0.65,
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Over the Bealach na Searmoin to Killiecrankie, back along the river and Loch Faskally, then straight on to Blair Athol distillery.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3103.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "A white house below the wooded hillside",
+            "map_position": 0.078982,
+            "source_filename": "IMG_3103.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3104.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A path sign among the bracken",
+            "map_position": 0.105309,
+            "source_filename": "IMG_3104.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3112.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The sign for the Bealach Path",
+            "map_position": 0.184291,
+            "source_filename": "IMG_3112.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3116.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Open moorland above Pitlochry",
+            "map_position": 0.226416,
+            "source_filename": "IMG_3116.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3124.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Views across the moorland and hills",
+            "map_position": 0.273805,
+            "source_filename": "IMG_3124.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3126.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Sunlight on the path through the pass",
+            "map_position": 0.300132,
+            "source_filename": "IMG_3126.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3143.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Autumn hills above the valley",
+            "map_position": 0.447565,
+            "source_filename": "IMG_3143.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3152.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A gate and stone post beside the path",
+            "map_position": 0.50022,
+            "source_filename": "IMG_3152.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3180.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A bridge in the wooded gorge",
+            "map_position": 0.565844,
+            "source_filename": "IMG_3180.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3183.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A stone arch beside the woodland path",
+            "map_position": 0.598046,
+            "source_filename": "IMG_3183.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3189.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Mossy rocks beneath the trees",
+            "map_position": 0.625648,
+            "source_filename": "IMG_3189.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3197.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A tree in an open clearing",
+            "map_position": 0.754458,
+            "source_filename": "IMG_3197.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3198.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Autumn trees beside the water",
+            "map_position": 0.791261,
+            "source_filename": "IMG_3198.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3205.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Coffee beside the water",
+            "map_position": 0.864867,
+            "source_filename": "IMG_3205.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3209.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Red ivy on the Blair Athol distillery buildings",
+            "map_position": 1.0,
+            "source_filename": "IMG_3209.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3213.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Whisky casks in the warehouse",
+            "map_position": 1.0,
+            "source_filename": "IMG_3213.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3214.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A whisky tasting at Blair Athol",
+            "map_position": 1.0,
+            "source_filename": "IMG_3214.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-3/img_3216.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The courtyard and clock at the distillery",
+            "map_position": 1.0,
+            "source_filename": "IMG_3216.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 4",
+        "day_number": 4,
+        "anchor": "day-4",
+        "title": "South to Dunkeld",
+        "route_label": "Pitlochry to Dunkeld & Birnam",
+        "date_label": "October 19, 2026",
+        "transport": "train",
+        "route_from": "pitlochry-station",
+        "route_to": "dunkeld-station",
+        "route_points": [
+          [
+            56.70236,
+            -3.73564
+          ],
+          [
+            56.695,
+            -3.7175
+          ],
+          [
+            56.6765,
+            -3.7035
+          ],
+          [
+            56.6556,
+            -3.6776
+          ],
+          [
+            56.6495,
+            -3.6634
+          ],
+          [
+            56.6345,
+            -3.6297
+          ],
+          [
+            56.614,
+            -3.605
+          ],
+          [
+            56.595,
+            -3.5985
+          ],
+          [
+            56.576,
+            -3.5955
+          ],
+          [
+            56.5608,
+            -3.5855
+          ],
+          [
+            56.5565771,
+            -3.5775146
+          ]
+        ],
+        "map_view": "regional",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "An early train south, then out on foot for the Hermitage.",
+        "photos": [],
+        "travel_passage": "Along the Tay valley"
+      },
+      {
+        "label": "The Hermitage",
+        "day_number": 4,
+        "anchor": "day-4-hermitage",
+        "title": "Through the autumn woods",
+        "route_label": "The Hermitage and Dunkeld",
+        "date_label": "October 19, 2026",
+        "transport": "walk",
+        "route_from": "dunkeld-station",
+        "route_to": "dunkeld-station",
+        "route_points": [
+          [
+            56.556577,
+            -3.577515
+          ],
+          [
+            56.557402,
+            -3.579111
+          ],
+          [
+            56.558174,
+            -3.578433
+          ],
+          [
+            56.55925,
+            -3.578223
+          ],
+          [
+            56.560421,
+            -3.580277
+          ],
+          [
+            56.561092,
+            -3.584115
+          ],
+          [
+            56.561716,
+            -3.58512
+          ],
+          [
+            56.561295,
+            -3.585886
+          ],
+          [
+            56.561144,
+            -3.587418
+          ],
+          [
+            56.561478,
+            -3.590831
+          ],
+          [
+            56.560791,
+            -3.591092
+          ],
+          [
+            56.56065,
+            -3.59472
+          ],
+          [
+            56.560035,
+            -3.599307
+          ],
+          [
+            56.560903,
+            -3.600739
+          ],
+          [
+            56.561249,
+            -3.602877
+          ],
+          [
+            56.562079,
+            -3.603849
+          ],
+          [
+            56.562031,
+            -3.605956
+          ],
+          [
+            56.557075,
+            -3.612838
+          ],
+          [
+            56.557638,
+            -3.614588
+          ],
+          [
+            56.557767,
+            -3.616175
+          ],
+          [
+            56.5558,
+            -3.618213
+          ],
+          [
+            56.555653,
+            -3.619478
+          ],
+          [
+            56.556106,
+            -3.622386
+          ],
+          [
+            56.557101,
+            -3.623388
+          ],
+          [
+            56.5573,
+            -3.624048
+          ],
+          [
+            56.556869,
+            -3.625261
+          ],
+          [
+            56.556104,
+            -3.626108
+          ],
+          [
+            56.556097,
+            -3.627515
+          ],
+          [
+            56.555475,
+            -3.628325
+          ],
+          [
+            56.554593,
+            -3.630492
+          ],
+          [
+            56.553608,
+            -3.63202
+          ],
+          [
+            56.553299,
+            -3.631766
+          ],
+          [
+            56.552779,
+            -3.6321
+          ],
+          [
+            56.552286,
+            -3.63377
+          ],
+          [
+            56.551732,
+            -3.634045
+          ],
+          [
+            56.551569,
+            -3.632253
+          ],
+          [
+            56.552418,
+            -3.630612
+          ],
+          [
+            56.552371,
+            -3.629408
+          ],
+          [
+            56.551928,
+            -3.62838
+          ],
+          [
+            56.549449,
+            -3.625942
+          ],
+          [
+            56.548186,
+            -3.623265
+          ],
+          [
+            56.54971,
+            -3.621165
+          ],
+          [
+            56.551236,
+            -3.620106
+          ],
+          [
+            56.552245,
+            -3.617063
+          ],
+          [
+            56.553047,
+            -3.614014
+          ],
+          [
+            56.552787,
+            -3.613172
+          ],
+          [
+            56.55334,
+            -3.611738
+          ],
+          [
+            56.552944,
+            -3.610477
+          ],
+          [
+            56.553612,
+            -3.609881
+          ],
+          [
+            56.554706,
+            -3.607543
+          ],
+          [
+            56.554721,
+            -3.603
+          ],
+          [
+            56.555681,
+            -3.598374
+          ],
+          [
+            56.555544,
+            -3.600821
+          ],
+          [
+            56.557086,
+            -3.599563
+          ],
+          [
+            56.557699,
+            -3.600686
+          ],
+          [
+            56.557716,
+            -3.602201
+          ],
+          [
+            56.55833,
+            -3.602539
+          ],
+          [
+            56.558492,
+            -3.603378
+          ],
+          [
+            56.559449,
+            -3.601294
+          ],
+          [
+            56.559941,
+            -3.599451
+          ],
+          [
+            56.560483,
+            -3.599803
+          ],
+          [
+            56.561187,
+            -3.601597
+          ],
+          [
+            56.561249,
+            -3.602877
+          ],
+          [
+            56.562079,
+            -3.603849
+          ],
+          [
+            56.562031,
+            -3.605956
+          ],
+          [
+            56.561817,
+            -3.606504
+          ],
+          [
+            56.560524,
+            -3.607941
+          ],
+          [
+            56.560749,
+            -3.607992
+          ],
+          [
+            56.562031,
+            -3.605956
+          ],
+          [
+            56.561982,
+            -3.603323
+          ],
+          [
+            56.561641,
+            -3.601949
+          ],
+          [
+            56.561187,
+            -3.601597
+          ],
+          [
+            56.560903,
+            -3.600739
+          ],
+          [
+            56.561098,
+            -3.600212
+          ],
+          [
+            56.560978,
+            -3.600616
+          ],
+          [
+            56.561629,
+            -3.600909
+          ],
+          [
+            56.562455,
+            -3.601075
+          ],
+          [
+            56.562501,
+            -3.600773
+          ],
+          [
+            56.56315,
+            -3.5888
+          ],
+          [
+            56.56285,
+            -3.5859
+          ],
+          [
+            56.56377,
+            -3.585339
+          ],
+          [
+            56.564611,
+            -3.585396
+          ],
+          [
+            56.565016,
+            -3.585486
+          ],
+          [
+            56.565047,
+            -3.586244
+          ],
+          [
+            56.565514,
+            -3.586473
+          ],
+          [
+            56.564942,
+            -3.589806
+          ],
+          [
+            56.565514,
+            -3.586473
+          ],
+          [
+            56.565047,
+            -3.586244
+          ],
+          [
+            56.565016,
+            -3.585486
+          ],
+          [
+            56.561716,
+            -3.58512
+          ],
+          [
+            56.561151,
+            -3.584176
+          ],
+          [
+            56.560457,
+            -3.580335
+          ],
+          [
+            56.55925,
+            -3.578223
+          ],
+          [
+            56.558174,
+            -3.578433
+          ],
+          [
+            56.557402,
+            -3.579111
+          ],
+          [
+            56.556577,
+            -3.577515
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "From the station to the Hermitage, around the main Braan circuit, then back beside the river to Dunkeld.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3238.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "A stone bridge over the River Braan in the morning light",
+            "map_position": 0.176,
+            "source_filename": "IMG_3238.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3272.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A bench among the tall trees of the Hermitage",
+            "map_position": 0.218,
+            "source_filename": "IMG_3272.JPG"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3280.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The balcony at Ossian’s Hall above the falls",
+            "map_position": 0.2376,
+            "source_filename": "IMG_3280.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3281.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The Black Linn Falls in the Hermitage",
+            "map_position": 0.2376,
+            "source_filename": "IMG_3281.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3287.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The River Braan flowing through the autumn woods",
+            "map_position": 0.28,
+            "source_filename": "IMG_3287.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3297.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "A woodland path beneath tall trees",
+            "map_position": 0.66,
+            "source_filename": "IMG_3297.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3301.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The bridge across the River Tay at Dunkeld",
+            "map_position": 0.9,
+            "source_filename": "IMG_3301.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3304.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Breakfast in Dunkeld",
+            "map_position": 0.9,
+            "source_filename": "IMG_3304.HEIC"
+          }
+        ],
+        "route_labels": [
+          "ossians-hall",
+          "rumbling-bridge",
+          "dunkeld",
+          "river-tay"
+        ]
+      },
+      {
+        "label": "Blair Atholl",
+        "day_number": 4,
+        "anchor": "day-4-blair-train",
+        "title": "North again",
+        "route_label": "Dunkeld & Birnam to Blair Atholl",
+        "date_label": "October 19, 2026",
+        "transport": "train",
+        "route_from": "dunkeld-station",
+        "route_to": "blair-atholl-station",
+        "route_points": [
+          [
+            56.5565771,
+            -3.5775146
+          ],
+          [
+            56.5608,
+            -3.5855
+          ],
+          [
+            56.576,
+            -3.5955
+          ],
+          [
+            56.595,
+            -3.5985
+          ],
+          [
+            56.614,
+            -3.605
+          ],
+          [
+            56.6345,
+            -3.6297
+          ],
+          [
+            56.6495,
+            -3.6634
+          ],
+          [
+            56.6556,
+            -3.6776
+          ],
+          [
+            56.6765,
+            -3.7035
+          ],
+          [
+            56.695,
+            -3.7175
+          ],
+          [
+            56.70236,
+            -3.73564
+          ],
+          [
+            56.7147,
+            -3.745
+          ],
+          [
+            56.7245,
+            -3.758
+          ],
+          [
+            56.737,
+            -3.772
+          ],
+          [
+            56.748,
+            -3.789
+          ],
+          [
+            56.7528,
+            -3.8095
+          ],
+          [
+            56.7605,
+            -3.831
+          ],
+          [
+            56.7652712,
+            -3.8497055
+          ]
+        ],
+        "map_view": "regional",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Back on the train, this time beyond Pitlochry to Blair Atholl.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3318.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The railway at Blair Atholl",
+            "map_position": 0.96,
+            "source_filename": "IMG_3318.HEIC"
+          }
+        ],
+        "route_labels": [
+          "dunkeld-station",
+          "pitlochry-station",
+          "blair-atholl-station"
+        ]
+      },
+      {
+        "label": "Blair Castle",
+        "day_number": 4,
+        "anchor": "day-4-castle",
+        "title": "Castle and grounds",
+        "route_label": "A walk from Blair Atholl",
+        "date_label": "October 19, 2026",
+        "transport": "walk",
+        "route_from": "blair-atholl-station",
+        "route_to": "blair-atholl-station",
+        "route_points": [
+          [
+            56.765271,
+            -3.849705
+          ],
+          [
+            56.765185,
+            -3.849231
+          ],
+          [
+            56.765457,
+            -3.849382
+          ],
+          [
+            56.765796,
+            -3.848948
+          ],
+          [
+            56.766006,
+            -3.846538
+          ],
+          [
+            56.766693,
+            -3.844559
+          ],
+          [
+            56.766965,
+            -3.845569
+          ],
+          [
+            56.772522,
+            -3.855033
+          ],
+          [
+            56.772309,
+            -3.855815
+          ],
+          [
+            56.772952,
+            -3.856986
+          ],
+          [
+            56.773178,
+            -3.856772
+          ],
+          [
+            56.773151,
+            -3.857385
+          ],
+          [
+            56.773178,
+            -3.856772
+          ],
+          [
+            56.772952,
+            -3.856986
+          ],
+          [
+            56.772309,
+            -3.855815
+          ],
+          [
+            56.772522,
+            -3.855033
+          ],
+          [
+            56.773709,
+            -3.855671
+          ],
+          [
+            56.774196,
+            -3.850029
+          ],
+          [
+            56.774084,
+            -3.852133
+          ],
+          [
+            56.774916,
+            -3.852121
+          ],
+          [
+            56.774975,
+            -3.851553
+          ],
+          [
+            56.774916,
+            -3.852121
+          ],
+          [
+            56.775597,
+            -3.852171
+          ],
+          [
+            56.776737,
+            -3.855875
+          ],
+          [
+            56.776648,
+            -3.856782
+          ],
+          [
+            56.776147,
+            -3.857102
+          ],
+          [
+            56.775705,
+            -3.858783
+          ],
+          [
+            56.776147,
+            -3.857102
+          ],
+          [
+            56.776648,
+            -3.856782
+          ],
+          [
+            56.776737,
+            -3.855875
+          ],
+          [
+            56.776433,
+            -3.854926
+          ],
+          [
+            56.776737,
+            -3.855875
+          ],
+          [
+            56.776648,
+            -3.856782
+          ],
+          [
+            56.776147,
+            -3.857102
+          ],
+          [
+            56.775705,
+            -3.858783
+          ],
+          [
+            56.774642,
+            -3.858047
+          ],
+          [
+            56.774777,
+            -3.85767
+          ],
+          [
+            56.774653,
+            -3.857921
+          ],
+          [
+            56.774004,
+            -3.857574
+          ],
+          [
+            56.773104,
+            -3.856115
+          ],
+          [
+            56.772309,
+            -3.855815
+          ],
+          [
+            56.772952,
+            -3.856986
+          ],
+          [
+            56.773178,
+            -3.856772
+          ],
+          [
+            56.772967,
+            -3.856107
+          ],
+          [
+            56.773178,
+            -3.856772
+          ],
+          [
+            56.772973,
+            -3.856996
+          ],
+          [
+            56.772309,
+            -3.855815
+          ],
+          [
+            56.772522,
+            -3.855033
+          ],
+          [
+            56.766965,
+            -3.845569
+          ],
+          [
+            56.766693,
+            -3.844559
+          ],
+          [
+            56.766006,
+            -3.846538
+          ],
+          [
+            56.765829,
+            -3.847957
+          ],
+          [
+            56.765591,
+            -3.847846
+          ],
+          [
+            56.765564,
+            -3.848411
+          ],
+          [
+            56.765591,
+            -3.847846
+          ],
+          [
+            56.765855,
+            -3.848057
+          ],
+          [
+            56.765796,
+            -3.848948
+          ],
+          [
+            56.765457,
+            -3.849382
+          ],
+          [
+            56.765185,
+            -3.849231
+          ],
+          [
+            56.765271,
+            -3.849705
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Through Blair Castle, out to Hercules Garden, then around the woods north of the castle before heading back to the village.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3320.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The tree-lined approach to Blair Castle",
+            "map_position": 0.12,
+            "source_filename": "IMG_3320.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3340.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A staircase inside Blair Castle",
+            "map_position": 0.25548,
+            "source_filename": "IMG_3340.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3346.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Shields on a landing inside Blair Castle",
+            "map_position": 0.25548,
+            "source_filename": "IMG_3346.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3351.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "An ornate room inside Blair Castle",
+            "map_position": 0.25548,
+            "source_filename": "IMG_3351.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3371.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Autumn borders in the castle gardens",
+            "map_position": 0.39,
+            "source_filename": "IMG_3371.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3372.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A statue and pavilion in the castle gardens",
+            "map_position": 0.41581,
+            "source_filename": "IMG_3372.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3378.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A stream through the woods north of Blair Castle",
+            "map_position": 0.52,
+            "source_filename": "IMG_3378.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3383.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The remains of St Bride's Kirk",
+            "map_position": 0.56485,
+            "source_filename": "IMG_3383.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3399.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The Atholl Arms in Blair Atholl",
+            "map_position": 0.96178,
+            "source_filename": "IMG_3399.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3404.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Beer and crisps at the pub",
+            "map_position": 0.96178,
+            "source_filename": "IMG_3404.HEIC"
+          }
+        ],
+        "route_labels": [
+          "blair-atholl-station",
+          "blair-castle",
+          "hercules-garden"
+        ]
+      },
+      {
+        "label": "Pitlochry",
+        "day_number": 4,
+        "anchor": "day-4-home",
+        "title": "Music and a dram",
+        "route_label": "Blair Atholl to Pitlochry",
+        "date_label": "October 19, 2026",
+        "transport": "train",
+        "route_from": "blair-atholl-station",
+        "route_to": "pitlochry-station",
+        "route_points": [
+          [
+            56.7652712,
+            -3.8497055
+          ],
+          [
+            56.7605,
+            -3.831
+          ],
+          [
+            56.7528,
+            -3.8095
+          ],
+          [
+            56.748,
+            -3.789
+          ],
+          [
+            56.737,
+            -3.772
+          ],
+          [
+            56.7245,
+            -3.758
+          ],
+          [
+            56.7147,
+            -3.745
+          ],
+          [
+            56.70236,
+            -3.73564
+          ]
+        ],
+        "map_view": "regional",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "The train back to Pitlochry, then live music and Scotch at Robertson’s.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3414.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A glass of Spey whisky at Robertson’s",
+            "map_position": 1,
+            "source_filename": "IMG_3414.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-4/img_3415.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Live acoustic music at Robertson’s in Pitlochry",
+            "map_position": 1,
+            "source_filename": "IMG_3415.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 5",
+        "day_number": 5,
+        "anchor": "day-5",
+        "title": "Edinburgh bound",
+        "route_label": "Pitlochry to Edinburgh",
+        "date_label": "October 20, 2026",
+        "transport": "train",
+        "route_from": "pitlochry-station",
+        "route_to": "waverley",
+        "route_labels": [
+          "pitlochry-station",
+          "perth",
+          "waverley"
+        ],
+        "route_points": [
+          [
+            56.70236,
+            -3.73564
+          ],
+          [
+            56.6556,
+            -3.6776
+          ],
+          [
+            56.614,
+            -3.605
+          ],
+          [
+            56.556577,
+            -3.577515
+          ],
+          [
+            56.485,
+            -3.46
+          ],
+          [
+            56.3927,
+            -3.4397
+          ],
+          [
+            56.365,
+            -3.42
+          ],
+          [
+            56.35,
+            -3.239
+          ],
+          [
+            56.272,
+            -3.123
+          ],
+          [
+            56.201,
+            -3.13
+          ],
+          [
+            56.162,
+            -3.143
+          ],
+          [
+            56.111,
+            -3.167
+          ],
+          [
+            56.057,
+            -3.233
+          ],
+          [
+            56.054,
+            -3.3
+          ],
+          [
+            56.041,
+            -3.368
+          ],
+          [
+            56.032,
+            -3.396
+          ],
+          [
+            56.0,
+            -3.388
+          ],
+          [
+            55.986,
+            -3.381
+          ],
+          [
+            55.957,
+            -3.365
+          ],
+          [
+            55.936,
+            -3.3
+          ],
+          [
+            55.946,
+            -3.218
+          ],
+          [
+            55.951825,
+            -3.191932
+          ]
+        ],
+        "map_view": "regional",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Leaving Pitlochry for Edinburgh.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3424.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The bookshop on the platform at Pitlochry station",
+            "map_position": 0,
+            "source_filename": "IMG_3424.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Edinburgh",
+        "day_number": 5,
+        "anchor": "day-5-edinburgh",
+        "title": "Whisky and a walk home",
+        "route_label": "The Old Town and Princes Street",
+        "date_label": "October 20, 2026",
+        "transport": "walk",
+        "route_from": "waverley",
+        "route_to": "code-the-court",
+        "route_labels": [
+          "code-the-court",
+          "johnnie-walker",
+          "fishers"
+        ],
+        "route_points": [
+          [
+            55.951825,
+            -3.191932
+          ],
+          [
+            55.950979,
+            -3.19185
+          ],
+          [
+            55.95071,
+            -3.19043
+          ],
+          [
+            55.9503,
+            -3.1895
+          ],
+          [
+            55.9498,
+            -3.18933
+          ],
+          [
+            55.949449,
+            -3.18984
+          ],
+          [
+            55.94979,
+            -3.18935
+          ],
+          [
+            55.94959,
+            -3.19119
+          ],
+          [
+            55.94935,
+            -3.19335
+          ],
+          [
+            55.94966,
+            -3.19484
+          ],
+          [
+            55.95015,
+            -3.19554
+          ],
+          [
+            55.95083,
+            -3.19555
+          ],
+          [
+            55.95191,
+            -3.19562
+          ],
+          [
+            55.9517,
+            -3.19815
+          ],
+          [
+            55.95135,
+            -3.2011
+          ],
+          [
+            55.95098,
+            -3.2041
+          ],
+          [
+            55.95064,
+            -3.20707
+          ],
+          [
+            55.950421,
+            -3.207611
+          ],
+          [
+            55.95088,
+            -3.20717
+          ],
+          [
+            55.95205,
+            -3.20746
+          ],
+          [
+            55.95248,
+            -3.2063
+          ],
+          [
+            55.95306,
+            -3.20197
+          ],
+          [
+            55.95365,
+            -3.20218
+          ],
+          [
+            55.95386,
+            -3.20035
+          ],
+          [
+            55.953842,
+            -3.199534
+          ],
+          [
+            55.95407,
+            -3.19771
+          ],
+          [
+            55.95357,
+            -3.19731
+          ],
+          [
+            55.95225,
+            -3.19657
+          ],
+          [
+            55.95177,
+            -3.19574
+          ],
+          [
+            55.950891,
+            -3.195619
+          ],
+          [
+            55.95077,
+            -3.19544
+          ],
+          [
+            55.95015,
+            -3.19554
+          ],
+          [
+            55.94966,
+            -3.19484
+          ],
+          [
+            55.94935,
+            -3.19335
+          ],
+          [
+            55.94959,
+            -3.19119
+          ],
+          [
+            55.94979,
+            -3.18935
+          ],
+          [
+            55.949449,
+            -3.18984
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Into the city and settled at CoDE The Court on the Royal Mile. A walk to Johnnie Walker Princes Street, dinner at Fishers in the City — Orkney scallops and Scottish lobster — then back through Edinburgh at night.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3431.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "An Edinburgh courtyard seen from above",
+            "map_position": 0.10082,
+            "source_filename": "IMG_3431.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3435.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A bottle of Irn-Bru",
+            "map_position": 0.10082,
+            "source_filename": "IMG_3435.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3440.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Edinburgh Castle above the trees",
+            "map_position": 0.18362,
+            "source_filename": "IMG_3440.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3443.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A view up to Edinburgh Castle from the Old Town",
+            "map_position": 0.18362,
+            "source_filename": "IMG_3443.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3453.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "An open book in a display case",
+            "map_position": 0.19,
+            "source_filename": "IMG_3453.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3464.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Inside Johnnie Walker Princes Street",
+            "map_position": 0.49384,
+            "source_filename": "IMG_3464.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3466.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Whisky bottles displayed at Johnnie Walker",
+            "map_position": 0.49384,
+            "source_filename": "IMG_3466.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3483.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Scottish lobster at Fishers in the City",
+            "map_position": 0.70937,
+            "source_filename": "IMG_3483.HEIC",
+            "caption": "Scottish lobster at Fishers in the City."
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3484.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Edinburgh and the National Gallery lit up at night",
+            "map_position": 0.84725,
+            "source_filename": "IMG_3484.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-5/img_3488.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "St Giles' Cathedral at night",
+            "map_position": 0.99,
+            "source_filename": "IMG_3488.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 6",
+        "day_number": 6,
+        "anchor": "day-6",
+        "title": "Castle, hill, ceilidh",
+        "route_label": "Edinburgh on foot",
+        "date_label": "October 21, 2026",
+        "transport": "walk",
+        "route_from": "code-the-court",
+        "route_to": "stramash",
+        "route_labels": [
+          "edinburgh-castle",
+          "national-gallery",
+          "calton-hill",
+          "stramash"
+        ],
+        "route_points": [
+          [
+            55.949449,
+            -3.18984
+          ],
+          [
+            55.94979,
+            -3.18935
+          ],
+          [
+            55.94959,
+            -3.19119
+          ],
+          [
+            55.94935,
+            -3.19335
+          ],
+          [
+            55.94909,
+            -3.19538
+          ],
+          [
+            55.94891,
+            -3.19692
+          ],
+          [
+            55.94866,
+            -3.19856
+          ],
+          [
+            55.948593,
+            -3.199913
+          ],
+          [
+            55.94866,
+            -3.19856
+          ],
+          [
+            55.94891,
+            -3.19692
+          ],
+          [
+            55.94909,
+            -3.19538
+          ],
+          [
+            55.94966,
+            -3.19484
+          ],
+          [
+            55.95015,
+            -3.19554
+          ],
+          [
+            55.95077,
+            -3.19544
+          ],
+          [
+            55.950891,
+            -3.195619
+          ],
+          [
+            55.95118,
+            -3.19515
+          ],
+          [
+            55.95142,
+            -3.19372
+          ],
+          [
+            55.95172,
+            -3.19317
+          ],
+          [
+            55.95215,
+            -3.19348
+          ],
+          [
+            55.95255,
+            -3.19178
+          ],
+          [
+            55.95312,
+            -3.18861
+          ],
+          [
+            55.95345,
+            -3.18718
+          ],
+          [
+            55.9539,
+            -3.18498
+          ],
+          [
+            55.95411,
+            -3.18504
+          ],
+          [
+            55.95446,
+            -3.18423
+          ],
+          [
+            55.95459,
+            -3.18327
+          ],
+          [
+            55.95503,
+            -3.18238
+          ],
+          [
+            55.955557,
+            -3.182256
+          ],
+          [
+            55.95503,
+            -3.18238
+          ],
+          [
+            55.95459,
+            -3.18327
+          ],
+          [
+            55.95446,
+            -3.18423
+          ],
+          [
+            55.95411,
+            -3.18504
+          ],
+          [
+            55.9539,
+            -3.18498
+          ],
+          [
+            55.95345,
+            -3.18718
+          ],
+          [
+            55.95274,
+            -3.18751
+          ],
+          [
+            55.95169,
+            -3.1872
+          ],
+          [
+            55.95035,
+            -3.18685
+          ],
+          [
+            55.95012,
+            -3.18808
+          ],
+          [
+            55.94979,
+            -3.18935
+          ],
+          [
+            55.949449,
+            -3.18984
+          ],
+          [
+            55.94979,
+            -3.18935
+          ],
+          [
+            55.95012,
+            -3.18808
+          ],
+          [
+            55.95035,
+            -3.18685
+          ],
+          [
+            55.94926,
+            -3.18629
+          ],
+          [
+            55.94853,
+            -3.18603
+          ],
+          [
+            55.94855,
+            -3.18695
+          ],
+          [
+            55.948563,
+            -3.187798
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Coffee before the castle, paintings at the Scottish National Gallery, and the view from Calton Hill. Back along the Royal Mile, then out for ceilidh dancing at Stramash.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3492.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Morning on the Royal Mile",
+            "map_position": 0,
+            "source_filename": "IMG_3492.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3494.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Coffee before visiting the castle",
+            "map_position": 0.025,
+            "source_filename": "IMG_3494.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3501.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A cannon overlooking Edinburgh from the castle",
+            "map_position": 0.18712,
+            "source_filename": "IMG_3501.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3530.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Stained glass and a view from inside Edinburgh Castle",
+            "map_position": 0.18712,
+            "source_filename": "IMG_3530.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3547.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Stone buildings within Edinburgh Castle",
+            "map_position": 0.18712,
+            "source_filename": "IMG_3547.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3553.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Autumn foliage below Edinburgh Castle",
+            "map_position": 0.24,
+            "source_filename": "IMG_3553.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3564.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A green path through Princes Street Gardens",
+            "map_position": 0.27,
+            "source_filename": "IMG_3564.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3578.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A landscape painting at the Scottish National Gallery",
+            "map_position": 0.32132,
+            "source_filename": "IMG_3578.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3585.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A landscape painting displayed against a red gallery wall",
+            "map_position": 0.32132,
+            "source_filename": "IMG_3585.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3589.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "An olive grove painting in the Scottish National Gallery",
+            "map_position": 0.32132,
+            "source_filename": "IMG_3589.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3593.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The castle above the autumn gardens",
+            "map_position": 0.38257,
+            "source_filename": "IMG_3593.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3602.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A red telephone box wearing a traffic cone",
+            "map_position": 0.42,
+            "source_filename": "IMG_3602.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3611.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "The view across Edinburgh from Calton Hill",
+            "map_position": 0.60235,
+            "source_filename": "IMG_3611.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3621.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Edinburgh from the terrace on Calton Hill",
+            "map_position": 0.60235,
+            "source_filename": "IMG_3621.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3629.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "An evening gathering at the hostel",
+            "map_position": 0.86084,
+            "source_filename": "IMG_3629.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-6/img_3630.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A pint at Stramash on ceilidh night",
+            "map_position": 1,
+            "source_filename": "IMG_3630.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 7",
+        "day_number": 7,
+        "anchor": "day-7",
+        "title": "One last Edinburgh walk",
+        "route_label": "Stockbridge and the Botanics",
+        "date_label": "October 22, 2026",
+        "transport": "walk",
+        "route_from": "code-the-court",
+        "route_to": "botanic-garden",
+        "route_labels": [
+          "stockbridge",
+          "botanic-garden"
+        ],
+        "route_points": [
+          [
+            55.949449,
+            -3.18984
+          ],
+          [
+            55.94979,
+            -3.18935
+          ],
+          [
+            55.94959,
+            -3.19119
+          ],
+          [
+            55.94935,
+            -3.19335
+          ],
+          [
+            55.94966,
+            -3.19484
+          ],
+          [
+            55.95015,
+            -3.19554
+          ],
+          [
+            55.95191,
+            -3.19562
+          ],
+          [
+            55.95305,
+            -3.1963
+          ],
+          [
+            55.9548,
+            -3.19731
+          ],
+          [
+            55.95565,
+            -3.19782
+          ],
+          [
+            55.9557,
+            -3.20137
+          ],
+          [
+            55.95708,
+            -3.20355
+          ],
+          [
+            55.95767,
+            -3.206
+          ],
+          [
+            55.957972,
+            -3.20934
+          ],
+          [
+            55.95842,
+            -3.20954
+          ],
+          [
+            55.95877,
+            -3.21004
+          ],
+          [
+            55.95915,
+            -3.21355
+          ],
+          [
+            55.9607,
+            -3.2148
+          ],
+          [
+            55.96236,
+            -3.21375
+          ],
+          [
+            55.9627,
+            -3.21161
+          ],
+          [
+            55.964477,
+            -3.212537
+          ],
+          [
+            55.96488,
+            -3.2103
+          ],
+          [
+            55.96588,
+            -3.2091
+          ],
+          [
+            55.96725,
+            -3.2089
+          ],
+          [
+            55.96735,
+            -3.2061
+          ],
+          [
+            55.9658,
+            -3.2052
+          ],
+          [
+            55.9649,
+            -3.2053
+          ],
+          [
+            55.965875,
+            -3.207689
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Through Stockbridge and along the Water of Leith, then into the Royal Botanic Garden before leaving Edinburgh.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-7/img_3644.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Morning coffee in Edinburgh",
+            "map_position": 0,
+            "source_filename": "IMG_3644.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-7/img_3655.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Autumn colour beside the Water of Leith in Stockbridge",
+            "map_position": 0.47289,
+            "source_filename": "IMG_3655.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-7/img_3663.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "Morning sunlight through the trees in the Royal Botanic Garden",
+            "map_position": 0.78,
+            "source_filename": "IMG_3663.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-7/img_3664.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "An orange-leaved tree in the Royal Botanic Garden",
+            "map_position": 0.86,
+            "source_filename": "IMG_3664.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-7/img_3669.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A garden path beneath autumn trees",
+            "map_position": 0.98,
+            "source_filename": "IMG_3669.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "To the airport",
+        "day_number": 7,
+        "anchor": "day-7-bus",
+        "title": "Leaving Edinburgh",
+        "route_label": "Edinburgh to the airport",
+        "date_label": "October 22, 2026",
+        "transport": "bus",
+        "route_from": "botanic-garden",
+        "route_to": "edinburgh-airport",
+        "route_points": [
+          [
+            55.965875,
+            -3.207689
+          ],
+          [
+            55.964477,
+            -3.212537
+          ],
+          [
+            55.95915,
+            -3.21355
+          ],
+          [
+            55.95095,
+            -3.2076
+          ],
+          [
+            55.9456,
+            -3.2187
+          ],
+          [
+            55.9421,
+            -3.2455
+          ],
+          [
+            55.9425,
+            -3.274
+          ],
+          [
+            55.942,
+            -3.312
+          ],
+          [
+            55.9373,
+            -3.3428
+          ],
+          [
+            55.9441,
+            -3.3567
+          ],
+          [
+            55.9482,
+            -3.3637
+          ],
+          [
+            55.950145,
+            -3.372288
+          ]
+        ],
+        "map_view": "regional",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "Back through the city, then the bus out to the airport.",
+        "photos": [],
+        "travel_passage": "Out towards the airport"
+      },
+      {
+        "label": "Dublin",
+        "day_number": 7,
+        "anchor": "day-7-dublin",
+        "title": "Across the Irish Sea",
+        "route_label": "Edinburgh to Dublin",
+        "date_label": "October 22, 2026",
+        "transport": "plane",
+        "route_from": "edinburgh-airport",
+        "route_to": "dublin-airport",
+        "route_points": [
+          [
+            55.950145,
+            -3.372288
+          ],
+          [
+            55.825403,
+            -3.526003
+          ],
+          [
+            55.70047,
+            -3.678735
+          ],
+          [
+            55.575349,
+            -3.830493
+          ],
+          [
+            55.450042,
+            -3.981286
+          ],
+          [
+            55.32455,
+            -4.131124
+          ],
+          [
+            55.198877,
+            -4.280015
+          ],
+          [
+            55.073023,
+            -4.427969
+          ],
+          [
+            54.946991,
+            -4.574994
+          ],
+          [
+            54.820783,
+            -4.721099
+          ],
+          [
+            54.6944,
+            -4.866294
+          ],
+          [
+            54.567845,
+            -5.010586
+          ],
+          [
+            54.441119,
+            -5.153985
+          ],
+          [
+            54.314225,
+            -5.296498
+          ],
+          [
+            54.187163,
+            -5.438134
+          ],
+          [
+            54.059937,
+            -5.578902
+          ],
+          [
+            53.932547,
+            -5.71881
+          ],
+          [
+            53.804996,
+            -5.857866
+          ],
+          [
+            53.677284,
+            -5.996077
+          ],
+          [
+            53.549415,
+            -6.133453
+          ],
+          [
+            53.421389,
+            -6.27
+          ]
+        ],
+        "map_view": "flight",
+        "zoom_start": 30000,
+        "zoom_end": 30000,
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "A flight to Dublin and a base in Smithfield. McDonald’s for dinner.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-7/img_3682.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "McDonald’s for the first dinner in Dublin",
+            "map_position": 1,
+            "source_filename": "IMG_3682.HEIC"
+          }
+        ],
+        "opening_passage": "Over to Ireland"
+      },
+      {
+        "label": "Day 8",
+        "day_number": 8,
+        "anchor": "day-8",
+        "title": "Dublin on foot",
+        "route_label": "From Smithfield and back",
+        "date_label": "October 23, 2026",
+        "transport": "walk",
+        "route_from": "smithfield",
+        "route_to": "smithfield",
+        "route_labels": [
+          "smithfield",
+          "guinness",
+          "collins-barracks",
+          "jameson",
+          "cobblestone",
+          "dalymount"
+        ],
+        "route_points": [
+          [
+            53.348431,
+            -6.278237
+          ],
+          [
+            53.347821,
+            -6.278143
+          ],
+          [
+            53.347154,
+            -6.278325
+          ],
+          [
+            53.346833,
+            -6.278485
+          ],
+          [
+            53.346634,
+            -6.280323
+          ],
+          [
+            53.346377,
+            -6.280423
+          ],
+          [
+            53.346185,
+            -6.280508
+          ],
+          [
+            53.34542,
+            -6.280798
+          ],
+          [
+            53.34497,
+            -6.280913
+          ],
+          [
+            53.343956,
+            -6.281213
+          ],
+          [
+            53.343218,
+            -6.281372
+          ],
+          [
+            53.343405,
+            -6.283731
+          ],
+          [
+            53.342265,
+            -6.283864
+          ],
+          [
+            53.3416,
+            -6.2845
+          ],
+          [
+            53.341552,
+            -6.286268
+          ],
+          [
+            53.341853,
+            -6.286841
+          ],
+          [
+            53.34155,
+            -6.28627
+          ],
+          [
+            53.3416,
+            -6.2845
+          ],
+          [
+            53.34227,
+            -6.28386
+          ],
+          [
+            53.3434,
+            -6.28373
+          ],
+          [
+            53.34349,
+            -6.28486
+          ],
+          [
+            53.34652,
+            -6.28414
+          ],
+          [
+            53.34699,
+            -6.28392
+          ],
+          [
+            53.34755,
+            -6.28365
+          ],
+          [
+            53.3478,
+            -6.2852
+          ],
+          [
+            53.3479,
+            -6.28632
+          ],
+          [
+            53.3483,
+            -6.2863
+          ],
+          [
+            53.348807,
+            -6.285956
+          ],
+          [
+            53.3483,
+            -6.2863
+          ],
+          [
+            53.3479,
+            -6.28632
+          ],
+          [
+            53.3478,
+            -6.2852
+          ],
+          [
+            53.34715,
+            -6.28017
+          ],
+          [
+            53.3471,
+            -6.27834
+          ],
+          [
+            53.34782,
+            -6.27814
+          ],
+          [
+            53.348117,
+            -6.277076
+          ],
+          [
+            53.34831,
+            -6.2778
+          ],
+          [
+            53.349,
+            -6.27785
+          ],
+          [
+            53.34972,
+            -6.27806
+          ],
+          [
+            53.349916,
+            -6.2779
+          ],
+          [
+            53.34972,
+            -6.27806
+          ],
+          [
+            53.34995,
+            -6.27571
+          ],
+          [
+            53.35014,
+            -6.27454
+          ],
+          [
+            53.3513,
+            -6.27405
+          ],
+          [
+            53.3525,
+            -6.27367
+          ],
+          [
+            53.35445,
+            -6.27328
+          ],
+          [
+            53.35587,
+            -6.27355
+          ],
+          [
+            53.35703,
+            -6.27359
+          ],
+          [
+            53.35869,
+            -6.27323
+          ],
+          [
+            53.35965,
+            -6.27272
+          ],
+          [
+            53.36079,
+            -6.27269
+          ],
+          [
+            53.36079,
+            -6.27391
+          ],
+          [
+            53.36078,
+            -6.27512
+          ],
+          [
+            53.3612,
+            -6.2751
+          ],
+          [
+            53.361878,
+            -6.275092
+          ],
+          [
+            53.3612,
+            -6.2751
+          ],
+          [
+            53.36078,
+            -6.27512
+          ],
+          [
+            53.36079,
+            -6.27391
+          ],
+          [
+            53.36079,
+            -6.27269
+          ],
+          [
+            53.35965,
+            -6.27272
+          ],
+          [
+            53.35869,
+            -6.27323
+          ],
+          [
+            53.35703,
+            -6.27359
+          ],
+          [
+            53.35587,
+            -6.27355
+          ],
+          [
+            53.35445,
+            -6.27328
+          ],
+          [
+            53.3525,
+            -6.27367
+          ],
+          [
+            53.3513,
+            -6.27405
+          ],
+          [
+            53.35014,
+            -6.27454
+          ],
+          [
+            53.34995,
+            -6.27571
+          ],
+          [
+            53.34972,
+            -6.27806
+          ],
+          [
+            53.349916,
+            -6.2779
+          ],
+          [
+            53.349,
+            -6.277845
+          ],
+          [
+            53.348431,
+            -6.278237
+          ]
+        ],
+        "map_view": "trail",
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "From Smithfield to Guinness at the Storehouse, the museum at Collins Barracks, Jameson on Bow St., and live music at The Cobblestone. Then a walk out to Dalymount and the Bohemian club bar. No tickets for the match, so back to Smithfield with shawarma for dinner.",
+        "photos": [
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3693.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A Guinness seal sculpture at the Storehouse",
+            "map_position": 0.172372,
+            "source_filename": "IMG_3693.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3695.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A freshly poured pint at the Guinness Storehouse",
+            "map_position": 0.172372,
+            "source_filename": "IMG_3695.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3703.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A horse-drawn carriage outside the Guinness Storehouse",
+            "map_position": 0.186345,
+            "source_filename": "IMG_3703.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3716.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Aircraft and vehicles on display at Collins Barracks",
+            "map_position": 0.340933,
+            "source_filename": "IMG_3716.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3719.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "The Jameson Distillery Bow St. sign",
+            "map_position": 0.453503,
+            "source_filename": "IMG_3719.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3720.webp",
+            "width": 1800,
+            "height": 1350,
+            "alt": "A whiskey tasting at Jameson Bow St.",
+            "map_position": 0.453503,
+            "source_filename": "IMG_3720.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3723.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Inside the Jameson distillery experience",
+            "map_position": 0.453503,
+            "source_filename": "IMG_3723.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3731.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Live music at The Cobblestone",
+            "map_position": 0.486445,
+            "source_filename": "IMG_3731.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3734.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "A mural on the walk towards Dalymount",
+            "map_position": 0.658622,
+            "source_filename": "IMG_3734.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3735.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Inside the Bohemian club bar at Dalymount",
+            "map_position": 0.725691,
+            "source_filename": "IMG_3735.HEIC"
+          },
+          {
+            "src": "/assets/travels/scotland-2026/day-8/img_3737.webp",
+            "width": 1350,
+            "height": 1800,
+            "alt": "Shawarma for dinner after missing out on match tickets",
+            "map_position": 1,
+            "source_filename": "IMG_3737.HEIC"
+          }
+        ]
+      },
+      {
+        "label": "Day 9",
+        "day_number": 9,
+        "anchor": "day-9",
+        "title": "Home to Boston",
+        "route_label": "Dublin to Boston",
+        "date_label": "October 24, 2026",
+        "transport": "plane",
+        "route_from": "dublin-airport",
+        "route_to": "boston-logan",
+        "route_points": [
+          [
+            53.421389,
+            -6.27
+          ],
+          [
+            53.562504,
+            -7.379378
+          ],
+          [
+            53.693289,
+            -8.495909
+          ],
+          [
+            53.813628,
+            -9.61912
+          ],
+          [
+            53.923416,
+            -10.748515
+          ],
+          [
+            54.022555,
+            -11.883576
+          ],
+          [
+            54.110954,
+            -13.023766
+          ],
+          [
+            54.188532,
+            -14.16853
+          ],
+          [
+            54.255219,
+            -15.317295
+          ],
+          [
+            54.310952,
+            -16.469475
+          ],
+          [
+            54.355678,
+            -17.624471
+          ],
+          [
+            54.389356,
+            -18.781673
+          ],
+          [
+            54.411954,
+            -19.940463
+          ],
+          [
+            54.423451,
+            -21.100217
+          ],
+          [
+            54.423834,
+            -22.260307
+          ],
+          [
+            54.413105,
+            -23.420104
+          ],
+          [
+            54.391273,
+            -24.57898
+          ],
+          [
+            54.358358,
+            -25.736312
+          ],
+          [
+            54.314393,
+            -26.89148
+          ],
+          [
+            54.259419,
+            -28.043874
+          ],
+          [
+            54.193486,
+            -29.192894
+          ],
+          [
+            54.116657,
+            -30.337952
+          ],
+          [
+            54.029003,
+            -31.478476
+          ],
+          [
+            53.930603,
+            -32.613908
+          ],
+          [
+            53.821547,
+            -33.743711
+          ],
+          [
+            53.701933,
+            -34.867365
+          ],
+          [
+            53.571866,
+            -35.984373
+          ],
+          [
+            53.431459,
+            -37.09426
+          ],
+          [
+            53.280835,
+            -38.196573
+          ],
+          [
+            53.12012,
+            -39.290885
+          ],
+          [
+            52.949447,
+            -40.376794
+          ],
+          [
+            52.768957,
+            -41.453923
+          ],
+          [
+            52.578794,
+            -42.521922
+          ],
+          [
+            52.379108,
+            -43.580466
+          ],
+          [
+            52.170052,
+            -44.629257
+          ],
+          [
+            51.951785,
+            -45.668024
+          ],
+          [
+            51.724467,
+            -46.69652
+          ],
+          [
+            51.488262,
+            -47.714525
+          ],
+          [
+            51.243336,
+            -48.721845
+          ],
+          [
+            50.989857,
+            -49.718309
+          ],
+          [
+            50.727995,
+            -50.703771
+          ],
+          [
+            50.457921,
+            -51.678107
+          ],
+          [
+            50.179805,
+            -52.641217
+          ],
+          [
+            49.893819,
+            -53.593022
+          ],
+          [
+            49.600135,
+            -54.533462
+          ],
+          [
+            49.298925,
+            -55.462498
+          ],
+          [
+            48.990358,
+            -56.380112
+          ],
+          [
+            48.674604,
+            -57.286298
+          ],
+          [
+            48.351833,
+            -58.181073
+          ],
+          [
+            48.02221,
+            -59.064464
+          ],
+          [
+            47.685902,
+            -59.936518
+          ],
+          [
+            47.343072,
+            -60.79729
+          ],
+          [
+            46.993881,
+            -61.646853
+          ],
+          [
+            46.638489,
+            -62.485289
+          ],
+          [
+            46.277053,
+            -63.312691
+          ],
+          [
+            45.909727,
+            -64.129161
+          ],
+          [
+            45.536664,
+            -64.934813
+          ],
+          [
+            45.158012,
+            -65.729767
+          ],
+          [
+            44.773919,
+            -66.51415
+          ],
+          [
+            44.384528,
+            -67.288097
+          ],
+          [
+            43.989981,
+            -68.05175
+          ],
+          [
+            43.590414,
+            -68.805252
+          ],
+          [
+            43.185965,
+            -69.548756
+          ],
+          [
+            42.776765,
+            -70.282416
+          ],
+          [
+            42.362944,
+            -71.006389
+          ]
+        ],
+        "map_view": "flight",
+        "zoom_start": 16000,
+        "zoom_end": 16000,
+        "map_start": 0,
+        "map_end": 1,
+        "notes": "A direct flight from Dublin back to Boston.",
+        "photos": [],
+        "arrival_passage": "Across the Atlantic",
+        "closing_note": "Home."
+      }
+    ],
+    "route_references": [
+      {
+        "title": "Walkhighlands: Craigower",
+        "url": "https://www.walkhighlands.co.uk/perthshire/craigower.shtml"
+      },
+      {
+        "title": "Walkhighlands: Loch Faskally",
+        "url": "https://www.walkhighlands.co.uk/perthshire/salmon-ladder.shtml"
+      },
+      {
+        "title": "Craigower reference: PKCT / Highland Discovery",
+        "url": "https://highland-discovery.com/tours/craigower-path/"
+      },
+      {
+        "title": "Loch loop reference: SOBT",
+        "url": "https://sobt.co.uk/walk-pitlochry-dam/"
+      },
+      {
+        "title": "Walkhighlands: Bealach and Killiecrankie",
+        "url": "https://www.walkhighlands.co.uk/perthshire/bealach-route.shtml"
+      },
+      {
+        "title": "Walkhighlands: The Hermitage and Braan",
+        "url": "https://www.walkhighlands.co.uk/perthshire/hermitage.shtml"
+      },
+      {
+        "title": "National Trust for Scotland: The Hermitage",
+        "url": "https://www.nts.org.uk/visit/places/the-hermitage/planning-your-visit"
+      },
+      {
+        "title": "Atholl Estates: Blair Castle gardens",
+        "url": "https://atholl-estates.co.uk/blair-castle/gardens/"
+      }
+    ],
+    "cover_position": "50% 25%",
+    "cover_source": "IMG_3495.HEIC"
+  },
+  {
+    "slug": "japan-2025",
+    "title": "Japan",
+    "date_label": "March 2025",
+    "region": "East Asia",
+    "theme": "japan",
+    "center": [
+      36.2,
+      138.2
+    ],
+    "zoom": 5,
+    "cover": null,
+    "cover_alt": "",
+    "introduction": "",
+    "stops": []
+  }
+]
